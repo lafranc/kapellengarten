@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kapellengarten | Regionales Spitzengemüse aus Olten</title>
+  <meta name="description" content="Kapellengarten - Regionales Spitzengemüse aus Olten. Intensiver Gemüseanbau mit wissenschaftlich optimierter Bodenbiologie.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      background-color: #f7f5f0;
+      color: #2d3a2d;
+      line-height: 1.6;
+    }
+    
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      padding: 1.5rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      background: rgba(247, 245, 240, 0.95);
+      backdrop-filter: blur(10px);
+    }
+    
+    .nav-logo {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #2d3a2d;
+      text-decoration: none;
+    }
+    
+    .nav-links { display: flex; gap: 2.5rem; }
+    
+    .nav-links a {
+      color: #4a5a4a;
+      text-decoration: none;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+    
+    .nav-links a:hover { color: #4a6741; }
+    
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem;
+      background: linear-gradient(135deg, #f7f5f0 0%, #e8e4da 100%);
+    }
+    
+    .hero-content { max-width: 800px; }
+    
+    .hero-location {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #8b7355;
+      margin-bottom: 2rem;
+    }
+    
+    .hero h1 {
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      font-weight: 400;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+    
+    .hero h1 span {
+      font-style: italic;
+      color: #4a6741;
+    }
+    
+    .hero-text {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.1rem;
+      color: #5a6a5a;
+      max-width: 550px;
+      margin: 0 auto 2.5rem;
+    }
+    
+    .btn {
+      font-family: 'DM Sans', sans-serif;
+      background: #4a6741;
+      color: #f7f5f0;
+      border: none;
+      padding: 1rem 2.5rem;
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s;
+    }
+    
+    .btn:hover {
+      background: #3a5331;
+      transform: translateY(-2px);
+    }
+    
+    .section {
+      padding: 6rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .section-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #8b7355;
+      margin-bottom: 1rem;
+    }
+    
+    .section h2 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+    }
+    
+    .section h2 span { font-style: italic; }
+    
+    .vision-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    
+    @media (max-width: 900px) {
+      .vision-grid { grid-template-columns: 1fr; }
+      .nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.5rem; }
+    }
+    
+    .vision-text p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.05rem;
+      color: #4a5a4a;
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
+    }
+    
+    .vision-image {
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(45, 58, 45, 0.15);
+    }
+    
+    .vision-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    .marktstand {
+      padding: 4rem 2rem;
+      background: #e8e4da;
+      text-align: center;
+    }
+    
+    .marktstand-content { max-width: 1000px; margin: 0 auto; }
+    
+    .marktstand-image {
+      margin-top: 2.5rem;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(45, 58, 45, 0.15);
+    }
+    
+    .marktstand-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    .sortiment {
+      padding: 6rem 2rem;
+      background: #2d3a2d;
+      color: #f7f5f0;
+    }
+    
+    .sortiment-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .sortiment .section-label { color: #a8c49a; }
+    
+    .sortiment-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    
+    .sortiment-item {
+      background: rgba(247, 245, 240, 0.95);
+      padding: 2rem;
+      border-radius: 2px;
+      text-align: left;
+    }
+    
+    .sortiment-item .emoji { font-size: 2.5rem; margin-bottom: 1rem; }
+    
+    .sortiment-item h3 {
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: #2d3a2d;
+      margin-bottom: 0.5rem;
+    }
+    
+    .sortiment-item p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      color: #5a6a5a;
+    }
+    
+    .philosophie {
+      padding: 6rem 2rem;
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .philosophie p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.05rem;
+      color: #4a5a4a;
+      line-height: 1.8;
+      max-width: 700px;
+      margin: 0 auto 3rem;
+    }
+    
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: #4a6741;
+    }
+    
+    .stat-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #8b7355;
+    }
+    
+    .ueber-uns {
+      padding: 6rem 2rem;
+      background: #2d3a2d;
+      color: #f7f5f0;
+    }
+    
+    .ueber-uns-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .ueber-uns h2 { text-align: center; margin-bottom: 3rem; }
+    
+    .timeline { margin-top: 2rem; }
+    
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .timeline-year {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      color: #a8c49a;
+    }
+    
+    .timeline-title {
+      font-size: 1.3rem;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+    }
+    
+    .timeline-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      color: #a8c49a;
+      line-height: 1.6;
+    }
+    
+    .kontakt {
+      padding: 6rem 2rem;
+      background: linear-gradient(135deg, #e8e4da 0%, #d4cfc3 100%);
+      text-align: center;
+    }
+    
+    .kontakt-content { max-width: 600px; margin: 0 auto; }
+    
+    .kontakt p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.05rem;
+      color: #4a5a4a;
+      margin-bottom: 2rem;
+    }
+    
+    .kontakt-email {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.2rem;
+      color: #4a6741;
+      text-decoration: none;
+      border-bottom: 2px solid #4a6741;
+      padding-bottom: 0.25rem;
+    }
+    
+    .kontakt-ort {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      color: #5a6a5a;
+      margin-top: 1.5rem;
+    }
+    
+    footer {
+      padding: 2.5rem;
+      background: #2d3a2d;
+      color: #7a8a7a;
+      text-align: center;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+    }
+    
+    footer .logo {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.3rem;
+      color: #f7f5f0;
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="#" class="nav-logo">Kapellengarten</a>
+    <div class="nav-links">
+      <a href="#vision">Vision</a>
+      <a href="#sortiment">Sortiment</a>
+      <a href="#weg">Unser Weg</a>
+      <a href="#kontakt">Kontakt</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <p class="hero-location">Olten · Schweiz</p>
+      <h1>Spitzengemüse<br><span>aus der Nachbarschaft</span></h1>
+      <p class="hero-text">Intensiver Gemüseanbau mit wissenschaftlich optimierter Bodenbiologie. Für Menschen, die Qualität schmecken.</p>
+      <a href="#vision" class="btn">Mehr erfahren</a>
+    </div>
+  </section>
+
+  <!-- Vision -->
+  <section id="vision" class="section">
+    <div class="vision-grid">
+      <div class="vision-text">
+        <p class="section-label">Unsere Vision</p>
+        <h2>Die Kapelle wird<br><span>zum Marktplatz</span></h2>
+        <p>Direkt neben unseren Beeten entsteht neues Leben – Wohnungen für Menschen, die Qualität zu schätzen wissen. Wir träumen davon, diese neuen Nachbarn mit dem Besten zu versorgen, was der Boden hergibt.</p>
+        <p>Die historische Kapelle auf unserem Gelände soll zum charmanten Marktstand werden. Ein Ort, an dem regionales Spitzengemüse auf Menschen trifft, die den Unterschied schmecken – frischer und lokaler geht es nicht.</p>
+      </div>
+      <div class="vision-image">
+        <img src="kapelle-aussen.png" alt="Kapellengarten - Aussenansicht mit Blumen">
+      </div>
+    </div>
+  </section>
+
+  <!-- Marktstand -->
+  <section class="marktstand">
+    <div class="marktstand-content">
+      <p class="section-label">Der Marktstand</p>
+      <h2>Frisch <span>vom Beet</span> auf den Tisch</h2>
+      <div class="marktstand-image">
+        <img src="kapelle-innen.png" alt="Kapellengarten - Marktstand Innenansicht">
+      </div>
+    </div>
+  </section>
+
+  <!-- Sortiment -->
+  <section id="sortiment" class="sortiment">
+    <div class="sortiment-content">
+      <p class="section-label">Unser Sortiment</p>
+      <h2>Ausgewählte <span>Raritäten</span></h2>
+      <div class="sortiment-grid">
+        <div class="sortiment-item">
+          <div class="emoji">🥬</div>
+          <h3>Jungblätter</h3>
+          <p>Zarte Babysalate in perfekter Erntereife – mild, knackig und voller Vitamine</p>
+        </div>
+        <div class="sortiment-item">
+          <div class="emoji">🌱</div>
+          <h3>Mikrogrün</h3>
+          <p>Kraftpakete im Miniaturformat – konzentrierter Geschmack und maximale Nährstoffe</p>
+        </div>
+        <div class="sortiment-item">
+          <div class="emoji">🥗</div>
+          <h3>Asia-Salate</h3>
+          <p>Tatsoi, Mizuna & Pak Choi – fernöstliche Vielfalt aus Schweizer Boden</p>
+        </div>
+        <div class="sortiment-item">
+          <div class="emoji">🌸</div>
+          <h3>Essbare Blüten</h3>
+          <p>Kapuzinerkresse, Borretsch, Ringelblume, Kornblume & Tagetes – Farbe und Finesse für Ihre Küche</p>
+        </div>
+        <div class="sortiment-item">
+          <div class="emoji">🌿</div>
+          <h3>Kräuter</h3>
+          <p>Frisch geschnitten, voller Aroma – Basilikum, Koriander, Dill und mehr</p>
+        </div>
+        <div class="sortiment-item">
+          <div class="emoji">🍅</div>
+          <h3>Saisonales</h3>
+          <p>Das Beste der jeweiligen Jahreszeit – von Radieschen bis Kürbis</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Philosophie -->
+  <section class="philosophie">
+    <p class="section-label">Unsere Philosophie</p>
+    <h2>Wissenschaft trifft<br><span>Handwerk</span></h2>
+    <p>Wir verbinden intensive Anbaumethoden nach Jean-Martin Fortier mit wissenschaftlich optimierter Bodenbiologie nach Dr. Elaine Ingham. Das Resultat: Gemüse mit messbarer Nährstoffdichte und einem Geschmack, der Sie überraschen wird.</p>
+    <div class="stats">
+      <div>
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Regional</div>
+      </div>
+      <div>
+        <div class="stat-number">0 km</div>
+        <div class="stat-label">Transportweg</div>
+      </div>
+      <div>
+        <div class="stat-number">∞</div>
+        <div class="stat-label">Leidenschaft</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Unser Weg -->
+  <section id="weg" class="ueber-uns">
+    <div class="ueber-uns-content">
+      <h2>Unser <span>Weg</span></h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">2026</div>
+          <div>
+            <div class="timeline-title">Startphase</div>
+            <p class="timeline-desc">Anbau auf 1000 m² Fläche mit Direktverkauf aus der Kapelle. Aufbau und Anreicherung der Bodenbiologie, Messung der Nährstoffdichte im Gemüse – der Grundstein für Spitzenqualität.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2027</div>
+          <div>
+            <div class="timeline-title">Erweiterungsphase</div>
+            <p class="timeline-desc">Schrittweise Ausweitung der Anbaufläche, Vertiefung der Kundenbeziehungen und kontinuierliche Optimierung unserer Methoden.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2028</div>
+          <div>
+            <div class="timeline-title">Vollbetrieb</div>
+            <p class="timeline-desc">Bewirtschaftung von bis zu 4000 m² – volle Kapazität für regionales Spitzengemüse aus der Nachbarschaft.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kontakt -->
+  <section id="kontakt" class="kontakt">
+    <div class="kontakt-content">
+      <h2>Lassen Sie uns<br><span>ins Gespräch kommen</span></h2>
+      <p>Interessiert an frischem Spitzengemüse aus der Region? Restaurantbesitzer, Feinschmecker oder einfach neugierig – wir freuen uns auf Ihre Nachricht.</p>
+      <a href="mailto:hallo@kapellengarten.ch" class="kontakt-email">hallo@kapellengarten.ch</a>
+      <p class="kontakt-ort">📍 Olten, Schweiz</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="logo">Kapellengarten</div>
+    <p>© 2025 · Regionales Spitzengemüse aus Olten</p>
+  </footer>
+
+</body>
+</html>
