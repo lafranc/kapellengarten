@@ -50,6 +50,69 @@
     
     .nav-links a:hover { color: #4a6741; }
     
+    /* Schwebende Kreise */
+    @keyframes schweben {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-15px) rotate(3deg); }
+    }
+    
+    @keyframes einblenden {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .einblenden {
+      animation: einblenden 1s ease forwards;
+    }
+    
+    .einblenden-1 { animation-delay: 0.2s; opacity: 0; }
+    .einblenden-2 { animation-delay: 0.4s; opacity: 0; }
+    .einblenden-3 { animation-delay: 0.6s; opacity: 0; }
+    
+    .schwebender-kreis {
+      position: absolute;
+      border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%;
+      animation: schweben 6s ease-in-out infinite;
+      pointer-events: none;
+    }
+    
+    .kreis-1 {
+      top: 15%;
+      right: 10%;
+      width: 120px;
+      height: 120px;
+      background: linear-gradient(135deg, rgba(74, 103, 65, 0.15) 0%, rgba(74, 103, 65, 0.05) 100%);
+    }
+    
+    .kreis-2 {
+      bottom: 20%;
+      left: 8%;
+      width: 80px;
+      height: 80px;
+      border-radius: 40% 60% 30% 70% / 60% 40% 60% 40%;
+      background: linear-gradient(135deg, rgba(139, 115, 85, 0.15) 0%, rgba(139, 115, 85, 0.05) 100%);
+      animation-delay: 2s;
+    }
+    
+    .kreis-3 {
+      top: 35%;
+      left: 5%;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, rgba(74, 103, 65, 0.1) 0%, rgba(74, 103, 65, 0.03) 100%);
+      animation-delay: 4s;
+    }
+    
+    .kreis-4 {
+      bottom: 30%;
+      right: 6%;
+      width: 90px;
+      height: 90px;
+      border-radius: 50% 50% 40% 60% / 40% 60% 50% 50%;
+      background: linear-gradient(135deg, rgba(139, 115, 85, 0.12) 0%, rgba(139, 115, 85, 0.04) 100%);
+      animation-delay: 1s;
+    }
+    
     .hero {
       min-height: 100vh;
       display: flex;
@@ -58,9 +121,11 @@
       text-align: center;
       padding: 6rem 2rem;
       background: linear-gradient(135deg, #f7f5f0 0%, #e8e4da 100%);
+      position: relative;
+      overflow: hidden;
     }
     
-    .hero-content { max-width: 800px; }
+    .hero-content { max-width: 800px; position: relative; z-index: 1; }
     
     .hero-location {
       font-family: 'DM Sans', sans-serif;
@@ -69,6 +134,8 @@
       text-transform: uppercase;
       color: #8b7355;
       margin-bottom: 2rem;
+      opacity: 0;
+      animation: einblenden 1s ease forwards;
     }
     
     .hero h1 {
@@ -504,11 +571,17 @@
 
   <!-- Hero -->
   <section class="hero">
+    <!-- Schwebende Kreise -->
+    <div class="schwebender-kreis kreis-1"></div>
+    <div class="schwebender-kreis kreis-2"></div>
+    <div class="schwebender-kreis kreis-3"></div>
+    <div class="schwebender-kreis kreis-4"></div>
+    
     <div class="hero-content">
       <p class="hero-location">Olten · Schweiz</p>
-      <h1>Spitzengemüse<br><span>aus der Nachbarschaft</span></h1>
-      <p class="hero-text">Intensiver Gemüseanbau mit wissenschaftlich optimierter Bodenbiologie. Für Menschen, die Qualität schmecken.</p>
-      <a href="#vision" class="btn">Mehr erfahren</a>
+      <h1 class="einblenden einblenden-1">Spitzengemüse<br><span>aus der Nachbarschaft</span></h1>
+      <p class="hero-text einblenden einblenden-2">Intensiver Gemüseanbau mit wissenschaftlich optimierter Bodenbiologie. Für Menschen, die Qualität schmecken.</p>
+      <a href="#vision" class="btn einblenden einblenden-3">Mehr erfahren</a>
     </div>
   </section>
 
@@ -581,8 +654,9 @@
   <!-- Philosophie -->
   <section class="philosophie">
     <p class="section-label">Unsere Philosophie</p>
-    <h2>Wissenschaft trifft<br><span>Handwerk</span></h2>
-    <p>Wir verbinden intensive Anbaumethoden nach Jean-Martin Fortier mit wissenschaftlich optimierter Bodenbiologie nach Dr. Elaine Ingham. Das Resultat: Gemüse mit messbarer Nährstoffdichte und einem Geschmack, der Sie überraschen wird.</p>
+    <h2>Das <span>Marktgarten</span>-Prinzip</h2>
+    <p>Im Gegensatz zur industriellen Landwirtschaft setzen wir auf intensive Handarbeit statt schwere Maschinen. Unser Marktgarten nach <strong>Jean-Martin Fortier</strong> arbeitet auf kleiner Fläche mit permanenten Beeten, schonender Bodenbearbeitung und durchdachten Fruchtfolgen – keine Pestizide, kein Pflügen, kein Bodenverdichtung.</p>
+    <p>Der entscheidende Unterschied: Während konventionelle Betriebe den Boden als totes Substrat behandeln, verstehen wir ihn als lebendiges Ökosystem. Mit der Methode von <strong>Dr. Elaine Ingham</strong> (Soil Food Web) fördern wir gezielt Bakterien, Pilze und Mikroorganismen – sie machen Nährstoffe für die Pflanzen verfügbar und sorgen für Gemüse mit messbarer Nährstoffdichte und einem Geschmack, der Sie überraschen wird.</p>
     <div class="stats">
       <div>
         <div class="stat-number">100%</div>
@@ -614,8 +688,8 @@
 
     <div class="ueber-uns-section">
       <h3>Unsere <span>Methode</span></h3>
-      <p>Wir kombinieren zwei wegweisende Ansätze: Die intensiven Anbaumethoden von <strong>Jean-Martin Fortier</strong> ermöglichen maximale Erträge auf minimaler Fläche. Die Bodenbiologie-Expertise von <strong>Dr. Elaine Ingham</strong> (Soil Food Web) sorgt dafür, dass unser Boden lebt und gedeiht.</p>
-      <p>Regelmässige Bodenanalysen durch zertifizierte Bodenmikrobiologen in der Schweiz ermöglichen uns, die Bodengesundheit kontinuierlich zu optimieren. Das Resultat: Gemüse mit messbarer Nährstoffdichte und einem Geschmack, der den lokalen Markt überraschen wird.</p>
+      <p>Wir arbeiten nach dem Marktgarten-Prinzip von <strong>Jean-Martin Fortier</strong>: Intensive Handarbeit auf kleiner Fläche, permanente Beete ohne Pflügen, kurze Wege und maximale Effizienz. Im Gegensatz zu grossen Betrieben mit Traktoren und Monokulturen setzen wir auf Vielfalt, Fruchtfolgen und schonende Bodenbearbeitung.</p>
+      <p>Den entscheidenden Unterschied macht die Bodenbiologie: Mit der Methode von <strong>Dr. Elaine Ingham</strong> (Soil Food Web) analysieren wir regelmässig das Bodenleben – Bakterien, Pilze, Protozoen und Nematoden. Zertifizierte Bodenmikrobiologen in der Schweiz helfen uns, die Bodengesundheit kontinuierlich zu optimieren. Das Resultat: Gemüse mit messbarer Nährstoffdichte und einem Geschmack, der den lokalen Markt überraschen wird.</p>
     </div>
 
     <div class="ueber-uns-section">
@@ -662,22 +736,22 @@
       <div class="werte-item">
         <div class="emoji">🔬</div>
         <h3>Wissenschaftlich fundiert</h3>
-        <p>Laborgestützte Bodenanalysen und evidenzbasierte Methoden für messbar bessere Qualität.</p>
+        <p>Wir analysieren unseren Boden regelmässig mit zertifizierten Bodenmikrobiologen auf Bakterien, Pilze und weiteres Bodenleben – für messbar gesündere Erde und nährstoffreicheres Gemüse.</p>
       </div>
       <div class="werte-item">
         <div class="emoji">🌱</div>
         <h3>Regenerativ</h3>
-        <p>Wir bauen Bodengesundheit auf, statt sie auszubeuten. Lebendiger Boden = lebendiges Gemüse.</p>
+        <p>Wir bauen Bodengesundheit auf, statt sie auszubeuten. Mit Kompost, Mulch und lebendigen Mikroorganismen wird unser Boden jedes Jahr fruchtbarer.</p>
       </div>
       <div class="werte-item">
         <div class="emoji">📍</div>
         <h3>Hyperlokal</h3>
-        <p>Null Kilometer Transportweg für maximale Frische. Geerntet wird erst, wenn Sie bestellen.</p>
+        <p>Null Kilometer Transportweg für maximale Frische. Geerntet wird erst, wenn Sie bestellen – direkt aus der Kapelle in Ihre Küche.</p>
       </div>
       <div class="werte-item">
         <div class="emoji">🤝</div>
         <h3>Direkt & persönlich</h3>
-        <p>Kein Zwischenhandel. Sie kennen Ihren Bauern, wir kennen unsere Kunden.</p>
+        <p>Kein Zwischenhandel, keine Anonymität. Sie kennen unsere Gärtner und wir kennen unsere Kunden – so entsteht Vertrauen und echte Verbindung.</p>
       </div>
     </div>
   </section>
