@@ -87,45 +87,46 @@
     .kreis-2 {
       bottom: 20%;
       left: 8%;
-      width: 80px;
-      height: 80px;
-      border-radius: 40% 60% 30% 70% / 60% 40% 60% 40%;
-      background: linear-gradient(135deg, rgba(139, 115, 85, 0.15) 0%, rgba(139, 115, 85, 0.05) 100%);
-      animation-delay: 2s;
+      width: 150px;
+      height: 150px;
+      background: linear-gradient(135deg, rgba(139, 115, 85, 0.12) 0%, rgba(139, 115, 85, 0.04) 100%);
+      animation-delay: -2s;
     }
     
     .kreis-3 {
-      top: 35%;
-      left: 5%;
-      width: 60px;
-      height: 60px;
+      top: 50%;
+      right: 25%;
+      width: 90px;
+      height: 90px;
       background: linear-gradient(135deg, rgba(74, 103, 65, 0.1) 0%, rgba(74, 103, 65, 0.03) 100%);
-      animation-delay: 4s;
+      animation-delay: -4s;
     }
     
     .kreis-4 {
-      bottom: 30%;
-      right: 6%;
-      width: 90px;
-      height: 90px;
-      border-radius: 50% 50% 40% 60% / 40% 60% 50% 50%;
-      background: linear-gradient(135deg, rgba(139, 115, 85, 0.12) 0%, rgba(139, 115, 85, 0.04) 100%);
-      animation-delay: 1s;
+      bottom: 35%;
+      left: 35%;
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, rgba(139, 115, 85, 0.08) 0%, rgba(139, 115, 85, 0.02) 100%);
+      animation-delay: -1s;
     }
     
+    /* HERO */
     .hero {
+      position: relative;
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
-      padding: 6rem 2rem;
-      background: linear-gradient(135deg, #f7f5f0 0%, #e8e4da 100%);
-      position: relative;
+      padding: 2rem;
       overflow: hidden;
     }
     
-    .hero-content { max-width: 800px; position: relative; z-index: 1; }
+    .hero-content {
+      text-align: center;
+      max-width: 900px;
+      z-index: 2;
+    }
     
     .hero-location {
       font-family: 'DM Sans', sans-serif;
@@ -133,54 +134,55 @@
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: #8b7355;
-      margin-bottom: 2rem;
-      opacity: 0;
-      animation: einblenden 1s ease forwards;
+      margin-bottom: 1.5rem;
     }
     
     .hero h1 {
-      font-size: clamp(2.5rem, 7vw, 5rem);
+      font-size: clamp(3rem, 8vw, 6rem);
       font-weight: 400;
       line-height: 1.1;
       margin-bottom: 1.5rem;
     }
     
     .hero h1 span {
+      display: block;
       font-style: italic;
       color: #4a6741;
     }
     
     .hero-text {
       font-family: 'DM Sans', sans-serif;
-      font-size: 1.1rem;
+      font-size: clamp(1rem, 2vw, 1.2rem);
       color: #5a6a5a;
-      max-width: 550px;
-      margin: 0 auto 2.5rem;
+      margin-bottom: 2.5rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
     }
     
     .btn {
-      font-family: 'DM Sans', sans-serif;
+      display: inline-block;
+      padding: 1rem 2.5rem;
       background: #4a6741;
       color: #f7f5f0;
-      border: none;
-      padding: 1rem 2.5rem;
-      font-size: 0.9rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      cursor: pointer;
       text-decoration: none;
-      display: inline-block;
-      transition: all 0.3s;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+      border: 2px solid #4a6741;
     }
     
     .btn:hover {
-      background: #3a5331;
-      transform: translateY(-2px);
+      background: transparent;
+      color: #4a6741;
     }
     
+    /* SECTION */
     .section {
       padding: 6rem 2rem;
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
     }
     
@@ -193,14 +195,7 @@
       margin-bottom: 1rem;
     }
     
-    .section h2 {
-      font-size: clamp(2.5rem, 6vw, 4rem);
-      font-weight: 400;
-      margin-bottom: 1.5rem;
-    }
-    
-    .section h2 span { font-style: italic; }
-    
+    /* VISION */
     .vision-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -208,65 +203,65 @@
       align-items: center;
     }
     
-    @media (max-width: 900px) {
-      .vision-grid { grid-template-columns: 1fr; }
-      .nav { padding: 1rem 1.5rem; }
-      .nav-links { gap: 1.5rem; font-size: 0.75rem; }
+    .vision-text h2 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+    
+    .vision-text h2 span {
+      display: block;
+      font-style: italic;
+      color: #4a6741;
     }
     
     .vision-text p {
       font-family: 'DM Sans', sans-serif;
       font-size: 1.05rem;
       color: #4a5a4a;
-      margin-bottom: 1.5rem;
       line-height: 1.8;
-    }
-    
-    .vision-image {
-      border-radius: 4px;
-      overflow: hidden;
-      box-shadow: 0 20px 60px rgba(45, 58, 45, 0.15);
+      margin-bottom: 1.2rem;
     }
     
     .vision-image img {
       width: 100%;
-      height: auto;
-      display: block;
+      border-radius: 2px;
     }
     
+    /* MARKTSTAND */
     .marktstand {
-      padding: 4rem 2rem;
-      background: #e8e4da;
+      padding: 6rem 2rem;
+      background: linear-gradient(135deg, #e8e4da 0%, #d4cfc3 100%);
+    }
+    
+    .marktstand-content {
+      max-width: 1000px;
+      margin: 0 auto;
       text-align: center;
     }
-    
-    .marktstand-content { max-width: 1000px; margin: 0 auto; }
     
     .marktstand h2 {
       font-size: clamp(2.5rem, 6vw, 4rem);
       font-weight: 400;
-      margin-bottom: 1.5rem;
+      margin-bottom: 3rem;
     }
     
-    .marktstand h2 span { font-style: italic; }
-    
-    .marktstand-image {
-      margin-top: 2.5rem;
-      border-radius: 4px;
-      overflow: hidden;
-      box-shadow: 0 20px 60px rgba(45, 58, 45, 0.15);
+    .marktstand h2 span {
+      font-style: italic;
+      color: #4a6741;
     }
     
     .marktstand-image img {
       width: 100%;
-      height: auto;
-      display: block;
+      max-width: 900px;
+      border-radius: 2px;
     }
     
+    /* SORTIMENT */
     .sortiment {
       padding: 6rem 2rem;
-      background: #2d3a2d;
-      color: #f7f5f0;
+      background: #f7f5f0;
     }
     
     .sortiment-content {
@@ -274,8 +269,6 @@
       margin: 0 auto;
       text-align: center;
     }
-    
-    .sortiment .section-label { color: #a8c49a; }
     
     .sortiment h2 {
       font-size: clamp(2.5rem, 6vw, 4rem);
@@ -384,31 +377,28 @@
     }
     
     .ueber-uns-section h3 {
-      font-size: 2rem;
+      font-size: 1.8rem;
       font-weight: 400;
-      margin-bottom: 1.5rem;
-      color: #2d3a2d;
+      margin-bottom: 1rem;
     }
     
-    .ueber-uns-section h3 span { font-style: italic; }
+    .ueber-uns-section h3 span {
+      font-style: italic;
+      color: #4a6741;
+    }
     
     .ueber-uns-section p {
       font-family: 'DM Sans', sans-serif;
       font-size: 1.05rem;
-      line-height: 1.9;
       color: #4a5a4a;
-      margin-bottom: 1.5rem;
-    }
-    
-    .ueber-uns-section strong {
-      color: #2d3a2d;
+      line-height: 1.8;
+      margin-bottom: 1.2rem;
     }
     
     /* UNSER WEG */
     .unser-weg {
       padding: 6rem 2rem;
-      background: #2d3a2d;
-      color: #f7f5f0;
+      background: linear-gradient(135deg, #e8e4da 0%, #d4cfc3 100%);
     }
     
     .unser-weg-content {
@@ -423,26 +413,51 @@
       margin-bottom: 3rem;
     }
     
-    .unser-weg h2 span { font-style: italic; }
+    .unser-weg h2 span { font-style: italic; color: #4a6741; }
     
-    .timeline { margin-top: 2rem; }
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+    
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #4a6741;
+    }
     
     .timeline-item {
-      display: grid;
-      grid-template-columns: 100px 1fr;
-      gap: 2rem;
-      margin-bottom: 2rem;
+      position: relative;
+      padding-left: 2rem;
+      margin-bottom: 2.5rem;
+      display: flex;
+      gap: 1.5rem;
+    }
+    
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -0.5rem;
+      top: 0.5rem;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #4a6741;
     }
     
     .timeline-year {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.85rem;
-      letter-spacing: 0.1em;
-      color: #a8c49a;
+      font-size: 2rem;
+      font-weight: 600;
+      color: #4a6741;
+      min-width: 100px;
     }
     
     .timeline-title {
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       font-weight: 400;
       margin-bottom: 0.5rem;
     }
@@ -450,15 +465,14 @@
     .timeline-desc {
       font-family: 'DM Sans', sans-serif;
       font-size: 0.95rem;
-      color: #a8c49a;
-      line-height: 1.6;
+      color: #5a6a5a;
+      line-height: 1.7;
     }
     
     /* WERTE */
     .werte {
       padding: 6rem 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
+      background: #f7f5f0;
     }
     
     .werte h2 {
@@ -468,16 +482,19 @@
       margin-bottom: 3rem;
     }
     
-    .werte h2 span { font-style: italic; }
+    .werte h2 span { font-style: italic; color: #4a6741; }
     
     .werte-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 3rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
     }
     
     .werte-item {
       text-align: center;
+      padding: 2rem;
     }
     
     .werte-item .emoji {
@@ -486,10 +503,9 @@
     }
     
     .werte-item h3 {
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       font-weight: 400;
-      margin-bottom: 1rem;
-      color: #2d3a2d;
+      margin-bottom: 0.75rem;
     }
     
     .werte-item p {
@@ -618,14 +634,14 @@
       <h2>Ausgewählte <span>Raritäten</span></h2>
       <div class="sortiment-grid">
         <div class="sortiment-item">
-          <div class="emoji">🥬</div>
-          <h3>Jungblätter</h3>
-          <p>Zarte Babysalate in perfekter Erntereife – mild, knackig und voller Vitamine</p>
+          <div class="emoji">🍅</div>
+          <h3>Saisonales</h3>
+          <p>Das Beste der jeweiligen Jahreszeit – von Radieschen bis Kürbis</p>
         </div>
         <div class="sortiment-item">
-          <div class="emoji">🌱</div>
-          <h3>Mikrogrün</h3>
-          <p>Kraftpakete im Miniaturformat – konzentrierter Geschmack und maximale Nährstoffe</p>
+          <div class="emoji">🥬</div>
+          <h3>Mesclun</h3>
+          <p>Eine bunte Mischung aus verschiedenen jungen Pflücksalaten und Kräutern – mild bis leicht pikant oder nussig, jung geerntet für maximalen Geschmack</p>
         </div>
         <div class="sortiment-item">
           <div class="emoji">🥗</div>
@@ -643,9 +659,9 @@
           <p>Frisch geschnitten, voller Aroma – Basilikum, Koriander, Dill und mehr</p>
         </div>
         <div class="sortiment-item">
-          <div class="emoji">🍅</div>
-          <h3>Saisonales</h3>
-          <p>Das Beste der jeweiligen Jahreszeit – von Radieschen bis Kürbis</p>
+          <div class="emoji">💐</div>
+          <h3>Schnittblumen</h3>
+          <p>Eine kleine, feine Auswahl an saisonalen Schnittblumen für wunderschöne Sträusse – als besonderes Extra aus unserem Garten</p>
         </div>
       </div>
     </div>
@@ -682,7 +698,7 @@
   <section class="ueber-uns-content">
     <div class="ueber-uns-section">
       <h3>Von der <span>Idee</span> zum Beet</h3>
-      <p>Der Kapellengarten entstand aus einer einfachen Überzeugung: Wirklich gutes Gemüse kommt aus gesundem Boden. Als Job Coach habe ich gelernt, Menschen dabei zu helfen, ihr Potenzial zu entfalten. Jetzt tue ich das Gleiche für den Boden – und für das Gemüse, das darauf wächst.</p>
+      <p>Der Kapellengarten entstand aus einer tiefen Auseinandersetzung mit Bodenbiologie. Während meiner Recherchen habe ich festgestellt, dass heutige Böden leider immer weniger Mikroorganismen beinhalten – genau die, die dem Gemüse die Nährstoffdichte und den Geschmack geben. Gleichzeitig wurde mir klar, dass wir wieder mehr zu regionalen und direkten Kontakten mit den Kunden kommen sollten, statt gross und unpersönlich zu agieren. Ich bin der Meinung, dass dies nicht nur dem Gemüse schadet, sondern auch den Menschen.</p>
       <p>Die Freihaltezone mit der denkmalgeschützten Kapelle bietet den perfekten Rahmen für dieses Projekt. Ein Ort, der nicht überbaut werden kann und der Landwirtschaft vorbehalten bleibt – ergänzt durch ein architektonisches Juwel, das zum Herzstück unseres Direktverkaufs werden soll.</p>
     </div>
 
@@ -761,16 +777,9 @@
     <div class="kontakt-content">
       <h2>Lassen Sie uns<br><span>ins Gespräch kommen</span></h2>
       <p>Interessiert an frischem Spitzengemüse aus der Region? Restaurantbesitzer, Feinschmecker oder einfach neugierig – wir freuen uns auf Ihre Nachricht.</p>
-      <a href="mailto:hallo@kapellengarten.ch" class="kontakt-email">hallo@kapellengarten.ch</a>
+      <a href="/cdn-cgi/l/email-protection#bdd5dcd1d1d2fdd6dccdd8d1d1d8d3dadccfc9d8d393ded5" class="kontakt-email"><span class="__cf_email__" data-cfemail="c7afa6ababa887aca6b7a2ababa2a9a0a6b5b3a2a9e9a4af">[email&#160;protected]</span></a>
       <p class="kontakt-ort">📍 Olten, Schweiz</p>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer>
-    <div class="logo">Kapellengarten</div>
-    <p>© 2025 · Regionales Spitzengemüse aus Olten</p>
-  </footer>
-
-</body>
-</html>
+  <!-- Footer -
