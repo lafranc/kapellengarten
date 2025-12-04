@@ -84,6 +84,11 @@
       50% { transform: translateY(-15px) rotate(3deg); }
     }
     
+    @keyframes schweben-gemuese {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
+    }
+    
     @keyframes einblenden {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -137,6 +142,53 @@
       height: 70px;
       background: linear-gradient(135deg, rgba(139, 115, 85, 0.08) 0%, rgba(139, 115, 85, 0.02) 100%);
       animation-delay: -1s;
+    }
+    
+    .schwebendes-gemuese {
+      position: absolute;
+      pointer-events: none;
+      animation: schweben-gemuese 5s ease-in-out infinite;
+      filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1));
+    }
+    
+    .gemuese-1 {
+      top: 12%;
+      right: 15%;
+      width: 80px;
+      height: 80px;
+      animation-delay: -1s;
+    }
+    
+    .gemuese-2 {
+      top: 60%;
+      right: 8%;
+      width: 100px;
+      height: 100px;
+      animation-delay: -3s;
+    }
+    
+    .gemuese-3 {
+      top: 25%;
+      left: 12%;
+      width: 70px;
+      height: 70px;
+      animation-delay: -2s;
+    }
+    
+    .gemuese-4 {
+      bottom: 15%;
+      right: 20%;
+      width: 90px;
+      height: 90px;
+      animation-delay: -4s;
+    }
+    
+    .gemuese-5 {
+      top: 45%;
+      left: 18%;
+      width: 75px;
+      height: 75px;
+      animation-delay: -1.5s;
     }
     
     /* HERO */
@@ -773,6 +825,16 @@
       .kreis-2 { width: 100px; height: 100px; }
       .kreis-3 { width: 60px; height: 60px; }
       .kreis-4 { width: 50px; height: 50px; }
+      
+      .schwebendes-gemuese {
+        opacity: 0.7;
+      }
+      
+      .gemuese-1 { width: 50px; height: 50px; }
+      .gemuese-2 { width: 60px; height: 60px; }
+      .gemuese-3 { width: 45px; height: 45px; }
+      .gemuese-4 { width: 55px; height: 55px; }
+      .gemuese-5 { width: 50px; height: 50px; }
     }
     
     /* Mobile Phones */
@@ -852,6 +914,16 @@
         padding: 3rem 1rem;
       }
       
+      .schwebendes-gemuese {
+        opacity: 0.5;
+      }
+      
+      .gemuese-1 { width: 40px; height: 40px; }
+      .gemuese-2 { width: 45px; height: 45px; }
+      .gemuese-3 { width: 35px; height: 35px; }
+      .gemuese-4 { width: 42px; height: 42px; }
+      .gemuese-5 { width: 38px; height: 38px; }
+      
       .kontakt-email {
         font-size: 1rem;
         word-break: break-word;
@@ -888,6 +960,79 @@
     <div class="schwebender-kreis kreis-2"></div>
     <div class="schwebender-kreis kreis-3"></div>
     <div class="schwebender-kreis kreis-4"></div>
+    
+    <!-- Schwebendes Gemüse -->
+    <div class="schwebendes-gemuese gemuese-1">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <!-- Tomate -->
+        <circle cx="50" cy="50" r="35" fill="#e6594a" stroke="#c44536" stroke-width="3"/>
+        <circle cx="42" cy="38" r="16" fill="#f07167" opacity="0.7"/>
+        <path d="M 38 18 C 39 12 43 10 46 13 C 48 16 47 20 45 22" stroke="#4a7c59" stroke-width="3" fill="#5d9970"/>
+        <path d="M 50 15 C 51 9 54 7 57 10 C 59 13 58 17 56 19" stroke="#4a7c59" stroke-width="3" fill="#5d9970"/>
+        <path d="M 62 18 C 63 12 67 10 70 13 C 72 16 71 20 69 22" stroke="#4a7c59" stroke-width="3" fill="#5d9970"/>
+        <path d="M 45 21 C 46 19 48 16 50 15" stroke="#6b8e4e" stroke-width="2"/>
+        <path d="M 56 19 C 55 17 52 15 50 15" stroke="#6b8e4e" stroke-width="2"/>
+        <path d="M 69 21 C 67 19 63 17 60 17" stroke="#6b8e4e" stroke-width="2"/>
+      </svg>
+    </div>
+    
+    <div class="schwebendes-gemuese gemuese-2">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <!-- Karotte -->
+        <g transform="translate(50, 20) rotate(15)">
+          <path d="M 0 0 L -8 50 L -5 80 L 0 88 L 5 80 L 8 50 Z" fill="#f4a24a" stroke="#d68a3e" stroke-width="3"/>
+          <path d="M -3 8 L -5 40 L -2 65 L 0 75" stroke="#e8945d" stroke-width="2" opacity="0.5"/>
+          <circle cx="-5" cy="25" r="2" fill="#d68a3e" opacity="0.6"/>
+          <circle cx="3" cy="42" r="2" fill="#d68a3e" opacity="0.6"/>
+          <circle cx="-4" cy="60" r="2" fill="#d68a3e" opacity="0.6"/>
+          <path d="M -5 0 C -8 -13 -10 -20 -6 -30" stroke="#5d9970" stroke-width="3" fill="none"/>
+          <path d="M 0 -3 C 0 -16 0 -23 3 -33" stroke="#6b8e4e" stroke-width="3" fill="none"/>
+          <path d="M 5 0 C 8 -13 10 -20 6 -30" stroke="#5d9970" stroke-width="3" fill="none"/>
+        </g>
+      </svg>
+    </div>
+    
+    <div class="schwebendes-gemuese gemuese-3">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <!-- Salatkopf -->
+        <ellipse cx="50" cy="70" rx="20" ry="10" fill="#9a8968" stroke="#7a6545" stroke-width="2"/>
+        <path d="M 35 68 C 40 65 45 63 50 63 C 55 63 60 65 65 68" stroke="#7a6545" stroke-width="1.5"/>
+        <ellipse cx="32" cy="48" rx="13" ry="22" fill="#6ba87a" stroke="#4a7c59" stroke-width="3" transform="rotate(-25 32 48)"/>
+        <ellipse cx="48" cy="40" rx="11" ry="20" fill="#7bc491" stroke="#5d9970" stroke-width="3" transform="rotate(-10 48 40)"/>
+        <ellipse cx="68" cy="48" rx="13" ry="22" fill="#6ba87a" stroke="#4a7c59" stroke-width="3" transform="rotate(25 68 48)"/>
+        <ellipse cx="54" cy="35" rx="11" ry="18" fill="#8dd4a7" stroke="#6ba87a" stroke-width="3" transform="rotate(10 54 35)"/>
+        <path d="M 38 52 C 40 56 42 62 44 68" stroke="#5d9970" stroke-width="1.5"/>
+        <path d="M 48 43 C 48 50 48 58 48 65" stroke="#6ba87a" stroke-width="1.5"/>
+        <path d="M 62 52 C 60 56 58 62 56 68" stroke="#5d9970" stroke-width="1.5"/>
+      </svg>
+    </div>
+    
+    <div class="schwebendes-gemuese gemuese-4">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <!-- Radieschen -->
+        <circle cx="50" cy="50" r="25" fill="#d66982" stroke="#b84a6a" stroke-width="3"/>
+        <ellipse cx="45" cy="42" rx="10" ry="13" fill="#f29ead" opacity="0.6"/>
+        <path d="M 47 23 C 47 16 48 10 50 5" stroke="#5d9970" stroke-width="3" fill="none"/>
+        <ellipse cx="47" cy="3" rx="5" ry="8" fill="#7bc491" stroke="#5d9970" stroke-width="2" transform="rotate(-20 47 3)"/>
+        <ellipse cx="54" cy="2" rx="5" ry="8" fill="#7bc491" stroke="#5d9970" stroke-width="2" transform="rotate(20 54 2)"/>
+        <path d="M 50 68 C 50 72 49 76 49 80" stroke="#b84a6a" stroke-width="2.5"/>
+        <circle cx="45" cy="55" r="1.5" fill="#b84a6a" opacity="0.5"/>
+        <circle cx="52" cy="48" r="1.5" fill="#b84a6a" opacity="0.5"/>
+        <circle cx="48" cy="62" r="1.5" fill="#b84a6a" opacity="0.5"/>
+      </svg>
+    </div>
+    
+    <div class="schwebendes-gemuese gemuese-5">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <!-- Pak Choi -->
+        <path d="M 50 85 C 49 75 46 60 43 42 C 42 30 40 18 39 10 C 38 4 39 0 42 -2 C 45 -4 48 1 48 9 C 48 20 47 35 47 50 C 47 62 49 72 50 78" fill="#d4e8dc" stroke="#7bc491" stroke-width="3"/>
+        <path d="M 50 85 C 51 75 54 60 57 42 C 58 30 60 18 61 10 C 62 4 61 0 58 -2 C 55 -4 52 1 52 9 C 52 20 53 35 53 50 C 53 62 51 72 50 78" fill="#d4e8dc" stroke="#7bc491" stroke-width="3"/>
+        <ellipse cx="39" cy="20" rx="11" ry="17" fill="#8dd4a7" stroke="#5d9970" stroke-width="3" transform="rotate(-8 39 20)"/>
+        <path d="M 38 10 C 35 14 33 22 35 30 C 37 37 42 40 46 37 C 48 34 48 26 45 20" stroke="#6ba87a" stroke-width="2.5"/>
+        <ellipse cx="61" cy="20" rx="11" ry="17" fill="#8dd4a7" stroke="#5d9970" stroke-width="3" transform="rotate(8 61 20)"/>
+        <path d="M 62 10 C 65 14 67 22 65 30 C 63 37 58 40 54 37 C 52 34 52 26 55 20" stroke="#6ba87a" stroke-width="2.5"/>
+      </svg>
+    </div>
     
     <div class="hero-content">
       <p class="hero-location">Olten · Schweiz</p>
@@ -1341,7 +1486,7 @@
     <div class="kontakt-content">
       <h2>Lassen Sie uns<br><span>ins Gespräch kommen</span></h2>
       <p>Interessiert an frischem Spitzengemüse aus der Region? Restaurantbesitzer, Feinschmecker oder einfach neugierig – wir freuen uns auf Ihre Nachricht.</p>
-      <a href="mailto:hallo@kapellengarten.ch" class="kontakt-email">hallo@kapellengarten.ch</a>
+      <a href="/cdn-cgi/l/email-protection#80e8e1ececefc0ebe1f0e5ecece5eee7e1f2f4e5eeaee3e8" class="kontakt-email"><span class="__cf_email__" data-cfemail="d3bbb2bfbfbc93b8b2a3b6bfbfb6bdb4b2a1a7b6bdfdb0bb">[email&#160;protected]</span></a>
       <p class="kontakt-ort">📍 Olten, Schweiz</p>
     </div>
   </section>
@@ -1352,7 +1497,7 @@
     <p>© 2024 Kapellengarten. Alle Rechte vorbehalten.</p>
   </footer>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     function toggleMenu() {
       const hamburger = document.querySelector('.hamburger');
       const navLinks = document.querySelector('.nav-links');
@@ -1371,14 +1516,4 @@
     document.addEventListener('click', function(event) {
       const nav = document.querySelector('.nav');
       const hamburger = document.querySelector('.hamburger');
-      const navLinks = document.querySelector('.nav-links');
-      
-      if (!nav.contains(event.target) && navLinks.classList.contains('active')) {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('active');
-      }
-    });
-  </script>
-
-</body>
-</html>
+      const navLinks = document.que
