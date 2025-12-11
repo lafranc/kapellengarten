@@ -3,79 +3,86 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kapellengarten | Regionales Spitzengemüse aus Olten</title>
-  <meta name="description" content="Kapellengarten - Regionales Spitzengemüse aus Olten. Intensiver Gemüseanbau mit wissenschaftlich optimierter Bodenbiologie.">
+  <title>Kapellengarten · Spitzengemüse aus Olten</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@300;400;500;600&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    :root {
+      --primär: #4a6741;
+      --erde: #8b7355;
+      --hell: #f7f5f0;
+      --text: #2d3a2d;
+    }
     
     body {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      background-color: #f7f5f0;
-      color: #2d3a2d;
+      font-family: 'Cormorant', serif;
+      color: var(--text);
+      background: var(--hell);
       line-height: 1.6;
     }
     
+    /* Navigation */
     .nav {
       position: fixed;
-      top: 0; left: 0; right: 0;
-      padding: 1.5rem 4rem;
+      top: 0;
+      width: 100%;
+      padding: 1.5rem 3rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      z-index: 100;
       background: rgba(247, 245, 240, 0.95);
       backdrop-filter: blur(10px);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(74, 103, 65, 0.1);
     }
     
     .nav-logo {
       font-size: 1.5rem;
-      font-weight: 600;
-      color: #2d3a2d;
+      font-weight: 500;
+      color: var(--primär);
       text-decoration: none;
+      letter-spacing: 0.05em;
     }
     
-    .nav-links { display: flex; gap: 2.5rem; }
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+    }
     
     .nav-links a {
-      color: #4a5a4a;
-      text-decoration: none;
       font-family: 'DM Sans', sans-serif;
-      font-size: 0.85rem;
-      letter-spacing: 0.05em;
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      transition: color 0.3s;
+      color: var(--erde);
+      text-decoration: none;
+      transition: color 0.3s ease;
     }
     
-    .nav-links a:hover { color: #4a6741; }
+    .nav-links a:hover {
+      color: var(--primär);
+    }
     
-    /* Hamburger Menu - hidden by default */
     .hamburger {
       display: none;
       flex-direction: column;
-      gap: 5px;
       cursor: pointer;
-      z-index: 101;
+      gap: 5px;
     }
     
     .hamburger span {
       width: 25px;
       height: 2px;
-      background: #2d3a2d;
-      transition: all 0.3s;
-    }
-    
-    .hamburger.active span:nth-child(1) {
-      transform: rotate(45deg) translate(7px, 7px);
-    }
-    
-    .hamburger.active span:nth-child(2) {
-      opacity: 0;
-    }
-    
-    .hamburger.active span:nth-child(3) {
-      transform: rotate(-45deg) translate(7px, -7px);
+      background: var(--primär);
+      transition: 0.3s;
     }
     
     /* Schwebende Kreise */
@@ -85,7 +92,7 @@
     }
     
     @keyframes schweben-gemuese {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      0%, 100% { transform: translateY(0) rotate(0deg); }
       50% { transform: translateY(-20px) rotate(5deg); }
     }
     
@@ -225,45 +232,41 @@
     }
     
     .hero h1 span {
-      display: block;
       font-style: italic;
-      color: #4a6741;
+      color: var(--primär);
     }
     
     .hero-text {
       font-family: 'DM Sans', sans-serif;
-      font-size: clamp(1rem, 2vw, 1.2rem);
+      font-size: 1.1rem;
       color: #5a6a5a;
-      margin-bottom: 2.5rem;
       max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
+      margin: 0 auto 2.5rem;
+      line-height: 1.8;
     }
     
     .btn {
       display: inline-block;
       padding: 1rem 2.5rem;
-      background: #4a6741;
-      color: #f7f5f0;
+      background: var(--primär);
+      color: white;
       text-decoration: none;
       font-family: 'DM Sans', sans-serif;
       font-size: 0.9rem;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
+      border-radius: 2px;
       transition: all 0.3s ease;
-      border: 2px solid #4a6741;
     }
     
     .btn:hover {
-      background: transparent;
-      color: #4a6741;
+      background: #3a5531;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(74, 103, 65, 0.3);
     }
     
-    /* SECTION */
     .section {
       padding: 6rem 2rem;
-      max-width: 1400px;
-      margin: 0 auto;
     }
     
     .section-label {
@@ -271,7 +274,7 @@
       font-size: 0.85rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: #8b7355;
+      color: var(--erde);
       margin-bottom: 1rem;
     }
     
@@ -280,6 +283,8 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
       align-items: center;
     }
     
@@ -287,13 +292,11 @@
       font-size: clamp(2.5rem, 6vw, 4rem);
       font-weight: 400;
       margin-bottom: 1.5rem;
-      line-height: 1.2;
     }
     
     .vision-text h2 span {
-      display: block;
       font-style: italic;
-      color: #4a6741;
+      color: var(--primär);
     }
     
     .vision-text p {
@@ -301,18 +304,19 @@
       font-size: 1.05rem;
       color: #4a5a4a;
       line-height: 1.8;
-      margin-bottom: 1.2rem;
+      margin-bottom: 1.5rem;
     }
     
     .vision-image img {
       width: 100%;
       border-radius: 2px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     }
     
     /* MARKTSTAND */
     .marktstand {
       padding: 6rem 2rem;
-      background: linear-gradient(135deg, #e8e4da 0%, #d4cfc3 100%);
+      background: linear-gradient(135deg, #e8e4da 0%, #f7f5f0 100%);
     }
     
     .marktstand-content {
@@ -329,19 +333,23 @@
     
     .marktstand h2 span {
       font-style: italic;
-      color: #4a6741;
+      color: var(--primär);
+    }
+    
+    .marktstand-image {
+      margin-top: 3rem;
     }
     
     .marktstand-image img {
       width: 100%;
       max-width: 900px;
       border-radius: 2px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     }
     
     /* SORTIMENT */
     .sortiment {
       padding: 6rem 2rem;
-      background: #f7f5f0;
     }
     
     .sortiment-content {
@@ -468,18 +476,18 @@
     }
     
     .ueber-uns-section {
-      margin-bottom: 3rem;
+      margin-bottom: 4rem;
     }
     
     .ueber-uns-section h3 {
-      font-size: 1.8rem;
+      font-size: 2rem;
       font-weight: 400;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
     }
     
     .ueber-uns-section h3 span {
       font-style: italic;
-      color: #4a6741;
+      color: var(--primär);
     }
     
     .ueber-uns-section p {
@@ -487,93 +495,85 @@
       font-size: 1.05rem;
       color: #4a5a4a;
       line-height: 1.8;
-      margin-bottom: 1.2rem;
+      margin-bottom: 1.5rem;
     }
     
     /* UNSER WEG */
     .unser-weg {
       padding: 6rem 2rem;
-      background: linear-gradient(135deg, #e8e4da 0%, #d4cfc3 100%);
+      background: #f7f5f0;
     }
     
     .unser-weg-content {
       max-width: 900px;
       margin: 0 auto;
+      text-align: center;
     }
     
     .unser-weg h2 {
       font-size: clamp(2.5rem, 6vw, 4rem);
       font-weight: 400;
-      text-align: center;
       margin-bottom: 3rem;
     }
     
     .unser-weg h2 span { font-style: italic; color: #4a6741; }
     
     .timeline {
-      position: relative;
+      margin-top: 3rem;
       padding-left: 2rem;
-    }
-    
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: #4a6741;
+      border-left: 2px solid #8b7355;
     }
     
     .timeline-item {
-      position: relative;
-      padding-left: 2rem;
-      margin-bottom: 2.5rem;
       display: flex;
-      gap: 1.5rem;
+      gap: 2rem;
+      margin-bottom: 3rem;
+      position: relative;
     }
     
     .timeline-item::before {
       content: '';
       position: absolute;
-      left: -0.5rem;
+      left: -2.5rem;
       top: 0.5rem;
       width: 12px;
       height: 12px;
-      border-radius: 50%;
       background: #4a6741;
+      border-radius: 50%;
+      border: 3px solid #f7f5f0;
     }
     
     .timeline-year {
       font-size: 2rem;
-      font-weight: 600;
+      font-weight: 500;
       color: #4a6741;
       min-width: 100px;
     }
     
     .timeline-title {
-      font-size: 1.4rem;
-      font-weight: 400;
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #2d3a2d;
       margin-bottom: 0.5rem;
     }
     
     .timeline-desc {
       font-family: 'DM Sans', sans-serif;
-      font-size: 0.95rem;
+      font-size: 1rem;
       color: #5a6a5a;
       line-height: 1.7;
+      text-align: left;
     }
     
     /* WERTE */
     .werte {
       padding: 6rem 2rem;
-      background: #f7f5f0;
+      text-align: center;
     }
     
     .werte h2 {
       font-size: clamp(2.5rem, 6vw, 4rem);
       font-weight: 400;
-      text-align: center;
       margin-bottom: 3rem;
     }
     
@@ -581,29 +581,23 @@
     
     .werte-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 3rem;
       max-width: 1200px;
       margin: 0 auto;
     }
     
     .werte-item {
-      text-align: center;
       padding: 2rem;
     }
     
-    .werte-item .emoji {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-    
-    .werte-item .icon { 
-      width: 70px; 
-      height: 70px; 
-      margin: 0 auto 1rem;
+    .werte-item .icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 1.5rem;
       stroke: #3a4a35;
       fill: none;
-      stroke-width: 1.8;
+      stroke-width: 1.5;
       stroke-linecap: round;
       stroke-linejoin: round;
       opacity: 0.9;
@@ -615,9 +609,10 @@
     }
     
     .werte-item h3 {
-      font-size: 1.4rem;
-      font-weight: 400;
-      margin-bottom: 0.75rem;
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #2d3a2d;
+      margin-bottom: 1rem;
     }
     
     .werte-item p {
@@ -630,11 +625,14 @@
     /* KONTAKT */
     .kontakt {
       padding: 6rem 2rem;
-      background: linear-gradient(135deg, #e8e4da 0%, #d4cfc3 100%);
       text-align: center;
+      background: linear-gradient(135deg, #e8e4da 0%, #f7f5f0 100%);
     }
     
-    .kontakt-content { max-width: 600px; margin: 0 auto; }
+    .kontakt-content {
+      max-width: 700px;
+      margin: 0 auto;
+    }
     
     .kontakt h2 {
       font-size: clamp(2.5rem, 6vw, 4rem);
@@ -642,73 +640,63 @@
       margin-bottom: 1.5rem;
     }
     
-    .kontakt h2 span { font-style: italic; }
+    .kontakt h2 span { font-style: italic; color: #4a6741; }
     
     .kontakt p {
       font-family: 'DM Sans', sans-serif;
       font-size: 1.05rem;
       color: #4a5a4a;
+      line-height: 1.8;
       margin-bottom: 2rem;
     }
     
     .kontakt-email {
+      display: inline-block;
       font-family: 'DM Sans', sans-serif;
       font-size: 1.2rem;
       color: #4a6741;
       text-decoration: none;
-      border-bottom: 2px solid #4a6741;
-      padding-bottom: 0.25rem;
+      padding: 1rem 2rem;
+      border: 2px solid #4a6741;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+      margin-bottom: 1rem;
+    }
+    
+    .kontakt-email:hover {
+      background: #4a6741;
+      color: white;
     }
     
     .kontakt-ort {
       font-family: 'DM Sans', sans-serif;
       font-size: 0.95rem;
-      color: #5a6a5a;
+      color: #8b7355;
       margin-top: 1.5rem;
     }
     
+    /* FOOTER */
     footer {
-      padding: 2.5rem;
-      background: #2d3a2d;
-      color: #7a8a7a;
+      padding: 3rem 2rem;
       text-align: center;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.85rem;
+      background: #2d3a2d;
+      color: #f7f5f0;
     }
     
     footer .logo {
-      font-family: 'Cormorant Garamond', Georgia, serif;
       font-size: 1.3rem;
-      color: #f7f5f0;
+      font-weight: 500;
       margin-bottom: 0.5rem;
+      letter-spacing: 0.05em;
     }
     
-    /* ===== RESPONSIVE MEDIA QUERIES ===== */
-    
-    /* Tablets and smaller laptops */
-    @media (max-width: 1024px) {
-      .nav {
-        padding: 1.5rem 2rem;
-      }
-      
-      .vision-grid {
-        gap: 3rem;
-      }
-      
-      .sortiment-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      
-      .werte-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      
-      .stats {
-        grid-template-columns: repeat(3, 1fr);
-      }
+    footer p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      opacity: 0.7;
     }
     
-    /* Tablets */
+    /* RESPONSIVE */
     @media (max-width: 768px) {
       .nav {
         padding: 1rem 1.5rem;
@@ -716,13 +704,15 @@
       
       .hamburger {
         display: flex;
+        z-index: 1001;
       }
       
       .nav-links {
         position: fixed;
-        top: 0;
         right: -100%;
-        width: 70%;
+        top: 0;
+        flex-direction: column;
+        width: 75%;
         max-width: 300px;
         height: 100vh;
         background: rgba(247, 245, 240, 0.98);
@@ -966,44 +956,34 @@
       <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
         <!-- Tomate -->
         <circle cx="50" cy="50" r="35" fill="#e6594a" stroke="#c44536" stroke-width="3"/>
-        <circle cx="42" cy="38" r="16" fill="#f07167" opacity="0.7"/>
-        <path d="M 38 18 C 39 12 43 10 46 13 C 48 16 47 20 45 22" stroke="#4a7c59" stroke-width="3" fill="#5d9970"/>
-        <path d="M 50 15 C 51 9 54 7 57 10 C 59 13 58 17 56 19" stroke="#4a7c59" stroke-width="3" fill="#5d9970"/>
-        <path d="M 62 18 C 63 12 67 10 70 13 C 72 16 71 20 69 22" stroke="#4a7c59" stroke-width="3" fill="#5d9970"/>
-        <path d="M 45 21 C 46 19 48 16 50 15" stroke="#6b8e4e" stroke-width="2"/>
-        <path d="M 56 19 C 55 17 52 15 50 15" stroke="#6b8e4e" stroke-width="2"/>
-        <path d="M 69 21 C 67 19 63 17 60 17" stroke="#6b8e4e" stroke-width="2"/>
+        <circle cx="42" cy="38" r="8" fill="#f07167" opacity="0.6"/>
+        <path d="M 38 26 C 39 22 42 21 44 23 C 45 25 44 27 43 28" stroke="#4a7c59" stroke-width="2" fill="#5d9970"/>
+        <path d="M 48 24 C 49 20 51 19 53 21 C 54 23 53 25 52 27" stroke="#4a7c59" stroke-width="2" fill="#5d9970"/>
+        <path d="M 58 26 C 59 22 62 21 64 23 C 65 25 64 27 63 28" stroke="#4a7c59" stroke-width="2" fill="#5d9970"/>
       </svg>
     </div>
     
     <div class="schwebendes-gemuese gemuese-2">
       <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
         <!-- Karotte -->
-        <g transform="translate(50, 20) rotate(15)">
-          <path d="M 0 0 L -8 50 L -5 80 L 0 88 L 5 80 L 8 50 Z" fill="#f4a24a" stroke="#d68a3e" stroke-width="3"/>
-          <path d="M -3 8 L -5 40 L -2 65 L 0 75" stroke="#e8945d" stroke-width="2" opacity="0.5"/>
-          <circle cx="-5" cy="25" r="2" fill="#d68a3e" opacity="0.6"/>
-          <circle cx="3" cy="42" r="2" fill="#d68a3e" opacity="0.6"/>
-          <circle cx="-4" cy="60" r="2" fill="#d68a3e" opacity="0.6"/>
-          <path d="M -5 0 C -8 -13 -10 -20 -6 -30" stroke="#5d9970" stroke-width="3" fill="none"/>
-          <path d="M 0 -3 C 0 -16 0 -23 3 -33" stroke="#6b8e4e" stroke-width="3" fill="none"/>
-          <path d="M 5 0 C 8 -13 10 -20 6 -30" stroke="#5d9970" stroke-width="3" fill="none"/>
-        </g>
+        <path d="M 50 25 C 45 30 42 40 40 55 C 38 70 42 85 50 90 C 58 85 62 70 60 55 C 58 40 55 30 50 25 Z" fill="#f4976c" stroke="#d97a4a" stroke-width="3"/>
+        <path d="M 45 32 C 47 35 48 40 48 45" stroke="#e88557" stroke-width="1.5"/>
+        <path d="M 55 32 C 53 35 52 40 52 45" stroke="#e88557" stroke-width="1.5"/>
+        <path d="M 48 20 C 47 15 48 10 50 8 C 52 10 53 15 52 20" stroke="#5d9970" stroke-width="2" fill="#7bc491"/>
+        <path d="M 44 22 C 42 18 41 14 42 11" stroke="#5d9970" stroke-width="1.5" fill="none"/>
+        <path d="M 56 22 C 58 18 59 14 58 11" stroke="#5d9970" stroke-width="1.5" fill="none"/>
       </svg>
     </div>
     
     <div class="schwebendes-gemuese gemuese-3">
       <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <!-- Salatkopf -->
-        <ellipse cx="50" cy="70" rx="20" ry="10" fill="#9a8968" stroke="#7a6545" stroke-width="2"/>
-        <path d="M 35 68 C 40 65 45 63 50 63 C 55 63 60 65 65 68" stroke="#7a6545" stroke-width="1.5"/>
-        <ellipse cx="32" cy="48" rx="13" ry="22" fill="#6ba87a" stroke="#4a7c59" stroke-width="3" transform="rotate(-25 32 48)"/>
-        <ellipse cx="48" cy="40" rx="11" ry="20" fill="#7bc491" stroke="#5d9970" stroke-width="3" transform="rotate(-10 48 40)"/>
-        <ellipse cx="68" cy="48" rx="13" ry="22" fill="#6ba87a" stroke="#4a7c59" stroke-width="3" transform="rotate(25 68 48)"/>
-        <ellipse cx="54" cy="35" rx="11" ry="18" fill="#8dd4a7" stroke="#6ba87a" stroke-width="3" transform="rotate(10 54 35)"/>
-        <path d="M 38 52 C 40 56 42 62 44 68" stroke="#5d9970" stroke-width="1.5"/>
-        <path d="M 48 43 C 48 50 48 58 48 65" stroke="#6ba87a" stroke-width="1.5"/>
-        <path d="M 62 52 C 60 56 58 62 56 68" stroke="#5d9970" stroke-width="1.5"/>
+        <!-- Salat -->
+        <ellipse cx="50" cy="55" rx="32" ry="25" fill="#7bc491" stroke="#5d9970" stroke-width="2.5"/>
+        <path d="M 30 50 C 25 55 23 62 25 68" stroke="#6ba87a" stroke-width="2"/>
+        <path d="M 40 45 C 38 50 38 57 40 63" stroke="#6ba87a" stroke-width="2"/>
+        <path d="M 50 43 C 50 50 50 58 50 65" stroke="#6ba87a" stroke-width="2"/>
+        <path d="M 60 45 C 62 50 62 57 60 63" stroke="#6ba87a" stroke-width="2"/>
+        <path d="M 70 50 C 75 55 77 62 75 68" stroke="#6ba87a" stroke-width="2"/>
       </svg>
     </div>
     
@@ -1015,29 +995,23 @@
         <path d="M 47 23 C 47 16 48 10 50 5" stroke="#5d9970" stroke-width="3" fill="none"/>
         <ellipse cx="47" cy="3" rx="5" ry="8" fill="#7bc491" stroke="#5d9970" stroke-width="2" transform="rotate(-20 47 3)"/>
         <ellipse cx="54" cy="2" rx="5" ry="8" fill="#7bc491" stroke="#5d9970" stroke-width="2" transform="rotate(20 54 2)"/>
-        <path d="M 50 68 C 50 72 49 76 49 80" stroke="#b84a6a" stroke-width="2.5"/>
-        <circle cx="45" cy="55" r="1.5" fill="#b84a6a" opacity="0.5"/>
-        <circle cx="52" cy="48" r="1.5" fill="#b84a6a" opacity="0.5"/>
-        <circle cx="48" cy="62" r="1.5" fill="#b84a6a" opacity="0.5"/>
       </svg>
     </div>
     
     <div class="schwebendes-gemuese gemuese-5">
       <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
         <!-- Pak Choi -->
-        <path d="M 50 85 C 49 75 46 60 43 42 C 42 30 40 18 39 10 C 38 4 39 0 42 -2 C 45 -4 48 1 48 9 C 48 20 47 35 47 50 C 47 62 49 72 50 78" fill="#d4e8dc" stroke="#7bc491" stroke-width="3"/>
-        <path d="M 50 85 C 51 75 54 60 57 42 C 58 30 60 18 61 10 C 62 4 61 0 58 -2 C 55 -4 52 1 52 9 C 52 20 53 35 53 50 C 53 62 51 72 50 78" fill="#d4e8dc" stroke="#7bc491" stroke-width="3"/>
+        <path d="M 50 85 C 49 75 46 60 43 42 C 42 30 40 18 39 10 C 38 4 39 0 42 -2" fill="#d4e8dc" stroke="#7bc491" stroke-width="3"/>
+        <path d="M 50 85 C 51 75 54 60 57 42 C 58 30 60 18 61 10 C 62 4 61 0 58 -2" fill="#d4e8dc" stroke="#7bc491" stroke-width="3"/>
         <ellipse cx="39" cy="20" rx="11" ry="17" fill="#8dd4a7" stroke="#5d9970" stroke-width="3" transform="rotate(-8 39 20)"/>
-        <path d="M 38 10 C 35 14 33 22 35 30 C 37 37 42 40 46 37 C 48 34 48 26 45 20" stroke="#6ba87a" stroke-width="2.5"/>
         <ellipse cx="61" cy="20" rx="11" ry="17" fill="#8dd4a7" stroke="#5d9970" stroke-width="3" transform="rotate(8 61 20)"/>
-        <path d="M 62 10 C 65 14 67 22 65 30 C 63 37 58 40 54 37 C 52 34 52 26 55 20" stroke="#6ba87a" stroke-width="2.5"/>
       </svg>
     </div>
     
     <div class="hero-content">
       <p class="hero-location">Olten · Schweiz</p>
-      <h1 class="einblenden einblenden-1">Spitzengemüse<br><span>aus der Nachbarschaft</span></h1>
-      <p class="hero-text einblenden einblenden-2">Intensiver Gemüseanbau mit wissenschaftlich optimierter Bodenbiologie. Für Menschen, die Qualität schmecken.</p>
+      <h1 class="einblenden einblenden-1">Ehrliches Spitzengemüse<br><span>aus der Nachbarschaft</span></h1>
+      <p class="hero-text einblenden einblenden-2">Gemüse mit Geschmack, dank lebendigem Boden. Für Menschen, die den Unterschied schmecken.</p>
       <a href="#vision" class="btn einblenden einblenden-3">Mehr erfahren</a>
     </div>
   </section>
@@ -1048,8 +1022,8 @@
       <div class="vision-text">
         <p class="section-label">Unsere Vision</p>
         <h2>Die Kapelle wird<br><span>zum Marktplatz</span></h2>
-        <p>Direkt neben unseren Beeten entsteht neues Leben – Wohnungen für Menschen, die Qualität zu schätzen wissen. Wir träumen davon, diese neuen Nachbarn mit dem Besten zu versorgen, was der Boden hergibt.</p>
-        <p>Die historische Kapelle auf unserem Gelände soll zum charmanten Marktstand werden. Ein Ort, an dem regionales Spitzengemüse auf Menschen trifft, die den Unterschied schmecken – frischer und lokaler geht es nicht.</p>
+        <p>Direkt neben unseren Beeten entsteht neues Leben: Wohnungen für Menschen, die Qualität zu schätzen wissen. Wir träumen davon, diese neuen Nachbarn mit dem Besten zu versorgen, was der Boden hergibt.</p>
+        <p>Die historische Kapelle auf unserem Gelände soll zum charmanten Marktstand werden. Ein Ort, an dem regionales Spitzengemüse auf Menschen trifft, die den Unterschied schmecken. Frischer und lokaler geht es nicht.</p>
       </div>
       <div class="vision-image">
         <img src="kapelle-aussen.png" alt="Kapellengarten - Aussenansicht mit Blumen">
@@ -1094,135 +1068,54 @@
             <path d="M 60 30 C 61 29 60 33 60 37" stroke="#6b8e4e" stroke-width="1.5"/>
           </svg>
           <h3>Saisonales Gemüse</h3>
-          <p>Von knackigen Salaten bis zu aromatischen Tomaten – was die Saison hergibt, in höchster Qualität</p>
+          <p>Von Tomaten bis Kürbis, alles zur richtigen Zeit</p>
         </div>
         <div class="sortiment-item">
           <svg class="icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <!-- Handgezeichneter farbiger Salatkopf -->
-            <!-- Äussere Blätter -->
-            <ellipse cx="50" cy="75" rx="12" ry="6" 
-                     stroke="#5d4a3a" stroke-width="1.5" fill="#9a8968" class="icon-fill"/>
-            <path d="M 42 72 C 44 70 46 69 50 69 C 54 69 56 70 58 72" 
-                  stroke="#7a6545" stroke-width="1.2"/>
-            <ellipse cx="38" cy="55" rx="8" ry="14" 
-                     stroke="#4a7c59" stroke-width="2" fill="#6ba87a" class="icon-fill" transform="rotate(-25 38 55)"/>
-            <path d="M 42 60 C 40 58 39 56 38 55" stroke="#4a7c59" stroke-width="1.5"/>
-            <ellipse cx="48" cy="48" rx="7" ry="13" 
-                     stroke="#5d9970" stroke-width="2" fill="#7bc491" class="icon-fill" transform="rotate(-10 48 48)"/>
-            <path d="M 48 55 C 48 52 48 50 48 48" stroke="#5d9970" stroke-width="1.5"/>
-            <ellipse cx="62" cy="55" rx="8" ry="14" 
-                     stroke="#4a7c59" stroke-width="2" fill="#6ba87a" class="icon-fill" transform="rotate(25 62 55)"/>
-            <path d="M 58 60 C 60 58 61 56 62 55" stroke="#4a7c59" stroke-width="1.5"/>
-            <ellipse cx="52" cy="45" rx="7" ry="12" 
-                     stroke="#6ba87a" stroke-width="2" fill="#8dd4a7" class="icon-fill" transform="rotate(10 52 45)"/>
-            <path d="M 50 52 C 51 49 52 47 52 45" stroke="#6ba87a" stroke-width="1.5"/>
-            <!-- Adern in Blättern -->
-            <path d="M 42 58 C 43 60 44 63 45 66" stroke="#5d9970" stroke-width="1"/>
-            <path d="M 48 50 C 48 54 48 58 48 62" stroke="#6ba87a" stroke-width="1"/>
-            <path d="M 58 58 C 57 60 56 63 55 66" stroke="#5d9970" stroke-width="1"/>
-          </svg>
-          <h3>Jungsalate (Mesclun)</h3>
-          <p>Feine Mischung aus jungen Salaten und Kräutern – mild bis leicht pikant oder nussig, jung geerntet für maximalen Geschmack</p>
-        </div>
-        <div class="sortiment-item">
-          <svg class="icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <!-- Handgezeichneter farbiger Pak Choi -->
-            <!-- Linker Stiel -->
-            <path d="M 50 73 C 49 68 47 60 45 50 C 44 42 42 34 41 28 C 40 24 41 21 43 20 C 45 19 47 22 47 27 C 47 34 46 44 46 54 C 46 62 48 68 49 71" 
-                  stroke="#7bc491" stroke-width="2" fill="#d4e8dc" class="icon-fill"/>
-            <!-- Rechter Stiel -->
-            <path d="M 50 73 C 51 68 53 60 55 50 C 56 42 58 34 59 28 C 60 24 59 21 57 20 C 55 19 53 22 53 27 C 53 34 54 44 54 54 C 54 62 52 68 51 71" 
-                  stroke="#7bc491" stroke-width="2" fill="#d4e8dc" class="icon-fill"/>
-            <!-- Linkes Blatt -->
-            <ellipse cx="41" cy="36" rx="7" ry="11" 
-                     stroke="#5d9970" stroke-width="2" fill="#8dd4a7" class="icon-fill" transform="rotate(-8 41 36)"/>
-            <path d="M 40 30 C 38 32 37 36 38 40 C 39 43 42 44 44 42 C 45 40 45 36 43 33" 
-                  stroke="#6ba87a" stroke-width="1.6"/>
-            <!-- Rechtes Blatt -->
-            <ellipse cx="59" cy="36" rx="7" ry="11" 
-                     stroke="#5d9970" stroke-width="2" fill="#8dd4a7" class="icon-fill" transform="rotate(8 59 36)"/>
-            <path d="M 60 30 C 62 32 63 36 62 40 C 61 43 58 44 56 42 C 55 40 55 36 57 33" 
-                  stroke="#6ba87a" stroke-width="1.6"/>
+            <!-- Farbiger handgezeichneter Salat -->
+            <ellipse cx="50" cy="55" rx="32" ry="25" 
+                     stroke="#5d9970" stroke-width="2.5" fill="#7bc491" class="icon-fill"/>
+            <ellipse cx="50" cy="48" rx="22" ry="16" 
+                     fill="#8dd4a7" class="icon-fill" stroke="none"/>
             <!-- Adern -->
-            <path d="M 42 60 C 46 58 50 57 54 58 C 56 58 57 59 56 60" 
-                  stroke="#9fc5a8" stroke-width="1.5" opacity="0.7"/>
-            <path d="M 43 50 C 47 49 50 48 54 49 C 56 49 56 50 55 51" 
-                  stroke="#9fc5a8" stroke-width="1.5" opacity="0.7"/>
-            <path d="M 41 40 C 41 42 41 44 42 46" stroke="#6ba87a" stroke-width="1" opacity="0.6"/>
-            <path d="M 59 40 C 59 42 59 44 58 46" stroke="#6ba87a" stroke-width="1" opacity="0.6"/>
+            <path d="M 30 50 C 25 55 23 62 25 68" stroke="#6ba87a" stroke-width="1.5"/>
+            <path d="M 40 45 C 38 50 38 57 40 63" stroke="#6ba87a" stroke-width="1.5"/>
+            <path d="M 50 43 C 50 50 50 58 50 65" stroke="#6ba87a" stroke-width="1.5"/>
+            <path d="M 60 45 C 62 50 62 57 60 63" stroke="#6ba87a" stroke-width="1.5"/>
+            <path d="M 70 50 C 75 55 77 62 75 68" stroke="#6ba87a" stroke-width="1.5"/>
           </svg>
-          <h3>Asia-Salate</h3>
-          <p>Tatsoi, Mizuna & Pak Choi – fernöstliche Vielfalt aus Schweizer Boden</p>
+          <h3>Jungblätter</h3>
+          <p>Bunte Mischung aus Pflücksalaten und Kräutern</p>
         </div>
         <div class="sortiment-item">
           <svg class="icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
             <!-- Handgezeichnete Kräuter -->
-            <path d="M 50 75 C 50 70 50 63 50 55 C 50 48 50 40 50 32" 
-                  stroke="#6b8e4e" stroke-width="2"/>
-            <ellipse cx="45" cy="50" rx="4" ry="7" 
-                     stroke="#5d9970" stroke-width="1.8" fill="#7bc491" class="icon-fill" transform="rotate(-30 45 50)"/>
-            <path d="M 50 52 C 48 51 46 50 45 50" stroke="#5d9970" stroke-width="1.5"/>
-            <ellipse cx="55" cy="50" rx="4" ry="7" 
-                     stroke="#5d9970" stroke-width="1.8" fill="#7bc491" class="icon-fill" transform="rotate(30 55 50)"/>
-            <path d="M 50 52 C 52 51 54 50 55 50" stroke="#5d9970" stroke-width="1.5"/>
-            <ellipse cx="43" cy="38" rx="3.5" ry="6" 
-                     stroke="#6ba87a" stroke-width="1.8" fill="#8dd4a7" class="icon-fill" transform="rotate(-25 43 38)"/>
-            <path d="M 50 40 C 47 39 45 38 43 38" stroke="#6ba87a" stroke-width="1.5"/>
-            <ellipse cx="57" cy="38" rx="3.5" ry="6" 
-                     stroke="#6ba87a" stroke-width="1.8" fill="#8dd4a7" class="icon-fill" transform="rotate(25 57 38)"/>
-            <path d="M 50 40 C 53 39 55 38 57 38" stroke="#6ba87a" stroke-width="1.5"/>
-            <ellipse cx="46" cy="30" rx="3" ry="5" 
-                     stroke="#7bc491" stroke-width="1.8" fill="#9edfb8" class="icon-fill" transform="rotate(-15 46 30)"/>
-            <ellipse cx="54" cy="30" rx="3" ry="5" 
-                     stroke="#7bc491" stroke-width="1.8" fill="#9edfb8" class="icon-fill" transform="rotate(15 54 30)"/>
-            <path d="M 50 32 C 48 31 47 30 46 30" stroke="#7bc491" stroke-width="1.3"/>
-            <path d="M 50 32 C 52 31 53 30 54 30" stroke="#7bc491" stroke-width="1.3"/>
+            <g transform="translate(30, 20)">
+              <path d="M 0 50 C 0 35 2 20 5 10" stroke="#5d9970" stroke-width="2.5"/>
+              <ellipse cx="3" cy="8" rx="4" ry="6" fill="#7bc491" class="icon-fill" stroke="#5d9970" stroke-width="1.5" transform="rotate(-20 3 8)"/>
+              <ellipse cx="7" cy="6" rx="4" ry="6" fill="#7bc491" class="icon-fill" stroke="#5d9970" stroke-width="1.5" transform="rotate(15 7 6)"/>
+              <ellipse cx="1" cy="15" rx="3" ry="5" fill="#8dd4a7" class="icon-fill" stroke="#5d9970" stroke-width="1.3" transform="rotate(-30 1 15)"/>
+              <ellipse cx="7" cy="18" rx="3" ry="5" fill="#8dd4a7" class="icon-fill" stroke="#5d9970" stroke-width="1.3" transform="rotate(25 7 18)"/>
+            </g>
+            <g transform="translate(50, 15)">
+              <path d="M 0 55 C 0 40 1 25 3 12" stroke="#6ba87a" stroke-width="2.5"/>
+              <ellipse cx="1" cy="10" rx="5" ry="7" fill="#7bc491" class="icon-fill" stroke="#5d9970" stroke-width="1.5" transform="rotate(-15 1 10)"/>
+              <ellipse cx="6" cy="8" rx="5" ry="7" fill="#7bc491" class="icon-fill" stroke="#5d9970" stroke-width="1.5" transform="rotate(20 6 8)"/>
+              <ellipse cx="0" cy="20" rx="4" ry="6" fill="#8dd4a7" class="icon-fill" stroke="#5d9970" stroke-width="1.3" transform="rotate(-25 0 20)"/>
+              <ellipse cx="6" cy="22" rx="4" ry="6" fill="#8dd4a7" class="icon-fill" stroke="#5d9970" stroke-width="1.3" transform="rotate(30 6 22)"/>
+            </g>
           </svg>
           <h3>Frische Kräuter</h3>
-          <p>Basilikum, Koriander, Dill und mehr – intensiv im Geschmack, perfekt für die Küche</p>
+          <p>Von Basilikum bis Koriander, aromatisch und intensiv</p>
         </div>
         <div class="sortiment-item">
           <svg class="icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <!-- Handgezeichnete Blume (Ringelblume/Calendula) -->
-            <circle cx="50" cy="45" r="8" 
-                    stroke="#d68a3e" stroke-width="1.8" fill="#f4a24a" class="icon-fill"/>
-            <circle cx="50" cy="45" r="4" 
-                    fill="#e6945d" class="icon-fill" stroke="none"/>
-            <!-- Blütenblätter -->
-            <ellipse cx="50" cy="32" rx="3.5" ry="6" 
-                     stroke="#e8a966" stroke-width="1.8" fill="#f4c078" class="icon-fill"/>
-            <ellipse cx="63" cy="38" rx="3.5" ry="6" 
-                     stroke="#e8a966" stroke-width="1.8" fill="#f4c078" class="icon-fill" transform="rotate(45 63 38)"/>
-            <ellipse cx="68" cy="48" rx="3.5" ry="6" 
-                     stroke="#e8a966" stroke-width="1.8" fill="#f4c078" class="icon-fill" transform="rotate(90 68 48)"/>
-            <ellipse cx="63" cy="58" rx="3.5" ry="6" 
-                     stroke="#e8a966" stroke-width="1.8" fill="#f4c078" class="icon-fill" transform="rotate(135 63 58)"/>
-            <ellipse cx="50" cy="62" rx="3.5" ry="6" 
-                     stroke="#e8a966" stroke-width="1.8" fill="#f4c078" class="icon-fill" transform="rotate(180 50 62)"/>
-            <ellipse cx="37" cy="58" rx="3.5" ry="6" 
-                     stroke="#e8a966" stroke-width="1.8" fill="#f4c078" class="icon-fill" transform="rotate(225 37 58)"/>
-            <ellipse cx="32" cy="48" rx="3.5" ry="6" 
-                     stroke="#e8a966" stroke-width="1.8" fill="#f4c078" class="icon-fill" transform="rotate(270 32 48)"/>
-            <ellipse cx="37" cy="38" rx="3.5" ry="6" 
-                     stroke="#e8a966" stroke-width="1.8" fill="#f4c078" class="icon-fill" transform="rotate(315 37 38)"/>
-            <!-- Stiel -->
-            <path d="M 50 58 C 50 65 50 72 50 78" 
-                  stroke="#6b8e4e" stroke-width="2"/>
-            <ellipse cx="44" cy="68" rx="3" ry="5" 
-                     stroke="#5d9970" stroke-width="1.5" fill="#7bc491" class="icon-fill" transform="rotate(-30 44 68)"/>
-            <path d="M 50 70 C 48 69 46 68 44 68" stroke="#5d9970" stroke-width="1.3"/>
-          </svg>
-          <h3>Essbare Blüten</h3>
-          <p>Kapuzinerkresse, Borretsch, Ringelblume – nicht nur schön, sondern auch köstlich</p>
-        </div>
-        <div class="sortiment-item">
-          <svg class="icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <!-- Handgezeichnete Schnittblumen -->
+            <!-- Farbige Blumen -->
             <!-- Blume 1 - links -->
             <circle cx="38" cy="32" r="6" 
-                    stroke="#d66982" stroke-width="1.5" fill="#f29ead" class="icon-fill"/>
-            <circle cx="38" cy="32" r="3" 
-                    fill="#f8b4c3" class="icon-fill" stroke="none"/>
+                    stroke="#f4a460" stroke-width="1.5" fill="#f9c995" class="icon-fill"/>
+            <circle cx="38" cy="32" r="2.5" 
+                    fill="#f4d7a8" class="icon-fill" stroke="none"/>
             <path d="M 38 40 C 38 50 38 60 38 72" 
                   stroke="#6b8e4e" stroke-width="2"/>
             <ellipse cx="33" cy="55" rx="2.5" ry="4" 
@@ -1250,7 +1143,7 @@
             <path d="M 62 60 C 60 59 59 58 58 58" stroke="#5d9970" stroke-width="1.2"/>
           </svg>
           <h3>Schnittblumen</h3>
-          <p>Saisonale Blumen für jeden Anlass – regional und frisch</p>
+          <p>Saisonale Blumen für jeden Anlass, regional und frisch</p>
         </div>
       </div>
     </div>
@@ -1260,8 +1153,8 @@
   <section class="philosophie">
     <p class="section-label">Unsere Philosophie</p>
     <h2>Wie wir <span>arbeiten</span></h2>
-    <p>Unser Marktgarten nach <strong>Jean-Martin Fortier</strong> arbeitet auf kleiner Fläche mit permanenten Beeten, schonender Bodenbearbeitung und durchdachten Fruchtfolgen – keine Pestizide, kein Pflügen, kein Bodenverdichtung.</p>
-    <p>Der entscheidende Unterschied: Während konventionelle Betriebe den Boden als totes Substrat behandeln, verstehen wir ihn als lebendiges Ökosystem. Mit der Methode von <strong>Dr. Elaine Ingham</strong> (Soil Food Web) fördern wir gezielt Bakterien, Pilze und Mikroorganismen – sie machen Nährstoffe für die Pflanzen verfügbar und sorgen für Gemüse mit messbarer Nährstoffdichte und einem Geschmack, der Sie überraschen wird.</p>
+    <p>Unser Marktgarten nach <strong>Jean-Martin Fortier</strong> arbeitet auf kleiner Fläche mit permanenten Beeten, schonender Bodenbearbeitung und durchdachten Fruchtfolgen. Keine Pestizide, kein Pflügen, keine Bodenverdichtung.</p>
+    <p>Der entscheidende Unterschied: Während konventionelle Betriebe den Boden als totes Substrat behandeln, verstehen wir ihn als lebendiges Ökosystem. Mit der Methode von <strong>Dr. Elaine Ingham</strong> (Soil Food Web) fördern wir gezielt Bakterien, Pilze und Mikroorganismen. Sie machen Nährstoffe für die Pflanzen verfügbar und sorgen für Gemüse mit messbarer Nährstoffdichte und einem Geschmack, der Sie überraschen wird.</p>
     <div class="stats">
       <div>
         <div class="stat-number">100%</div>
@@ -1287,20 +1180,23 @@
   <section class="ueber-uns-content">
     <div class="ueber-uns-section">
       <h3>Von der <span>Idee</span> zum Beet</h3>
-      <p>Der Kapellengarten entstand aus einer tiefen Auseinandersetzung mit Bodenbiologie. Während meiner Recherchen habe ich festgestellt, dass heutige Böden leider immer weniger Mikroorganismen beinhalten – genau die, die dem Gemüse die Nährstoffdichte und den Geschmack geben. Gleichzeitig wurde mir klar, dass wir wieder mehr zu regionalen und direkten Kontakten mit den Kunden kommen sollten, statt gross und unpersönlich zu agieren. Ich bin der Meinung, dass dies nicht nur dem Gemüse schadet, sondern auch den Menschen.</p>
-      <p>Die Freihaltezone mit der denkmalgeschützten Kapelle bietet den perfekten Rahmen für dieses Projekt. Ein Ort, der nicht überbaut werden kann und der Landwirtschaft vorbehalten bleibt – ergänzt durch ein historisches Kleinod, das zum Herzstück unseres Direktverkaufs werden soll.</p>
+      <p>Das Projekt Kapellengarten entstand aus der Mission heraus, den Menschen wieder den Geschmack zurückzubringen ins Gemüse, das es eigentlich haben sollte. Während meiner Ausbildung habe ich gelernt, dass heutige Böden leider immer weniger Mikroorganismen beinhalten, genau die, die dem Gemüse die Nährstoffdichte und den Geschmack geben. Gleichzeitig wurde mir klar, dass wir wieder mehr zu regionalen und direkten Kontakten mit den Kunden kommen sollten, statt gross und unpersönlich zu agieren. Ich bin der Meinung, dass dies nicht nur dem Gemüse schadet, sondern auch den Menschen.</p>
+      
+      <p style="margin-top: 1.5rem; padding: 1.5rem; background: rgba(74, 103, 65, 0.05); border-left: 3px solid #4a6741; border-radius: 2px;">Mit meinem Abschluss als Labortechniker für Bodenmikrobiologie möchte ich mich wieder mehr dem Menschen und dem Boden widmen, weil ich glaube, dass beides eng zusammenhängt. Alles beginnt mit einem nachhaltigen Verständnis für die Natur und einem verantwortungsbewussten Umgang mit unseren Ressourcen. Gesunde Böden, lebendige Mikroorganismen und nährstoffreiches Gemüse entstehen nur dort, wo wir mit Respekt und Wissen arbeiten. Erst wenn der Boden lebt und gedeiht, können auch wir Menschen davon profitieren, mit Gemüse, das nicht nur schmeckt, sondern auch wirklich nährt.</p>
+      
+      <p>Die Freihaltezone mit der denkmalgeschützten Kapelle bietet den perfekten Rahmen für dieses Projekt. Ein Ort, der nicht überbaut werden kann und der Landwirtschaft vorbehalten bleibt, ergänzt durch ein historisches Kleinod, das zum Herzstück unseres Direktverkaufs werden soll.</p>
     </div>
 
     <div class="ueber-uns-section">
       <h3>Unsere <span>Methode</span></h3>
       <p>Wir arbeiten nach dem Marktgarten-Prinzip von <strong>Jean-Martin Fortier</strong>: Intensive Handarbeit auf kleiner Fläche, permanente Beete ohne Pflügen, kurze Wege und maximale Effizienz. Im Gegensatz zu grossen Betrieben mit Traktoren und Monokulturen setzen wir auf Vielfalt, Fruchtfolgen und schonende Bodenbearbeitung.</p>
-      <p>Den entscheidenden Unterschied macht die Bodenbiologie: Mit der Methode von <strong>Dr. Elaine Ingham</strong> (Soil Food Web) analysieren wir regelmässig das Bodenleben – Bakterien, Pilze, Protozoen und Nematoden. Zertifizierte Bodenmikrobiologen in der Schweiz helfen uns, die Bodengesundheit kontinuierlich zu optimieren. Das Resultat: Gemüse mit messbarer Nährstoffdichte und einem Geschmack, der den lokalen Markt überraschen wird.</p>
+      <p>Den entscheidenden Unterschied macht die Bodenbiologie: Mit der Methode von <strong>Dr. Elaine Ingham</strong>, einer Pionierin der Bodenmikrobiologie und Begründerin des Soil Food Web Ansatzes, analysieren wir regelmässig das Bodenleben (Bakterien, Pilze, Protozoen und Nematoden). Als ausgebildeter Labortechniker für Bodenmikrobiologie arbeite ich mit zertifizierten Bodenmikrobiologen in der Schweiz zusammen, um die Bodengesundheit kontinuierlich zu optimieren. Das Resultat: Gemüse mit messbarer Nährstoffdichte und einem Geschmack, der den lokalen Markt überraschen wird.</p>
     </div>
 
     <div class="ueber-uns-section">
       <h3>Die <span>Kapelle</span> als Marktplatz</h3>
       <p>Die historische Kapelle auf dem Gelände soll zum charmanten Herzstück unseres Direktverkaufs werden. Ein Ort mit Geschichte, an dem regionales Spitzengemüse auf Menschen trifft, die Qualität schätzen.</p>
-      <p>Mit den neuen Wohnungen, die direkt nebenan entstehen, ergibt sich eine natürliche Synergie: Frisches Spitzengemüse für die Nachbarschaft – regionaler und frischer geht es nicht.</p>
+      <p>Mit den neuen Wohnungen, die direkt nebenan entstehen, ergibt sich eine natürliche Synergie: Frisches Spitzengemüse für die Nachbarschaft. Regionaler und frischer geht es nicht.</p>
     </div>
   </section>
 
@@ -1313,7 +1209,7 @@
           <div class="timeline-year">2026</div>
           <div>
             <div class="timeline-title">Startphase</div>
-            <p class="timeline-desc">Anbau auf 1000 m² Fläche mit Direktverkauf aus der Kapelle. Aufbau und Anreicherung der Bodenbiologie, Messung der Nährstoffdichte im Gemüse – der Grundstein für Spitzenqualität.</p>
+            <p class="timeline-desc">Anbau auf 1000 m² Fläche mit Direktverkauf aus der Kapelle. Aufbau und Anreicherung der Bodenbiologie, Messung der Nährstoffdichte im Gemüse. Der Grundstein für Spitzenqualität.</p>
           </div>
         </div>
         <div class="timeline-item">
@@ -1327,7 +1223,7 @@
           <div class="timeline-year">2028</div>
           <div>
             <div class="timeline-title">Vollbetrieb</div>
-            <p class="timeline-desc">Bewirtschaftung von bis zu 4000 m² – volle Kapazität für regionales Spitzengemüse aus der Nachbarschaft.</p>
+            <p class="timeline-desc">Bewirtschaftung von bis zu 4000 m². Volle Kapazität für regionales Spitzengemüse aus der Nachbarschaft.</p>
           </div>
         </div>
       </div>
@@ -1346,137 +1242,100 @@
           <!-- Erdschichten -->
           <path d="M 24 50 C 30 48 40 47 50 47 C 60 47 70 48 76 50" 
                 stroke="#6b5a42" stroke-width="1.5" opacity="0.7"/>
-          <path d="M 26 58 C 35 56 42 55 50 55 C 58 55 65 56 74 58" 
-                stroke="#7a6545" stroke-width="1.5" opacity="0.7"/>
-          <path d="M 30 64 C 38 62 44 62 50 62 C 56 62 62 62 70 64" 
-                stroke="#8b6f47" stroke-width="1.5" opacity="0.7"/>
-          <!-- Kleiner Sprössling oben -->
-          <path d="M 50 47 C 50 42 49 38 49 34" 
-                stroke="#6b8e4e" stroke-width="2"/>
-          <ellipse cx="46" cy="36" rx="3" ry="5" 
-                   stroke="#5d9970" stroke-width="1.5" fill="#7bc491" class="icon-fill" transform="rotate(-25 46 36)"/>
-          <ellipse cx="54" cy="36" rx="3" ry="5" 
-                   stroke="#5d9970" stroke-width="1.5" fill="#7bc491" class="icon-fill" transform="rotate(25 54 36)"/>
-          <path d="M 49 38 C 47 37 46 36 46 36" stroke="#6b8e4e" stroke-width="1.3"/>
-          <path d="M 49 38 C 51 37 54 36 54 36" stroke="#6b8e4e" stroke-width="1.3"/>
-          <!-- Wurzeln -->
-          <path d="M 45 72 C 43 76 42 78 40 80" stroke="#7a6545" stroke-width="1.8"/>
-          <path d="M 50 74 C 50 78 50 82 50 85" stroke="#7a6545" stroke-width="1.8"/>
-          <path d="M 55 72 C 57 76 58 78 60 80" stroke="#7a6545" stroke-width="1.8"/>
-          <path d="M 42 70 C 38 72 35 74 32 76" stroke="#7a6545" stroke-width="1.5"/>
-          <path d="M 58 70 C 62 72 65 74 68 76" stroke="#7a6545" stroke-width="1.5"/>
-          <!-- Kleine Steinchen -->
-          <circle cx="35" cy="53" r="1.5" fill="#9a8968" opacity="0.6"/>
-          <circle cx="42" cy="60" r="1.2" fill="#9a8968" opacity="0.6"/>
-          <circle cx="58" cy="59" r="1.3" fill="#9a8968" opacity="0.6"/>
-          <circle cx="65" cy="54" r="1.4" fill="#9a8968" opacity="0.6"/>
+          <path d="M 26 58 C 32 56 42 55 50 55 C 58 55 68 56 74 58" 
+                stroke="#6b5a42" stroke-width="1.5" opacity="0.7"/>
+          <!-- Mikroorganismen als kleine Kreise und Formen -->
+          <circle cx="35" cy="52" r="2" fill="#7bc491" opacity="0.8"/>
+          <circle cx="42" cy="60" r="1.5" fill="#f9c995" opacity="0.8"/>
+          <circle cx="55" cy="57" r="2" fill="#b99dd4" opacity="0.8"/>
+          <circle cx="48" cy="53" r="1.5" fill="#e6594a" opacity="0.8"/>
+          <circle cx="65" cy="54" r="2" fill="#7bc491" opacity="0.8"/>
+          <ellipse cx="38" cy="57" rx="1.5" ry="2.5" fill="#f4a460" opacity="0.7" transform="rotate(30 38 57)"/>
+          <ellipse cx="60" cy="60" rx="1.5" ry="2.5" fill="#f9c995" opacity="0.7" transform="rotate(-20 60 60)"/>
+          <!-- Wurzeln unter der Erde -->
+          <path d="M 50 73 C 48 78 45 83 42 87" 
+                stroke="#7a6545" stroke-width="2" opacity="0.6"/>
+          <path d="M 50 73 C 52 78 55 83 58 87" 
+                stroke="#7a6545" stroke-width="2" opacity="0.6"/>
+          <path d="M 45 75 C 43 79 40 82 38 85" 
+                stroke="#7a6545" stroke-width="1.5" opacity="0.5"/>
+          <path d="M 55 75 C 57 79 60 82 62 85" 
+                stroke="#7a6545" stroke-width="1.5" opacity="0.5"/>
         </svg>
-        <h3>Fundiert</h3>
-        <p>Wir analysieren unseren Boden regelmässig mit zertifizierten Bodenmikrobiologen auf Bakterien, Pilze und weiteres Bodenleben – für messbar gesündere Erde und nährstoffreicheres Gemüse.</p>
+        <h3>Wissenschaftlich fundiert</h3>
+        <p>Wir analysieren unseren Boden regelmässig mit zertifizierten Bodenmikrobiologen auf Bakterien, Pilze und weiteres Bodenleben, für messbar gesündere Erde und nährstoffreicheres Gemüse.</p>
       </div>
       <div class="werte-item">
         <svg class="icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <!-- Handgezeichneter Sprössling -->
-          <!-- Boden -->
-          <ellipse cx="50" cy="72" rx="22" ry="8" 
-                   stroke="#7a6545" stroke-width="1.8" fill="#9a8968" class="icon-fill"/>
-          <path d="M 30 72 C 35 70 42 69 50 69 C 58 69 65 70 70 72" 
-                stroke="#8b6f47" stroke-width="1.5" opacity="0.6"/>
-          <!-- Hauptstängel -->
-          <path d="M 50 69 C 49 62 48 54 48 46 C 48 38 48 30 49 25" 
-                stroke="#6b8e4e" stroke-width="2.5"/>
-          <!-- Linke Blätter -->
-          <ellipse cx="42" cy="48" rx="5" ry="9" 
-                   stroke="#5d9970" stroke-width="2" fill="#7bc491" class="icon-fill" transform="rotate(-30 42 48)"/>
-          <path d="M 48 50 C 46 49 44 48 42 48" stroke="#5d9970" stroke-width="1.8"/>
-          <ellipse cx="40" cy="38" rx="4.5" ry="8" 
-                   stroke="#6ba87a" stroke-width="2" fill="#8dd4a7" class="icon-fill" transform="rotate(-35 40 38)"/>
-          <path d="M 48 40 C 46 39 43 38 40 38" stroke="#6ba87a" stroke-width="1.8"/>
-          <!-- Rechte Blätter -->
-          <ellipse cx="58" cy="45" rx="5" ry="9" 
-                   stroke="#4a7c59" stroke-width="2" fill="#6ba87a" class="icon-fill" transform="rotate(30 58 45)"/>
-          <path d="M 48 47 C 52 46 56 45 58 45" stroke="#4a7c59" stroke-width="1.8"/>
-          <ellipse cx="60" cy="35" rx="4.5" ry="8" 
-                   stroke="#5d9970" stroke-width="2" fill="#7bc491" class="icon-fill" transform="rotate(35 60 35)"/>
-          <path d="M 48 37 C 52 36 57 35 60 35" stroke="#5d9970" stroke-width="1.8"/>
-          <!-- Obere Blätter -->
-          <ellipse cx="45" cy="28" rx="4" ry="7" 
-                   stroke="#7bc491" stroke-width="2" fill="#8dd4a7" class="icon-fill" transform="rotate(-20 45 28)"/>
-          <ellipse cx="54" cy="27" rx="4" ry="7" 
-                   stroke="#7bc491" stroke-width="2" fill="#8dd4a7" class="icon-fill" transform="rotate(20 54 27)"/>
-          <path d="M 49 30 C 47 29 46 28 45 28" stroke="#7bc491" stroke-width="1.5"/>
-          <path d="M 49 30 C 51 29 53 28 54 27" stroke="#7bc491" stroke-width="1.5"/>
-          <!-- Adern -->
-          <path d="M 42 44 C 42 46 43 48 43 50" stroke="#5d9970" stroke-width="0.8" opacity="0.5"/>
-          <path d="M 58 41 C 58 43 57 45 57 47" stroke="#4a7c59" stroke-width="0.8" opacity="0.5"/>
+          <!-- Handgezeichneter Kreislauf (Kompost -> Pflanze -> Boden) -->
+          <circle cx="50" cy="50" r="32" 
+                  stroke="#5d9970" stroke-width="2.5" fill="none" stroke-dasharray="5,3"/>
+          <!-- Pfeile im Kreislauf -->
+          <path d="M 75 35 L 78 32 L 75 29" 
+                stroke="#5d9970" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M 65 75 L 68 78 L 71 75" 
+                stroke="#5d9970" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M 25 65 L 22 68 L 25 71" 
+                stroke="#5d9970" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <!-- Pflanze oben -->
+          <path d="M 50 20 C 50 15 48 12 50 10" 
+                stroke="#5d9970" stroke-width="2"/>
+          <ellipse cx="48" cy="8" rx="3" ry="5" 
+                   fill="#7bc491" class="icon-fill" stroke="#5d9970" stroke-width="1.5" transform="rotate(-20 48 8)"/>
+          <ellipse cx="52" cy="8" rx="3" ry="5" 
+                   fill="#7bc491" class="icon-fill" stroke="#5d9970" stroke-width="1.5" transform="rotate(20 52 8)"/>
+          <!-- Kompost rechts -->
+          <ellipse cx="75" cy="50" rx="8" ry="10" 
+                   fill="#8b6f47" class="icon-fill" stroke="#6b5a42" stroke-width="2"/>
+          <path d="M 70 48 C 72 50 75 50 77 48" 
+                stroke="#6b5a42" stroke-width="1.2" opacity="0.6"/>
+          <path d="M 71 53 C 73 55 76 55 78 53" 
+                stroke="#6b5a42" stroke-width="1.2" opacity="0.6"/>
+          <!-- Boden links -->
+          <rect x="17" y="55" width="16" height="10" 
+                fill="#8b6f47" class="icon-fill" stroke="#6b5a42" stroke-width="2" rx="1"/>
+          <path d="M 19 58 L 31 58" 
+                stroke="#6b5a42" stroke-width="1" opacity="0.6"/>
+          <path d="M 19 62 L 31 62" 
+                stroke="#6b5a42" stroke-width="1" opacity="0.6"/>
         </svg>
         <h3>Regenerativ</h3>
-        <p>Wir bauen Bodengesundheit auf, statt sie auszubeuten. Im Gegensatz zu grossen Betrieben mit Traktoren und Monokulturen setzen wir auf Vielfalt, Fruchtfolgen und schonende Bodenbearbeitung.</p>
+        <p>Wir bauen Bodengesundheit auf, statt sie auszubeuten. Mit Kompost, Mulch und lebendigen Mikroorganismen wird unser Boden jedes Jahr fruchtbarer.</p>
       </div>
       <div class="werte-item">
         <svg class="icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <!-- Handgezeichnete Pflanze mit Blättern -->
-          <!-- Boden -->
-          <ellipse cx="50" cy="72" rx="18" ry="7" 
-                   stroke="#5d4a3a" stroke-width="1.8" fill="#9a8968" class="icon-fill"/>
-          <path d="M 35 72 C 40 70 45 69 50 69 C 55 69 60 70 65 72" 
-                stroke="#7a6545" stroke-width="1.3"/>
-          <!-- Hauptstängel -->
-          <path d="M 50 69 C 50 62 49 54 49 46 C 49 38 49 30 50 25" 
-                stroke="#6b8e4e" stroke-width="2.2"/>
-          <!-- Linke Blätter -->
-          <ellipse cx="40" cy="50" rx="6" ry="10" 
-                   stroke="#5d9970" stroke-width="2" fill="#7bc491" class="icon-fill" transform="rotate(-30 40 50)"/>
-          <path d="M 49 52 C 46 51 43 50 40 50" stroke="#5d9970" stroke-width="1.5"/>
-          <ellipse cx="38" cy="40" rx="5" ry="9" 
-                   stroke="#6ba87a" stroke-width="2" fill="#8dd4a7" class="icon-fill" transform="rotate(-35 38 40)"/>
-          <path d="M 48 40 C 46 39 43 38 40 38" stroke="#6ba87a" stroke-width="1.8"/>
-          <!-- Rechte Blätter -->
-          <ellipse cx="58" cy="45" rx="5" ry="9" 
-                   stroke="#4a7c59" stroke-width="2" fill="#6ba87a" class="icon-fill" transform="rotate(30 58 45)"/>
-          <path d="M 48 47 C 52 46 56 45 58 45" stroke="#4a7c59" stroke-width="1.8"/>
-          <ellipse cx="60" cy="35" rx="4.5" ry="8" 
-                   stroke="#5d9970" stroke-width="2" fill="#7bc491" class="icon-fill" transform="rotate(35 60 35)"/>
-          <path d="M 48 37 C 52 36 57 35 60 35" stroke="#5d9970" stroke-width="1.8"/>
-          <!-- Obere Blätter -->
-          <ellipse cx="45" cy="28" rx="4" ry="7" 
-                   stroke="#7bc491" stroke-width="2" fill="#8dd4a7" class="icon-fill" transform="rotate(-20 45 28)"/>
-          <ellipse cx="54" cy="27" rx="4" ry="7" 
-                   stroke="#7bc491" stroke-width="2" fill="#8dd4a7" class="icon-fill" transform="rotate(20 54 27)"/>
-          <path d="M 49 30 C 47 29 46 28 45 28" stroke="#7bc491" stroke-width="1.5"/>
-          <path d="M 49 30 C 51 29 53 28 54 27" stroke="#7bc491" stroke-width="1.5"/>
-          <!-- Adern -->
-          <path d="M 42 44 C 42 46 43 48 43 50" stroke="#5d9970" stroke-width="0.8" opacity="0.5"/>
-          <path d="M 58 41 C 58 43 57 45 57 47" stroke="#4a7c59" stroke-width="0.8" opacity="0.5"/>
+          <!-- Handgezeichnete Karte mit Pin -->
+          <path d="M 30 35 C 30 25 35 20 50 20 C 65 20 70 25 70 35 C 70 50 50 70 50 70 C 50 70 30 50 30 35 Z" 
+                stroke="#c44536" stroke-width="2.5" fill="#e6594a" class="icon-fill"/>
+          <circle cx="50" cy="35" r="8" 
+                  fill="#f7f5f0" stroke="#c44536" stroke-width="2"/>
+          <!-- Umgebende Karte -->
+          <path d="M 20 80 L 80 80 L 75 65 L 25 65 Z" 
+                stroke="#6b5a42" stroke-width="2" fill="#f9c995" class="icon-fill" opacity="0.3"/>
+          <path d="M 30 72 L 35 72" stroke="#8b7355" stroke-width="1.5" opacity="0.5"/>
+          <path d="M 40 72 L 48 72" stroke="#8b7355" stroke-width="1.5" opacity="0.5"/>
+          <path d="M 52 72 L 60 72" stroke="#8b7355" stroke-width="1.5" opacity="0.5"/>
+          <path d="M 65 72 L 70 72" stroke="#8b7355" stroke-width="1.5" opacity="0.5"/>
         </svg>
-        <h3>Regional</h3>
-        <p>Null Kilometer vom Beet zu Ihrem Teller. Geerntet wird erst, wenn Sie bestellen – direkt aus der Kapelle in Ihre Küche.</p>
+        <h3>Hyperlokal</h3>
+        <p>Null Kilometer Transportweg für maximale Frische. Geerntet wird erst, wenn Sie bestellen, direkt aus der Kapelle in Ihre Küche.</p>
       </div>
       <div class="werte-item">
         <svg class="icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <!-- Handgezeichnetes Herz -->
-          <path d="M 50 70 C 48 68 42 62 38 56 C 34 50 30 44 30 38 C 30 32 33 28 38 28 C 42 28 46 31 50 35 C 54 31 58 28 62 28 C 67 28 70 32 70 38 C 70 44 66 50 62 56 C 58 62 52 68 50 70 Z" 
-                stroke="#d66982" stroke-width="2.2" fill="#f29ead" class="icon-fill"/>
-          <!-- Innere Highlights -->
-          <path d="M 50 35 C 54 32 57 30 60 30 C 65 30 67 33 67 38 C 67 42 64 47 61 52 C 58 56 54 62 50 66 C 50 62 50 55 50 48 C 50 42 50 38 50 35" 
-                fill="#f8b4c3" class="icon-fill" stroke="none"/>
-          <!-- Glanzlichter -->
-          <ellipse cx="42" cy="38" rx="4" ry="6" 
-                   fill="#fef3f3" class="icon-fill" transform="rotate(-25 42 38)"/>
-          <ellipse cx="58" cy="36" rx="3" ry="5" 
-                   fill="#fef3f3" class="icon-fill" transform="rotate(20 58 36)"/>
-          <!-- Kleine Akzentlinien -->
-          <path d="M 35 42 C 36 45 38 48 40 51" 
-                stroke="#e8789c" stroke-width="1.2" opacity="0.6"/>
-          <path d="M 65 42 C 64 45 62 48 60 51" 
-                stroke="#e8789c" stroke-width="1.2" opacity="0.6"/>
-          <path d="M 45 58 C 47 61 48 64 50 66" 
-                stroke="#e8789c" stroke-width="1.2" opacity="0.6"/>
-          <path d="M 55 58 C 53 61 52 64 50 66" 
-                stroke="#e8789c" stroke-width="1.2" opacity="0.6"/>
+          <!-- Handschlag -->
+          <path d="M 25 55 L 35 45 L 40 50 L 38 52 L 42 56 L 40 58 L 44 62 L 42 64 L 46 68 L 40 74 L 32 66 L 25 73 L 20 68 Z" 
+                stroke="#5d9970" stroke-width="2" fill="#7bc491" class="icon-fill"/>
+          <path d="M 75 55 L 65 45 L 60 50 L 62 52 L 58 56 L 60 58 L 56 62 L 58 64 L 54 68 L 60 74 L 68 66 L 75 73 L 80 68 Z" 
+                stroke="#5d9970" stroke-width="2" fill="#7bc491" class="icon-fill"/>
+          <!-- Verbindung in der Mitte -->
+          <ellipse cx="50" cy="60" rx="8" ry="6" 
+                   fill="#8dd4a7" class="icon-fill" stroke="#5d9970" stroke-width="2"/>
+          <!-- Herz als Symbol für Verbindung -->
+          <path d="M 50 58 C 48 56 45 56 44 58 C 43 60 44 62 50 66 C 56 62 57 60 56 58 C 55 56 52 56 50 58 Z" 
+                fill="#e6594a" opacity="0.6"/>
         </svg>
         <h3>Direkt & persönlich</h3>
-        <p>Kein Zwischenhandel, keine Anonymität. Sie kennen unsere Gärtner und wir kennen unsere Kunden – so entsteht Vertrauen und echte Verbindung.</p>
+        <p>Kein Zwischenhandel, keine Anonymität. Sie kennen unsere Gärtner und wir kennen unsere Kunden, so entsteht Vertrauen und echte Verbindung.</p>
       </div>
     </div>
   </section>
@@ -1485,8 +1344,8 @@
   <section id="kontakt" class="kontakt">
     <div class="kontakt-content">
       <h2>Lassen Sie uns<br><span>ins Gespräch kommen</span></h2>
-      <p>Interessiert an frischem Spitzengemüse aus der Region? Restaurantbesitzer, Feinschmecker oder einfach neugierig – wir freuen uns auf Ihre Nachricht.</p>
-      <a href="/cdn-cgi/l/email-protection#80e8e1ececefc0ebe1f0e5ecece5eee7e1f2f4e5eeaee3e8" class="kontakt-email"><span class="__cf_email__" data-cfemail="d3bbb2bfbfbc93b8b2a3b6bfbfb6bdb4b2a1a7b6bdfdb0bb">[email&#160;protected]</span></a>
+      <p>Interessiert an frischem Spitzengemüse aus der Region? Restaurantbesitzer, Feinschmecker oder einfach neugierig? Wir freuen uns auf Ihre Nachricht.</p>
+      <a href="mailto:hallo@kapellengarten.ch" class="kontakt-email">hallo@kapellengarten.ch</a>
       <p class="kontakt-ort">📍 Olten, Schweiz</p>
     </div>
   </section>
@@ -1494,26 +1353,18 @@
   <!-- Footer -->
   <footer>
     <div class="logo">Kapellengarten</div>
-    <p>© 2024 Kapellengarten. Alle Rechte vorbehalten.</p>
+    <p>© 2025 · Regionales Spitzengemüse aus Olten</p>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
     function toggleMenu() {
-      const hamburger = document.querySelector('.hamburger');
-      const navLinks = document.querySelector('.nav-links');
-      hamburger.classList.toggle('active');
-      navLinks.classList.toggle('active');
+      document.querySelector('.nav-links').classList.toggle('active');
     }
     
     function closeMenu() {
-      const hamburger = document.querySelector('.hamburger');
-      const navLinks = document.querySelector('.nav-links');
-      hamburger.classList.remove('active');
-      navLinks.classList.remove('active');
+      document.querySelector('.nav-links').classList.remove('active');
     }
-    
-    // Close menu when clicking outside
-    document.addEventListener('click', function(event) {
-      const nav = document.querySelector('.nav');
-      const hamburger = document.querySelector('.hamburger');
-      const navLinks = document.que
+  </script>
+
+</body>
+</html>
