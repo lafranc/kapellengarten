@@ -249,18 +249,19 @@
     .kiste-step p { font-family:'DM Sans',sans-serif; font-size:.85rem; color:#5a6a5a; line-height:1.6; margin:0; }
     .kiste-seasons-title { font-size:1.9rem; font-weight:400; margin-bottom:.5rem; }
     .kiste-seasons-sub { font-family:'DM Sans',sans-serif; font-size:.95rem; color:#5a6a5a; margin-bottom:1.8rem; }
-    .kiste-seasons { display:grid; grid-template-columns:1.6fr 1fr 1fr; gap:1.5rem; margin-bottom:3.5rem; }
-    .kiste-season-featured { grid-row: span 1; }
-    .kiste-photo { width:100%; height:220px; object-fit:cover; object-position:center 40%; display:block; }
-    .kiste-season { background:rgba(255,255,255,.7); border-radius:8px; overflow:hidden; }
-    .kiste-season-header { padding:1.2rem 1.5rem; display:flex; flex-direction:column; gap:.2rem; }
-    .kiste-season-header.fruehling { background:rgba(122,158,126,.2); border-bottom:3px solid #7a9e7e; }
-    .kiste-season-header.sommer    { background:rgba(229,151,54,.14); border-bottom:3px solid #c47d2a; }
-    .kiste-season-header.herbst    { background:rgba(139,115,85,.15); border-bottom:3px solid #8b7355; }
-    .kiste-season-emoji { font-size:1.5rem; }
-    .kiste-season-name { font-size:1.3rem; font-weight:400; color:#2d3a2d; }
-    .kiste-season-month { font-family:'DM Sans',sans-serif; font-size:.75rem; color:#5a6a5a; letter-spacing:.04em; }
-    .kiste-list { list-style:none; padding:1.2rem 1.5rem; display:flex; flex-direction:column; gap:.55rem; }
+    .kiste-seasons { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-bottom:3.5rem; }
+    .kiste-season { background:#fff; border-radius:10px; overflow:hidden; box-shadow:0 2px 12px rgba(45,58,45,.08); transition:transform .2s ease, box-shadow .2s ease; }
+    .kiste-season:hover { transform:translateY(-4px); box-shadow:0 8px 24px rgba(45,58,45,.13); }
+    .kiste-photo-wrap { position:relative; overflow:hidden; }
+    .kiste-photo { width:100%; height:220px; object-fit:cover; object-position:center 40%; display:block; transition:transform .4s ease; }
+    .kiste-season:hover .kiste-photo { transform:scale(1.04); }
+    .kiste-photo-label { position:absolute; bottom:0; left:0; right:0; padding:.9rem 1.2rem; display:flex; align-items:center; gap:.6rem; }
+    .kiste-photo-label.fruehling { background:linear-gradient(to top, rgba(74,103,65,.88) 0%, transparent 100%); }
+    .kiste-photo-label.sommer    { background:linear-gradient(to top, rgba(139,89,35,.88) 0%, transparent 100%); }
+    .kiste-photo-label.herbst    { background:linear-gradient(to top, rgba(100,75,50,.88) 0%, transparent 100%); }
+    .kiste-photo-label .kiste-season-emoji { font-size:1.3rem; }
+    .kiste-photo-label .kiste-season-name { font-family:'Cormorant Garamond',serif; font-size:1.4rem; color:#f7f5f0; font-weight:400; }
+    .kiste-photo-label .kiste-season-month { font-family:'DM Sans',sans-serif; font-size:.72rem; color:rgba(247,245,240,.75); margin-left:auto; letter-spacing:.04em; }    .kiste-list { list-style:none; padding:1.2rem 1.5rem 1.4rem; display:flex; flex-direction:column; gap:.55rem; }
     .kiste-list li { font-family:'DM Sans',sans-serif; font-size:.9rem; color:#3a4a3a; padding-left:1.2rem; position:relative; }
     .kiste-list li::before { content:'·'; position:absolute; left:0; color:#4a6741; font-size:1.2rem; line-height:1; top:-.05rem; }
     .kiste-abholung { display:grid; grid-template-columns:1fr auto; gap:2.5rem; align-items:center; background:rgba(255,255,255,.65); border-radius:8px; padding:2rem 2.5rem; }
@@ -520,27 +521,32 @@
       <p class="kiste-seasons-sub">Die Inhalte wechseln mit der Jahreszeit — hier ein paar typische Beispiele:</p>
 
       <div class="kiste-seasons">
-        <div class="kiste-season kiste-season-featured">
-          <div class="kiste-season-header fruehling">
-            <span class="kiste-season-emoji">🌱</span>
-            <span class="kiste-season-name">Frühling</span>
-            <span class="kiste-season-month">April – Mai</span>
+        <div class="kiste-season">
+          <div class="kiste-photo-wrap">
+            <img src="fruhlingsset.jpg" alt="Frühlingskiste – Salat, Radieschen, Kräuter" class="kiste-photo">
+            <div class="kiste-photo-label fruehling">
+              <span class="kiste-season-emoji">🌱</span>
+              <span class="kiste-season-name">Frühling</span>
+              <span class="kiste-season-month">April – Mai</span>
+            </div>
           </div>
-          <img src="fruhlingsset.jpg" alt="Frühlingskiste Kapellengarten – Salat, Radieschen, Kräuter" class="kiste-photo">
           <ul class="kiste-list">
+            <li>Kopfsalat & Jungsalate</li>
             <li>Spinat</li>
             <li>Radieschen</li>
             <li>Frühlingszwiebeln</li>
-            <li>Kopfsalat</li>
             <li>Mairübchen</li>
             <li>Petersilie</li>
           </ul>
         </div>
         <div class="kiste-season">
-          <div class="kiste-season-header sommer">
-            <span class="kiste-season-emoji">☀️</span>
-            <span class="kiste-season-name">Sommer</span>
-            <span class="kiste-season-month">Juni – August</span>
+          <div class="kiste-photo-wrap">
+            <img src="sommerset.jpg" alt="Sommerkiste – Tomaten, Gurken, Zucchetti" class="kiste-photo">
+            <div class="kiste-photo-label sommer">
+              <span class="kiste-season-emoji">☀️</span>
+              <span class="kiste-season-name">Sommer</span>
+              <span class="kiste-season-month">Juni – August</span>
+            </div>
           </div>
           <ul class="kiste-list">
             <li>Tomaten</li>
@@ -552,10 +558,13 @@
           </ul>
         </div>
         <div class="kiste-season">
-          <div class="kiste-season-header herbst">
-            <span class="kiste-season-emoji">🍂</span>
-            <span class="kiste-season-name">Herbst</span>
-            <span class="kiste-season-month">September – Oktober</span>
+          <div class="kiste-photo-wrap">
+            <img src="herbstset.jpg" alt="Herbstkiste – Randen, Lauch, Asiasalate" class="kiste-photo">
+            <div class="kiste-photo-label herbst">
+              <span class="kiste-season-emoji">🍂</span>
+              <span class="kiste-season-name">Herbst</span>
+              <span class="kiste-season-month">September – Oktober</span>
+            </div>
           </div>
           <ul class="kiste-list">
             <li>Randen</li>
