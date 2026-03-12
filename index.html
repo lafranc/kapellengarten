@@ -3,925 +3,360 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kapellengarten · Spitzengemüse aus Olten</title>
+  <title>Kapellengarten | Frisches Gemüse aus der Region Olten</title>
+  <meta name="description" content="Kapellengarten – Frisches Gemüse aus der Region Olten. Wöchentliche Gemüsekiste, samstags abholbar bei der Kapelle in Wangen bei Olten.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@300;400;500;600&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    :root {
-      --primär: #4a6741;
-      --erde: #8b7355;
-      --hell: #f7f5f0;
-      --text: #2d3a2d;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     
     body {
-      font-family: 'Cormorant', serif;
-      color: var(--text);
-      background: var(--hell);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      background-color: #f7f5f0;
+      color: #2d3a2d;
       line-height: 1.6;
     }
     
-    /* Navigation */
     .nav {
       position: fixed;
-      top: 0;
-      width: 100%;
-      padding: 1.5rem 3rem;
+      top: 0; left: 0; right: 0;
+      padding: 1.5rem 4rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      z-index: 100;
       background: rgba(247, 245, 240, 0.95);
       backdrop-filter: blur(10px);
-      z-index: 1000;
-      border-bottom: 1px solid rgba(74, 103, 65, 0.1);
     }
+    .nav-logo { font-size: 1.5rem; font-weight: 600; color: #2d3a2d; text-decoration: none; }
+    .nav-links { display: flex; gap: 2.5rem; align-items: center; }
+    .nav-links a { color: #4a5a4a; text-decoration: none; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase; transition: color 0.3s; }
+    .nav-links a:hover { color: #4a6741; }
+
+    /* NEU */
+    .nav-cta { background: #4a6741 !important; color: #f7f5f0 !important; padding: 0.55rem 1.3rem !important; border-radius: 2rem; }
+    .nav-cta:hover { background: #2d3a2d !important; }
+
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 101; }
+    .hamburger span { width: 25px; height: 2px; background: #2d3a2d; transition: all 0.3s; }
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(7px, 7px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
     
-    .nav-logo {
-      font-size: 1.5rem;
-      font-weight: 500;
-      color: var(--primär);
-      text-decoration: none;
-      letter-spacing: 0.05em;
-    }
-    
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
-    }
-    
-    .nav-links a {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.9rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--erde);
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    
-    .nav-links a:hover {
-      color: var(--primär);
-    }
-    
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      gap: 5px;
-    }
-    
-    .hamburger span {
-      width: 25px;
-      height: 2px;
-      background: var(--primär);
-      transition: 0.3s;
-    }
-    
-    /* Schwebende Kreise */
-    @keyframes schweben {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-15px) rotate(3deg); }
-    }
-    
-    @keyframes schweben-gemuese {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-20px) rotate(5deg); }
-    }
-    
-    @keyframes einblenden {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
-    .einblenden {
-      animation: einblenden 1s ease forwards;
-    }
-    
+    @keyframes schweben { 0%,100%{transform:translateY(0) rotate(0deg)} 50%{transform:translateY(-15px) rotate(3deg)} }
+    @keyframes schweben-gemuese { 0%,100%{transform:translateY(0px) rotate(0deg)} 50%{transform:translateY(-20px) rotate(5deg)} }
+    @keyframes einblenden { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+    .einblenden { animation: einblenden 1s ease forwards; }
     .einblenden-1 { animation-delay: 0.2s; opacity: 0; }
     .einblenden-2 { animation-delay: 0.4s; opacity: 0; }
     .einblenden-3 { animation-delay: 0.6s; opacity: 0; }
     
-    .schwebender-kreis {
-      position: absolute;
-      border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%;
-      animation: schweben 6s ease-in-out infinite;
-      pointer-events: none;
-    }
-    
-    .kreis-1 {
-      top: 15%;
-      right: 10%;
-      width: 120px;
-      height: 120px;
-      background: linear-gradient(135deg, rgba(74, 103, 65, 0.15) 0%, rgba(74, 103, 65, 0.05) 100%);
-    }
-    
-    .kreis-2 {
-      bottom: 20%;
-      left: 8%;
-      width: 150px;
-      height: 150px;
-      background: linear-gradient(135deg, rgba(139, 115, 85, 0.12) 0%, rgba(139, 115, 85, 0.04) 100%);
-      animation-delay: -2s;
-    }
-    
-    .kreis-3 {
-      top: 50%;
-      right: 25%;
-      width: 90px;
-      height: 90px;
-      background: linear-gradient(135deg, rgba(74, 103, 65, 0.1) 0%, rgba(74, 103, 65, 0.03) 100%);
-      animation-delay: -4s;
-    }
-    
-    .kreis-4 {
-      bottom: 35%;
-      left: 35%;
-      width: 70px;
-      height: 70px;
-      background: linear-gradient(135deg, rgba(139, 115, 85, 0.08) 0%, rgba(139, 115, 85, 0.02) 100%);
-      animation-delay: -1s;
-    }
-    
-    .schwebendes-gemuese {
-      position: absolute;
-      pointer-events: none;
-      animation: schweben-gemuese 5s ease-in-out infinite;
-      filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1));
-    }
-    
-    .gemuese-1 {
-      top: 12%;
-      right: 15%;
-      width: 80px;
-      height: 80px;
-      animation-delay: -1s;
-    }
-    
-    .gemuese-2 {
-      top: 60%;
-      right: 8%;
-      width: 100px;
-      height: 100px;
-      animation-delay: -3s;
-    }
-    
-    .gemuese-3 {
-      top: 25%;
-      left: 12%;
-      width: 70px;
-      height: 70px;
-      animation-delay: -2s;
-    }
-    
-    .gemuese-4 {
-      bottom: 15%;
-      right: 20%;
-      width: 90px;
-      height: 90px;
-      animation-delay: -4s;
-    }
-    
-    .gemuese-5 {
-      top: 45%;
-      left: 18%;
-      width: 75px;
-      height: 75px;
-      animation-delay: -1.5s;
-    }
-    
-    /* HERO */
-    .hero {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-      overflow: hidden;
-    }
-    
-    .hero-content {
-      text-align: center;
-      max-width: 900px;
-      z-index: 2;
-    }
-    
-    .hero-location {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.85rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: #8b7355;
-      margin-bottom: 1.5rem;
-    }
-    
-    .hero h1 {
-      font-size: clamp(3rem, 8vw, 6rem);
-      font-weight: 400;
-      line-height: 1.1;
-      margin-bottom: 1.5rem;
-    }
-    
-    .hero h1 span {
-      font-style: italic;
-      color: var(--primär);
-    }
-    
-    .hero-text {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 1.1rem;
-      color: #5a6a5a;
-      max-width: 600px;
-      margin: 0 auto 2.5rem;
-      line-height: 1.8;
-    }
-    
-    .btn {
-      display: inline-block;
-      padding: 1rem 2.5rem;
-      background: var(--primär);
-      color: white;
-      text-decoration: none;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.9rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
-    
-    .btn:hover {
-      background: #3a5531;
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(74, 103, 65, 0.3);
-    }
-    
-    .section {
-      padding: 6rem 2rem;
-    }
-    
-    .section-label {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.85rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--erde);
-      margin-bottom: 1rem;
-    }
-    
-    /* VISION */
-    .vision-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      max-width: 1200px;
-      margin: 0 auto;
-      align-items: center;
-    }
-    
-    .vision-text h2 {
-      font-size: clamp(2.5rem, 6vw, 4rem);
-      font-weight: 400;
-      margin-bottom: 1.5rem;
-    }
-    
-    .vision-text h2 span {
-      font-style: italic;
-      color: var(--primär);
-    }
-    
-    .vision-text p {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 1.05rem;
-      color: #4a5a4a;
-      line-height: 1.8;
-      margin-bottom: 1.5rem;
-    }
-    
-    .vision-image img {
-      width: 100%;
-      border-radius: 2px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    }
-    
-    /* MARKTSTAND */
-    .marktstand {
-      padding: 6rem 2rem;
-      background: linear-gradient(135deg, #e8e4da 0%, #f7f5f0 100%);
-    }
-    
-    .marktstand-content {
-      max-width: 1000px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    
-    .marktstand h2 {
-      font-size: clamp(2.5rem, 6vw, 4rem);
-      font-weight: 400;
-      margin-bottom: 3rem;
-    }
-    
-    .marktstand h2 span {
-      font-style: italic;
-      color: var(--primär);
-    }
-    
-    .marktstand-image {
-      margin-top: 3rem;
-    }
-    
-    .marktstand-image img {
-      width: 100%;
-      max-width: 900px;
-      border-radius: 2px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    }
-    
-    /* SORTIMENT */
-    .sortiment {
-      padding: 6rem 2rem;
-    }
-    
-    .sortiment-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    
-    .sortiment h2 {
-      font-size: clamp(2.5rem, 6vw, 4rem);
-      font-weight: 400;
-      margin-bottom: 1.5rem;
-    }
-    
-    .sortiment h2 span { font-style: italic; }
-    
-    .sortiment-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-top: 3rem;
-    }
-    
-    .sortiment-item {
-      background: rgba(247, 245, 240, 0.95);
-      padding: 2rem;
-      border-radius: 2px;
-      text-align: left;
-    }
-    
-    .sortiment-item .icon { 
-      width: 100px; 
-      height: 100px; 
-      margin-bottom: 1.5rem;
-      stroke: #3a4a35;
-      fill: none;
-      stroke-width: 1.8;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      opacity: 0.9;
-    }
-    
-    .sortiment-item .icon-fill {
-      opacity: 0.25;
-      stroke: none;
-    }
-    
-    .sortiment-item h3 {
-      font-size: 1.4rem;
-      font-weight: 400;
-      color: #2d3a2d;
-      margin-bottom: 0.5rem;
-    }
-    
-    .sortiment-item p {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.95rem;
-      color: #5a6a5a;
-    }
-    
-    .philosophie {
-      padding: 6rem 2rem;
-      text-align: center;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    
-    .philosophie h2 {
-      font-size: clamp(2.5rem, 6vw, 4rem);
-      font-weight: 400;
-      margin-bottom: 1.5rem;
-    }
-    
-    .philosophie h2 span { font-style: italic; }
-    
-    .philosophie p {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 1.05rem;
-      color: #4a5a4a;
-      line-height: 1.8;
-      max-width: 700px;
-      margin: 0 auto 3rem;
-    }
-    
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-    
-    .stat-number {
-      font-size: 2.5rem;
-      font-weight: 600;
-      color: #4a6741;
-    }
-    
-    .stat-label {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.85rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #8b7355;
-    }
-    
-    /* ÜBER UNS */
-    .ueber-uns-hero {
-      padding: 8rem 2rem 4rem;
-      text-align: center;
-      background: linear-gradient(135deg, #f7f5f0 0%, #e8e4da 100%);
-    }
-    
-    .ueber-uns-hero h2 {
-      font-size: clamp(2.5rem, 6vw, 4rem);
-      font-weight: 400;
-    }
-    
-    .ueber-uns-hero h2 span { font-style: italic; color: #4a6741; }
-    
-    .ueber-uns-content {
-      padding: 4rem 2rem;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    
-    .ueber-uns-section {
-      margin-bottom: 4rem;
-    }
-    
-    .ueber-uns-section h3 {
-      font-size: 2rem;
-      font-weight: 400;
-      margin-bottom: 1.5rem;
-    }
-    
-    .ueber-uns-section h3 span {
-      font-style: italic;
-      color: var(--primär);
-    }
-    
-    .ueber-uns-section p {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 1.05rem;
-      color: #4a5a4a;
-      line-height: 1.8;
-      margin-bottom: 1.5rem;
-    }
-    
-    /* UNSER WEG */
-    .unser-weg {
-      padding: 6rem 2rem;
-      background: #f7f5f0;
-    }
-    
-    .unser-weg-content {
-      max-width: 900px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    
-    .unser-weg h2 {
-      font-size: clamp(2.5rem, 6vw, 4rem);
-      font-weight: 400;
-      margin-bottom: 3rem;
-    }
-    
-    .unser-weg h2 span { font-style: italic; color: #4a6741; }
-    
-    .timeline {
-      margin-top: 3rem;
-      padding-left: 2rem;
-      border-left: 2px solid #8b7355;
-    }
-    
-    .timeline-item {
-      display: flex;
-      gap: 2rem;
-      margin-bottom: 3rem;
-      position: relative;
-    }
-    
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -2.5rem;
-      top: 0.5rem;
-      width: 12px;
-      height: 12px;
-      background: #4a6741;
-      border-radius: 50%;
-      border: 3px solid #f7f5f0;
-    }
-    
-    .timeline-year {
-      font-size: 2rem;
-      font-weight: 500;
-      color: #4a6741;
-      min-width: 100px;
-    }
-    
-    .timeline-title {
-      font-size: 1.3rem;
-      font-weight: 500;
-      color: #2d3a2d;
-      margin-bottom: 0.5rem;
-    }
-    
-    .timeline-desc {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 1rem;
-      color: #5a6a5a;
-      line-height: 1.7;
-      text-align: left;
-    }
-    
-    /* WERTE */
-    .werte {
-      padding: 6rem 2rem;
-      text-align: center;
-    }
-    
-    .werte h2 {
-      font-size: clamp(2.5rem, 6vw, 4rem);
-      font-weight: 400;
-      margin-bottom: 3rem;
-    }
-    
-    .werte h2 span { font-style: italic; color: #4a6741; }
-    
-    .werte-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 3rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    
-    .werte-item {
-      padding: 2rem;
-    }
-    
-    .werte-item .icon {
-      width: 80px;
-      height: 80px;
-      margin: 0 auto 1.5rem;
-      stroke: #3a4a35;
-      fill: none;
-      stroke-width: 1.5;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      opacity: 0.9;
-    }
-    
-    .werte-item .icon-fill {
-      opacity: 0.25;
-      stroke: none;
-    }
-    
-    .werte-item h3 {
-      font-size: 1.5rem;
-      font-weight: 500;
-      color: #2d3a2d;
-      margin-bottom: 1rem;
-    }
-    
-    .werte-item p {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.95rem;
-      color: #5a6a5a;
-      line-height: 1.7;
-    }
-    
-    /* KONTAKT */
-    .kontakt {
-      padding: 6rem 2rem;
-      text-align: center;
-      background: linear-gradient(135deg, #e8e4da 0%, #f7f5f0 100%);
-    }
-    
-    .kontakt-content {
-      max-width: 700px;
-      margin: 0 auto;
-    }
-    
-    .kontakt h2 {
-      font-size: clamp(2.5rem, 6vw, 4rem);
-      font-weight: 400;
-      margin-bottom: 1.5rem;
-    }
-    
-    .kontakt h2 span { font-style: italic; color: #4a6741; }
-    
-    .kontakt p {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 1.05rem;
-      color: #4a5a4a;
-      line-height: 1.8;
-      margin-bottom: 2rem;
-    }
-    
-    .kontakt-email {
-      display: inline-block;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 1.2rem;
-      color: #4a6741;
-      text-decoration: none;
-      padding: 1rem 2rem;
-      border: 2px solid #4a6741;
-      border-radius: 2px;
-      transition: all 0.3s ease;
-      margin-bottom: 1rem;
-    }
-    
-    .kontakt-email:hover {
-      background: #4a6741;
-      color: white;
-    }
-    
-    .kontakt-ort {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.95rem;
-      color: #8b7355;
-      margin-top: 1.5rem;
-    }
-    
-    /* FOOTER */
-    footer {
-      padding: 3rem 2rem;
-      text-align: center;
-      background: #2d3a2d;
-      color: #f7f5f0;
-    }
-    
-    footer .logo {
-      font-size: 1.3rem;
-      font-weight: 500;
-      margin-bottom: 0.5rem;
-      letter-spacing: 0.05em;
-    }
-    
-    footer p {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.85rem;
-      opacity: 0.7;
-    }
-    
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-      .nav {
-        padding: 1rem 1.5rem;
-      }
-      
-      .hamburger {
-        display: flex;
-        z-index: 1001;
-      }
-      
-      .nav-links {
-        position: fixed;
-        right: -100%;
-        top: 0;
-        flex-direction: column;
-        width: 75%;
-        max-width: 300px;
-        height: 100vh;
-        background: rgba(247, 245, 240, 0.98);
-        backdrop-filter: blur(10px);
-        flex-direction: column;
-        padding: 5rem 2rem 2rem;
-        gap: 2rem;
-        transition: right 0.3s ease;
-        box-shadow: -2px 0 10px rgba(0,0,0,0.1);
-      }
-      
-      .nav-links.active {
-        right: 0;
-      }
-      
-      .nav-links a {
-        font-size: 1rem;
-        padding: 0.5rem 0;
-      }
-      
-      .hero {
-        padding: 2rem 1.5rem;
-      }
-      
-      .section {
-        padding: 4rem 1.5rem;
-      }
-      
-      .vision-grid {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-      }
-      
-      .marktstand {
-        padding: 4rem 1.5rem;
-      }
-      
-      .sortiment {
-        padding: 4rem 1.5rem;
-      }
-      
-      .sortiment-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .philosophie {
-        padding: 4rem 1.5rem;
-      }
-      
-      .stats {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-      
-      .ueber-uns-hero {
-        padding: 6rem 1.5rem 3rem;
-      }
-      
-      .ueber-uns-content {
-        padding: 3rem 1.5rem;
-      }
-      
-      .unser-weg {
-        padding: 4rem 1.5rem;
-      }
-      
-      .timeline {
-        padding-left: 1.5rem;
-      }
-      
-      .timeline-item {
-        flex-direction: column;
-        gap: 0.5rem;
-        padding-left: 1.5rem;
-      }
-      
-      .timeline-year {
-        font-size: 1.5rem;
-        min-width: auto;
-      }
-      
-      .werte {
-        padding: 4rem 1.5rem;
-      }
-      
-      .werte-grid {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-      }
-      
-      .kontakt {
-        padding: 4rem 1.5rem;
-      }
-      
-      .schwebender-kreis {
-        opacity: 0.5;
-      }
-      
-      .kreis-1 { width: 80px; height: 80px; }
-      .kreis-2 { width: 100px; height: 100px; }
-      .kreis-3 { width: 60px; height: 60px; }
-      .kreis-4 { width: 50px; height: 50px; }
-      
-      .schwebendes-gemuese {
-        opacity: 0.7;
-      }
-      
-      .gemuese-1 { width: 50px; height: 50px; }
-      .gemuese-2 { width: 60px; height: 60px; }
-      .gemuese-3 { width: 45px; height: 45px; }
-      .gemuese-4 { width: 55px; height: 55px; }
-      .gemuese-5 { width: 50px; height: 50px; }
-    }
-    
-    /* Mobile Phones */
-    @media (max-width: 480px) {
-      .nav {
-        padding: 1rem;
-      }
-      
-      .nav-logo {
-        font-size: 1.2rem;
-      }
-      
-      .nav-links {
-        width: 85%;
-      }
-      
-      .hero {
-        padding: 2rem 1rem;
-      }
-      
-      .hero-location {
-        font-size: 0.75rem;
-      }
-      
-      .btn {
-        padding: 0.875rem 2rem;
-        font-size: 0.85rem;
-      }
-      
-      .section {
-        padding: 3rem 1rem;
-      }
-      
-      .marktstand {
-        padding: 3rem 1rem;
-      }
-      
-      .sortiment {
-        padding: 3rem 1rem;
-      }
-      
-      .sortiment-item .icon {
-        width: 70px;
-        height: 70px;
-      }
-      
-      .philosophie {
-        padding: 3rem 1rem;
-      }
-      
-      .stat-number {
-        font-size: 2rem;
-      }
-      
-      .ueber-uns-hero {
-        padding: 5rem 1rem 2rem;
-      }
-      
-      .ueber-uns-content {
-        padding: 2rem 1rem;
-      }
-      
-      .unser-weg {
-        padding: 3rem 1rem;
-      }
-      
-      .werte {
-        padding: 3rem 1rem;
-      }
-      
-      .werte-item .icon {
-        width: 60px;
-        height: 60px;
-      }
-      
-      .kontakt {
-        padding: 3rem 1rem;
-      }
-      
-      .schwebendes-gemuese {
-        opacity: 0.5;
-      }
-      
-      .gemuese-1 { width: 40px; height: 40px; }
-      .gemuese-2 { width: 45px; height: 45px; }
-      .gemuese-3 { width: 35px; height: 35px; }
-      .gemuese-4 { width: 42px; height: 42px; }
-      .gemuese-5 { width: 38px; height: 38px; }
-      
-      .kontakt-email {
-        font-size: 1rem;
-        word-break: break-word;
-      }
-      
-      footer {
-        padding: 2rem 1rem;
-      }
+    .schwebender-kreis { position:absolute; border-radius:60% 40% 70% 30% / 50% 60% 40% 50%; animation:schweben 6s ease-in-out infinite; pointer-events:none; }
+    .kreis-1 { top:15%; right:10%; width:120px; height:120px; background:linear-gradient(135deg,rgba(74,103,65,.15),rgba(74,103,65,.05)); }
+    .kreis-2 { bottom:20%; left:8%; width:150px; height:150px; background:linear-gradient(135deg,rgba(139,115,85,.12),rgba(139,115,85,.04)); animation-delay:-2s; }
+    .kreis-3 { top:50%; right:25%; width:90px; height:90px; background:linear-gradient(135deg,rgba(74,103,65,.1),rgba(74,103,65,.03)); animation-delay:-4s; }
+    .kreis-4 { bottom:35%; left:35%; width:70px; height:70px; background:linear-gradient(135deg,rgba(139,115,85,.08),rgba(139,115,85,.02)); animation-delay:-1s; }
+    
+    .schwebendes-gemuese { position:absolute; pointer-events:none; animation:schweben-gemuese 5s ease-in-out infinite; filter:drop-shadow(0 5px 15px rgba(0,0,0,.1)); }
+    .gemuese-1 { top:12%; right:15%; width:80px; height:80px; animation-delay:-1s; }
+    .gemuese-2 { top:60%; right:8%; width:100px; height:100px; animation-delay:-3s; }
+    .gemuese-3 { top:25%; left:12%; width:70px; height:70px; animation-delay:-2s; }
+    .gemuese-4 { bottom:15%; right:20%; width:90px; height:90px; animation-delay:-4s; }
+    .gemuese-5 { top:45%; left:18%; width:75px; height:75px; animation-delay:-1.5s; }
+    
+    .hero { position:relative; min-height:100vh; display:flex; align-items:center; justify-content:center; padding:2rem; overflow:hidden; }
+    .hero-content { text-align:center; max-width:900px; z-index:2; }
+    .hero-location { font-family:'DM Sans',sans-serif; font-size:.85rem; letter-spacing:.2em; text-transform:uppercase; color:#8b7355; margin-bottom:1.5rem; }
+    .hero h1 { font-size:clamp(3rem,8vw,6rem); font-weight:400; line-height:1.1; margin-bottom:1.5rem; }
+    .hero h1 span { display:block; font-style:italic; color:#4a6741; }
+    .hero-text { font-family:'DM Sans',sans-serif; font-size:clamp(1rem,2vw,1.2rem); color:#5a6a5a; margin-bottom:2rem; max-width:600px; margin-left:auto; margin-right:auto; }
+
+    /* NEU: Platz-Zähler */
+    .spot-box { display:inline-block; background:rgba(255,255,255,.88); border:2px solid #4a6741; border-radius:12px; padding:1.2rem 2rem; margin-bottom:2rem; min-width:300px; text-align:left; }
+    .spot-label { font-family:'DM Sans',sans-serif; font-size:.7rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:#4a6741; margin-bottom:.5rem; }
+    .spot-row { display:flex; align-items:baseline; gap:.4rem; margin-bottom:.6rem; }
+    .spot-num { font-size:3.2rem; font-weight:600; color:#4a6741; line-height:1; font-family:'Cormorant Garamond',serif; }
+    .spot-of { font-family:'DM Sans',sans-serif; font-size:.95rem; color:#5a6a5a; }
+    .spot-bar { background:#e8e4da; border-radius:6px; height:7px; overflow:hidden; margin-bottom:.5rem; }
+    .spot-fill { height:100%; border-radius:6px; background:linear-gradient(90deg,#4a6741,#7a9e7e); transition:width 1.2s cubic-bezier(.22,1,.36,1); width:0; }
+    .spot-note { font-family:'DM Sans',sans-serif; font-size:.78rem; color:#5a6a5a; }
+    .spot-note strong { color:#2d3a2d; }
+
+    .btn { display:inline-block; padding:1rem 2.5rem; background:#4a6741; color:#f7f5f0; text-decoration:none; font-family:'DM Sans',sans-serif; font-size:.9rem; letter-spacing:.05em; text-transform:uppercase; transition:all .3s ease; border:2px solid #4a6741; cursor:pointer; }
+    .btn:hover { background:transparent; color:#4a6741; }
+    /* NEU */
+    .btn-ghost { display:inline-block; padding:1rem 2rem; background:transparent; color:#4a6741; text-decoration:none; font-family:'DM Sans',sans-serif; font-size:.9rem; letter-spacing:.05em; text-transform:uppercase; border:2px solid #4a6741; transition:all .3s ease; margin-left:1rem; cursor:pointer; }
+    .btn-ghost:hover { background:#4a6741; color:#f7f5f0; }
+    
+    .section { padding:6rem 2rem; max-width:1400px; margin:0 auto; }
+    .section-label { font-family:'DM Sans',sans-serif; font-size:.85rem; letter-spacing:.2em; text-transform:uppercase; color:#8b7355; margin-bottom:1rem; }
+    
+    .vision-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; }
+    .vision-text h2 { font-size:clamp(2.5rem,6vw,4rem); font-weight:400; margin-bottom:1.5rem; line-height:1.2; }
+    .vision-text h2 span { display:block; font-style:italic; color:#4a6741; }
+    .vision-text p { font-family:'DM Sans',sans-serif; font-size:1.05rem; color:#4a5a4a; line-height:1.8; margin-bottom:1.2rem; }
+    .vision-image img { width:100%; border-radius:2px; }
+    
+    .marktstand { padding:6rem 2rem; background:linear-gradient(135deg,#e8e4da 0%,#d4cfc3 100%); }
+    .marktstand-content { max-width:1000px; margin:0 auto; text-align:center; }
+    .marktstand h2 { font-size:clamp(2.5rem,6vw,4rem); font-weight:400; margin-bottom:3rem; }
+    .marktstand h2 span { font-style:italic; color:#4a6741; }
+    .marktstand-image img { width:100%; max-width:900px; border-radius:2px; }
+    
+    .sortiment { padding:6rem 2rem; background:#f7f5f0; }
+    .sortiment-content { max-width:1200px; margin:0 auto; text-align:center; }
+    .sortiment h2 { font-size:clamp(2.5rem,6vw,4rem); font-weight:400; margin-bottom:1.5rem; }
+    .sortiment h2 span { font-style:italic; }
+    .sortiment-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; margin-top:3rem; }
+    .sortiment-item { background:rgba(247,245,240,.95); padding:2rem; border-radius:2px; text-align:left; }
+    .sortiment-item .icon { width:100px; height:100px; margin-bottom:1.5rem; stroke:#3a4a35; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; opacity:.9; }
+    .sortiment-item .icon-fill { opacity:.25; stroke:none; }
+    .sortiment-item h3 { font-size:1.4rem; font-weight:400; color:#2d3a2d; margin-bottom:.5rem; }
+    .sortiment-item p { font-family:'DM Sans',sans-serif; font-size:.95rem; color:#5a6a5a; }
+    
+    .philosophie { padding:6rem 2rem; text-align:center; max-width:900px; margin:0 auto; }
+    .philosophie h2 { font-size:clamp(2.5rem,6vw,4rem); font-weight:400; margin-bottom:1.5rem; }
+    .philosophie h2 span { font-style:italic; }
+    .philosophie p { font-family:'DM Sans',sans-serif; font-size:1.05rem; color:#4a5a4a; line-height:1.8; max-width:700px; margin:0 auto 3rem; }
+    .stats { display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; margin-top:3rem; }
+    .stat-number { font-size:2.5rem; font-weight:600; color:#4a6741; }
+    .stat-label { font-family:'DM Sans',sans-serif; font-size:.85rem; letter-spacing:.1em; text-transform:uppercase; color:#8b7355; }
+    
+    .ueber-uns-hero { padding:8rem 2rem 4rem; text-align:center; background:linear-gradient(135deg,#f7f5f0 0%,#e8e4da 100%); }
+    .ueber-uns-hero h2 { font-size:clamp(2.5rem,6vw,4rem); font-weight:400; }
+    .ueber-uns-hero h2 span { font-style:italic; color:#4a6741; }
+    .ueber-uns-content { padding:4rem 2rem; max-width:900px; margin:0 auto; }
+    .ueber-uns-section { margin-bottom:3rem; }
+    .ueber-uns-section h3 { font-size:1.8rem; font-weight:400; margin-bottom:1rem; }
+    .ueber-uns-section h3 span { font-style:italic; color:#4a6741; }
+    .ueber-uns-section p { font-family:'DM Sans',sans-serif; font-size:1.05rem; color:#4a5a4a; line-height:1.8; margin-bottom:1.2rem; }
+
+    /* Portrait grid */
+    .ueber-uns-portrait-grid { display:grid; grid-template-columns:280px 1fr; gap:3rem; align-items:start; margin-bottom:3rem; }
+    .ueber-uns-portrait-placeholder { background:linear-gradient(135deg,#e8e4da,#d4cfc3); border-radius:8px; aspect-ratio:3/4; display:flex; align-items:center; justify-content:center; text-align:center; overflow:hidden; }
+    .portrait-inner { padding:2rem; }
+    .portrait-icon { font-size:4rem; margin-bottom:1rem; opacity:.5; }
+    .portrait-caption { font-family:'DM Sans',sans-serif; font-size:.85rem; color:#5a6a5a; line-height:1.6; }
+    .portrait-caption span { display:block; font-size:.78rem; color:#8b7355; margin-top:.3rem; }
+    /* If a real photo is supplied later, swap the placeholder: */
+    .ueber-uns-portrait-placeholder img { width:100%; height:100%; object-fit:cover; border-radius:8px; }
+    .ueber-uns-portrait-text h3 { font-size:1.8rem; font-weight:400; margin-bottom:1rem; }
+    .ueber-uns-portrait-text h3 span { font-style:italic; color:#4a6741; }
+    .ueber-uns-portrait-text p { font-family:'DM Sans',sans-serif; font-size:1.05rem; color:#4a5a4a; line-height:1.8; margin-bottom:1.2rem; }
+    
+    .unser-weg { padding:6rem 2rem; background:linear-gradient(135deg,#e8e4da 0%,#d4cfc3 100%); }
+    .unser-weg-content { max-width:900px; margin:0 auto; }
+    .unser-weg h2 { font-size:clamp(2.5rem,6vw,4rem); font-weight:400; text-align:center; margin-bottom:3rem; }
+    .unser-weg h2 span { font-style:italic; color:#4a6741; }
+    .timeline { position:relative; padding-left:2rem; }
+    .timeline::before { content:''; position:absolute; left:0; top:0; bottom:0; width:2px; background:#4a6741; }
+    .timeline-item { position:relative; padding-left:2rem; margin-bottom:2.5rem; display:flex; gap:1.5rem; }
+    .timeline-item::before { content:''; position:absolute; left:-.5rem; top:.5rem; width:12px; height:12px; border-radius:50%; background:#4a6741; }
+    .timeline-year { font-size:2rem; font-weight:600; color:#4a6741; min-width:100px; }
+    .timeline-title { font-size:1.4rem; font-weight:400; margin-bottom:.5rem; }
+    .timeline-desc { font-family:'DM Sans',sans-serif; font-size:.95rem; color:#5a6a5a; line-height:1.7; }
+    
+    .werte { padding:6rem 2rem; background:#f7f5f0; }
+    .werte h2 { font-size:clamp(2.5rem,6vw,4rem); font-weight:400; text-align:center; margin-bottom:3rem; }
+    .werte h2 span { font-style:italic; color:#4a6741; }
+    .werte-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:2rem; max-width:1200px; margin:0 auto; }
+    .werte-item { text-align:center; padding:2rem; }
+    .werte-item .icon { width:70px; height:70px; margin:0 auto 1rem; stroke:#3a4a35; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; opacity:.9; }
+    .werte-item .icon-fill { opacity:.25; stroke:none; }
+    .werte-item h3 { font-size:1.4rem; font-weight:400; margin-bottom:.75rem; }
+    .werte-item p { font-family:'DM Sans',sans-serif; font-size:.95rem; color:#5a6a5a; line-height:1.7; }
+
+    /* ── NEU: ABO-SECTION ── */
+    .abo-section { padding:7rem 2rem; background:#2d3a2d; color:#f7f5f0; }
+    .abo-inner { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start; }
+    .abo-left .section-label { color:#7a9e7e; }
+    .abo-left h2 { font-size:clamp(2.5rem,5vw,3.5rem); font-weight:400; line-height:1.15; margin-bottom:1.2rem; }
+    .abo-left h2 span { font-style:italic; color:#7a9e7e; }
+    .abo-left > p { font-family:'DM Sans',sans-serif; font-size:1rem; color:rgba(247,245,240,.75); line-height:1.8; margin-bottom:1.5rem; }
+    .abo-counter { background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.12); border-radius:10px; padding:1.5rem 2rem; margin-bottom:2rem; }
+    .abo-counter .spot-label { color:#7a9e7e; }
+    .abo-counter .spot-num { color:#f7f5f0; font-size:3rem; }
+    .abo-counter .spot-of { color:rgba(247,245,240,.6); }
+    .abo-counter .spot-bar { background:rgba(255,255,255,.1); }
+    .abo-counter .spot-fill { background:linear-gradient(90deg,#7a9e7e,#c8dbc9); }
+    .abo-counter .spot-note { color:rgba(247,245,240,.6); }
+    .abo-counter .spot-note strong { color:#f7f5f0; }
+    .kiste-chips { display:grid; grid-template-columns:1fr 1fr; gap:.75rem; }
+    .kiste-chip { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); border-radius:8px; padding:.9rem 1rem; font-family:'DM Sans',sans-serif; font-size:.85rem; color:rgba(247,245,240,.8); }
+    .kiste-chip strong { display:block; color:#f7f5f0; margin-bottom:.2rem; }
+    .abo-form { background:#f7f5f0; border-radius:8px; padding:2.5rem; color:#2d3a2d; }
+    .abo-form h3 { font-size:1.8rem; font-weight:400; margin-bottom:.4rem; }
+    .form-sub { font-family:'DM Sans',sans-serif; font-size:.9rem; color:#5a6a5a; margin-bottom:1.8rem; }
+    .form-row { margin-bottom:1rem; }
+    .form-row label { display:block; font-family:'DM Sans',sans-serif; font-size:.72rem; font-weight:500; letter-spacing:.1em; text-transform:uppercase; color:#5a6a5a; margin-bottom:.4rem; }
+    .form-row input, .form-row select { width:100%; padding:.75rem 1rem; border:1.5px solid #d4cfc3; border-radius:4px; font-size:1rem; font-family:'DM Sans',sans-serif; color:#2d3a2d; background:white; outline:none; transition:border-color .2s; }
+    .form-row input:focus, .form-row select:focus { border-color:#4a6741; }
+    .form-2col { display:grid; grid-template-columns:1fr 1fr; gap:.75rem; }
+    .form-note { font-family:'DM Sans',sans-serif; font-size:.75rem; color:#8b7355; margin-top:.75rem; line-height:1.5; }
+    .btn-submit { width:100%; background:#4a6741; color:#f7f5f0; border:none; padding:1rem; border-radius:4px; font-family:'DM Sans',sans-serif; font-size:.9rem; font-weight:500; letter-spacing:.05em; text-transform:uppercase; cursor:pointer; margin-top:1.2rem; transition:background .25s; }
+    .btn-submit:hover { background:#2d3a2d; }
+    .form-success { display:none; text-align:center; padding:2rem 1rem; }
+    .form-success .success-icon { font-size:3rem; margin-bottom:1rem; }
+    .form-success h4 { font-size:1.6rem; font-weight:400; margin-bottom:.5rem; color:#4a6741; }
+    .form-success p { font-family:'DM Sans',sans-serif; font-size:.95rem; color:#5a6a5a; }
+
+    /* ── NEU: FAQ ── */
+    .faq-section { padding:6rem 2rem; background:#f7f5f0; }
+    .faq-inner { max-width:800px; margin:0 auto; }
+    .faq-section h2 { font-size:clamp(2.5rem,5vw,3.5rem); font-weight:400; margin-bottom:3rem; }
+    .faq-section h2 span { font-style:italic; color:#4a6741; }
+    .faq-item { border-bottom:1px solid rgba(0,0,0,.08); }
+    .faq-q { width:100%; background:none; border:none; padding:1.4rem 0; text-align:left; font-family:'Cormorant Garamond',serif; font-size:1.3rem; color:#2d3a2d; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:1rem; }
+    .faq-q:hover { color:#4a6741; }
+    .faq-arrow { font-size:1.4rem; transition:transform .25s; color:#4a6741; flex-shrink:0; }
+    .faq-item.open .faq-arrow { transform:rotate(45deg); }
+    .faq-a { font-family:'DM Sans',sans-serif; font-size:.95rem; color:#4a5a4a; line-height:1.8; max-height:0; overflow:hidden; transition:max-height .35s ease, padding .25s ease; padding-bottom:0; }
+    .faq-item.open .faq-a { max-height:400px; padding-bottom:1.4rem; }
+    .faq-a strong { color:#2d3a2d; }
+
+    /* ── NEU: NEWSLETTER ── */
+    .newsletter-band { background:linear-gradient(135deg,#8b7355 0%,#6b5a42 100%); padding:4rem 2rem; text-align:center; color:#f7f5f0; }
+    .newsletter-band h3 { font-size:2rem; font-weight:400; margin-bottom:.5rem; }
+    .newsletter-band h3 span { font-style:italic; }
+    .newsletter-band p { font-family:'DM Sans',sans-serif; font-size:.95rem; opacity:.8; margin-bottom:1.8rem; }
+    .nl-form { display:flex; gap:.75rem; max-width:440px; margin:0 auto; }
+    .nl-form input { flex:1; padding:.85rem 1.2rem; border:none; border-radius:2rem; font-family:'DM Sans',sans-serif; font-size:.95rem; outline:none; }
+    .nl-form button { background:#2d3a2d; color:#f7f5f0; border:none; padding:.85rem 1.6rem; border-radius:2rem; font-family:'DM Sans',sans-serif; font-size:.85rem; font-weight:500; letter-spacing:.05em; text-transform:uppercase; cursor:pointer; transition:background .2s; white-space:nowrap; }
+    .nl-form button:hover { background:#4a6741; }
+    .nl-note { font-family:'DM Sans',sans-serif; font-size:.75rem; opacity:.5; margin-top:1rem; }
+    
+    .kontakt { padding:6rem 2rem; background:linear-gradient(135deg,#e8e4da 0%,#d4cfc3 100%); text-align:center; }
+    .kontakt-content { max-width:600px; margin:0 auto; }
+    .kontakt h2 { font-size:clamp(2.5rem,6vw,4rem); font-weight:400; margin-bottom:1.5rem; }
+    .kontakt h2 span { font-style:italic; }
+    .kontakt p { font-family:'DM Sans',sans-serif; font-size:1.05rem; color:#4a5a4a; margin-bottom:2rem; }
+    .kontakt-email { font-family:'DM Sans',sans-serif; font-size:1.2rem; color:#4a6741; text-decoration:none; border-bottom:2px solid #4a6741; padding-bottom:.25rem; }
+    .kontakt-ort { font-family:'DM Sans',sans-serif; font-size:.95rem; color:#5a6a5a; margin-top:1.5rem; }
+    
+    footer { padding:2.5rem; background:#2d3a2d; color:#7a8a7a; text-align:center; font-family:'DM Sans',sans-serif; font-size:.85rem; }
+    footer .logo { font-family:'Cormorant Garamond',Georgia,serif; font-size:1.3rem; color:#f7f5f0; margin-bottom:.5rem; }
+
+    /* ── KISTE-SECTION ── */
+    .kiste-section { padding: 6rem 2rem; background: linear-gradient(135deg, #e8e4da 0%, #d4cfc3 100%); }
+    .kiste-section-inner { max-width: 1000px; margin: 0 auto; }
+    .kiste-section h2 { font-size: clamp(2.5rem,6vw,4rem); font-weight:400; margin-bottom:1rem; line-height:1.15; }
+    .kiste-section h2 span { font-style:italic; color:#4a6741; }
+    .kiste-intro { font-family:'DM Sans',sans-serif; font-size:1.05rem; color:#4a5a4a; line-height:1.8; max-width:680px; margin-bottom:3rem; }
+    .kiste-how { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-bottom:3.5rem; }
+    .kiste-step { display:flex; gap:1rem; align-items:flex-start; background:rgba(255,255,255,.65); border-radius:8px; padding:1.4rem; }
+    .kiste-step-num { font-family:'Cormorant Garamond',serif; font-size:2.2rem; font-weight:600; color:#4a6741; line-height:1; flex-shrink:0; min-width:2rem; }
+    .kiste-step strong { display:block; font-family:'DM Sans',sans-serif; font-size:.9rem; font-weight:500; color:#2d3a2d; margin-bottom:.35rem; }
+    .kiste-step p { font-family:'DM Sans',sans-serif; font-size:.85rem; color:#5a6a5a; line-height:1.6; margin:0; }
+    .kiste-seasons-title { font-size:1.9rem; font-weight:400; margin-bottom:.5rem; }
+    .kiste-seasons-sub { font-family:'DM Sans',sans-serif; font-size:.95rem; color:#5a6a5a; margin-bottom:1.8rem; }
+    .kiste-seasons { display:grid; grid-template-columns:1.6fr 1fr 1fr; gap:1.5rem; margin-bottom:3.5rem; }
+    .kiste-season-featured { grid-row: span 1; }
+    .kiste-photo { width:100%; height:220px; object-fit:cover; object-position:center 40%; display:block; }
+    .kiste-season { background:rgba(255,255,255,.7); border-radius:8px; overflow:hidden; }
+    .kiste-season-header { padding:1.2rem 1.5rem; display:flex; flex-direction:column; gap:.2rem; }
+    .kiste-season-header.fruehling { background:rgba(122,158,126,.2); border-bottom:3px solid #7a9e7e; }
+    .kiste-season-header.sommer    { background:rgba(229,151,54,.14); border-bottom:3px solid #c47d2a; }
+    .kiste-season-header.herbst    { background:rgba(139,115,85,.15); border-bottom:3px solid #8b7355; }
+    .kiste-season-emoji { font-size:1.5rem; }
+    .kiste-season-name { font-size:1.3rem; font-weight:400; color:#2d3a2d; }
+    .kiste-season-month { font-family:'DM Sans',sans-serif; font-size:.75rem; color:#5a6a5a; letter-spacing:.04em; }
+    .kiste-list { list-style:none; padding:1.2rem 1.5rem; display:flex; flex-direction:column; gap:.55rem; }
+    .kiste-list li { font-family:'DM Sans',sans-serif; font-size:.9rem; color:#3a4a3a; padding-left:1.2rem; position:relative; }
+    .kiste-list li::before { content:'·'; position:absolute; left:0; color:#4a6741; font-size:1.2rem; line-height:1; top:-.05rem; }
+    .kiste-abholung { display:grid; grid-template-columns:1fr auto; gap:2.5rem; align-items:center; background:rgba(255,255,255,.65); border-radius:8px; padding:2rem 2.5rem; }
+    .kiste-abholung h3 { font-size:1.6rem; font-weight:400; margin-bottom:.75rem; }
+    .kiste-abholung p { font-family:'DM Sans',sans-serif; font-size:.95rem; color:#4a5a4a; line-height:1.8; margin-bottom:.5rem; }
+    .badge-inner { background:#4a6741; color:#f7f5f0; border-radius:10px; padding:1.5rem 2rem; text-align:center; min-width:160px; }
+    .badge-icon { font-size:1.8rem; margin-bottom:.5rem; }
+    .badge-line1 { font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:600; }
+    .badge-line2 { font-family:'DM Sans',sans-serif; font-size:.8rem; opacity:.85; margin-bottom:.6rem; }
+    .badge-line3 { font-family:'DM Sans',sans-serif; font-size:.85rem; font-weight:500; background:rgba(255,255,255,.18); border-radius:2rem; padding:.3rem .8rem; display:inline-block; }
+
+    @media (max-width:1024px) {
+      .nav { padding:1.5rem 2rem; }
+      .vision-grid { gap:3rem; }
+      .sortiment-grid { grid-template-columns:repeat(2,1fr); }
+      .werte-grid { grid-template-columns:repeat(2,1fr); }
+      .stats { grid-template-columns:repeat(3,1fr); }
+    }
+    @media (max-width:768px) {
+      .nav { padding:1rem 1.5rem; }
+      .hamburger { display:flex; }
+      .nav-links { position:fixed; top:0; right:-100%; width:70%; max-width:300px; height:100vh; background:rgba(247,245,240,.98); backdrop-filter:blur(10px); flex-direction:column; padding:5rem 2rem 2rem; gap:2rem; transition:right .3s ease; box-shadow:-2px 0 10px rgba(0,0,0,.1); }
+      .nav-links.active { right:0; }
+      .nav-links a { font-size:1rem; padding:.5rem 0; }
+      .hero { padding:2rem 1.5rem; }
+      .spot-box { min-width:auto; width:100%; max-width:340px; }
+      .section { padding:4rem 1.5rem; }
+      .vision-grid { grid-template-columns:1fr; gap:2.5rem; }
+      .marktstand { padding:4rem 1.5rem; }
+      .sortiment { padding:4rem 1.5rem; }
+      .sortiment-grid { grid-template-columns:1fr; }
+      .philosophie { padding:4rem 1.5rem; }
+      .stats { grid-template-columns:1fr; gap:2rem; }
+      .ueber-uns-hero { padding:6rem 1.5rem 3rem; }
+      .ueber-uns-content { padding:3rem 1.5rem; }
+      .ueber-uns-portrait-grid { grid-template-columns:1fr; gap:2rem; }
+      .ueber-uns-portrait-placeholder { aspect-ratio:4/3; }
+      .unser-weg { padding:4rem 1.5rem; }
+      .timeline { padding-left:1.5rem; }
+      .timeline-item { flex-direction:column; gap:.5rem; padding-left:1.5rem; }
+      .timeline-year { font-size:1.5rem; min-width:auto; }
+      .werte { padding:4rem 1.5rem; }
+      .werte-grid { grid-template-columns:1fr; gap:2.5rem; }
+      .kontakt { padding:4rem 1.5rem; }
+      .schwebender-kreis { opacity:.5; }
+      .kreis-1 { width:80px; height:80px; }
+      .kreis-2 { width:100px; height:100px; }
+      .kreis-3 { width:60px; height:60px; }
+      .kreis-4 { width:50px; height:50px; }
+      .schwebendes-gemuese { opacity:.7; }
+      .gemuese-1 { width:50px; height:50px; }
+      .gemuese-2 { width:60px; height:60px; }
+      .gemuese-3 { width:45px; height:45px; }
+      .gemuese-4 { width:55px; height:55px; }
+      .gemuese-5 { width:50px; height:50px; }
+      /* NEU responsive */
+      .abo-inner { grid-template-columns:1fr; gap:3rem; }
+      .kiste-chips { grid-template-columns:1fr; }
+      .faq-section { padding:4rem 1.5rem; }
+      .nl-form { flex-direction:column; }
+      .form-2col { grid-template-columns:1fr; }
+      .kiste-section { padding:4rem 1.5rem; }
+      .kiste-how { grid-template-columns:1fr; gap:1rem; }
+      .kiste-seasons { grid-template-columns:1fr; }
+      .kiste-abholung { grid-template-columns:1fr; }
+      .badge-inner { display:flex; align-items:center; gap:1rem; text-align:left; min-width:auto; }
+      .badge-icon { font-size:1.4rem; margin-bottom:0; }
+      .badge-line2 { margin-bottom:0; }
+    }
+    @media (max-width:480px) {
+      .nav { padding:1rem; }
+      .nav-logo { font-size:1.2rem; }
+      .nav-links { width:85%; }
+      .hero { padding:2rem 1rem; }
+      .section { padding:3rem 1rem; }
+      .marktstand { padding:3rem 1rem; }
+      .sortiment { padding:3rem 1rem; }
+      .kiste-section { padding:3rem 1rem; }
+      .kiste-step { flex-direction:column; gap:.5rem; }
+      .sortiment-item .icon { width:70px; height:70px; }
+      .philosophie { padding:3rem 1rem; }
+      .stat-number { font-size:2rem; }
+      .ueber-uns-hero { padding:5rem 1rem 2rem; }
+      .ueber-uns-content { padding:2rem 1rem; }
+      .unser-weg { padding:3rem 1rem; }
+      .werte { padding:3rem 1rem; }
+      .werte-item .icon { width:60px; height:60px; }
+      .kontakt { padding:3rem 1rem; }
+      .schwebendes-gemuese { opacity:.5; }
+      .gemuese-1 { width:40px; height:40px; }
+      .gemuese-2 { width:45px; height:45px; }
+      .gemuese-3 { width:35px; height:35px; }
+      .gemuese-4 { width:42px; height:42px; }
+      .gemuese-5 { width:38px; height:38px; }
+      .kontakt-email { font-size:1rem; word-break:break-word; }
+      footer { padding:2rem 1rem; }
     }
   </style>
 </head>
@@ -931,62 +366,63 @@
   <nav class="nav">
     <a href="#" class="nav-logo">Kapellengarten</a>
     <div class="hamburger" onclick="toggleMenu()">
-      <span></span>
-      <span></span>
-      <span></span>
+      <span></span><span></span><span></span>
     </div>
     <div class="nav-links">
-      <a href="#vision" onclick="closeMenu()">Vision</a>
-      <a href="#sortiment" onclick="closeMenu()">Sortiment</a>
-      <a href="#ueber-uns" onclick="closeMenu()">Über uns</a>
+      <a href="#kiste" onclick="closeMenu()">Gemüsekiste</a>
+      <a href="#ueber-uns" onclick="closeMenu()">Über mich</a>
       <a href="#kontakt" onclick="closeMenu()">Kontakt</a>
+      <a href="#abo" onclick="closeMenu()" class="nav-cta">Abo 2026</a><!-- NEU -->
     </div>
   </nav>
 
   <!-- Hero -->
   <section class="hero">
-    <!-- Schwebende Kreise -->
     <div class="schwebender-kreis kreis-1"></div>
     <div class="schwebender-kreis kreis-2"></div>
     <div class="schwebender-kreis kreis-3"></div>
     <div class="schwebender-kreis kreis-4"></div>
     
-    <!-- Schwebendes Gemüse -->
     <div class="schwebendes-gemuese gemuese-1">
       <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
         <!-- Tomate -->
         <circle cx="50" cy="50" r="35" fill="#e6594a" stroke="#c44536" stroke-width="3"/>
         <circle cx="42" cy="38" r="8" fill="#f07167" opacity="0.6"/>
-        <path d="M 38 26 C 39 22 42 21 44 23 C 45 25 44 27 43 28" stroke="#4a7c59" stroke-width="2" fill="#5d9970"/>
-        <path d="M 48 24 C 49 20 51 19 53 21 C 54 23 53 25 52 27" stroke="#4a7c59" stroke-width="2" fill="#5d9970"/>
-        <path d="M 58 26 C 59 22 62 21 64 23 C 65 25 64 27 63 28" stroke="#4a7c59" stroke-width="2" fill="#5d9970"/>
+        <path d="M 40 18 C 42 12 44 8 46 5" stroke="#5d9970" stroke-width="3" fill="none"/>
+        <path d="M 50 16 C 50 10 51 6 52 3" stroke="#5d9970" stroke-width="3" fill="none"/>
+        <path d="M 60 18 C 58 12 57 8 56 5" stroke="#5d9970" stroke-width="3" fill="none"/>
+        <ellipse cx="44" cy="3" rx="5" ry="8" fill="#7bc491" stroke="#5d9970" stroke-width="2" transform="rotate(-15 44 3)"/>
+        <ellipse cx="52" cy="1" rx="4" ry="7" fill="#7bc491" stroke="#5d9970" stroke-width="2"/>
+        <ellipse cx="58" cy="3" rx="5" ry="8" fill="#7bc491" stroke="#5d9970" stroke-width="2" transform="rotate(15 58 3)"/>
       </svg>
     </div>
-    
     <div class="schwebendes-gemuese gemuese-2">
       <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <!-- Karotte -->
-        <path d="M 50 25 C 45 30 42 40 40 55 C 38 70 42 85 50 90 C 58 85 62 70 60 55 C 58 40 55 30 50 25 Z" fill="#f4976c" stroke="#d97a4a" stroke-width="3"/>
-        <path d="M 45 32 C 47 35 48 40 48 45" stroke="#e88557" stroke-width="1.5"/>
-        <path d="M 55 32 C 53 35 52 40 52 45" stroke="#e88557" stroke-width="1.5"/>
-        <path d="M 48 20 C 47 15 48 10 50 8 C 52 10 53 15 52 20" stroke="#5d9970" stroke-width="2" fill="#7bc491"/>
-        <path d="M 44 22 C 42 18 41 14 42 11" stroke="#5d9970" stroke-width="1.5" fill="none"/>
-        <path d="M 56 22 C 58 18 59 14 58 11" stroke="#5d9970" stroke-width="1.5" fill="none"/>
+        <!-- Salat -->
+        <ellipse cx="50" cy="55" rx="28" ry="22" fill="#7dba6e" stroke="#5d9a50" stroke-width="3"/>
+        <ellipse cx="44" cy="44" rx="13" ry="10" fill="#a8d89c" opacity="0.6"/>
+        <path d="M 35 38 C 32 30 30 22 28 15" stroke="#5d9970" stroke-width="2.5" fill="none"/>
+        <ellipse cx="26" cy="13" rx="7" ry="11" fill="#8dd4a7" stroke="#5d9970" stroke-width="2.5" transform="rotate(-15 26 13)"/>
+        <path d="M 50 33 C 50 26 50 20 50 14" stroke="#6b8e4e" stroke-width="2.5"/>
+        <ellipse cx="50" cy="11" rx="7" ry="11" fill="#8dd4a7" stroke="#5d9970" stroke-width="2.5"/>
+        <path d="M 65 38 C 68 30 70 22 72 15" stroke="#5d9970" stroke-width="2.5" fill="none"/>
+        <ellipse cx="74" cy="13" rx="7" ry="11" fill="#8dd4a7" stroke="#5d9970" stroke-width="2.5" transform="rotate(15 74 13)"/>
       </svg>
     </div>
-    
     <div class="schwebendes-gemuese gemuese-3">
       <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <!-- Salat -->
-        <ellipse cx="50" cy="55" rx="32" ry="25" fill="#7bc491" stroke="#5d9970" stroke-width="2.5"/>
-        <path d="M 30 50 C 25 55 23 62 25 68" stroke="#6ba87a" stroke-width="2"/>
-        <path d="M 40 45 C 38 50 38 57 40 63" stroke="#6ba87a" stroke-width="2"/>
-        <path d="M 50 43 C 50 50 50 58 50 65" stroke="#6ba87a" stroke-width="2"/>
-        <path d="M 60 45 C 62 50 62 57 60 63" stroke="#6ba87a" stroke-width="2"/>
-        <path d="M 70 50 C 75 55 77 62 75 68" stroke="#6ba87a" stroke-width="2"/>
+        <!-- Karotte -->
+        <path d="M 48 20 C 50 35 52 55 53 70 C 53 80 52 88 50 92 C 48 88 47 80 47 70 C 48 55 48 35 48 20 Z" fill="#e8822a" stroke="#c06020" stroke-width="2"/>
+        <path d="M 50 18 C 48 10 46 5 44 2" stroke="#5d9970" stroke-width="2.5"/>
+        <ellipse cx="42" cy="0" rx="5" ry="7" fill="#7bc491" stroke="#5d9970" stroke-width="1.8" transform="rotate(-10 42 0)"/>
+        <path d="M 50 18 C 52 10 54 5 56 2" stroke="#4a7c59" stroke-width="2.5"/>
+        <ellipse cx="58" cy="0" rx="5" ry="7" fill="#6ba87a" stroke="#4a7c59" stroke-width="1.8" transform="rotate(10 58 0)"/>
+        <path d="M 50 18 C 50 10 50 5 50 2" stroke="#6ba87a" stroke-width="2"/>
+        <path d="M 38 43 C 38 50 38 58 38 65" stroke="#d4732a" stroke-width="1.5"/>
+        <path d="M 48 43 C 48 50 48 58 48 65" stroke="#6ba87a" stroke-width="1.5"/>
+        <path d="M 62 52 C 60 56 58 62 56 68" stroke="#5d9970" stroke-width="1.5"/>
       </svg>
     </div>
-    
     <div class="schwebendes-gemuese gemuese-4">
       <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
         <!-- Radieschen -->
@@ -995,37 +431,45 @@
         <path d="M 47 23 C 47 16 48 10 50 5" stroke="#5d9970" stroke-width="3" fill="none"/>
         <ellipse cx="47" cy="3" rx="5" ry="8" fill="#7bc491" stroke="#5d9970" stroke-width="2" transform="rotate(-20 47 3)"/>
         <ellipse cx="54" cy="2" rx="5" ry="8" fill="#7bc491" stroke="#5d9970" stroke-width="2" transform="rotate(20 54 2)"/>
+        <path d="M 50 68 C 50 72 49 76 49 80" stroke="#b84a6a" stroke-width="2.5"/>
+        <circle cx="45" cy="55" r="1.5" fill="#b84a6a" opacity="0.5"/>
+        <circle cx="52" cy="48" r="1.5" fill="#b84a6a" opacity="0.5"/>
+        <circle cx="48" cy="62" r="1.5" fill="#b84a6a" opacity="0.5"/>
       </svg>
     </div>
-    
     <div class="schwebendes-gemuese gemuese-5">
       <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
         <!-- Pak Choi -->
-        <path d="M 50 85 C 49 75 46 60 43 42 C 42 30 40 18 39 10 C 38 4 39 0 42 -2" fill="#d4e8dc" stroke="#7bc491" stroke-width="3"/>
-        <path d="M 50 85 C 51 75 54 60 57 42 C 58 30 60 18 61 10 C 62 4 61 0 58 -2" fill="#d4e8dc" stroke="#7bc491" stroke-width="3"/>
+        <path d="M 50 85 C 49 75 46 60 43 42 C 42 30 40 18 39 10 C 38 4 39 0 42 -2 C 45 -4 48 1 48 9 C 48 20 47 35 47 50 C 47 62 49 72 50 78" fill="#d4e8dc" stroke="#7bc491" stroke-width="3"/>
+        <path d="M 50 85 C 51 75 54 60 57 42 C 58 30 60 18 61 10 C 62 4 61 0 58 -2 C 55 -4 52 1 52 9 C 52 20 53 35 53 50 C 53 62 51 72 50 78" fill="#d4e8dc" stroke="#7bc491" stroke-width="3"/>
         <ellipse cx="39" cy="20" rx="11" ry="17" fill="#8dd4a7" stroke="#5d9970" stroke-width="3" transform="rotate(-8 39 20)"/>
+        <path d="M 38 10 C 35 14 33 22 35 30 C 37 37 42 40 46 37 C 48 34 48 26 45 20" stroke="#6ba87a" stroke-width="2.5"/>
         <ellipse cx="61" cy="20" rx="11" ry="17" fill="#8dd4a7" stroke="#5d9970" stroke-width="3" transform="rotate(8 61 20)"/>
+        <path d="M 62 10 C 65 14 67 22 65 30 C 63 37 58 40 54 37 C 52 34 52 26 55 20" stroke="#6ba87a" stroke-width="2.5"/>
       </svg>
     </div>
     
     <div class="hero-content">
       <p class="hero-location">Olten · Schweiz</p>
-      <h1 class="einblenden einblenden-1">Ehrliches Spitzengemüse<br><span>aus der Nachbarschaft</span></h1>
-      <p class="hero-text einblenden einblenden-2">Gemüse mit Geschmack, dank lebendigem Boden. Für Menschen, die den Unterschied schmecken.</p>
-      <a href="#vision" class="btn einblenden einblenden-3">Mehr erfahren</a>
-    </div>
-  </section>
+      <h1 class="einblenden einblenden-1">Frisches Gemüse<br><span>aus der Region Olten</span></h1>
+      <p class="hero-text einblenden einblenden-2">Frisches Gemüse, geerntet kurz bevor du es holst. Samstags direkt bei der Kapelle.</p>
 
-  <!-- Vision -->
-  <section id="vision" class="section">
-    <div class="vision-grid">
-      <div class="vision-text">
-        <p class="section-label">Unsere Vision</p>
-        <h2>Die Kapelle wird<br><span>zum Marktplatz</span></h2>
-        <p>Die historische Kapelle auf unserem Gelände soll zum charmanten Marktstand werden. Ein Ort, an dem regionales Spitzengemüse auf Menschen trifft, die den Unterschied schmecken. Frischer und lokaler geht es nicht.</p>
+      <!-- NEU: Platz-Zähler -->
+      <div class="einblenden einblenden-2" style="display:flex;justify-content:center;margin-bottom:2rem;">
+        <div class="spot-box">
+          <div class="spot-label">🌿 Verfügbare Plätze · Saison 2026</div>
+          <div class="spot-row">
+            <span class="spot-num" id="spotNum1">20</span>
+            <span class="spot-of">von 20 Plätzen frei</span>
+          </div>
+          <div class="spot-bar"><div class="spot-fill" id="spotFill1"></div></div>
+          <div class="spot-note" id="spotNote1"><strong>Gemüsekistenpreis für meine ersten 20 Kunden: CHF 20.–</strong> pro Kiste · 5–7 Kulturen</div>
+        </div>
       </div>
-      <div class="vision-image">
-        <img src="kapelle-aussen.png" alt="Kapellengarten - Aussenansicht mit Blumen">
+
+      <div class="einblenden einblenden-3">
+        <a href="#abo" class="btn">Platz sichern</a><!-- NEU -->
+        <a href="#kiste" class="btn-ghost">Mehr erfahren</a><!-- NEU -->
       </div>
     </div>
   </section>
@@ -1041,159 +485,139 @@
     </div>
   </section>
 
-  <!-- Sortiment -->
-  <section id="sortiment" class="sortiment">
-    <div class="sortiment-content">
-      <p class="section-label">Unser Sortiment</p>
-      <h2>Ausgewählte <span>Raritäten</span></h2>
-      <div class="sortiment-grid">
-        <div class="sortiment-item">
-          <svg class="icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <!-- Farbige handgezeichnete Tomate -->
-            <path d="M 50 30 C 64 30 73 39 74 51 C 74 63 69 73 56 77 C 43 78 29 71 28 56 C 27 43 36 31 50 30 Z" 
-                  stroke="#c44536" stroke-width="2" fill="#e6594a" class="icon-fill"/>
-            <path d="M 51 31 C 62 32 69 38 71 48 C 42 46 32 52 29 55 C 29 45 38 32 51 31" 
-                  fill="#f07167" class="icon-fill" stroke="none"/>
-            <!-- Grüne Blätter oben -->
-            <path d="M 38 29 C 39 25 42 24 44 26 C 45 28 44 30 43 31" 
-                  stroke="#4a7c59" stroke-width="2" fill="#5d9970" class="icon-fill"/>
-            <path d="M 48 27 C 49 23 51 22 53 24 C 54 26 53 28 52 30" 
-                  stroke="#4a7c59" stroke-width="2" fill="#5d9970" class="icon-fill"/>
-            <path d="M 58 29 C 59 25 62 24 64 26 C 65 28 64 30 63 31" 
-                  stroke="#4a7c59" stroke-width="2" fill="#5d9970" class="icon-fill"/>
-            <!-- Stiele -->
-            <path d="M 43 30 C 44 29 45 33 45 37" stroke="#6b8e4e" stroke-width="1.5"/>
-            <path d="M 51 28 C 52 27 52 32 52 36" stroke="#6b8e4e" stroke-width="1.5"/>
-            <path d="M 60 30 C 61 29 60 33 60 37" stroke="#6b8e4e" stroke-width="1.5"/>
-          </svg>
-          <h3>Saisonales Gemüse</h3>
-          <p>Von Tomaten bis Kürbis, alles zur richtigen Zeit</p>
+  <!-- So funktioniert die Kiste -->
+  <section id="kiste" class="kiste-section">
+    <div class="kiste-section-inner">
+      <p class="section-label">So funktioniert die Gemüsekiste</p>
+      <h2>Frisch geerntet,<br><span>bevor du es abholst</span></h2>
+      <p class="kiste-intro">Direkt vom Kapellengarten, Dorfstrasse 192, Wangen bei Olten. Jede Woche warten rund <strong>5–7 verschiedene Gemüsesorten</strong> auf dich — was gerade reif ist, was die Saison hergibt, was ich für dich geerntet habe.</p>
+
+      <div class="kiste-how">
+        <div class="kiste-step">
+          <div class="kiste-step-num">1</div>
+          <div>
+            <strong>Gemüsekistenabo abschliessen</strong>
+            <p>Du meldest dich einmal an und bekommst wöchentlich deine Kiste — von April bis Oktober, rund 26 Wochen.</p>
+          </div>
         </div>
-        <div class="sortiment-item">
-          <svg class="icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <!-- Farbiger handgezeichneter Salat -->
-            <ellipse cx="50" cy="55" rx="32" ry="25" 
-                     stroke="#5d9970" stroke-width="2.5" fill="#7bc491" class="icon-fill"/>
-            <ellipse cx="50" cy="48" rx="22" ry="16" 
-                     fill="#8dd4a7" class="icon-fill" stroke="none"/>
-            <!-- Adern -->
-            <path d="M 30 50 C 25 55 23 62 25 68" stroke="#6ba87a" stroke-width="1.5"/>
-            <path d="M 40 45 C 38 50 38 57 40 63" stroke="#6ba87a" stroke-width="1.5"/>
-            <path d="M 50 43 C 50 50 50 58 50 65" stroke="#6ba87a" stroke-width="1.5"/>
-            <path d="M 60 45 C 62 50 62 57 60 63" stroke="#6ba87a" stroke-width="1.5"/>
-            <path d="M 70 50 C 75 55 77 62 75 68" stroke="#6ba87a" stroke-width="1.5"/>
-          </svg>
-          <h3>Jungblätter</h3>
-          <p>Bunte Mischung aus Pflücksalaten und Kräutern</p>
+        <div class="kiste-step">
+          <div class="kiste-step-num">2</div>
+          <div>
+            <strong>Freitags: Vorschau per Newsletter</strong>
+            <p>Du erfährst jeden Freitag, was in der Kiste ist — damit du die Woche planen und kochen kannst.</p>
+          </div>
         </div>
-        <div class="sortiment-item">
-          <svg class="icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <!-- Handgezeichnete Kräuter -->
-            <g transform="translate(30, 20)">
-              <path d="M 0 50 C 0 35 2 20 5 10" stroke="#5d9970" stroke-width="2.5"/>
-              <ellipse cx="3" cy="8" rx="4" ry="6" fill="#7bc491" class="icon-fill" stroke="#5d9970" stroke-width="1.5" transform="rotate(-20 3 8)"/>
-              <ellipse cx="7" cy="6" rx="4" ry="6" fill="#7bc491" class="icon-fill" stroke="#5d9970" stroke-width="1.5" transform="rotate(15 7 6)"/>
-              <ellipse cx="1" cy="15" rx="3" ry="5" fill="#8dd4a7" class="icon-fill" stroke="#5d9970" stroke-width="1.3" transform="rotate(-30 1 15)"/>
-              <ellipse cx="7" cy="18" rx="3" ry="5" fill="#8dd4a7" class="icon-fill" stroke="#5d9970" stroke-width="1.3" transform="rotate(25 7 18)"/>
-            </g>
-            <g transform="translate(50, 15)">
-              <path d="M 0 55 C 0 40 1 25 3 12" stroke="#6ba87a" stroke-width="2.5"/>
-              <ellipse cx="1" cy="10" rx="5" ry="7" fill="#7bc491" class="icon-fill" stroke="#5d9970" stroke-width="1.5" transform="rotate(-15 1 10)"/>
-              <ellipse cx="6" cy="8" rx="5" ry="7" fill="#7bc491" class="icon-fill" stroke="#5d9970" stroke-width="1.5" transform="rotate(20 6 8)"/>
-              <ellipse cx="0" cy="20" rx="4" ry="6" fill="#8dd4a7" class="icon-fill" stroke="#5d9970" stroke-width="1.3" transform="rotate(-25 0 20)"/>
-              <ellipse cx="6" cy="22" rx="4" ry="6" fill="#8dd4a7" class="icon-fill" stroke="#5d9970" stroke-width="1.3" transform="rotate(30 6 22)"/>
-            </g>
-          </svg>
-          <h3>Frische Kräuter</h3>
-          <p>Von Basilikum bis Koriander, aromatisch und intensiv</p>
-        </div>
-        <div class="sortiment-item">
-          <svg class="icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <!-- Farbige Blumen -->
-            <!-- Blume 1 - links -->
-            <circle cx="38" cy="32" r="6" 
-                    stroke="#f4a460" stroke-width="1.5" fill="#f9c995" class="icon-fill"/>
-            <circle cx="38" cy="32" r="2.5" 
-                    fill="#f4d7a8" class="icon-fill" stroke="none"/>
-            <path d="M 38 40 C 38 50 38 60 38 72" 
-                  stroke="#6b8e4e" stroke-width="2"/>
-            <ellipse cx="33" cy="55" rx="2.5" ry="4" 
-                     stroke="#5d9970" stroke-width="1.3" fill="#7bc491" class="icon-fill" transform="rotate(-25 33 55)"/>
-            <path d="M 38 57 C 36 56 34 55 33 55" stroke="#5d9970" stroke-width="1.2"/>
-            <!-- Blume 2 - mitte -->
-            <circle cx="50" cy="28" r="7" 
-                    stroke="#c44536" stroke-width="1.6" fill="#e6594a" class="icon-fill"/>
-            <circle cx="50" cy="28" r="3.5" 
-                    fill="#f07167" class="icon-fill" stroke="none"/>
-            <path d="M 50 37 C 50 48 50 58 50 72" 
-                  stroke="#6b8e4e" stroke-width="2.2"/>
-            <ellipse cx="56" cy="52" rx="2.5" ry="4" 
-                     stroke="#5d9970" stroke-width="1.3" fill="#7bc491" class="icon-fill" transform="rotate(25 56 52)"/>
-            <path d="M 50 54 C 53 53 55 52 56 52" stroke="#5d9970" stroke-width="1.2"/>
-            <!-- Blume 3 - rechts -->
-            <circle cx="62" cy="35" r="5.5" 
-                    stroke="#9b7cb8" stroke-width="1.5" fill="#b99dd4" class="icon-fill"/>
-            <circle cx="62" cy="35" r="2.5" 
-                    fill="#d0b8e6" class="icon-fill" stroke="none"/>
-            <path d="M 62 42 C 62 52 62 62 62 72" 
-                  stroke="#6b8e4e" stroke-width="1.9"/>
-            <ellipse cx="58" cy="58" rx="2.5" ry="4" 
-                     stroke="#5d9970" stroke-width="1.3" fill="#7bc491" class="icon-fill" transform="rotate(-20 58 58)"/>
-            <path d="M 62 60 C 60 59 59 58 58 58" stroke="#5d9970" stroke-width="1.2"/>
-          </svg>
-          <h3>Schnittblumen</h3>
-          <p>Saisonale Blumen für jeden Anlass, regional und frisch</p>
+        <div class="kiste-step">
+          <div class="kiste-step-num">3</div>
+          <div>
+            <strong>Samstag: Abholen bei der Kapelle</strong>
+            <p>Du kommst samstags vorbei, nimmst deine bereitgestellte Kiste mit — und bringst sie nächste Woche einfach wieder zurück.</p>
+          </div>
         </div>
       </div>
+
+      <h3 class="kiste-seasons-title">Was kommt in die Kiste?</h3>
+      <p class="kiste-seasons-sub">Die Inhalte wechseln mit der Jahreszeit — hier ein paar typische Beispiele:</p>
+
+      <div class="kiste-seasons">
+        <div class="kiste-season kiste-season-featured">
+          <div class="kiste-season-header fruehling">
+            <span class="kiste-season-emoji">🌱</span>
+            <span class="kiste-season-name">Frühling</span>
+            <span class="kiste-season-month">April – Mai</span>
+          </div>
+          <img src="fru_hlings_set.jpg" alt="Frühlingskiste Kapellengarten – Salat, Radieschen, Kräuter" class="kiste-photo">
+          <ul class="kiste-list">
+            <li>Spinat</li>
+            <li>Radieschen</li>
+            <li>Frühlingszwiebeln</li>
+            <li>Kopfsalat</li>
+            <li>Mairübchen</li>
+            <li>Petersilie</li>
+          </ul>
+        </div>
+        <div class="kiste-season">
+          <div class="kiste-season-header sommer">
+            <span class="kiste-season-emoji">☀️</span>
+            <span class="kiste-season-name">Sommer</span>
+            <span class="kiste-season-month">Juni – August</span>
+          </div>
+          <ul class="kiste-list">
+            <li>Tomaten</li>
+            <li>Gurken</li>
+            <li>Zucchetti</li>
+            <li>Kohlrabi</li>
+            <li>Basilikum</li>
+            <li>Karotten</li>
+          </ul>
+        </div>
+        <div class="kiste-season">
+          <div class="kiste-season-header herbst">
+            <span class="kiste-season-emoji">🍂</span>
+            <span class="kiste-season-name">Herbst</span>
+            <span class="kiste-season-month">September – Oktober</span>
+          </div>
+          <ul class="kiste-list">
+            <li>Randen</li>
+            <li>Lauch</li>
+            <li>Mangold</li>
+            <li>Asiasalate</li>
+            <li>Rucola</li>
+            <li>Fenchel</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="kiste-abholung">
+        <div class="kiste-abholung-text">
+          <h3>Abholung</h3>
+          <p>Jeden <strong>Samstag Nachmittag</strong> direkt bei der Kapelle:<br>
+          <strong>Dorfstrasse 192, Wangen bei Olten</strong></p>
+          <p>Deine Kiste liegt bereit — du nimmst sie mit und bringst sie die folgende Woche leer zurück. Falls du mal verhindert bist, einfach kurz melden.</p>
+        </div>
+        <div class="kiste-abholung-badge">
+          <div class="badge-inner">
+            <div class="badge-icon">📍</div>
+            <div class="badge-line1">Dorfstrasse 192</div>
+            <div class="badge-line2">Wangen bei Olten</div>
+            <div class="badge-line3">Sa. Nachmittag</div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- Philosophie -->
-  <section class="philosophie">
-    <p class="section-label">Unsere Philosophie</p>
-    <h2>Wie wir <span>arbeiten</span></h2>
-    <p>Unser Marktgarten nach <strong>Jean-Martin Fortier</strong> arbeitet auf kleiner Fläche mit permanenten Beeten, schonender Bodenbearbeitung und durchdachten Fruchtfolgen. Keine Pestizide, kein Pflügen, keine Bodenverdichtung.</p>
-    <p>Der entscheidende Unterschied: Während konventionelle Betriebe den Boden als totes Substrat behandeln, verstehen wir ihn als lebendiges Ökosystem. Mit der Methode von <strong>Dr. Elaine Ingham</strong> (Soil Food Web) fördern wir gezielt Bakterien, Pilze und Mikroorganismen. Sie machen Nährstoffe für die Pflanzen verfügbar und sorgen für Gemüse mit messbarer Nährstoffdichte und einem Geschmack, der Sie überraschen wird.</p>
-    <div class="stats">
-      <div>
-        <div class="stat-number">100%</div>
-        <div class="stat-label">Regional</div>
-      </div>
-      <div>
-        <div class="stat-number">0 km</div>
-        <div class="stat-label">Transportweg</div>
-      </div>
-      <div>
-        <div class="stat-number">∞</div>
-        <div class="stat-label">Leidenschaft</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Über uns -->
+  <!-- Über mich — persönliche Geschichte Francis -->
   <section id="ueber-uns" class="ueber-uns-hero">
-    <p class="section-label">Über uns</p>
-    <h2>Die Geschichte<br><span>hinter dem Garten</span></h2>
+    <p class="section-label">Wer betreibt den Kapellengarten</p>
+    <h2>Francis<br><span>La Franc</span></h2>
   </section>
 
   <section class="ueber-uns-content">
-    <div class="ueber-uns-section">
-      <h3>Von der <span>Idee</span> zum Beet</h3>
-      <p>Das Projekt Kapellengarten entstand aus der Mission heraus, den Menschen wieder den Geschmack zurückzubringen ins Gemüse, das es eigentlich haben sollte. Ich habe festgestellt, dass heutige Böden leider immer weniger Mikroorganismen beinhalten, genau die, die dem Gemüse die Nährstoffdichte und den Geschmack geben. Gleichzeitig wurde mir klar, dass wir wieder mehr zu regionalen und direkten Kontakten mit den Kunden kommen sollten, statt gross und unpersönlich zu agieren. Ich bin der Meinung, dass dies nicht nur dem Gemüse schadet, sondern auch den Menschen.</p>
-      
-      <p>Die Freihaltezone mit der denkmalgeschützten Kapelle bietet den perfekten Rahmen für dieses Projekt. Ein Ort, der nicht überbaut werden kann und der Landwirtschaft vorbehalten bleibt, ergänzt durch ein historisches Kleinod, das zum Herzstück unseres Direktverkaufs werden soll.</p>
+    <div class="ueber-uns-portrait-grid">
+      <div class="ueber-uns-portrait-placeholder">
+        <div class="portrait-inner">
+          <div class="portrait-icon">🌱</div>
+          <div class="portrait-caption">Francis La Franc<br><span>Kapellengarten, Wangen bei Olten</span></div>
+        </div>
+      </div>
+      <div class="ueber-uns-portrait-text">
+        <h3>Zurück zur <span>Erde</span></h3>
+        <p>Jahre lang war ich Marketingleiter in IT-Firmen — ein Job mit Tempo, Bildschirm und wenig Boden unter den Füssen. Irgendwann wollte ich mehr. Ich orientierte mich neu, studierte Soziale Arbeit und stiess dabei auf ein Thema, das mich nicht mehr losliess: lokale Ernährungssysteme und ihre Rolle in der Gemeinwesenarbeit. Wie viel hängt davon ab, was Menschen essen — und woher es kommt.</p>
+        <p>In dieser Arbeit bin ich zum ersten Mal ernsthaft mit dem Market Gardening in Berührung gekommen. Die Idee, auf kleiner Fläche intensiv und direkt für eine lokale Gemeinschaft anzubauen, hat mich sofort gepackt. Jetzt setze ich das um: mit dem Kapellengarten auf dem Areal rund um die historische Kapelle in Wangen bei Olten — mein eigenes Projekt, von Grund auf.</p>
+      </div>
     </div>
 
     <div class="ueber-uns-section">
-      <h3>Unsere <span>Methode</span></h3>
-      <p>Wir arbeiten nach dem Marktgarten-Prinzip von <strong>Jean-Martin Fortier</strong>: Intensive Handarbeit auf kleiner Fläche, permanente Beete ohne Pflügen, kurze Wege und maximale Effizienz. Im Gegensatz zu grossen Betrieben mit Traktoren und Monokulturen setzen wir auf Vielfalt, Fruchtfolgen und schonende Bodenbearbeitung.</p>
-      <p>Den entscheidenden Unterschied macht die Bodenbiologie: Mit der Methode von <strong>Dr. Elaine Ingham</strong>, einer Pionierin der Bodenmikrobiologie und Begründerin des Soil Food Web Ansatzes, analysieren wir regelmässig das Bodenleben (Bakterien, Pilze, Protozoen und Nematoden). Als ausgebildeter Labortechniker für Bodenmikrobiologie arbeite ich mit zertifizierten Bodenmikrobiologen in der Schweiz zusammen, um die Bodengesundheit kontinuierlich zu optimieren. Das Resultat: Gemüse mit messbarer Nährstoffdichte und einem Geschmack, der den lokalen Markt überraschen wird.</p>
+      <h3>Das <span>Marktgartensystem</span></h3>
+      <p>Im Kapellengarten wenden wir das Marktgartensystem an — eine Methode, die zeigt, dass auf kleiner Fläche intensiv, hochwertig und wirtschaftlich angebaut werden kann. Pioniere wie <strong>Jean-Martin Fortier</strong> («The Market Gardener»), <strong>Eliot Coleman</strong> oder <strong>Charles Dowding</strong> haben dieses System in den letzten Jahrzehnten geprägt und bewiesen: Handarbeit, permanente Beete, schonende Bodenbearbeitung und konsequente Fruchtfolgen führen zu aussergewöhnlicher Qualität.</p>
+      <p>Den entscheidenden Unterschied macht für mich die Bodenbiologie: Als zertifizierter <strong>Soil Food Web Lab Technician</strong> (nach Dr. Elaine Ingham) analysiere ich das Bodenleben regelmässig und fördere es gezielt — für Gemüse mit messbarer Nährstoffdichte und einem Geschmack, der den Unterschied macht.</p>
     </div>
 
     <div class="ueber-uns-section">
       <h3>Die <span>Kapelle</span> als Marktplatz</h3>
-      <p>Die historische Kapelle auf dem Gelände soll zum charmanten Herzstück unseres Direktverkaufs werden. Ein Ort mit Geschichte, an dem regionales Spitzengemüse auf Menschen trifft, die Qualität schätzen.</p>
-      <p>Mit den neuen Wohnungen, die direkt nebenan entstehen, ergibt sich eine natürliche Synergie: Frisches Spitzengemüse für die Nachbarschaft. Regionaler und frischer geht es nicht.</p>
+      <p>Die historische Kapelle auf dem Gelände soll zum charmanten Herzstück des Direktverkaufs werden — ein Ort mit Geschichte, an dem frisches Gemüse auf Menschen trifft, die Qualität schätzen.</p>
     </div>
   </section>
 
@@ -1205,22 +629,22 @@
         <div class="timeline-item">
           <div class="timeline-year">2026</div>
           <div>
-            <div class="timeline-title">Startphase</div>
-            <p class="timeline-desc">Anbau auf 1000 m² Fläche mit Direktverkauf aus der Kapelle. Aufbau und Anreicherung der Bodenbiologie, Messung der Nährstoffdichte im Gemüse. Der Grundstein für Spitzenqualität.</p>
+            <div class="timeline-title">Startphase · 20 Gemüseabos</div>
+            <p class="timeline-desc">Anbau auf 400 m² mit 20 Gemüsekulturen, 20 Erstkunden. Aufbau der Bodenbiologie, wöchentliche Gemüsekiste ab April — abgeholt samstags direkt bei der Kapelle.</p>
           </div>
         </div>
         <div class="timeline-item">
           <div class="timeline-year">2027</div>
           <div>
-            <div class="timeline-title">Erweiterungsphase</div>
-            <p class="timeline-desc">Schrittweise Ausweitung der Anbaufläche, Vertiefung der Kundenbeziehungen und kontinuierliche Optimierung unserer Methoden.</p>
+            <div class="timeline-title">Vollbetrieb</div>
+            <p class="timeline-desc">Volle Bewirtschaftung der Fläche, mehr Kulturen, mehr Abos. Das Wissen über die Bodenbiologie und die Abläufe sind eingespielt — die Qualität steigt weiter.</p>
           </div>
         </div>
         <div class="timeline-item">
-          <div class="timeline-year">2028</div>
+          <div class="timeline-year">2028+</div>
           <div>
-            <div class="timeline-title">Vollbetrieb</div>
-            <p class="timeline-desc">Bewirtschaftung von bis zu 4000 m². Volle Kapazität für regionales Spitzengemüse aus der Nachbarschaft.</p>
+            <div class="timeline-title">Erweiterungsphase · Kapelle als Marktplatz</div>
+            <p class="timeline-desc">Die historische Kapelle wird zum Treffpunkt: Direktverkauf von Gemüse und weiteren Produkten aus der Region, kleines Kapellenkaffee, saisonale Anlässe — ein Ort, der verbindet.</p>
           </div>
         </div>
       </div>
@@ -1229,139 +653,264 @@
 
   <!-- Werte -->
   <section class="werte">
-    <h2>Unsere <span>Werte</span></h2>
+    <h2>Was uns <span>wichtig ist</span></h2>
     <div class="werte-grid">
       <div class="werte-item">
         <svg class="icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <!-- Handgezeichnete Erde mit Wurzeln -->
-          <ellipse cx="50" cy="55" rx="28" ry="20" 
-                   stroke="#5d4a3a" stroke-width="2" fill="#8b6f47" class="icon-fill"/>
-          <!-- Erdschichten -->
-          <path d="M 24 50 C 30 48 40 47 50 47 C 60 47 70 48 76 50" 
-                stroke="#6b5a42" stroke-width="1.5" opacity="0.7"/>
-          <path d="M 26 58 C 32 56 42 55 50 55 C 58 55 68 56 74 58" 
-                stroke="#6b5a42" stroke-width="1.5" opacity="0.7"/>
-          <!-- Mikroorganismen als kleine Kreise und Formen -->
-          <circle cx="35" cy="52" r="2" fill="#7bc491" opacity="0.8"/>
-          <circle cx="42" cy="60" r="1.5" fill="#f9c995" opacity="0.8"/>
-          <circle cx="55" cy="57" r="2" fill="#b99dd4" opacity="0.8"/>
-          <circle cx="48" cy="53" r="1.5" fill="#e6594a" opacity="0.8"/>
-          <circle cx="65" cy="54" r="2" fill="#7bc491" opacity="0.8"/>
-          <ellipse cx="38" cy="57" rx="1.5" ry="2.5" fill="#f4a460" opacity="0.7" transform="rotate(30 38 57)"/>
-          <ellipse cx="60" cy="60" rx="1.5" ry="2.5" fill="#f9c995" opacity="0.7" transform="rotate(-20 60 60)"/>
-          <!-- Wurzeln unter der Erde -->
-          <path d="M 50 73 C 48 78 45 83 42 87" 
-                stroke="#7a6545" stroke-width="2" opacity="0.6"/>
-          <path d="M 50 73 C 52 78 55 83 58 87" 
-                stroke="#7a6545" stroke-width="2" opacity="0.6"/>
-          <path d="M 45 75 C 43 79 40 82 38 85" 
-                stroke="#7a6545" stroke-width="1.5" opacity="0.5"/>
-          <path d="M 55 75 C 57 79 60 82 62 85" 
-                stroke="#7a6545" stroke-width="1.5" opacity="0.5"/>
+          <ellipse cx="50" cy="55" rx="28" ry="20" stroke="#5d4a3a" stroke-width="2" fill="#8b6f47" class="icon-fill"/>
+          <path d="M 24 50 C 30 48 40 47 50 47 C 60 47 70 48 76 50" stroke="#6b5a42" stroke-width="1.5" opacity="0.7"/>
+          <path d="M 26 58 C 35 56 42 55 50 55 C 58 55 65 56 74 58" stroke="#7a6545" stroke-width="1.5" opacity="0.7"/>
+          <path d="M 30 64 C 38 62 44 62 50 62 C 56 62 62 62 70 64" stroke="#8b6f47" stroke-width="1.5" opacity="0.7"/>
+          <path d="M 50 47 C 50 42 49 38 49 34" stroke="#6b8e4e" stroke-width="2"/>
+          <ellipse cx="46" cy="36" rx="3" ry="5" stroke="#5d9970" stroke-width="1.5" fill="#7bc491" class="icon-fill" transform="rotate(-25 46 36)"/>
+          <ellipse cx="54" cy="36" rx="3" ry="5" stroke="#5d9970" stroke-width="1.5" fill="#7bc491" class="icon-fill" transform="rotate(25 54 36)"/>
+          <path d="M 45 72 C 43 76 42 78 40 80" stroke="#7a6545" stroke-width="1.8"/>
+          <path d="M 50 74 C 50 78 50 82 50 85" stroke="#7a6545" stroke-width="1.8"/>
+          <path d="M 55 72 C 57 76 58 78 60 80" stroke="#7a6545" stroke-width="1.8"/>
+          <circle cx="35" cy="53" r="1.5" fill="#9a8968" opacity="0.6"/>
+          <circle cx="42" cy="60" r="1.2" fill="#9a8968" opacity="0.6"/>
+          <circle cx="58" cy="59" r="1.3" fill="#9a8968" opacity="0.6"/>
+          <circle cx="65" cy="54" r="1.4" fill="#9a8968" opacity="0.6"/>
         </svg>
-        <h3>Wissenschaftlich fundiert</h3>
-        <p>Wir analysieren unseren Boden regelmässig mit zertifizierten Bodenmikrobiologen auf Bakterien, Pilze und weiteres Bodenleben, für messbar gesündere Erde und nährstoffreicheres Gemüse.</p>
+        <h3>Fundiert</h3>
+        <p>Wir analysieren unseren Boden regelmässig mit zertifizierten Bodenmikrobiologen auf Bakterien, Pilze und weiteres Bodenleben – für messbar gesündere Erde und nährstoffreicheres Gemüse.</p>
       </div>
       <div class="werte-item">
         <svg class="icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <!-- Handgezeichneter Kreislauf (Kompost -> Pflanze -> Boden) -->
-          <circle cx="50" cy="50" r="32" 
-                  stroke="#5d9970" stroke-width="2.5" fill="none" stroke-dasharray="5,3"/>
-          <!-- Pfeile im Kreislauf -->
-          <path d="M 75 35 L 78 32 L 75 29" 
-                stroke="#5d9970" stroke-width="2" fill="none" stroke-linecap="round"/>
-          <path d="M 65 75 L 68 78 L 71 75" 
-                stroke="#5d9970" stroke-width="2" fill="none" stroke-linecap="round"/>
-          <path d="M 25 65 L 22 68 L 25 71" 
-                stroke="#5d9970" stroke-width="2" fill="none" stroke-linecap="round"/>
-          <!-- Pflanze oben -->
-          <path d="M 50 20 C 50 15 48 12 50 10" 
-                stroke="#5d9970" stroke-width="2"/>
-          <ellipse cx="48" cy="8" rx="3" ry="5" 
-                   fill="#7bc491" class="icon-fill" stroke="#5d9970" stroke-width="1.5" transform="rotate(-20 48 8)"/>
-          <ellipse cx="52" cy="8" rx="3" ry="5" 
-                   fill="#7bc491" class="icon-fill" stroke="#5d9970" stroke-width="1.5" transform="rotate(20 52 8)"/>
-          <!-- Kompost rechts -->
-          <ellipse cx="75" cy="50" rx="8" ry="10" 
-                   fill="#8b6f47" class="icon-fill" stroke="#6b5a42" stroke-width="2"/>
-          <path d="M 70 48 C 72 50 75 50 77 48" 
-                stroke="#6b5a42" stroke-width="1.2" opacity="0.6"/>
-          <path d="M 71 53 C 73 55 76 55 78 53" 
-                stroke="#6b5a42" stroke-width="1.2" opacity="0.6"/>
-          <!-- Boden links -->
-          <rect x="17" y="55" width="16" height="10" 
-                fill="#8b6f47" class="icon-fill" stroke="#6b5a42" stroke-width="2" rx="1"/>
-          <path d="M 19 58 L 31 58" 
-                stroke="#6b5a42" stroke-width="1" opacity="0.6"/>
-          <path d="M 19 62 L 31 62" 
-                stroke="#6b5a42" stroke-width="1" opacity="0.6"/>
+          <ellipse cx="50" cy="72" rx="22" ry="8" stroke="#7a6545" stroke-width="1.8" fill="#9a8968" class="icon-fill"/>
+          <path d="M 30 72 C 35 70 42 69 50 69 C 58 69 65 70 70 72" stroke="#8b6f47" stroke-width="1.5" opacity="0.6"/>
+          <path d="M 50 69 C 49 62 48 54 48 46 C 48 38 48 30 49 25" stroke="#6b8e4e" stroke-width="2.5"/>
+          <ellipse cx="42" cy="48" rx="5" ry="9" stroke="#5d9970" stroke-width="2" fill="#7bc491" class="icon-fill" transform="rotate(-30 42 48)"/>
+          <path d="M 48 50 C 46 49 44 48 42 48" stroke="#5d9970" stroke-width="1.8"/>
+          <ellipse cx="40" cy="38" rx="4.5" ry="8" stroke="#6ba87a" stroke-width="2" fill="#8dd4a7" class="icon-fill" transform="rotate(-35 40 38)"/>
+          <path d="M 48 40 C 46 39 43 38 40 38" stroke="#6ba87a" stroke-width="1.8"/>
+          <ellipse cx="58" cy="45" rx="5" ry="9" stroke="#4a7c59" stroke-width="2" fill="#6ba87a" class="icon-fill" transform="rotate(30 58 45)"/>
+          <path d="M 48 47 C 52 46 56 45 58 45" stroke="#4a7c59" stroke-width="1.8"/>
+          <ellipse cx="60" cy="35" rx="4.5" ry="8" stroke="#5d9970" stroke-width="2" fill="#7bc491" class="icon-fill" transform="rotate(35 60 35)"/>
+          <path d="M 48 37 C 52 36 57 35 60 35" stroke="#5d9970" stroke-width="1.8"/>
         </svg>
         <h3>Regenerativ</h3>
-        <p>Wir bauen Bodengesundheit auf, statt sie auszubeuten. Mit Kompost, Mulch und lebendigen Mikroorganismen wird unser Boden jedes Jahr fruchtbarer.</p>
+        <p>Wir bauen Bodengesundheit auf, statt sie auszubeuten. Im Gegensatz zu grossen Betrieben setzen wir auf Vielfalt, Fruchtfolgen und schonende Bodenbearbeitung.</p>
       </div>
       <div class="werte-item">
         <svg class="icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <!-- Handgezeichnete Karte mit Pin -->
-          <path d="M 30 35 C 30 25 35 20 50 20 C 65 20 70 25 70 35 C 70 50 50 70 50 70 C 50 70 30 50 30 35 Z" 
-                stroke="#c44536" stroke-width="2.5" fill="#e6594a" class="icon-fill"/>
-          <circle cx="50" cy="35" r="8" 
-                  fill="#f7f5f0" stroke="#c44536" stroke-width="2"/>
-          <!-- Umgebende Karte -->
-          <path d="M 20 80 L 80 80 L 75 65 L 25 65 Z" 
-                stroke="#6b5a42" stroke-width="2" fill="#f9c995" class="icon-fill" opacity="0.3"/>
-          <path d="M 30 72 L 35 72" stroke="#8b7355" stroke-width="1.5" opacity="0.5"/>
-          <path d="M 40 72 L 48 72" stroke="#8b7355" stroke-width="1.5" opacity="0.5"/>
-          <path d="M 52 72 L 60 72" stroke="#8b7355" stroke-width="1.5" opacity="0.5"/>
-          <path d="M 65 72 L 70 72" stroke="#8b7355" stroke-width="1.5" opacity="0.5"/>
+          <ellipse cx="50" cy="72" rx="18" ry="7" stroke="#5d4a3a" stroke-width="1.8" fill="#9a8968" class="icon-fill"/>
+          <path d="M 50 69 C 50 62 49 54 49 46 C 49 38 49 30 50 25" stroke="#6b8e4e" stroke-width="2.2"/>
+          <ellipse cx="40" cy="50" rx="6" ry="10" stroke="#5d9970" stroke-width="2" fill="#7bc491" class="icon-fill" transform="rotate(-30 40 50)"/>
+          <path d="M 49 52 C 46 51 43 50 40 50" stroke="#5d9970" stroke-width="1.5"/>
+          <ellipse cx="38" cy="40" rx="5" ry="9" stroke="#6ba87a" stroke-width="2" fill="#8dd4a7" class="icon-fill" transform="rotate(-35 38 40)"/>
+          <path d="M 48 40 C 46 39 43 38 40 38" stroke="#6ba87a" stroke-width="1.8"/>
+          <ellipse cx="58" cy="45" rx="5" ry="9" stroke="#4a7c59" stroke-width="2" fill="#6ba87a" class="icon-fill" transform="rotate(30 58 45)"/>
+          <path d="M 48 47 C 52 46 56 45 58 45" stroke="#4a7c59" stroke-width="1.8"/>
+          <ellipse cx="60" cy="35" rx="4.5" ry="8" stroke="#5d9970" stroke-width="2" fill="#7bc491" class="icon-fill" transform="rotate(35 60 35)"/>
+          <path d="M 48 37 C 52 36 57 35 60 35" stroke="#5d9970" stroke-width="1.8"/>
         </svg>
-        <h3>Hyperlokal</h3>
-        <p>Null Kilometer Transportweg für maximale Frische. Geerntet wird erst, wenn Sie bestellen, direkt aus der Kapelle in Ihre Küche.</p>
+        <h3>Regional</h3>
+        <p>Null Kilometer vom Beet zu Ihrem Teller. Geerntet wird erst, wenn Sie bestellen – direkt aus der Kapelle in Ihre Küche.</p>
       </div>
       <div class="werte-item">
         <svg class="icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <!-- Handschlag -->
-          <path d="M 25 55 L 35 45 L 40 50 L 38 52 L 42 56 L 40 58 L 44 62 L 42 64 L 46 68 L 40 74 L 32 66 L 25 73 L 20 68 Z" 
-                stroke="#5d9970" stroke-width="2" fill="#7bc491" class="icon-fill"/>
-          <path d="M 75 55 L 65 45 L 60 50 L 62 52 L 58 56 L 60 58 L 56 62 L 58 64 L 54 68 L 60 74 L 68 66 L 75 73 L 80 68 Z" 
-                stroke="#5d9970" stroke-width="2" fill="#7bc491" class="icon-fill"/>
-          <!-- Verbindung in der Mitte -->
-          <ellipse cx="50" cy="60" rx="8" ry="6" 
-                   fill="#8dd4a7" class="icon-fill" stroke="#5d9970" stroke-width="2"/>
-          <!-- Herz als Symbol für Verbindung -->
-          <path d="M 50 58 C 48 56 45 56 44 58 C 43 60 44 62 50 66 C 56 62 57 60 56 58 C 55 56 52 56 50 58 Z" 
-                fill="#e6594a" opacity="0.6"/>
+          <path d="M 50 70 C 48 68 42 62 38 56 C 34 50 30 44 30 38 C 30 32 33 28 38 28 C 42 28 46 31 50 35 C 54 31 58 28 62 28 C 67 28 70 32 70 38 C 70 44 66 50 62 56 C 58 62 52 68 50 70 Z" stroke="#d66982" stroke-width="2.2" fill="#f29ead" class="icon-fill"/>
+          <path d="M 50 35 C 54 32 57 30 60 30 C 65 30 67 33 67 38 C 67 42 64 47 61 52 C 58 56 54 62 50 66 C 50 62 50 55 50 48 C 50 42 50 38 50 35" fill="#f8b4c3" class="icon-fill" stroke="none"/>
+          <ellipse cx="42" cy="38" rx="4" ry="6" fill="#fef3f3" class="icon-fill" transform="rotate(-25 42 38)"/>
+          <ellipse cx="58" cy="36" rx="3" ry="5" fill="#fef3f3" class="icon-fill" transform="rotate(20 58 36)"/>
+          <path d="M 35 42 C 36 45 38 48 40 51" stroke="#e8789c" stroke-width="1.2" opacity="0.6"/>
+          <path d="M 65 42 C 64 45 62 48 60 51" stroke="#e8789c" stroke-width="1.2" opacity="0.6"/>
+          <path d="M 45 58 C 47 61 48 64 50 66" stroke="#e8789c" stroke-width="1.2" opacity="0.6"/>
+          <path d="M 55 58 C 53 61 52 64 50 66" stroke="#e8789c" stroke-width="1.2" opacity="0.6"/>
         </svg>
-        <h3>Direkt & persönlich</h3>
-        <p>Kein Zwischenhandel, keine Anonymität. Sie kennen unsere Gärtner und wir kennen unsere Kunden, so entsteht Vertrauen und echte Verbindung.</p>
+        <h3>Direkt &amp; persönlich</h3>
+        <p>Kein Zwischenhandel, keine Anonymität. Sie kennen Ihren Gärtner und ich kenne meine Kunden – so entsteht Vertrauen und echte Verbindung.</p>
       </div>
     </div>
   </section>
+
+  <!-- NEU: ABO 2026 -->
+  <section id="abo" class="abo-section">
+    <div class="abo-inner">
+      <div class="abo-left">
+        <p class="section-label">Werde Erstkunde</p>
+        <h2>Dein Platz im<br><span>Kapellengarten</span></h2>
+        <p>20 Plätze. Eine Saison. Frisches Gemüse aus lebendigem Boden — abgeholt samstags direkt bei der Kapelle, Dorfstrasse 192, Wangen bei Olten.</p>
+
+        <div class="abo-counter">
+          <div class="spot-label">🌿 Noch verfügbar</div>
+          <div class="spot-row">
+            <span class="spot-num" id="spotNum2">20</span>
+            <span class="spot-of" style="color:rgba(247,245,240,.6)">von 20 Plätzen frei</span>
+          </div>
+          <div class="spot-bar"><div class="spot-fill" id="spotFill2"></div></div>
+          <div class="spot-note" id="spotNote2">Gemüsekistenpreis für meine ersten 20 Kunden: <strong>CHF 20.– pro Kiste</strong> · 5–7 Kulturen</div>
+        </div>
+
+        <div class="kiste-chips">
+          <div class="kiste-chip"><strong>📅 Abholung</strong>Samstag Nachmittag · Dorfstrasse 192</div>
+          <div class="kiste-chip"><strong>🥕 Inhalt</strong>5–7 saisonale Kulturen pro Woche</div>
+          <div class="kiste-chip"><strong>🏷️ Preis</strong>CHF 20.– pro Kiste (Gemüsekistenpreis für die ersten 20 Kunden)</div>
+          <div class="kiste-chip"><strong>📬 Newsletter</strong>Freitags: was kommt diese Woche</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="abo-form">
+          <div id="formContent">
+            <h3>Jetzt Platz sichern</h3>
+            <div class="form-sub">Wir melden uns innerhalb von 48h bei dir.</div>
+            <div class="form-2col">
+              <div class="form-row"><label>Vorname</label><input type="text" id="fName" placeholder="Anna"></div>
+              <div class="form-row"><label>Nachname</label><input type="text" id="lName" placeholder="Müller"></div>
+            </div>
+            <div class="form-row"><label>E-Mail</label><input type="email" id="fEmail" placeholder="anna@beispiel.ch"></div>
+            <div class="form-row"><label>Ort / PLZ</label><input type="text" id="fLocation" placeholder="4600 Olten"></div>
+            <div class="form-row">
+              <label>Wie hast du von uns erfahren?</label>
+              <select id="fSource">
+                <option value="">Bitte wählen …</option>
+                <option>Persönliche Empfehlung</option>
+                <option>Samstag-Markt Olten</option>
+                <option>Instagram / Social Media</option>
+                <option>Zeitung / Flyer</option>
+                <option>Anderes</option>
+              </select>
+            </div>
+            <button class="btn-submit" onclick="handleSubmit()">Platz reservieren →</button>
+            <div class="form-note">🔒 Deine Daten werden nur für die Abo-Verwaltung genutzt. Keine Weitergabe an Dritte.</div>
+          </div>
+          <div class="form-success" id="formSuccess">
+            <div class="success-icon">🌱</div>
+            <h4>Herzlichen Dank!</h4>
+            <p>Deine Anfrage ist eingegangen. Wir melden uns bald — willkommen im Kapellengarten.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEU: FAQ -->
+  <section id="faq" class="faq-section">
+    <div class="faq-inner">
+      <p class="section-label">Häufige Fragen</p>
+      <h2>Alles <span>Wichtige</span></h2>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Wann startet die Saison und wie lange dauert sie? <span class="faq-arrow">+</span></button>
+        <div class="faq-a">Die Saison startet voraussichtlich im <strong>April 2026</strong> und läuft bis Oktober — rund 26–28 Lieferwochen. Der genaue Starttermin wird per E-Mail kommuniziert.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Wie läuft die Abholung ab? <span class="faq-arrow">+</span></button>
+        <div class="faq-a">Du holst deine Kiste jeden <strong>Samstag Nachmittag</strong> direkt bei der Kapelle ab: <strong>Dorfstrasse 192, Wangen bei Olten</strong>. Falls du mal verhindert bist, kann die Kiste ausnahmsweise hinterlegt werden — einfach kurz Bescheid geben.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Was kostet das Abo? <span class="faq-arrow">+</span></button>
+        <div class="faq-a">Als einer meiner ersten 20 Kunden zahlst du <strong>CHF 20.– pro Kiste</strong> — das ist der Gemüsekistenpreis, den ich speziell für meine Erstkunden anbiete (regulärer Preis ab 2027: CHF 26.–). Details zur Zahlungsweise klären wir nach deiner Anmeldung.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Was ist in der Kiste? <span class="faq-arrow">+</span></button>
+        <div class="faq-a">Jede Woche <strong>5–7 saisonale Kulturen</strong> — was gerade reif ist. Jeden Freitag erhältst du per Newsletter eine Vorschau, damit du dich auf die Woche vorbereiten kannst.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Ist das Gemüse biologisch zertifiziert? <span class="faq-arrow">+</span></button>
+        <div class="faq-a">Der Kapellengarten arbeitet nach <strong>biologischen Prinzipien</strong> — kein Kunstdünger, keine Pestizide. Ich bin ausgebildeter Bodenmikrobiologe (Soil Food Web) und analysiere die Bodenbiologie regelmässig. Eine offizielle Bio-Zertifizierung wird angestrebt.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Was passiert, wenn alle Plätze besetzt sind? <span class="faq-arrow">+</span></button>
+        <div class="faq-a">Dann führe ich eine <strong>Warteliste</strong>. Falls jemand absagt oder die Kapazität früher erweitert wird, melde ich mich in der Reihenfolge der Anmeldungen.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEU: Newsletter-Band -->
+  <div class="newsletter-band">
+    <h3>Bleib auf dem <span>Laufenden</span></h3>
+    <p>Wöchentliche Updates aus dem Garten — Kisteninhalt, Rezeptideen, Neuigkeiten. Kein Spam.</p>
+    <div class="nl-form">
+      <input type="email" id="nlEmail" placeholder="deine@email.ch">
+      <button onclick="subscribeNewsletter()">Anmelden</button>
+    </div>
+    <div class="nl-note" id="nlNote">Nur für Abonnenten und Interessierte · Jederzeit abmeldbar</div>
+  </div>
 
   <!-- Kontakt -->
   <section id="kontakt" class="kontakt">
     <div class="kontakt-content">
       <h2>Lassen Sie uns<br><span>ins Gespräch kommen</span></h2>
-      <p>Interessiert an frischem Spitzengemüse aus der Region? Restaurantbesitzer, Feinschmecker oder einfach neugierig? Wir freuen uns auf Ihre Nachricht.</p>
-      <a href="mailto:hallo@kapellengarten.ch" class="kontakt-email">hallo@kapellengarten.ch</a>
-      <p class="kontakt-ort">📍 Olten, Schweiz</p>
+      <p>Interessiert an frischem Spitzengemüse aus der Region? Fragen zum Abo oder Garten – ich freue mich auf Ihre Nachricht.</p>
+      <a href="mailto:info@kapellengarten.ch" class="kontakt-email">info@kapellengarten.ch</a>
+      <p class="kontakt-ort">📍 Dorfstrasse 192, Wangen bei Olten</p>
     </div>
   </section>
 
   <!-- Footer -->
   <footer>
     <div class="logo">Kapellengarten</div>
-    <p>© 2025 · Regionales Spitzengemüse aus Olten</p>
+    <p>© 2026 Kapellengarten · Francis La Franc · Wangen bei Olten</p>
   </footer>
 
   <script>
+    // ── PLATZ-ZÄHLER ──
+    const TOTAL = 20;
+    let taken = 4;
+
+    function updateSpots(n) {
+      const left = TOTAL - n;
+      const pct  = (n / TOTAL * 100) + '%';
+      ['spotNum1','spotNum2'].forEach(id => { const el = document.getElementById(id); if(el) el.textContent = left; });
+      ['spotFill1','spotFill2'].forEach(id => { const el = document.getElementById(id); if(el) el.style.width = pct; });
+      ['spotNote1','spotNote2'].forEach(id => {
+        const el = document.getElementById(id);
+        if(!el) return;
+        if(left <= 3 && left > 0)
+          el.innerHTML = `<strong style="color:#c0392b">⚡ Nur noch ${left} Plätze frei!</strong>`;
+        else if(left === 0)
+          el.innerHTML = `<strong style="color:#c0392b">Alle Plätze vergeben — Warteliste anfragen.</strong>`;
+        else
+          el.innerHTML = `<strong>Gemüsekistenpreis für meine ersten 20 Kunden: CHF 20.–</strong> pro Kiste · 5–7 Kulturen`;
+      });
+    }
+    window.addEventListener('load', () => setTimeout(() => updateSpots(4), 700));
+
+    // ── FORMULAR ──
+    function handleSubmit() {
+      const first = document.getElementById('fName').value.trim();
+      const last  = document.getElementById('lName').value.trim();
+      const email = document.getElementById('fEmail').value.trim();
+      if(!first || !last || !email){ alert('Bitte fülle Vor- und Nachname sowie E-Mail aus.'); return; }
+      taken = Math.min(taken + 1, TOTAL);
+      updateSpots(taken);
+      document.getElementById('formContent').style.display = 'none';
+      document.getElementById('formSuccess').style.display  = 'block';
+    }
+
+    // ── FAQ ──
+    function toggleFaq(btn) {
+      const item   = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+      if(!isOpen) item.classList.add('open');
+    }
+
+    // ── NEWSLETTER ──
+    function subscribeNewsletter() {
+      const email = document.getElementById('nlEmail').value.trim();
+      const note  = document.getElementById('nlNote');
+      if(!email || !email.includes('@')){ note.textContent = '⚠️ Bitte gültige E-Mail eingeben.'; return; }
+      note.textContent = '✓ Danke! Du wirst informiert.';
+      note.style.opacity = '1';
+      document.getElementById('nlEmail').value = '';
+    }
+
+    // ── NAVIGATION ──
     function toggleMenu() {
+      document.querySelector('.hamburger').classList.toggle('active');
       document.querySelector('.nav-links').classList.toggle('active');
     }
-    
     function closeMenu() {
+      document.querySelector('.hamburger').classList.remove('active');
       document.querySelector('.nav-links').classList.remove('active');
     }
+    document.addEventListener('click', function(event) {
+      const nav = document.querySelector('.nav');
+      if(nav && !nav.contains(event.target)) closeMenu();
+    });
   </script>
-
 </body>
 </html>
