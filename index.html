@@ -252,15 +252,14 @@
     .kiste-seasons { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-bottom:3.5rem; }
     .kiste-season { background:#fff; border-radius:10px; overflow:hidden; box-shadow:0 2px 12px rgba(45,58,45,.08); transition:transform .2s ease, box-shadow .2s ease; }
     .kiste-season:hover { transform:translateY(-4px); box-shadow:0 8px 24px rgba(45,58,45,.13); }
-    .kiste-photo-wrap { position:relative; overflow:hidden; }
-    .kiste-photo { width:100%; height:220px; object-fit:cover; object-position:center 40%; display:block; transition:transform .4s ease; }
-    .kiste-season:hover .kiste-photo { transform:scale(1.04); }
-    .kiste-photo-label { position:absolute; bottom:0; left:0; right:0; padding:.9rem 1.2rem; display:flex; align-items:center; gap:.6rem; }
-    .kiste-photo-label.fruehling { background:linear-gradient(to top, rgba(74,103,65,.88) 0%, transparent 100%); }
-    .kiste-photo-label.sommer    { background:linear-gradient(to top, rgba(139,89,35,.88) 0%, transparent 100%); }
-    .kiste-photo-label.herbst    { background:linear-gradient(to top, rgba(100,75,50,.88) 0%, transparent 100%); }
-    .kiste-photo-label .kiste-season-emoji { font-size:1.3rem; }
-    .kiste-photo-label .kiste-season-name { font-family:'Cormorant Garamond',serif; font-size:1.4rem; color:#f7f5f0; font-weight:400; }
+    .kiste-photo-wrap { position:relative; overflow:hidden; background:#f0ece4; }
+    .kiste-photo { width:100%; height:300px; object-fit:contain; object-position:center center; display:block; transition:transform .4s ease; }
+    .kiste-season:hover .kiste-photo { transform:scale(1.03); }
+    .kiste-photo-label { position:absolute; bottom:0; left:0; right:0; padding:.9rem 1.3rem; display:flex; align-items:baseline; gap:.8rem; }
+    .kiste-photo-label.fruehling { background:linear-gradient(to top, rgba(74,103,65,.9) 0%, transparent 100%); }
+    .kiste-photo-label.sommer    { background:linear-gradient(to top, rgba(139,89,35,.9) 0%, transparent 100%); }
+    .kiste-photo-label.herbst    { background:linear-gradient(to top, rgba(100,75,50,.9) 0%, transparent 100%); }
+    .kiste-photo-label .kiste-season-name { font-family:'Cormorant Garamond',serif; font-size:1.5rem; color:#f7f5f0; font-weight:400; }
     .kiste-photo-label .kiste-season-month { font-family:'DM Sans',sans-serif; font-size:.72rem; color:rgba(247,245,240,.75); margin-left:auto; letter-spacing:.04em; }    .kiste-list { list-style:none; padding:1.2rem 1.5rem 1.4rem; display:flex; flex-direction:column; gap:.55rem; }
     .kiste-list li { font-family:'DM Sans',sans-serif; font-size:.9rem; color:#3a4a3a; padding-left:1.2rem; position:relative; }
     .kiste-list li::before { content:'·'; position:absolute; left:0; color:#4a6741; font-size:1.2rem; line-height:1; top:-.05rem; }
@@ -525,7 +524,6 @@
           <div class="kiste-photo-wrap">
             <img src="fruhlingsset.jpg" alt="Frühlingskiste – Salat, Radieschen, Kräuter" class="kiste-photo">
             <div class="kiste-photo-label fruehling">
-              <span class="kiste-season-emoji">🌱</span>
               <span class="kiste-season-name">Frühling</span>
               <span class="kiste-season-month">April – Mai</span>
             </div>
@@ -543,7 +541,6 @@
           <div class="kiste-photo-wrap">
             <img src="sommerset.jpg" alt="Sommerkiste – Tomaten, Gurken, Zucchetti" class="kiste-photo">
             <div class="kiste-photo-label sommer">
-              <span class="kiste-season-emoji">☀️</span>
               <span class="kiste-season-name">Sommer</span>
               <span class="kiste-season-month">Juni – August</span>
             </div>
@@ -561,7 +558,6 @@
           <div class="kiste-photo-wrap">
             <img src="herbstset.jpg" alt="Herbstkiste – Randen, Lauch, Asiasalate" class="kiste-photo">
             <div class="kiste-photo-label herbst">
-              <span class="kiste-season-emoji">🍂</span>
               <span class="kiste-season-name">Herbst</span>
               <span class="kiste-season-month">September – Oktober</span>
             </div>
