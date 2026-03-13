@@ -131,6 +131,14 @@
     .ueber-uns-section h3 span { font-style:italic; color:#4a6741; }
     .ueber-uns-section p { font-family:'DM Sans',sans-serif; font-size:1.05rem; color:#4a5a4a; line-height:1.8; margin-bottom:1.2rem; }
 
+    .ueber-uns-method-grid { display:grid; grid-template-columns:1fr 280px; gap:2.5rem; align-items:start; }
+    .ueber-uns-method-img img { width:100%; border-radius:8px; object-fit:cover; max-height:320px; }
+    .ueber-uns-vision { display:grid; grid-template-columns:280px 1fr; gap:2.5rem; align-items:start; }
+    .ueber-uns-vision h3 { font-size:1.8rem; font-weight:400; margin-bottom:1rem; }
+    .ueber-uns-vision h3 span { font-style:italic; color:#4a6741; }
+    .ueber-uns-vision p { font-family:'DM Sans',sans-serif; font-size:1.05rem; color:#4a5a4a; line-height:1.8; margin-bottom:1.2rem; }
+    .ueber-uns-vision-img img { width:100%; border-radius:8px; object-fit:cover; max-height:340px; }
+
     /* Portrait grid */
     .ueber-uns-portrait-grid { display:grid; grid-template-columns:280px 1fr; gap:3rem; align-items:start; margin-bottom:3rem; }
     .ueber-uns-portrait-placeholder { background:linear-gradient(135deg,#e8e4da,#d4cfc3); border-radius:8px; aspect-ratio:3/4; display:flex; align-items:center; justify-content:center; text-align:center; overflow:hidden; }
@@ -294,6 +302,8 @@
       .ueber-uns-content { padding:3rem 1.5rem; }
       .ueber-uns-portrait-grid { grid-template-columns:1fr; gap:2rem; }
       .ueber-uns-portrait-placeholder { aspect-ratio:4/3; }
+      .ueber-uns-method-grid { grid-template-columns:1fr; }
+      .ueber-uns-vision { grid-template-columns:1fr; }
       .unser-weg { padding:4rem 1.5rem; }
       .timeline { padding-left:1.5rem; }
       .timeline-item { flex-direction:column; gap:.5rem; padding-left:1.5rem; }
@@ -446,7 +456,7 @@
     <div class="hero-content">
       <p class="hero-location">Olten · Schweiz</p>
       <h1 class="einblenden einblenden-1">Frisches Gemüse<br><span>aus der Region Olten</span></h1>
-      <p class="hero-text einblenden einblenden-2">Frisches Gemüse, geerntet kurz bevor du es holst. Samstags direkt bei der Kapelle.</p>
+      <p class="hero-text einblenden einblenden-2">Geerntet kurz bevor du es holst. Samstags direkt bei der Kapelle.</p>
 
       <!-- NEU: Platz-Zähler -->
       <div class="einblenden einblenden-2" style="display:flex;justify-content:center;margin-bottom:2rem;">
@@ -468,50 +478,39 @@
     </div>
   </section>
 
-  <!-- Marktstand -->
-  <section class="marktstand">
-    <div class="marktstand-content">
-      <p class="section-label">Der Marktstand</p>
-      <h2>Frisch <span>vom Beet</span> auf den Tisch</h2>
-      <div class="marktstand-image">
-        <img src="kapelle-innen.png" alt="Kapellengarten - Marktstand Innenansicht">
-      </div>
-    </div>
-  </section>
-
   <!-- So funktioniert die Kiste -->
   <section id="kiste" class="kiste-section">
     <div class="kiste-section-inner">
       <p class="section-label">So funktioniert die Gemüsekiste</p>
       <h2>Frisch geerntet,<br><span>bevor du es abholst</span></h2>
-      <p class="kiste-intro">Direkt vom Kapellengarten, Dorfstrasse 192, Wangen bei Olten. Jede Woche warten rund <strong>5–7 verschiedene Gemüsesorten</strong> auf dich — was gerade reif ist, was die Saison hergibt, was ich für dich geerntet habe.</p>
+      <p class="kiste-intro">Direkt vom Kapellengarten, Dorfstrasse 192, Wangen bei Olten. Jede Woche warten rund <strong>5–7 verschiedene Gemüsesorten</strong> auf dich was gerade reif ist, was die Saison hergibt, was ich für dich geerntet habe.</p>
 
       <div class="kiste-how">
         <div class="kiste-step">
           <div class="kiste-step-num">1</div>
           <div>
             <strong>Gemüsekistenabo abschliessen</strong>
-            <p>Du meldest dich einmal an und bekommst wöchentlich deine Kiste — von April bis Oktober, rund 26 Wochen.</p>
+            <p>Du meldest dich einmal an und bekommst wöchentlich deine Kiste von April bis Oktober, rund 26 Wochen.</p>
           </div>
         </div>
         <div class="kiste-step">
           <div class="kiste-step-num">2</div>
           <div>
             <strong>Freitags: Vorschau per Newsletter</strong>
-            <p>Du erfährst jeden Freitag, was in der Kiste ist — damit du die Woche planen und kochen kannst.</p>
+            <p>Du erfährst jeden Freitag, was in der Kiste ist damit du die Woche planen und kochen kannst.</p>
           </div>
         </div>
         <div class="kiste-step">
           <div class="kiste-step-num">3</div>
           <div>
             <strong>Samstag: Abholen bei der Kapelle</strong>
-            <p>Du kommst samstags vorbei, nimmst deine bereitgestellte Kiste mit — und bringst sie nächste Woche einfach wieder zurück.</p>
+            <p>Du kommst samstags vorbei, nimmst deine bereitgestellte Kiste mit und bringst sie nächste Woche einfach wieder zurück.</p>
           </div>
         </div>
       </div>
 
       <h3 class="kiste-seasons-title">Was kommt in die Kiste?</h3>
-      <p class="kiste-seasons-sub">Die Inhalte wechseln mit der Jahreszeit — hier ein paar typische Beispiele:</p>
+      <p class="kiste-seasons-sub">Die Inhalte wechseln mit der Jahreszeit hier ein paar typische Beispiele:</p>
 
       <div class="kiste-seasons">
         <div class="kiste-season">
@@ -570,9 +569,9 @@
       <div class="kiste-abholung">
         <div class="kiste-abholung-text">
           <h3>Abholung</h3>
-          <p>Jeden <strong>Samstag Nachmittag</strong> direkt bei der Kapelle:<br>
+          <p>Jeden <strong>Samstag Vormittag</strong> direkt bei der Kapelle:<br>
           <strong>Dorfstrasse 192, Wangen bei Olten</strong></p>
-          <p>Deine Kiste liegt bereit — du nimmst sie mit und bringst sie die folgende Woche leer zurück. Falls du mal verhindert bist, einfach kurz melden.</p>
+          <p>Deine Kiste liegt bereit du nimmst sie mit und bringst sie die folgende Woche leer zurück. Falls du mal verhindert bist, einfach kurz melden.</p>
         </div>
         <div class="kiste-abholung-badge">
           <svg viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg" class="kapelle-illustration" aria-label="Kapelle Wangen bei Olten">
@@ -621,7 +620,7 @@
     </div>
   </section>
 
-  <!-- Über mich — persönliche Geschichte Francis -->
+  <!-- Über mich persönliche Geschichte Francis -->
   <section id="ueber-uns" class="ueber-uns-hero">
     <p class="section-label">Wer beackert den Kapellengarten</p>
     <h2><span>Francis</span></h2>
@@ -634,20 +633,34 @@
       </div>
       <div class="ueber-uns-portrait-text">
         <h3>Komm mit auf den <span>Weg</span></h3>
-        <p>2026 fängt für mich etwas Neues an. Ich übernehme das Areal rund um die historische Kapelle in Wangen bei Olten und baue dort meinen eigenen Marktgarten auf — den Kapellengarten. Schritt für Schritt, Beet für Beet, Saison für Saison.</p>
-        <p>Als einer meiner ersten 20 Kunden bist du von Anfang an dabei. Du siehst, was wächst, bekommst jede Woche mit, was der Boden hergibt — und schmeckst den Unterschied. Ich freue mich darauf, dieses Projekt mit Menschen zu teilen, die Lust haben, nah dran zu sein.</p>
+        <p>2026 fängt für mich etwas Neues an. Ich übernehme das Areal rund um die historische Kapelle in Wangen bei Olten und baue dort meinen eigenen Marktgarten auf den Kapellengarten. Schritt für Schritt, Beet für Beet, Saison für Saison.</p>
+        <p>Als einer meiner ersten 20 Kunden bist du von Anfang an dabei. Du siehst, was wächst, bekommst jede Woche mit, was der Boden hergibt und schmeckst den Unterschied. Ich freue mich darauf, dieses Projekt mit Menschen zu teilen, die Lust haben, nah dran zu sein.</p>
       </div>
     </div>
 
     <div class="ueber-uns-section">
       <h3>Das <span>Marktgartensystem</span></h3>
-      <p>Im Kapellengarten wenden wir das Marktgartensystem an — eine Methode, die zeigt, dass auf kleiner Fläche intensiv, hochwertig und wirtschaftlich angebaut werden kann. Pioniere wie <strong>Jean-Martin Fortier</strong> («The Market Gardener»), <strong>Eliot Coleman</strong> oder <strong>Charles Dowding</strong> haben dieses System in den letzten Jahrzehnten geprägt und bewiesen: Handarbeit, permanente Beete, schonende Bodenbearbeitung und konsequente Fruchtfolgen führen zu aussergewöhnlicher Qualität.</p>
-      <p>Den entscheidenden Unterschied macht für mich die Bodenbiologie: Als zertifizierter <strong>Soil Food Web Lab Technician</strong> (nach Dr. Elaine Ingham) analysiere ich das Bodenleben regelmässig und fördere es gezielt — für Gemüse mit messbarer Nährstoffdichte und einem Geschmack, der den Unterschied macht.</p>
+      <div class="ueber-uns-method-grid">
+        <div>
+          <p>Im Kapellengarten wenden wir das Marktgartensystem an: eine Methode, die zeigt, dass auf kleiner Fläche intensiv, hochwertig und wirtschaftlich angebaut werden kann. Pioniere wie <strong>Jean-Martin Fortier</strong> («The Market Gardener»), <strong>Eliot Coleman</strong> oder <strong>Charles Dowding</strong> haben dieses System geprägt: Handarbeit, permanente Beete, schonende Bodenbearbeitung und konsequente Fruchtfolgen führen zu aussergewöhnlicher Qualität.</p>
+          <p>Den entscheidenden Unterschied macht die Bodenbiologie: Als zertifizierter <strong>Soil Food Web Lab Technician</strong> (nach Dr. Elaine Ingham) analysiere ich das Bodenleben regelmässig und fördere es gezielt, für Gemüse mit messbarer Nährstoffdichte und einem Geschmack, der den Unterschied macht.</p>
+        </div>
+        <div class="ueber-uns-method-img">
+          <img src="kapelle-aussen.png" alt="Kapelle Kapellengarten Wangen bei Olten">
+        </div>
+      </div>
     </div>
 
-    <div class="ueber-uns-section">
-      <h3>Die <span>Kapelle</span> als Marktplatz</h3>
-      <p>Die historische Kapelle auf dem Gelände soll zum charmanten Herzstück des Direktverkaufs werden — ein Ort mit Geschichte, an dem frisches Gemüse auf Menschen trifft, die Qualität schätzen.</p>
+    <div class="ueber-uns-section ueber-uns-vision">
+      <div class="ueber-uns-vision-img">
+        <img src="kapelle-innen.png" alt="Kapelle innen, Marktstand Kapellengarten">
+      </div>
+      <div>
+        <h3>Die <span>Kapelle</span> als Marktplatz</h3>
+        <p>Die historische Kapelle auf dem Areal ist mehr als ein Lagerort. Ich sehe sie als Herzstück eines kleinen, lebendigen Marktplatzes. Ein Ort, an dem man samstags nicht nur Gemüse holt, sondern auch kurz verweilt.</p>
+        <p>Die Vision: ein kleines Kapellenkaffee, frische Backwaren vom lokalen Bäcker, Produkte aus der Region. Saisonale Anlässe, Führungen durch den Garten, ein Treffpunkt für die Nachbarschaft. Kein Supermarkt, keine Hektik, einfach ein Ort mit Charakter, der verbindet.</p>
+        <p>Das braucht Zeit. Aber der erste Schritt fängt 2026 an, mit 20 Gemüsekisten und einer Idee, die grösser werden darf.</p>
+      </div>
     </div>
   </section>
 
@@ -660,21 +673,21 @@
           <div class="timeline-year">2026</div>
           <div>
             <div class="timeline-title">Startphase · 20 Gemüseabos</div>
-            <p class="timeline-desc">Anbau auf 400 m² mit 20 Gemüsekulturen, 20 Erstkunden. Aufbau der Bodenbiologie, wöchentliche Gemüsekiste ab April — abgeholt samstags direkt bei der Kapelle.</p>
+            <p class="timeline-desc">Anbau auf 400 m² mit 20 Gemüsekulturen, 20 Erstkunden. Aufbau der Bodenbiologie, wöchentliche Gemüsekiste ab April abgeholt samstags vormittags direkt bei der Kapelle.</p>
           </div>
         </div>
         <div class="timeline-item">
           <div class="timeline-year">2027</div>
           <div>
             <div class="timeline-title">Vollbetrieb</div>
-            <p class="timeline-desc">Volle Bewirtschaftung der Fläche, mehr Kulturen, mehr Abos. Das Wissen über die Bodenbiologie und die Abläufe sind eingespielt — die Qualität steigt weiter.</p>
+            <p class="timeline-desc">Volle Bewirtschaftung der Fläche, mehr Kulturen, mehr Abos. Das Wissen über die Bodenbiologie und die Abläufe sind eingespielt die Qualität steigt weiter.</p>
           </div>
         </div>
         <div class="timeline-item">
           <div class="timeline-year">2028+</div>
           <div>
             <div class="timeline-title">Erweiterungsphase · Kapelle als Marktplatz</div>
-            <p class="timeline-desc">Die historische Kapelle wird zum Treffpunkt: Direktverkauf von Gemüse und weiteren Produkten aus der Region, kleines Kapellenkaffee, saisonale Anlässe — ein Ort, der verbindet.</p>
+            <p class="timeline-desc">Die historische Kapelle wird zum Treffpunkt: Direktverkauf von Gemüse und weiteren Produkten aus der Region, kleines Kapellenkaffee, saisonale Anlässe ein Ort, der verbindet.</p>
           </div>
         </div>
       </div>
@@ -761,7 +774,7 @@
       <div class="abo-left">
         <p class="section-label">Werde Erstkunde</p>
         <h2>Dein Platz im<br><span>Kapellengarten</span></h2>
-        <p>20 Plätze. Eine Saison. Frisches Gemüse aus lebendigem Boden — abgeholt samstags direkt bei der Kapelle, Dorfstrasse 192, Wangen bei Olten.</p>
+        <p>20 Plätze. Eine Saison. Frisches Gemüse aus lebendigem Boden abgeholt samstags vormittags direkt bei der Kapelle, Dorfstrasse 192, Wangen bei Olten.</p>
 
         <div class="abo-counter">
           <div class="spot-label">🌿 Noch verfügbar</div>
@@ -774,7 +787,7 @@
         </div>
 
         <div class="kiste-chips">
-          <div class="kiste-chip"><strong>📅 Abholung</strong>Samstag Nachmittag · Dorfstrasse 192</div>
+          <div class="kiste-chip"><strong>📅 Abholung</strong>Samstag Vormittag · Dorfstrasse 192</div>
           <div class="kiste-chip"><strong>🥕 Inhalt</strong>5–7 saisonale Kulturen pro Woche</div>
           <div class="kiste-chip"><strong>🏷️ Preis</strong>CHF 20.– pro Kiste (Gemüsekistenpreis für die ersten 20 Kunden)</div>
           <div class="kiste-chip"><strong>📬 Newsletter</strong>Freitags: was kommt diese Woche</div>
@@ -809,7 +822,7 @@
           <div class="form-success" id="formSuccess">
             <div class="success-icon">🌱</div>
             <h4>Herzlichen Dank!</h4>
-            <p>Deine Anfrage ist eingegangen. Wir melden uns bald — willkommen im Kapellengarten.</p>
+            <p>Deine Anfrage ist eingegangen. Wir melden uns bald willkommen im Kapellengarten.</p>
           </div>
         </div>
       </div>
@@ -823,23 +836,23 @@
       <h2>Alles <span>Wichtige</span></h2>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">Wann startet die Saison und wie lange dauert sie? <span class="faq-arrow">+</span></button>
-        <div class="faq-a">Die Saison startet voraussichtlich im <strong>April 2026</strong> und läuft bis Oktober — rund 26–28 Lieferwochen. Der genaue Starttermin wird per E-Mail kommuniziert.</div>
+        <div class="faq-a">Die Saison startet voraussichtlich im <strong>April 2026</strong> und läuft bis Oktober rund 26–28 Lieferwochen. Der genaue Starttermin wird per E-Mail kommuniziert.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">Wie läuft die Abholung ab? <span class="faq-arrow">+</span></button>
-        <div class="faq-a">Du holst deine Kiste jeden <strong>Samstag Nachmittag</strong> direkt bei der Kapelle ab: <strong>Dorfstrasse 192, Wangen bei Olten</strong>. Falls du mal verhindert bist, kann die Kiste ausnahmsweise hinterlegt werden — einfach kurz Bescheid geben.</div>
+        <div class="faq-a">Du holst deine Kiste jeden <strong>Samstag Vormittag</strong> direkt bei der Kapelle ab: <strong>Dorfstrasse 192, Wangen bei Olten</strong>. Falls du mal verhindert bist, kann die Kiste ausnahmsweise hinterlegt werden einfach kurz Bescheid geben.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">Was kostet das Abo? <span class="faq-arrow">+</span></button>
-        <div class="faq-a">Als einer meiner ersten 20 Kunden zahlst du <strong>CHF 20.– pro Kiste</strong> — das ist der Gemüsekistenpreis, den ich speziell für meine Erstkunden anbiete (regulärer Preis ab 2027: CHF 26.–). Details zur Zahlungsweise klären wir nach deiner Anmeldung.</div>
+        <div class="faq-a">Als einer meiner ersten 20 Kunden zahlst du <strong>CHF 20.– pro Kiste</strong> das ist der Gemüsekistenpreis, den ich speziell für meine Erstkunden anbiete (regulärer Preis ab 2027: CHF 26.–). Details zur Zahlungsweise klären wir nach deiner Anmeldung.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">Was ist in der Kiste? <span class="faq-arrow">+</span></button>
-        <div class="faq-a">Jede Woche <strong>5–7 saisonale Kulturen</strong> — was gerade reif ist. Jeden Freitag erhältst du per Newsletter eine Vorschau, damit du dich auf die Woche vorbereiten kannst.</div>
+        <div class="faq-a">Jede Woche <strong>5–7 saisonale Kulturen</strong> was gerade reif ist. Jeden Freitag erhältst du per Newsletter eine Vorschau, damit du dich auf die Woche vorbereiten kannst.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">Ist das Gemüse biologisch zertifiziert? <span class="faq-arrow">+</span></button>
-        <div class="faq-a">Der Kapellengarten arbeitet nach <strong>biologischen Prinzipien</strong> — kein Kunstdünger, keine Pestizide. Ich bin ausgebildeter Bodenmikrobiologe (Soil Food Web) und analysiere die Bodenbiologie regelmässig. Eine offizielle Bio-Zertifizierung wird angestrebt.</div>
+        <div class="faq-a">Der Kapellengarten arbeitet nach <strong>biologischen Prinzipien</strong> kein Kunstdünger, keine Pestizide. Ich bin ausgebildeter Bodenmikrobiologe (Soil Food Web) und analysiere die Bodenbiologie regelmässig. Eine offizielle Bio-Zertifizierung wird angestrebt.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">Was passiert, wenn alle Plätze besetzt sind? <span class="faq-arrow">+</span></button>
@@ -851,7 +864,7 @@
   <!-- NEU: Newsletter-Band -->
   <div class="newsletter-band">
     <h3>Bleib auf dem <span>Laufenden</span></h3>
-    <p>Wöchentliche Updates aus dem Garten — Kisteninhalt, Rezeptideen, Neuigkeiten. Kein Spam.</p>
+    <p>Wöchentliche Updates aus dem Garten Kisteninhalt, Rezeptideen, Neuigkeiten. Kein Spam.</p>
     <div class="nl-form">
       <input type="email" id="nlEmail" placeholder="deine@email.ch">
       <button onclick="subscribeNewsletter()">Anmelden</button>
@@ -891,7 +904,7 @@
         if(left <= 3 && left > 0)
           el.innerHTML = `<strong style="color:#c0392b">⚡ Nur noch ${left} Plätze frei!</strong>`;
         else if(left === 0)
-          el.innerHTML = `<strong style="color:#c0392b">Alle Plätze vergeben — Warteliste anfragen.</strong>`;
+          el.innerHTML = `<strong style="color:#c0392b">Alle Plätze vergeben Warteliste anfragen.</strong>`;
         else
           el.innerHTML = `<strong>Gemüsekistenpreis für meine ersten 20 Kunden: CHF 20.–</strong> pro Kiste · 5–7 Kulturen`;
       });
