@@ -809,27 +809,27 @@
       <p class="section-label">Häufige Fragen</p>
       <h2>Alles <span>Wichtige</span></h2>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Wann startet die Saison und wie lange dauert sie? <span class="faq-arrow">+</span></button>
+        <button class="faq-q">Wann startet die Saison und wie lange dauert sie? <span class="faq-arrow">+</span></button>
         <div class="faq-a">Die Saison startet voraussichtlich im <strong>April 2026</strong> und läuft bis Oktober, rund 26–28 Lieferwochen. Der genaue Starttermin wird per E-Mail kommuniziert.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Wie läuft die Abholung ab? <span class="faq-arrow">+</span></button>
+        <button class="faq-q">Wie läuft die Abholung ab? <span class="faq-arrow">+</span></button>
         <div class="faq-a">Du holst deine Kiste jeden <strong>Samstag Vormittag</strong> direkt bei der Kapelle ab: <strong>Dorfstrasse 192, Wangen bei Olten</strong>. Ein Parkplatz steht direkt links neben der Gemüseausgabe zur Verfügung, kostenlos. Falls du mal verhindert bist, kann die Kiste ausnahmsweise hinterlegt werden, einfach kurz Bescheid geben.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Was kostet das Abo? <span class="faq-arrow">+</span></button>
+        <button class="faq-q">Was kostet das Abo? <span class="faq-arrow">+</span></button>
         <div class="faq-a">Als einer meiner ersten 20 Kunden zahlst du <strong>CHF 20.– pro Kiste</strong>, das ist der Gemüsekistenpreis, den ich speziell für meine Erstkunden anbiete (regulärer Preis ab 2027: CHF 26.–). Details zur Zahlungsweise klären wir nach deiner Anmeldung.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Was ist in der Kiste? <span class="faq-arrow">+</span></button>
+        <button class="faq-q">Was ist in der Kiste? <span class="faq-arrow">+</span></button>
         <div class="faq-a">Jede Woche <strong>5–7 saisonale Kulturen</strong>, was gerade erntefrisch ist. Jeden Freitag erhältst du per Newsletter eine Vorschau, damit du dich auf die Woche vorbereiten kannst.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Ist das Gemüse biologisch zertifiziert? <span class="faq-arrow">+</span></button>
+        <button class="faq-q">Ist das Gemüse biologisch zertifiziert? <span class="faq-arrow">+</span></button>
         <div class="faq-a">Der Kapellengarten arbeitet nach <strong>biologischen Prinzipien</strong>, kein Kunstdünger, keine Pestizide. Ich bin ausgebildeter Bodenmikrobiologe (Soil Food Web) und analysiere die Bodenbiologie regelmässig. Eine offizielle Bio-Zertifizierung wird angestrebt.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Was passiert, wenn alle Plätze besetzt sind? <span class="faq-arrow">+</span></button>
+        <button class="faq-q">Was passiert, wenn alle Plätze besetzt sind? <span class="faq-arrow">+</span></button>
         <div class="faq-a">Dann führe ich eine <strong>Warteliste</strong>. Falls jemand absagt oder die Kapazität früher erweitert wird, melde ich mich in der Reihenfolge der Anmeldungen.</div>
       </div>
     </div>
@@ -861,7 +861,7 @@
     <p>© 2026 Kapellengarten · Francis · Wangen bei Olten</p>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
     const TOTAL = 20;
     let taken = 4;
     function updateSpots(n) {
@@ -889,10 +889,16 @@
     }
     function toggleFaq(btn) {
       const item = btn.closest('.faq-item');
+      if (!item) return;
       const isOpen = item.classList.contains('open');
       document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
-      if(!isOpen) item.classList.add('open');
+      if (!isOpen) item.classList.add('open');
     }
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.faq-q').forEach(function(btn) {
+        btn.addEventListener('click', function() { toggleFaq(this); });
+      });
+    });
     function subscribeNewsletter() {
       const email = document.getElementById('nlEmail').value.trim();
       const note  = document.getElementById('nlNote');
