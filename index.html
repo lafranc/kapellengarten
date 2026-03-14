@@ -9,69 +9,43 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    
-    body {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      background-color: #f7f5f0;
-      color: #2d3a2d;
-      line-height: 1.6;
-    }
-    
-    .nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      padding: 1.5rem 4rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 100;
-      background: rgba(247, 245, 240, 0.95);
-      backdrop-filter: blur(10px);
-    }
-    .nav-logo { font-size: 1.5rem; font-weight: 600; color: #2d3a2d; text-decoration: none; }
-    .nav-links { display: flex; gap: 2.5rem; align-items: center; }
-    .nav-links a { color: #4a5a4a; text-decoration: none; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase; transition: color 0.3s; }
-    .nav-links a:hover { color: #4a6741; }
-
-    /* NEU */
-    .nav-cta { background: #4a6741 !important; color: #f7f5f0 !important; padding: 0.55rem 1.3rem !important; border-radius: 2rem; }
-    .nav-cta:hover { background: #2d3a2d !important; }
-
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 101; }
-    .hamburger span { width: 25px; height: 2px; background: #2d3a2d; transition: all 0.3s; }
-    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(7px, 7px); }
-    .hamburger.active span:nth-child(2) { opacity: 0; }
-    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
-    
+    body { font-family: 'Cormorant Garamond', Georgia, serif; background-color: #f7f5f0; color: #2d3a2d; line-height: 1.6; }
+    .nav { position:fixed; top:0; left:0; right:0; padding:1.5rem 4rem; display:flex; justify-content:space-between; align-items:center; z-index:100; background:rgba(247,245,240,0.95); backdrop-filter:blur(10px); }
+    .nav-logo { font-size:1.5rem; font-weight:600; color:#2d3a2d; text-decoration:none; }
+    .nav-links { display:flex; gap:2.5rem; align-items:center; }
+    .nav-links a { color:#4a5a4a; text-decoration:none; font-family:'DM Sans',sans-serif; font-size:.85rem; letter-spacing:.05em; text-transform:uppercase; transition:color .3s; }
+    .nav-links a:hover { color:#4a6741; }
+    .nav-cta { background:#4a6741 !important; color:#f7f5f0 !important; padding:.55rem 1.3rem !important; border-radius:2rem; }
+    .nav-cta:hover { background:#2d3a2d !important; }
+    .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; z-index:101; }
+    .hamburger span { width:25px; height:2px; background:#2d3a2d; transition:all .3s; }
+    .hamburger.active span:nth-child(1) { transform:rotate(45deg) translate(7px,7px); }
+    .hamburger.active span:nth-child(2) { opacity:0; }
+    .hamburger.active span:nth-child(3) { transform:rotate(-45deg) translate(7px,-7px); }
     @keyframes schweben { 0%,100%{transform:translateY(0) rotate(0deg)} 50%{transform:translateY(-15px) rotate(3deg)} }
     @keyframes schweben-gemuese { 0%,100%{transform:translateY(0px) rotate(0deg)} 50%{transform:translateY(-20px) rotate(5deg)} }
     @keyframes einblenden { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
-    .einblenden { animation: einblenden 1s ease forwards; }
-    .einblenden-1 { animation-delay: 0.2s; opacity: 0; }
-    .einblenden-2 { animation-delay: 0.4s; opacity: 0; }
-    .einblenden-3 { animation-delay: 0.6s; opacity: 0; }
-    
+    .einblenden { animation:einblenden 1s ease forwards; }
+    .einblenden-1 { animation-delay:.2s; opacity:0; }
+    .einblenden-2 { animation-delay:.4s; opacity:0; }
+    .einblenden-3 { animation-delay:.6s; opacity:0; }
     .schwebender-kreis { position:absolute; border-radius:60% 40% 70% 30% / 50% 60% 40% 50%; animation:schweben 6s ease-in-out infinite; pointer-events:none; }
     .kreis-1 { top:15%; right:10%; width:120px; height:120px; background:linear-gradient(135deg,rgba(74,103,65,.15),rgba(74,103,65,.05)); }
     .kreis-2 { bottom:20%; left:8%; width:150px; height:150px; background:linear-gradient(135deg,rgba(139,115,85,.12),rgba(139,115,85,.04)); animation-delay:-2s; }
     .kreis-3 { top:50%; right:25%; width:90px; height:90px; background:linear-gradient(135deg,rgba(74,103,65,.1),rgba(74,103,65,.03)); animation-delay:-4s; }
     .kreis-4 { bottom:35%; left:35%; width:70px; height:70px; background:linear-gradient(135deg,rgba(139,115,85,.08),rgba(139,115,85,.02)); animation-delay:-1s; }
-    
     .schwebendes-gemuese { position:absolute; pointer-events:none; animation:schweben-gemuese 5s ease-in-out infinite; filter:drop-shadow(0 5px 15px rgba(0,0,0,.1)); }
     .gemuese-1 { top:12%; right:15%; width:80px; height:80px; animation-delay:-1s; }
     .gemuese-2 { top:60%; right:8%; width:100px; height:100px; animation-delay:-3s; }
     .gemuese-3 { top:25%; left:12%; width:70px; height:70px; animation-delay:-2s; }
     .gemuese-4 { bottom:15%; right:20%; width:90px; height:90px; animation-delay:-4s; }
     .gemuese-5 { top:45%; left:18%; width:75px; height:75px; animation-delay:-1.5s; }
-    
     .hero { position:relative; min-height:100vh; display:flex; align-items:center; justify-content:center; padding:2rem; overflow:hidden; }
     .hero-content { text-align:center; max-width:900px; z-index:2; }
     .hero-location { font-family:'DM Sans',sans-serif; font-size:.85rem; letter-spacing:.2em; text-transform:uppercase; color:#8b7355; margin-bottom:1.5rem; }
     .hero h1 { font-size:clamp(3rem,8vw,6rem); font-weight:400; line-height:1.1; margin-bottom:1.5rem; }
     .hero h1 span { display:block; font-style:italic; color:#4a6741; }
     .hero-text { font-family:'DM Sans',sans-serif; font-size:clamp(1rem,2vw,1.2rem); color:#5a6a5a; margin-bottom:2rem; max-width:600px; margin-left:auto; margin-right:auto; }
-
-    /* NEU: Platz-Zähler */
     .spot-box { display:inline-block; background:rgba(255,255,255,.88); border:2px solid #4a6741; border-radius:12px; padding:1.2rem 2rem; margin-bottom:2rem; min-width:300px; text-align:left; }
     .spot-label { font-family:'DM Sans',sans-serif; font-size:.7rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:#4a6741; margin-bottom:.5rem; }
     .spot-row { display:flex; align-items:baseline; gap:.4rem; margin-bottom:.6rem; }
@@ -81,47 +55,51 @@
     .spot-fill { height:100%; border-radius:6px; background:linear-gradient(90deg,#4a6741,#7a9e7e); transition:width 1.2s cubic-bezier(.22,1,.36,1); width:0; }
     .spot-note { font-family:'DM Sans',sans-serif; font-size:.78rem; color:#5a6a5a; }
     .spot-note strong { color:#2d3a2d; }
-
     .btn { display:inline-block; padding:1rem 2.5rem; background:#4a6741; color:#f7f5f0; text-decoration:none; font-family:'DM Sans',sans-serif; font-size:.9rem; letter-spacing:.05em; text-transform:uppercase; transition:all .3s ease; border:2px solid #4a6741; cursor:pointer; }
     .btn:hover { background:transparent; color:#4a6741; }
-    /* NEU */
     .btn-ghost { display:inline-block; padding:1rem 2rem; background:transparent; color:#4a6741; text-decoration:none; font-family:'DM Sans',sans-serif; font-size:.9rem; letter-spacing:.05em; text-transform:uppercase; border:2px solid #4a6741; transition:all .3s ease; margin-left:1rem; cursor:pointer; }
     .btn-ghost:hover { background:#4a6741; color:#f7f5f0; }
-    
     .section { padding:6rem 2rem; max-width:1400px; margin:0 auto; }
     .section-label { font-family:'DM Sans',sans-serif; font-size:.85rem; letter-spacing:.2em; text-transform:uppercase; color:#8b7355; margin-bottom:1rem; }
-    
-    .vision-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; }
-    .vision-text h2 { font-size:clamp(2.5rem,6vw,4rem); font-weight:400; margin-bottom:1.5rem; line-height:1.2; }
-    .vision-text h2 span { display:block; font-style:italic; color:#4a6741; }
-    .vision-text p { font-family:'DM Sans',sans-serif; font-size:1.05rem; color:#4a5a4a; line-height:1.8; margin-bottom:1.2rem; }
-    .vision-image img { width:100%; border-radius:2px; }
-    
-    .marktstand { padding:6rem 2rem; background:linear-gradient(135deg,#e8e4da 0%,#d4cfc3 100%); }
-    .marktstand-content { max-width:1000px; margin:0 auto; text-align:center; }
-    .marktstand h2 { font-size:clamp(2.5rem,6vw,4rem); font-weight:400; margin-bottom:3rem; }
-    .marktstand h2 span { font-style:italic; color:#4a6741; }
-    .marktstand-image img { width:100%; max-width:900px; border-radius:2px; }
-    
-    .sortiment { padding:6rem 2rem; background:#f7f5f0; }
-    .sortiment-content { max-width:1200px; margin:0 auto; text-align:center; }
-    .sortiment h2 { font-size:clamp(2.5rem,6vw,4rem); font-weight:400; margin-bottom:1.5rem; }
-    .sortiment h2 span { font-style:italic; }
-    .sortiment-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; margin-top:3rem; }
-    .sortiment-item { background:rgba(247,245,240,.95); padding:2rem; border-radius:2px; text-align:left; }
-    .sortiment-item .icon { width:100px; height:100px; margin-bottom:1.5rem; stroke:#3a4a35; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; opacity:.9; }
-    .sortiment-item .icon-fill { opacity:.25; stroke:none; }
-    .sortiment-item h3 { font-size:1.4rem; font-weight:400; color:#2d3a2d; margin-bottom:.5rem; }
-    .sortiment-item p { font-family:'DM Sans',sans-serif; font-size:.95rem; color:#5a6a5a; }
-    
-    .philosophie { padding:6rem 2rem; text-align:center; max-width:900px; margin:0 auto; }
-    .philosophie h2 { font-size:clamp(2.5rem,6vw,4rem); font-weight:400; margin-bottom:1.5rem; }
-    .philosophie h2 span { font-style:italic; }
-    .philosophie p { font-family:'DM Sans',sans-serif; font-size:1.05rem; color:#4a5a4a; line-height:1.8; max-width:700px; margin:0 auto 3rem; }
-    .stats { display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; margin-top:3rem; }
-    .stat-number { font-size:2.5rem; font-weight:600; color:#4a6741; }
-    .stat-label { font-family:'DM Sans',sans-serif; font-size:.85rem; letter-spacing:.1em; text-transform:uppercase; color:#8b7355; }
-    
+    /* KISTE */
+    .kiste-section { padding:6rem 2rem; background:linear-gradient(135deg,#e8e4da 0%,#d4cfc3 100%); }
+    .kiste-section-inner { max-width:1000px; margin:0 auto; }
+    .kiste-section h2 { font-size:clamp(2.5rem,6vw,4rem); font-weight:400; margin-bottom:1rem; line-height:1.15; }
+    .kiste-section h2 span { font-style:italic; color:#4a6741; }
+    .kiste-intro { font-family:'DM Sans',sans-serif; font-size:1.05rem; color:#4a5a4a; line-height:1.8; max-width:680px; margin-bottom:3rem; }
+    .kiste-how { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-bottom:3.5rem; }
+    .kiste-step { display:flex; gap:1rem; align-items:flex-start; background:rgba(255,255,255,.65); border-radius:8px; padding:1.4rem; }
+    .kiste-step-num { font-family:'Cormorant Garamond',serif; font-size:2.2rem; font-weight:600; color:#4a6741; line-height:1; flex-shrink:0; min-width:2.2rem; }
+    .kiste-step strong { display:block; font-family:'DM Sans',sans-serif; font-size:1.05rem; font-weight:600; color:#2d3a2d; margin-bottom:.45rem; }
+    .kiste-step p { font-family:'DM Sans',sans-serif; font-size:.95rem; color:#5a6a5a; line-height:1.7; margin:0; }
+    .kiste-seasons-title { font-size:1.9rem; font-weight:400; margin-bottom:.5rem; }
+    .kiste-seasons-sub { font-family:'DM Sans',sans-serif; font-size:.95rem; color:#5a6a5a; margin-bottom:2.5rem; }
+    .kiste-seasons { display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; margin-bottom:3.5rem; }
+    .kiste-season { background:#f7f5f0; overflow:hidden; transition:transform .3s ease, box-shadow .3s ease; }
+    .kiste-season:hover { transform:translateY(-6px); box-shadow:0 16px 40px rgba(45,58,45,.14); }
+    .kiste-photo-wrap { position:relative; overflow:hidden; aspect-ratio:4/3; }
+    .kiste-photo { width:100%; height:100%; object-fit:cover; object-position:center; display:block; transition:transform .6s ease; }
+    .kiste-season:hover .kiste-photo { transform:scale(1.05); }
+    .kiste-photo-overlay { position:absolute; inset:0; background:linear-gradient(to top, rgba(20,32,18,.75) 0%, rgba(20,32,18,.1) 55%, transparent 100%); }
+    .kiste-photo-label { position:absolute; bottom:0; left:0; right:0; padding:1.4rem 1.6rem; }
+    .kiste-photo-label .kiste-season-name { font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:400; color:#f7f5f0; display:block; line-height:1.05; letter-spacing:.01em; }
+    .kiste-photo-label .kiste-season-month { font-family:'DM Sans',sans-serif; font-size:.7rem; color:rgba(247,245,240,.65); letter-spacing:.18em; text-transform:uppercase; display:block; margin-top:.3rem; }
+    .kiste-season-body { padding:1.4rem 1.8rem 1.8rem; border-top:2px solid transparent; }
+    .kiste-season.fruehling .kiste-season-body { border-color:#7a9e7e; }
+    .kiste-season.sommer    .kiste-season-body { border-color:#c47d2a; }
+    .kiste-season.herbst    .kiste-season-body { border-color:#8b7355; }
+    .kiste-list { list-style:none; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:.35rem .5rem; }
+    .kiste-list li { font-family:'DM Sans',sans-serif; font-size:.85rem; color:#4a5a4a; padding-left:1rem; position:relative; line-height:1.5; }
+    .kiste-list li::before { content:'·'; position:absolute; left:0; color:#4a6741; font-size:1.1rem; line-height:1.2; }
+    /* ABHOLUNG – NEU erweitert */
+    .kiste-abholung { display:grid; grid-template-columns:1fr auto; gap:2.5rem; align-items:start; background:rgba(255,255,255,.65); border-radius:8px; padding:2rem 2.5rem; }
+    .kiste-abholung h3 { font-size:1.6rem; font-weight:400; margin-bottom:.75rem; }
+    .kiste-abholung p { font-family:'DM Sans',sans-serif; font-size:.95rem; color:#4a5a4a; line-height:1.8; margin-bottom:.5rem; }
+    .abholung-infos { display:flex; flex-direction:column; gap:.55rem; margin-top:1rem; }
+    .abholung-info { display:flex; gap:.7rem; font-family:'DM Sans',sans-serif; font-size:.9rem; color:#4a5a4a; line-height:1.5; }
+    .abholung-info-icon { font-size:1rem; flex-shrink:0; margin-top:.1rem; }
+    .kapelle-illustration { width:220px; height:auto; flex-shrink:0; filter:drop-shadow(0 2px 8px rgba(45,58,45,.14)); }
+    /* UEBER UNS */
     .ueber-uns-hero { padding:8rem 2rem 4rem; text-align:center; background:linear-gradient(135deg,#f7f5f0 0%,#e8e4da 100%); }
     .ueber-uns-hero h2 { font-size:clamp(2.5rem,6vw,4rem); font-weight:400; }
     .ueber-uns-hero h2 span { font-style:italic; color:#4a6741; }
@@ -130,7 +108,12 @@
     .ueber-uns-section h3 { font-size:1.8rem; font-weight:400; margin-bottom:1rem; }
     .ueber-uns-section h3 span { font-style:italic; color:#4a6741; }
     .ueber-uns-section p { font-family:'DM Sans',sans-serif; font-size:1.05rem; color:#4a5a4a; line-height:1.8; margin-bottom:1.2rem; }
-
+    .ueber-uns-portrait-grid { display:grid; grid-template-columns:280px 1fr; gap:3rem; align-items:start; margin-bottom:3rem; }
+    .ueber-uns-portrait-placeholder { background:linear-gradient(135deg,#e8e4da,#d4cfc3); border-radius:8px; aspect-ratio:3/4; display:flex; align-items:center; justify-content:center; text-align:center; overflow:hidden; }
+    .ueber-uns-portrait-placeholder img { width:100%; height:100%; object-fit:cover; border-radius:8px; }
+    .ueber-uns-portrait-text h3 { font-size:1.8rem; font-weight:400; margin-bottom:1rem; }
+    .ueber-uns-portrait-text h3 span { font-style:italic; color:#4a6741; }
+    .ueber-uns-portrait-text p { font-family:'DM Sans',sans-serif; font-size:1.05rem; color:#4a5a4a; line-height:1.8; margin-bottom:1.2rem; }
     .ueber-uns-method-grid { display:grid; grid-template-columns:1fr 280px; gap:2.5rem; align-items:start; }
     .ueber-uns-method-img img { width:100%; border-radius:8px; object-fit:cover; max-height:320px; }
     .ueber-uns-vision { display:grid; grid-template-columns:280px 1fr; gap:2.5rem; align-items:start; }
@@ -138,20 +121,7 @@
     .ueber-uns-vision h3 span { font-style:italic; color:#4a6741; }
     .ueber-uns-vision p { font-family:'DM Sans',sans-serif; font-size:1.05rem; color:#4a5a4a; line-height:1.8; margin-bottom:1.2rem; }
     .ueber-uns-vision-img img { width:100%; border-radius:8px; object-fit:cover; max-height:340px; }
-
-    /* Portrait grid */
-    .ueber-uns-portrait-grid { display:grid; grid-template-columns:280px 1fr; gap:3rem; align-items:start; margin-bottom:3rem; }
-    .ueber-uns-portrait-placeholder { background:linear-gradient(135deg,#e8e4da,#d4cfc3); border-radius:8px; aspect-ratio:3/4; display:flex; align-items:center; justify-content:center; text-align:center; overflow:hidden; }
-    .portrait-inner { padding:2rem; }
-    .portrait-icon { font-size:4rem; margin-bottom:1rem; opacity:.5; }
-    .portrait-caption { font-family:'DM Sans',sans-serif; font-size:.85rem; color:#5a6a5a; line-height:1.6; }
-    .portrait-caption span { display:block; font-size:.78rem; color:#8b7355; margin-top:.3rem; }
-    /* If a real photo is supplied later, swap the placeholder: */
-    .ueber-uns-portrait-placeholder img { width:100%; height:100%; object-fit:cover; border-radius:8px; }
-    .ueber-uns-portrait-text h3 { font-size:1.8rem; font-weight:400; margin-bottom:1rem; }
-    .ueber-uns-portrait-text h3 span { font-style:italic; color:#4a6741; }
-    .ueber-uns-portrait-text p { font-family:'DM Sans',sans-serif; font-size:1.05rem; color:#4a5a4a; line-height:1.8; margin-bottom:1.2rem; }
-    
+    /* WEG */
     .unser-weg { padding:6rem 2rem; background:linear-gradient(135deg,#e8e4da 0%,#d4cfc3 100%); }
     .unser-weg-content { max-width:900px; margin:0 auto; }
     .unser-weg h2 { font-size:clamp(2.5rem,6vw,4rem); font-weight:400; text-align:center; margin-bottom:3rem; }
@@ -163,7 +133,7 @@
     .timeline-year { font-size:2rem; font-weight:600; color:#4a6741; min-width:100px; }
     .timeline-title { font-size:1.4rem; font-weight:400; margin-bottom:.5rem; }
     .timeline-desc { font-family:'DM Sans',sans-serif; font-size:.95rem; color:#5a6a5a; line-height:1.7; }
-    
+    /* WERTE */
     .werte { padding:6rem 2rem; background:#f7f5f0; }
     .werte h2 { font-size:clamp(2.5rem,6vw,4rem); font-weight:400; text-align:center; margin-bottom:3rem; }
     .werte h2 span { font-style:italic; color:#4a6741; }
@@ -173,8 +143,7 @@
     .werte-item .icon-fill { opacity:.25; stroke:none; }
     .werte-item h3 { font-size:1.4rem; font-weight:400; margin-bottom:.75rem; }
     .werte-item p { font-family:'DM Sans',sans-serif; font-size:.95rem; color:#5a6a5a; line-height:1.7; }
-
-    /* ── NEU: ABO-SECTION ── */
+    /* ABO */
     .abo-section { padding:7rem 2rem; background:#2d3a2d; color:#f7f5f0; }
     .abo-inner { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start; }
     .abo-left .section-label { color:#7a9e7e; }
@@ -189,6 +158,12 @@
     .abo-counter .spot-fill { background:linear-gradient(90deg,#7a9e7e,#c8dbc9); }
     .abo-counter .spot-note { color:rgba(247,245,240,.6); }
     .abo-counter .spot-note strong { color:#f7f5f0; }
+    .abo-info-blocks { display:flex; flex-direction:column; gap:0; margin-bottom:2rem; }
+    .abo-info-block { padding:1.2rem 0; border-bottom:1px solid rgba(255,255,255,.1); display:flex; gap:1.2rem; align-items:flex-start; }
+    .abo-info-block:last-child { border-bottom:none; }
+    .abo-info-num { font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:600; color:#7a9e7e; line-height:1; flex-shrink:0; min-width:2rem; }
+    .abo-info-block strong { display:block; font-family:'DM Sans',sans-serif; font-size:.8rem; font-weight:500; letter-spacing:.1em; text-transform:uppercase; color:#f7f5f0; margin-bottom:.3rem; }
+    .abo-info-block p { font-family:'DM Sans',sans-serif; font-size:.88rem; color:rgba(247,245,240,.65); line-height:1.65; margin:0; }
     .kiste-chips { display:grid; grid-template-columns:1fr 1fr; gap:.75rem; }
     .kiste-chip { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); border-radius:8px; padding:.9rem 1rem; font-family:'DM Sans',sans-serif; font-size:.85rem; color:rgba(247,245,240,.8); display:flex; flex-direction:column; gap:.3rem; }
     .kiste-chip strong { display:flex; align-items:center; gap:.5rem; color:#f7f5f0; margin-bottom:.1rem; }
@@ -201,39 +176,35 @@
     .form-row input, .form-row select { width:100%; padding:.75rem 1rem; border:1.5px solid #d4cfc3; border-radius:4px; font-size:1rem; font-family:'DM Sans',sans-serif; color:#2d3a2d; background:white; outline:none; transition:border-color .2s; }
     .form-row input:focus, .form-row select:focus { border-color:#4a6741; }
     .form-2col { display:grid; grid-template-columns:1fr 1fr; gap:.75rem; }
-    .form-note { font-family:'DM Sans',sans-serif; font-size:.75rem; color:#8b7355; margin-top:.75rem; line-height:1.5; }
-    .btn-submit { width:100%; background:#4a6741; color:#f7f5f0; border:none; padding:1rem; border-radius:4px; font-family:'DM Sans',sans-serif; font-size:.9rem; font-weight:500; letter-spacing:.05em; text-transform:uppercase; cursor:pointer; margin-top:1.2rem; transition:background .25s; }
+    .form-note { font-family:'DM Sans',sans-serif; font-size:.75rem; color:#8b7355; margin-top:1rem; }
+    .btn-submit { width:100%; padding:1rem; background:#4a6741; color:#f7f5f0; border:none; font-family:'DM Sans',sans-serif; font-size:.95rem; font-weight:500; letter-spacing:.05em; cursor:pointer; border-radius:4px; margin-top:.5rem; transition:background .2s; }
     .btn-submit:hover { background:#2d3a2d; }
-    .form-success { display:none; text-align:center; padding:2rem 1rem; }
-    .form-success .success-icon { font-size:3rem; margin-bottom:1rem; }
-    .form-success h4 { font-size:1.6rem; font-weight:400; margin-bottom:.5rem; color:#4a6741; }
-    .form-success p { font-family:'DM Sans',sans-serif; font-size:.95rem; color:#5a6a5a; }
-
-    /* ── NEU: FAQ ── */
+    .form-success { display:none; text-align:center; padding:2rem; }
+    .success-icon { font-size:3rem; margin-bottom:1rem; }
+    .form-success h4 { font-size:1.8rem; font-weight:400; margin-bottom:.5rem; }
+    .form-success p { font-family:'DM Sans',sans-serif; color:#5a6a5a; }
+    /* FAQ */
     .faq-section { padding:6rem 2rem; background:#f7f5f0; }
     .faq-inner { max-width:800px; margin:0 auto; }
-    .faq-section h2 { font-size:clamp(2.5rem,5vw,3.5rem); font-weight:400; margin-bottom:3rem; }
-    .faq-section h2 span { font-style:italic; color:#4a6741; }
-    .faq-item { border-bottom:1px solid rgba(0,0,0,.08); }
-    .faq-q { width:100%; background:none; border:none; padding:1.4rem 0; text-align:left; font-family:'Cormorant Garamond',serif; font-size:1.3rem; color:#2d3a2d; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:1rem; }
-    .faq-q:hover { color:#4a6741; }
-    .faq-arrow { font-size:1.4rem; transition:transform .25s; color:#4a6741; flex-shrink:0; }
+    .faq-inner h2 { font-size:clamp(2.5rem,6vw,4rem); font-weight:400; margin-bottom:2.5rem; }
+    .faq-inner h2 span { font-style:italic; color:#4a6741; }
+    .faq-item { border-bottom:1px solid #d4cfc3; }
+    .faq-q { width:100%; text-align:left; background:none; border:none; padding:1.4rem 0; font-family:'Cormorant Garamond',Georgia,serif; font-size:1.2rem; color:#2d3a2d; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:1rem; }
+    .faq-arrow { font-size:1.5rem; color:#4a6741; transition:transform .3s; flex-shrink:0; }
     .faq-item.open .faq-arrow { transform:rotate(45deg); }
-    .faq-a { font-family:'DM Sans',sans-serif; font-size:.95rem; color:#4a5a4a; line-height:1.8; max-height:0; overflow:hidden; transition:max-height .35s ease, padding .25s ease; padding-bottom:0; }
-    .faq-item.open .faq-a { max-height:400px; padding-bottom:1.4rem; }
-    .faq-a strong { color:#2d3a2d; }
-
-    /* ── NEU: NEWSLETTER ── */
-    .newsletter-band { background:linear-gradient(135deg,#8b7355 0%,#6b5a42 100%); padding:4rem 2rem; text-align:center; color:#f7f5f0; }
-    .newsletter-band h3 { font-size:2rem; font-weight:400; margin-bottom:.5rem; }
+    .faq-a { font-family:'DM Sans',sans-serif; font-size:.95rem; color:#4a5a4a; line-height:1.8; max-height:0; overflow:hidden; transition:max-height .4s ease, padding .3s ease; padding:0; }
+    .faq-item.open .faq-a { max-height:300px; padding-bottom:1.4rem; }
+    /* NEWSLETTER */
+    .newsletter-band { background:#4a6741; color:#f7f5f0; padding:4rem 2rem; text-align:center; }
+    .newsletter-band h3 { font-size:2.2rem; font-weight:400; margin-bottom:.5rem; }
     .newsletter-band h3 span { font-style:italic; }
-    .newsletter-band p { font-family:'DM Sans',sans-serif; font-size:.95rem; opacity:.8; margin-bottom:1.8rem; }
-    .nl-form { display:flex; gap:.75rem; max-width:440px; margin:0 auto; }
-    .nl-form input { flex:1; padding:.85rem 1.2rem; border:none; border-radius:2rem; font-family:'DM Sans',sans-serif; font-size:.95rem; outline:none; }
-    .nl-form button { background:#2d3a2d; color:#f7f5f0; border:none; padding:.85rem 1.6rem; border-radius:2rem; font-family:'DM Sans',sans-serif; font-size:.85rem; font-weight:500; letter-spacing:.05em; text-transform:uppercase; cursor:pointer; transition:background .2s; white-space:nowrap; }
-    .nl-form button:hover { background:#4a6741; }
+    .newsletter-band p { font-family:'DM Sans',sans-serif; font-size:.95rem; opacity:.8; margin-bottom:1.5rem; }
+    .nl-form { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+    .nl-form input { padding:.75rem 1.5rem; border:none; border-radius:2rem; font-family:'DM Sans',sans-serif; font-size:.95rem; min-width:280px; outline:none; color:#2d3a2d; }
+    .nl-form button { padding:.75rem 2rem; background:#2d3a2d; color:#f7f5f0; border:none; border-radius:2rem; font-family:'DM Sans',sans-serif; font-size:.85rem; font-weight:500; letter-spacing:.05em; text-transform:uppercase; cursor:pointer; transition:background .2s; white-space:nowrap; }
+    .nl-form button:hover { background:#1a2a1a; }
     .nl-note { font-family:'DM Sans',sans-serif; font-size:.75rem; opacity:.5; margin-top:1rem; }
-    
+    /* KONTAKT / FOOTER */
     .kontakt { padding:6rem 2rem; background:linear-gradient(135deg,#e8e4da 0%,#d4cfc3 100%); text-align:center; }
     .kontakt-content { max-width:600px; margin:0 auto; }
     .kontakt h2 { font-size:clamp(2.5rem,6vw,4rem); font-weight:400; margin-bottom:1.5rem; }
@@ -241,48 +212,12 @@
     .kontakt p { font-family:'DM Sans',sans-serif; font-size:1.05rem; color:#4a5a4a; margin-bottom:2rem; }
     .kontakt-email { font-family:'DM Sans',sans-serif; font-size:1.2rem; color:#4a6741; text-decoration:none; border-bottom:2px solid #4a6741; padding-bottom:.25rem; }
     .kontakt-ort { font-family:'DM Sans',sans-serif; font-size:.95rem; color:#5a6a5a; margin-top:1.5rem; }
-    
     footer { padding:2.5rem; background:#2d3a2d; color:#7a8a7a; text-align:center; font-family:'DM Sans',sans-serif; font-size:.85rem; }
     footer .logo { font-family:'Cormorant Garamond',Georgia,serif; font-size:1.3rem; color:#f7f5f0; margin-bottom:.5rem; }
-
-    /* ── KISTE-SECTION ── */
-    .kiste-section { padding: 6rem 2rem; background: linear-gradient(135deg, #e8e4da 0%, #d4cfc3 100%); }
-    .kiste-section-inner { max-width: 1000px; margin: 0 auto; }
-    .kiste-section h2 { font-size: clamp(2.5rem,6vw,4rem); font-weight:400; margin-bottom:1rem; line-height:1.15; }
-    .kiste-section h2 span { font-style:italic; color:#4a6741; }
-    .kiste-intro { font-family:'DM Sans',sans-serif; font-size:1.05rem; color:#4a5a4a; line-height:1.8; max-width:680px; margin-bottom:3rem; }
-    .kiste-how { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-bottom:3.5rem; }
-    .kiste-step { display:flex; gap:1rem; align-items:flex-start; background:rgba(255,255,255,.65); border-radius:8px; padding:1.4rem; }
-    .kiste-step-num { font-family:'Cormorant Garamond',serif; font-size:2.8rem; font-weight:600; color:#4a6741; line-height:1; flex-shrink:0; min-width:2.2rem; }
-    .kiste-step strong { display:block; font-family:'DM Sans',sans-serif; font-size:1.05rem; font-weight:600; color:#2d3a2d; margin-bottom:.45rem; }
-    .kiste-step p { font-family:'DM Sans',sans-serif; font-size:.95rem; color:#5a6a5a; line-height:1.7; margin:0; }
-    .kiste-seasons-title { font-size:1.9rem; font-weight:400; margin-bottom:.5rem; }
-    .kiste-seasons-sub { font-family:'DM Sans',sans-serif; font-size:.95rem; color:#5a6a5a; margin-bottom:1.8rem; }
-    .kiste-seasons { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-bottom:3.5rem; }
-    .kiste-season { background:#fff; border-radius:10px; overflow:hidden; box-shadow:0 2px 12px rgba(45,58,45,.08); transition:transform .2s ease, box-shadow .2s ease; }
-    .kiste-season:hover { transform:translateY(-4px); box-shadow:0 8px 24px rgba(45,58,45,.13); }
-    .kiste-photo-wrap { position:relative; overflow:hidden; background:#f0ece4; }
-    .kiste-photo { width:100%; height:300px; object-fit:contain; object-position:center center; display:block; transition:transform .4s ease; }
-    .kiste-season:hover .kiste-photo { transform:scale(1.03); }
-    .kiste-photo-label { position:absolute; bottom:0; left:0; right:0; padding:.9rem 1.3rem; display:flex; align-items:baseline; gap:.8rem; }
-    .kiste-photo-label.fruehling { background:linear-gradient(to top, rgba(74,103,65,.9) 0%, transparent 100%); }
-    .kiste-photo-label.sommer    { background:linear-gradient(to top, rgba(139,89,35,.9) 0%, transparent 100%); }
-    .kiste-photo-label.herbst    { background:linear-gradient(to top, rgba(100,75,50,.9) 0%, transparent 100%); }
-    .kiste-photo-label .kiste-season-name { font-family:'Cormorant Garamond',serif; font-size:1.5rem; color:#f7f5f0; font-weight:400; }
-    .kiste-photo-label .kiste-season-month { font-family:'DM Sans',sans-serif; font-size:.72rem; color:rgba(247,245,240,.75); margin-left:auto; letter-spacing:.04em; }    .kiste-list { list-style:none; padding:1.2rem 1.5rem 1.4rem; display:flex; flex-direction:column; gap:.55rem; }
-    .kiste-list li { font-family:'DM Sans',sans-serif; font-size:.9rem; color:#3a4a3a; padding-left:1.2rem; position:relative; }
-    .kiste-list li::before { content:'·'; position:absolute; left:0; color:#4a6741; font-size:1.2rem; line-height:1; top:-.05rem; }
-    .kiste-abholung { display:grid; grid-template-columns:1fr auto; gap:2.5rem; align-items:center; background:rgba(255,255,255,.65); border-radius:8px; padding:2rem 2.5rem; }
-    .kiste-abholung h3 { font-size:1.6rem; font-weight:400; margin-bottom:.75rem; }
-    .kiste-abholung p { font-family:'DM Sans',sans-serif; font-size:.95rem; color:#4a5a4a; line-height:1.8; margin-bottom:.5rem; }
-    .kapelle-illustration { width:180px; height:auto; flex-shrink:0; filter:drop-shadow(0 2px 6px rgba(45,58,45,.12)); }
-
+    /* RESPONSIVE */
     @media (max-width:1024px) {
       .nav { padding:1.5rem 2rem; }
-      .vision-grid { gap:3rem; }
-      .sortiment-grid { grid-template-columns:repeat(2,1fr); }
       .werte-grid { grid-template-columns:repeat(2,1fr); }
-      .stats { grid-template-columns:repeat(3,1fr); }
     }
     @media (max-width:768px) {
       .nav { padding:1rem 1.5rem; }
@@ -292,13 +227,12 @@
       .nav-links a { font-size:1rem; padding:.5rem 0; }
       .hero { padding:2rem 1.5rem; }
       .spot-box { min-width:auto; width:100%; max-width:340px; }
-      .section { padding:4rem 1.5rem; }
-      .vision-grid { grid-template-columns:1fr; gap:2.5rem; }
-      .marktstand { padding:4rem 1.5rem; }
-      .sortiment { padding:4rem 1.5rem; }
-      .sortiment-grid { grid-template-columns:1fr; }
-      .philosophie { padding:4rem 1.5rem; }
-      .stats { grid-template-columns:1fr; gap:2rem; }
+      .kiste-section { padding:4rem 1.5rem; }
+      .kiste-how { grid-template-columns:1fr; gap:1rem; }
+      .kiste-seasons { grid-template-columns:1fr; }
+      .kiste-list { grid-template-columns:1fr 1fr; }
+      .kiste-abholung { grid-template-columns:1fr; }
+      .kapelle-illustration { width:100%; max-width:320px; margin:1rem auto 0; display:block; }
       .ueber-uns-hero { padding:6rem 1.5rem 3rem; }
       .ueber-uns-content { padding:3rem 1.5rem; }
       .ueber-uns-portrait-grid { grid-template-columns:1fr; gap:2rem; }
@@ -311,83 +245,53 @@
       .timeline-year { font-size:1.5rem; min-width:auto; }
       .werte { padding:4rem 1.5rem; }
       .werte-grid { grid-template-columns:1fr; gap:2.5rem; }
+      .abo-inner { grid-template-columns:1fr; gap:3rem; }
+      .kiste-chips { grid-template-columns:1fr; }
+      .faq-section { padding:4rem 1.5rem; }
+      .nl-form { flex-direction:column; }
+      .form-2col { grid-template-columns:1fr; }
       .kontakt { padding:4rem 1.5rem; }
       .schwebender-kreis { opacity:.5; }
-      .kreis-1 { width:80px; height:80px; }
-      .kreis-2 { width:100px; height:100px; }
-      .kreis-3 { width:60px; height:60px; }
-      .kreis-4 { width:50px; height:50px; }
       .schwebendes-gemuese { opacity:.7; }
       .gemuese-1 { width:50px; height:50px; }
       .gemuese-2 { width:60px; height:60px; }
       .gemuese-3 { width:45px; height:45px; }
       .gemuese-4 { width:55px; height:55px; }
       .gemuese-5 { width:50px; height:50px; }
-      /* NEU responsive */
-      .abo-inner { grid-template-columns:1fr; gap:3rem; }
-      .kiste-chips { grid-template-columns:1fr; }
-      .faq-section { padding:4rem 1.5rem; }
-      .nl-form { flex-direction:column; }
-      .form-2col { grid-template-columns:1fr; }
-      .kiste-section { padding:4rem 1.5rem; }
-      .kiste-how { grid-template-columns:1fr; gap:1rem; }
-      .kiste-seasons { grid-template-columns:1fr; }
-      .kiste-abholung { grid-template-columns:1fr; }
-      .kapelle-illustration { width:140px; margin:0 auto; }
     }
     @media (max-width:480px) {
       .nav { padding:1rem; }
-      .nav-logo { font-size:1.2rem; }
-      .nav-links { width:85%; }
-      .hero { padding:2rem 1rem; }
-      .section { padding:3rem 1rem; }
-      .marktstand { padding:3rem 1rem; }
-      .sortiment { padding:3rem 1rem; }
-      .kiste-section { padding:3rem 1rem; }
       .kiste-step { flex-direction:column; gap:.5rem; }
-      .sortiment-item .icon { width:70px; height:70px; }
-      .philosophie { padding:3rem 1rem; }
-      .stat-number { font-size:2rem; }
-      .ueber-uns-hero { padding:5rem 1rem 2rem; }
-      .ueber-uns-content { padding:2rem 1rem; }
-      .unser-weg { padding:3rem 1rem; }
-      .werte { padding:3rem 1rem; }
-      .werte-item .icon { width:60px; height:60px; }
-      .kontakt { padding:3rem 1rem; }
+      .kontakt-email { font-size:1rem; word-break:break-word; }
+      footer { padding:2rem 1rem; }
       .schwebendes-gemuese { opacity:.5; }
       .gemuese-1 { width:40px; height:40px; }
       .gemuese-2 { width:45px; height:45px; }
       .gemuese-3 { width:35px; height:35px; }
       .gemuese-4 { width:42px; height:42px; }
       .gemuese-5 { width:38px; height:38px; }
-      .kontakt-email { font-size:1rem; word-break:break-word; }
-      footer { padding:2rem 1rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Navigation -->
   <nav class="nav">
     <a href="#" class="nav-logo">Kapellengarten</a>
-    <div class="hamburger" onclick="toggleMenu()">
-      <span></span><span></span><span></span>
-    </div>
+    <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
     <div class="nav-links">
       <a href="#kiste" onclick="closeMenu()">Gemüsekiste</a>
       <a href="#ueber-uns" onclick="closeMenu()">Über mich</a>
       <a href="#kontakt" onclick="closeMenu()">Kontakt</a>
-      <a href="#abo" onclick="closeMenu()" class="nav-cta">Abo 2026</a><!-- NEU -->
+      <a href="#abo" onclick="closeMenu()" class="nav-cta">Abo 2026</a>
     </div>
   </nav>
 
-  <!-- Hero -->
+  <!-- HERO -->
   <section class="hero">
     <div class="schwebender-kreis kreis-1"></div>
     <div class="schwebender-kreis kreis-2"></div>
     <div class="schwebender-kreis kreis-3"></div>
     <div class="schwebender-kreis kreis-4"></div>
-    
     <div class="schwebendes-gemuese gemuese-1">
       <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
         <!-- Tomate -->
@@ -422,9 +326,7 @@
         <ellipse cx="42" cy="0" rx="5" ry="7" fill="#7bc491" stroke="#5d9970" stroke-width="1.8" transform="rotate(-10 42 0)"/>
         <path d="M 50 18 C 52 10 54 5 56 2" stroke="#4a7c59" stroke-width="2.5"/>
         <ellipse cx="58" cy="0" rx="5" ry="7" fill="#6ba87a" stroke="#4a7c59" stroke-width="1.8" transform="rotate(10 58 0)"/>
-        <path d="M 50 18 C 50 10 50 5 50 2" stroke="#6ba87a" stroke-width="2"/>
-        <path d="M 38 43 C 38 50 38 58 38 65" stroke="#d4732a" stroke-width="1.5"/>
-        <path d="M 48 43 C 48 50 48 58 48 65" stroke="#6ba87a" stroke-width="1.5"/>
+        <path d="M 48 43 C 48 50 48 58 48 65" stroke="#d4732a" stroke-width="1.5"/>
         <path d="M 62 52 C 60 56 58 62 56 68" stroke="#5d9970" stroke-width="1.5"/>
       </svg>
     </div>
@@ -437,9 +339,6 @@
         <ellipse cx="47" cy="3" rx="5" ry="8" fill="#7bc491" stroke="#5d9970" stroke-width="2" transform="rotate(-20 47 3)"/>
         <ellipse cx="54" cy="2" rx="5" ry="8" fill="#7bc491" stroke="#5d9970" stroke-width="2" transform="rotate(20 54 2)"/>
         <path d="M 50 68 C 50 72 49 76 49 80" stroke="#b84a6a" stroke-width="2.5"/>
-        <circle cx="45" cy="55" r="1.5" fill="#b84a6a" opacity="0.5"/>
-        <circle cx="52" cy="48" r="1.5" fill="#b84a6a" opacity="0.5"/>
-        <circle cx="48" cy="62" r="1.5" fill="#b84a6a" opacity="0.5"/>
       </svg>
     </div>
     <div class="schwebendes-gemuese gemuese-5">
@@ -448,18 +347,13 @@
         <path d="M 50 85 C 49 75 46 60 43 42 C 42 30 40 18 39 10 C 38 4 39 0 42 -2 C 45 -4 48 1 48 9 C 48 20 47 35 47 50 C 47 62 49 72 50 78" fill="#d4e8dc" stroke="#7bc491" stroke-width="3"/>
         <path d="M 50 85 C 51 75 54 60 57 42 C 58 30 60 18 61 10 C 62 4 61 0 58 -2 C 55 -4 52 1 52 9 C 52 20 53 35 53 50 C 53 62 51 72 50 78" fill="#d4e8dc" stroke="#7bc491" stroke-width="3"/>
         <ellipse cx="39" cy="20" rx="11" ry="17" fill="#8dd4a7" stroke="#5d9970" stroke-width="3" transform="rotate(-8 39 20)"/>
-        <path d="M 38 10 C 35 14 33 22 35 30 C 37 37 42 40 46 37 C 48 34 48 26 45 20" stroke="#6ba87a" stroke-width="2.5"/>
         <ellipse cx="61" cy="20" rx="11" ry="17" fill="#8dd4a7" stroke="#5d9970" stroke-width="3" transform="rotate(8 61 20)"/>
-        <path d="M 62 10 C 65 14 67 22 65 30 C 63 37 58 40 54 37 C 52 34 52 26 55 20" stroke="#6ba87a" stroke-width="2.5"/>
       </svg>
     </div>
-    
     <div class="hero-content">
       <p class="hero-location">Olten · Schweiz</p>
       <h1 class="einblenden einblenden-1">Frisches Gemüse<br><span>aus der Region Olten</span></h1>
-      <p class="hero-text einblenden einblenden-2">Es geht los. Begleite mich in meine erste Saison 2026 — als einer von 20 Erstkunden.</p>
-
-      <!-- NEU: Platz-Zähler -->
+      <p class="hero-text einblenden einblenden-2">Es geht los. Begleite mich in meine erste Saison 2026 &mdash; als einer von 20 Erstkunden.</p>
       <div class="einblenden einblenden-2" style="display:flex;justify-content:center;margin-bottom:2rem;">
         <div class="spot-box">
           <div class="spot-label">🌿 Verfügbare Plätze · Saison 2026</div>
@@ -471,149 +365,188 @@
           <div class="spot-note" id="spotNote1"><strong>Gemüsekistenpreis für meine ersten 20 Kunden: CHF 20.–</strong> pro Kiste · 5–7 Kulturen</div>
         </div>
       </div>
-
       <div class="einblenden einblenden-3">
-        <a href="#abo" class="btn">Platz sichern</a><!-- NEU -->
-        <a href="#kiste" class="btn-ghost">Mehr erfahren</a><!-- NEU -->
+        <a href="#abo" class="btn">Platz sichern</a>
+        <a href="#kiste" class="btn-ghost">Mehr erfahren</a>
       </div>
     </div>
   </section>
 
-  <!-- So funktioniert die Kiste -->
+  <!-- SO FUNKTIONIERT DIE KISTE -->
   <section id="kiste" class="kiste-section">
     <div class="kiste-section-inner">
       <p class="section-label">So funktioniert die Gemüsekiste</p>
       <h2>Frisch geerntet,<br><span>bevor du es abholst</span></h2>
-      <p class="kiste-intro">Direkt vom Kapellengarten, Dorfstrasse 192, Wangen bei Olten. Jede Woche warten rund <strong>5–7 verschiedene Gemüsesorten</strong> auf dich was gerade erntefrisch ist, was die Saison hergibt, was ich für dich geerntet habe.</p>
+      <p class="kiste-intro">Direkt vom Kapellengarten, Dorfstrasse 192, Wangen bei Olten. Jede Woche warten rund <strong>5–7 verschiedene Gemüsesorteн</strong> auf dich &mdash; was gerade erntefrisch ist, was die Saison hergibt, was ich für dich geerntet habe.</p>
 
       <div class="kiste-how">
         <div class="kiste-step">
           <div class="kiste-step-num">1</div>
           <div>
             <strong>Gemüsekistenabo abschliessen</strong>
-            <p>Du meldest dich einmal an und bekommst wöchentlich deine Kiste von April bis Oktober, rund 26 Wochen.</p>
+            <p>Du meldest dich einmal an und bekommst wöchentlich deine Kiste &mdash; von April bis Oktober, rund 26 Wochen.</p>
           </div>
         </div>
         <div class="kiste-step">
           <div class="kiste-step-num">2</div>
           <div>
             <strong>Freitags: Vorschau per Newsletter</strong>
-            <p>Du erfährst jeden Freitag, was in der Kiste ist damit du die Woche planen und kochen kannst.</p>
+            <p>Du erfährst jeden Freitag, was in der Kiste ist &mdash; damit du die Woche planen und kochen kannst.</p>
           </div>
         </div>
         <div class="kiste-step">
           <div class="kiste-step-num">3</div>
           <div>
             <strong>Samstag: Abholen bei der Kapelle</strong>
-            <p>Du kommst samstags vorbei, nimmst deine bereitgestellte Kiste mit und bringst sie nächste Woche einfach wieder zurück.</p>
+            <p>Du kommst samstags vorbei, nimmst deine bereitgestellte Kiste mit &mdash; und bringst sie nächste Woche einfach wieder zurück.</p>
           </div>
         </div>
       </div>
 
       <h3 class="kiste-seasons-title">Was kommt in die Kiste?</h3>
-      <p class="kiste-seasons-sub">Die Inhalte wechseln mit der Jahreszeit hier ein paar typische Beispiele:</p>
+      <p class="kiste-seasons-sub">Die Inhalte wechseln mit der Jahreszeit &mdash; hier ein paar typische Beispiele:</p>
 
       <div class="kiste-seasons">
-        <div class="kiste-season">
+        <div class="kiste-season fruehling">
           <div class="kiste-photo-wrap">
             <img src="fruhlingsset.jpg" alt="Frühlingskiste – Salat, Radieschen, Kräuter" class="kiste-photo">
-            <div class="kiste-photo-label fruehling">
+            <div class="kiste-photo-overlay"></div>
+            <div class="kiste-photo-label">
               <span class="kiste-season-name">Frühling</span>
               <span class="kiste-season-month">April – Mai</span>
             </div>
           </div>
-          <ul class="kiste-list">
-            <li>Kopfsalat & Jungsalate</li>
-            <li>Spinat</li>
-            <li>Radieschen</li>
-            <li>Frühlingszwiebeln</li>
-            <li>Mairübchen</li>
-            <li>Petersilie</li>
-          </ul>
+          <div class="kiste-season-body">
+            <ul class="kiste-list">
+              <li>Kopfsalat &amp; Jungsalate</li><li>Spinat</li>
+              <li>Radieschen</li><li>Frühlingszwiebeln</li>
+              <li>Mairübchen</li><li>Petersilie</li>
+            </ul>
+          </div>
         </div>
-        <div class="kiste-season">
+        <div class="kiste-season sommer">
           <div class="kiste-photo-wrap">
             <img src="sommerset.jpg" alt="Sommerkiste – Tomaten, Gurken, Zucchetti" class="kiste-photo">
-            <div class="kiste-photo-label sommer">
+            <div class="kiste-photo-overlay"></div>
+            <div class="kiste-photo-label">
               <span class="kiste-season-name">Sommer</span>
               <span class="kiste-season-month">Juni – August</span>
             </div>
           </div>
-          <ul class="kiste-list">
-            <li>Tomaten</li>
-            <li>Gurken</li>
-            <li>Zucchetti</li>
-            <li>Kohlrabi</li>
-            <li>Basilikum</li>
-            <li>Karotten</li>
-          </ul>
+          <div class="kiste-season-body">
+            <ul class="kiste-list">
+              <li>Tomaten</li><li>Gurken</li>
+              <li>Zucchetti</li><li>Kohlrabi</li>
+              <li>Basilikum</li><li>Karotten</li>
+            </ul>
+          </div>
         </div>
-        <div class="kiste-season">
+        <div class="kiste-season herbst">
           <div class="kiste-photo-wrap">
             <img src="herbstset.jpg" alt="Herbstkiste – Randen, Lauch, Asiasalate" class="kiste-photo">
-            <div class="kiste-photo-label herbst">
+            <div class="kiste-photo-overlay"></div>
+            <div class="kiste-photo-label">
               <span class="kiste-season-name">Herbst</span>
               <span class="kiste-season-month">September – Oktober</span>
             </div>
           </div>
-          <ul class="kiste-list">
-            <li>Randen</li>
-            <li>Lauch</li>
-            <li>Mangold</li>
-            <li>Asiasalate</li>
-            <li>Rucola</li>
-            <li>Fenchel</li>
-          </ul>
+          <div class="kiste-season-body">
+            <ul class="kiste-list">
+              <li>Randen</li><li>Lauch</li>
+              <li>Mangold</li><li>Asiasalate</li>
+              <li>Rucola</li><li>Fenchel</li>
+            </ul>
+          </div>
         </div>
       </div>
 
+      <!-- ABHOLUNG – ERWEITERT mit Parkplatz-Info + Lageplan-Skizze -->
       <div class="kiste-abholung">
         <div class="kiste-abholung-text">
           <h3>Abholung</h3>
-          <p>Jeden <strong>Samstag Vormittag</strong> direkt bei der Kapelle:<br>
+          <p>Die Gemüseausgabe ist jeden <strong>Samstag von 10:00 bis 12:00 Uhr</strong> direkt bei der Kapelle:<br>
           <strong>Dorfstrasse 192, Wangen bei Olten</strong></p>
-          <p>Deine Kiste liegt bereit du nimmst sie mit und bringst sie die folgende Woche leer zurück. Falls du mal verhindert bist, einfach kurz melden.</p>
+          <p>Du bringst deinen Korb mit und ich fülle ihn mit frisch geerntetem Gemüse. Es gibt auch eine <strong>Tauschkiste</strong> — Gemüse gegen Gemüse tauschen ist ausdrücklich erwünscht.</p>
+          <div class="abholung-infos">
+            <div class="abholung-info">
+              <span class="abholung-info-icon">🚗</span>
+              <span><strong>Parkplatz:</strong> Direkt links neben der Gemüseausgabe &mdash; kostenlos, gut erreichbar</span>
+            </div>
+            <div class="abholung-info">
+              <span class="abholung-info-icon">📍</span>
+              <span>Dorfstrasse 192, 4612 Wangen bei Olten</span>
+            </div>
+          </div>
         </div>
         <div class="kiste-abholung-badge">
-          <svg viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg" class="kapelle-illustration" aria-label="Kapelle Wangen bei Olten">
-            <!-- Himmel Hintergrund -->
-            <rect width="200" height="220" fill="#e8f0e4" rx="8"/>
-            <!-- Boden / Wiese -->
-            <ellipse cx="100" cy="200" rx="90" ry="18" fill="#c2d9b0"/>
-            <rect x="10" y="195" width="180" height="25" fill="#c2d9b0" rx="4"/>
-            <!-- Hauptgebäude Korpus -->
-            <rect x="55" y="120" width="90" height="80" fill="#f0ece2" stroke="#b8a98a" stroke-width="1.5"/>
-            <!-- Dach Hauptgebäude -->
-            <polygon points="45,122 100,75 155,122" fill="#8b7355" stroke="#6b5a3e" stroke-width="1.5"/>
-            <!-- Türmchen Sockel -->
-            <rect x="82" y="90" width="36" height="32" fill="#f0ece2" stroke="#b8a98a" stroke-width="1.2"/>
-            <!-- Türmchen Dach -->
-            <polygon points="76,92 100,50 124,92" fill="#6b5a3e" stroke="#4a3f2e" stroke-width="1.2"/>
+          <svg viewBox="0 0 340 250" xmlns="http://www.w3.org/2000/svg" class="kapelle-illustration" aria-label="Lageplan Kapellengarten">
+            <rect width="340" height="250" fill="#edeae3" rx="8"/>
+            <!-- Strasse -->
+            <rect x="0" y="0" width="340" height="50" fill="#c8c2b4" rx="0"/>
+            <rect x="0" y="0" width="340" height="3" fill="#b4ae9e"/>
+            <rect x="18" y="21" width="26" height="5" fill="white" rx="2" opacity=".6"/>
+            <rect x="62" y="21" width="26" height="5" fill="white" rx="2" opacity=".6"/>
+            <rect x="106" y="21" width="26" height="5" fill="white" rx="2" opacity=".6"/>
+            <rect x="150" y="21" width="26" height="5" fill="white" rx="2" opacity=".6"/>
+            <rect x="194" y="21" width="26" height="5" fill="white" rx="2" opacity=".6"/>
+            <rect x="238" y="21" width="26" height="5" fill="white" rx="2" opacity=".6"/>
+            <rect x="282" y="21" width="26" height="5" fill="white" rx="2" opacity=".6"/>
+            <text x="170" y="13" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#8b7a6a" letter-spacing="2.5" font-weight="500">DORFSTRASSE</text>
+            <!-- Grünfläche Mitte -->
+            <rect x="112" y="50" width="120" height="130" fill="#c8dab8" rx="3"/>
+            <text x="172" y="118" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#5a7a4a" opacity=".7">Garten</text>
+            <!-- Parkplatz links -->
+            <rect x="4" y="50" width="102" height="130" fill="#dbd6cc" rx="3"/>
+            <rect x="10" y="58" width="40" height="23" fill="#c4bdb2" rx="3" stroke="#a8a29a" stroke-width="1"/>
+            <rect x="56" y="58" width="40" height="23" fill="#c4bdb2" rx="3" stroke="#a8a29a" stroke-width="1"/>
+            <rect x="10" y="87" width="40" height="23" fill="#c4bdb2" rx="3" stroke="#a8a29a" stroke-width="1"/>
+            <rect x="56" y="87" width="40" height="23" fill="#c4bdb2" rx="3" stroke="#a8a29a" stroke-width="1"/>
+            <rect x="10" y="116" width="40" height="23" fill="#c4bdb2" rx="3" stroke="#a8a29a" stroke-width="1"/>
+            <rect x="56" y="116" width="40" height="23" fill="#c4bdb2" rx="3" stroke="#a8a29a" stroke-width="1"/>
+            <!-- Autos -->
+            <rect x="15" y="62" width="30" height="15" fill="#8a9faa" rx="2"/>
+            <rect x="61" y="91" width="30" height="15" fill="#7a8f9a" rx="2"/>
+            <rect x="15" y="120" width="30" height="15" fill="#8a9faa" rx="2"/>
+            <!-- P -->
+            <text x="55" y="152" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9.5" fill="#4a453e" font-weight="700">PARKPLATZ</text>
+            <text x="55" y="163" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="#6a6258">kostenlos</text>
+            <!-- Kapelle rechts -->
+            <rect x="238" y="62" width="94" height="88" fill="#f0ece2" stroke="#b8a98a" stroke-width="1.5" rx="2"/>
+            <!-- Dach -->
+            <polygon points="230,64 285,24 340,64" fill="#8b7355" stroke="#6b5a3e" stroke-width="1.5"/>
+            <!-- Türmchen -->
+            <rect x="267" y="40" width="30" height="24" fill="#f0ece2" stroke="#b8a98a" stroke-width="1"/>
+            <polygon points="261,42 282,16 303,42" fill="#6b5a3e" stroke="#4a3f2e" stroke-width="1.2"/>
             <!-- Kreuz -->
-            <line x1="100" y1="42" x2="100" y2="26" stroke="#4a3f2e" stroke-width="2" stroke-linecap="round"/>
-            <line x1="93" y1="33" x2="107" y2="33" stroke="#4a3f2e" stroke-width="2" stroke-linecap="round"/>
-            <!-- Fenster Türmchen -->
-            <rect x="93" y="96" width="14" height="18" rx="7" fill="#a8c4a0" stroke="#7a9e7e" stroke-width="1"/>
-            <!-- Eingang / Tür -->
-            <rect x="85" y="148" width="30" height="52" rx="15 15 0 0" fill="#8b9e7a" stroke="#6b7a5a" stroke-width="1.2"/>
-            <!-- Türgriff -->
-            <circle cx="107" cy="176" r="2" fill="#b8a98a"/>
-            <!-- Fenster links -->
-            <rect x="63" y="133" width="18" height="22" rx="9 9 0 0" fill="#a8c4a0" stroke="#7a9e7e" stroke-width="1"/>
-            <!-- Fenster rechts -->
-            <rect x="119" y="133" width="18" height="22" rx="9 9 0 0" fill="#a8c4a0" stroke="#7a9e7e" stroke-width="1"/>
-            <!-- Weg zur Kapelle -->
-            <path d="M 80 200 Q 85 205 100 207 Q 115 205 120 200" fill="none" stroke="#c9b99a" stroke-width="6" stroke-linecap="round"/>
-            <!-- Baum links -->
-            <line x1="35" y1="195" x2="35" y2="155" stroke="#6b7a5a" stroke-width="2"/>
-            <ellipse cx="35" cy="148" rx="14" ry="18" fill="#7a9e7e"/>
-            <ellipse cx="35" cy="143" rx="11" ry="14" fill="#8db87a"/>
-            <!-- Baum rechts -->
-            <line x1="165" y1="195" x2="165" y2="160" stroke="#6b7a5a" stroke-width="2"/>
-            <ellipse cx="165" cy="153" rx="13" ry="16" fill="#7a9e7e"/>
-            <ellipse cx="165" cy="149" rx="10" ry="12" fill="#8db87a"/>
-            <!-- Beschriftung -->
-            <text x="100" y="214" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-size="10" fill="#5a6a5a" letter-spacing="0.5">Dorfstrasse 192 · Wangen bei Olten</text>
+            <line x1="282" y1="8" x2="282" y2="0" stroke="#4a3f2e" stroke-width="2.2" stroke-linecap="round"/>
+            <line x1="276" y1="4" x2="288" y2="4" stroke="#4a3f2e" stroke-width="2.2" stroke-linecap="round"/>
+            <!-- Fenster -->
+            <rect x="244" y="75" width="15" height="18" rx="7 7 0 0" fill="#a8c4a0" stroke="#7a9e7e" stroke-width="1"/>
+            <rect x="307" y="75" width="15" height="18" rx="7 7 0 0" fill="#a8c4a0" stroke="#7a9e7e" stroke-width="1"/>
+            <!-- Tür -->
+            <rect x="271" y="114" width="22" height="36" rx="11 11 0 0" fill="#8b9e7a" stroke="#6b7a5a" stroke-width="1.2"/>
+            <!-- Gemüseausgabe Schild -->
+            <rect x="224" y="152" width="116" height="22" fill="#4a6741" rx="4"/>
+            <text x="282" y="167" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="white" font-weight="500">🥕 GEMÜSEAUSGABE</text>
+            <!-- Weg -->
+            <rect x="106" y="110" width="8" height="64" fill="#c4bdb2" rx="2"/>
+            <rect x="106" y="170" width="126" height="7" fill="#c4bdb2" rx="2"/>
+            <!-- Pfeil Parkplatz zu Kapelle -->
+            <defs>
+              <marker id="arr" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+                <path d="M0,1 L0,6 L7,3.5z" fill="#4a6741"/>
+              </marker>
+            </defs>
+            <path d="M 107 142 L 116 142" stroke="#4a6741" stroke-width="2.2" marker-end="url(#arr)" stroke-dasharray="3,2"/>
+            <!-- Legende -->
+            <rect x="0" y="186" width="340" height="64" fill="rgba(247,245,240,0.93)" rx="0 0 8 8"/>
+            <circle cx="16" cy="200" r="6" fill="#4a6741"/>
+            <text x="28" y="204" font-family="DM Sans,sans-serif" font-size="9" fill="#2d3a2d">Kapelle &amp; Gemüseausgabe</text>
+            <rect x="10" y="214" width="12" height="8" fill="#c4bdb2" rx="1" stroke="#a8a29a" stroke-width="1"/>
+            <text x="28" y="222" font-family="DM Sans,sans-serif" font-size="9" fill="#2d3a2d">Parkplatz (kostenlos, links daneben)</text>
+            <text x="170" y="200" font-family="DM Sans,sans-serif" font-size="9" fill="#4a6741" font-weight="600">Dorfstrasse 192</text>
+            <text x="170" y="213" font-family="DM Sans,sans-serif" font-size="8.5" fill="#5a6a5a">4612 Wangen bei Olten</text>
+            <text x="170" y="226" font-family="DM Sans,sans-serif" font-size="8" fill="#8b7355">Sa. Vormittag · ~1 Min. Fussweg vom Parkplatz</text>
           </svg>
         </div>
       </div>
@@ -621,7 +554,7 @@
     </div>
   </section>
 
-  <!-- Über mich persönliche Geschichte Francis -->
+  <!-- ÜBER MICH -->
   <section id="ueber-uns" class="ueber-uns-hero">
     <p class="section-label">Wer steht hinter dem Kapellengarten?</p>
     <h2><span>Francis</span></h2>
@@ -643,8 +576,8 @@
       <h3>Das <span>Marktgartensystem</span></h3>
       <div class="ueber-uns-method-grid">
         <div>
-          <p>Im Kapellengarten wenden wir das Marktgartensystem an: eine Methode, die zeigt, dass auf kleiner Fläche intensiv, hochwertig und wirtschaftlich angebaut werden kann. Pioniere wie <strong>Jean-Martin Fortier</strong> («The Market Gardener»), <strong>Eliot Coleman</strong> oder <strong>Charles Dowding</strong> haben dieses System geprägt: Handarbeit, permanente Beete, schonende Bodenbearbeitung und konsequente Fruchtfolgen führen zu aussergewöhnlicher Qualität.</p>
-          <p>Den entscheidenden Unterschied macht die Bodenbiologie: Als zertifizierter <strong>Bodenmikrobiologe</strong> (nach Dr. Elaine Ingham) analysiere ich das Bodenleben regelmässig und fördere es gezielt, für Gemüse mit messbarer Nährstoffdichte und einem Geschmack, der den Unterschied macht.</p>
+          <p>Im Kapellengarten wende ich das Marktgartensystem an: eine Methode, die zeigt, dass auf kleiner Fläche intensiv, hochwertig und wirtschaftlich angebaut werden kann. Pioniere wie <strong>Jean-Martin Fortier</strong> («The Market Gardener»), <strong>Eliot Coleman</strong> oder <strong>Charles Dowding</strong> haben dieses System geprägt: Handarbeit, permanente Beete, schonende Bodenbearbeitung und konsequente Fruchtfolgen führen zu ausserordentlicher Qualität.</p>
+          <p>Den entscheidenden Unterschied macht die Bodenbiologie: Als zertifizierter <strong>Bodenmikrobiologe</strong> (nach Dr. Elaine Ingham) analysiere ich das Bodenleben regelmässig und fördere es gezielt &mdash; für Gemüse mit messbarer Nährstoffdichte und einem Geschmack, der den Unterschied macht.</p>
         </div>
         <div class="ueber-uns-method-img">
           <img src="kapelle-aussen.png" alt="Kapelle Kapellengarten Wangen bei Olten">
@@ -658,14 +591,14 @@
       </div>
       <div>
         <h3>Die <span>Kapelle</span> als Marktplatz</h3>
-        <p>Der Kapellengarten soll mehr sein als ein Ort, wo man Gemüse abholt. Die Vision ist ein Samstagsmorgen, an dem man kurz innehalten kann. Eine Tasse Kaffee, ein frisches Stück Brot vom lokalen Bäcker, ein kurzes Gespräch über das, was gerade wächst.</p>
+        <p>Der Kapellengarten soll mehr sein als ein Ort, wo man Gemüse abholt. Die Vision ist ein Samstagvormittag, an dem man kurz innehalten kann. Eine Tasse Kaffee, ein frisches Stück Brot vom lokalen Bäcker, ein kurzes Gespräch über das, was gerade wächst.</p>
         <p>Produkte aus der Region, saisonale Anlässe, eine Führung durch den Garten. Ein Treffpunkt für alle, denen es wichtig ist, zu wissen, woher ihr Essen kommt, und wer es anbaut.</p>
         <p>Das ist eine Idee, die wächst. 2026 fängt sie klein an, mit 20 Gemüsekisten und einem offenen Tor samstags.</p>
       </div>
     </div>
   </section>
 
-  <!-- Unser Weg -->
+  <!-- BLICK IN DIE ZUKUNFT -->
   <section id="weg" class="unser-weg">
     <div class="unser-weg-content">
       <h2>Blick in die <span>Zukunft</span></h2>
@@ -674,31 +607,68 @@
           <div class="timeline-year">2026</div>
           <div>
             <div class="timeline-title">Startphase · 20 Gemüseabos</div>
-            <p class="timeline-desc">Anbau auf 400 m² mit 20 Gemüsekulturen, 20 Erstkunden. Aufbau der Bodenbiologie, wöchentliche Gemüsekiste ab April abgeholt samstags vormittags, direkt bei der Kapelle.</p>
+            <p class="timeline-desc">Anbau auf 400 m² mit 20 Gemüsekulturen, 20 Erstkunden. Aufbau der Bodenbiologie, wöchentliche Gemüsekiste ab April &mdash; abgeholt samstags vormittags, direkt bei der Kapelle.</p>
           </div>
         </div>
         <div class="timeline-item">
           <div class="timeline-year">2027</div>
           <div>
             <div class="timeline-title">Vollbetrieb</div>
-            <p class="timeline-desc">Volle Bewirtschaftung der Fläche, mehr Kulturen, mehr Abos. Das Wissen über die Bodenbiologie und die Abläufe sind eingespielt die Qualität steigt weiter.</p>
+            <p class="timeline-desc">Volle Bewirtschaftung der Fläche, mehr Kulturen, mehr Abos. Das Wissen über die Bodenbiologie und die Abläufe sind eingespielt &mdash; die Qualität steigt weiter.</p>
           </div>
         </div>
         <div class="timeline-item">
           <div class="timeline-year">2028+</div>
           <div>
             <div class="timeline-title">Erweiterungsphase · Kapelle als Marktplatz</div>
-            <p class="timeline-desc">Die historische Kapelle wird zum Treffpunkt: Direktverkauf von Gemüse und weiteren Produkten aus der Region, kleines Kapellenkaffee, saisonale Anlässe ein Ort, der verbindet.</p>
+            <p class="timeline-desc">Die historische Kapelle wird zum Treffpunkt: Direktverkauf von Gemüse und weiteren Produkten aus der Region, kleines Kapellenkaffee, saisonale Anlässe &mdash; ein Ort, der verbindet.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Werte -->
+  <!-- WAS MIR WICHTIG IST (CHANGE 1: "uns" → "mir") -->
   <section class="werte">
-    <h2>Was uns <span>wichtig ist</span></h2>
+    <h2>Was mir <span>wichtig ist</span></h2>
     <div class="werte-grid">
+      <!-- Voller Geschmack — zuoberst, farbenfrohes Icon -->
+      <div class="werte-item">
+        <svg class="icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <!-- Aufgeschnittene Tomate — saftig, farbig -->
+          <circle cx="50" cy="52" r="34" fill="#e8523a" stroke="#c43820" stroke-width="2"/>
+          <!-- Innenfleisch -->
+          <circle cx="50" cy="52" r="29" fill="#f07050" stroke="none"/>
+          <!-- Samenkammern -->
+          <path d="M 50 23 L 50 81" stroke="#c43820" stroke-width="1.2" opacity=".5"/>
+          <path d="M 50 52 L 22 37" stroke="#c43820" stroke-width="1.2" opacity=".5"/>
+          <path d="M 50 52 L 78 37" stroke="#c43820" stroke-width="1.2" opacity=".5"/>
+          <path d="M 50 52 L 22 67" stroke="#c43820" stroke-width="1.2" opacity=".5"/>
+          <path d="M 50 52 L 78 67" stroke="#c43820" stroke-width="1.2" opacity=".5"/>
+          <!-- Saftiges Fruchtfleisch je Segment -->
+          <ellipse cx="50" cy="34" rx="7" ry="9" fill="#fca070" opacity=".7"/>
+          <ellipse cx="34" cy="43" rx="7" ry="9" fill="#fca070" opacity=".6" transform="rotate(-55 34 43)"/>
+          <ellipse cx="34" cy="62" rx="7" ry="9" fill="#fca070" opacity=".6" transform="rotate(55 34 62)"/>
+          <ellipse cx="50" cy="70" rx="7" ry="9" fill="#fca070" opacity=".7"/>
+          <ellipse cx="66" cy="62" rx="7" ry="9" fill="#fca070" opacity=".6" transform="rotate(-55 66 62)"/>
+          <ellipse cx="66" cy="43" rx="7" ry="9" fill="#fca070" opacity=".6" transform="rotate(55 66 43)"/>
+          <!-- Kerne — gelb -->
+          <ellipse cx="50" cy="29" rx="3.5" ry="5" fill="#f8d858" stroke="#e0b828" stroke-width="1"/>
+          <ellipse cx="32" cy="40" rx="3.5" ry="5" fill="#f8d858" stroke="#e0b828" stroke-width="1" transform="rotate(-55 32 40)"/>
+          <ellipse cx="32" cy="64" rx="3.5" ry="5" fill="#f8d858" stroke="#e0b828" stroke-width="1" transform="rotate(55 32 64)"/>
+          <ellipse cx="50" cy="75" rx="3.5" ry="5" fill="#f8d858" stroke="#e0b828" stroke-width="1"/>
+          <ellipse cx="68" cy="64" rx="3.5" ry="5" fill="#f8d858" stroke="#e0b828" stroke-width="1" transform="rotate(-55 68 64)"/>
+          <ellipse cx="68" cy="40" rx="3.5" ry="5" fill="#f8d858" stroke="#e0b828" stroke-width="1" transform="rotate(55 68 40)"/>
+          <!-- Mitte -->
+          <circle cx="50" cy="52" r="6" fill="#e8523a" stroke="#c43820" stroke-width="1.2"/>
+          <!-- Stielansatz -->
+          <path d="M 44 20 Q 50 14 56 20" stroke="#3a7828" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <path d="M 50 18 L 50 10" stroke="#3a7828" stroke-width="2.2" stroke-linecap="round"/>
+        </svg>
+        <h3>Voller Geschmack &amp; volle Nährstoffe</h3>
+        <p>Mein Anspruch ist es, Gemüse mit den höchsten Nährstoffwerten und vollem Geschmack anzubieten. Was im Laden blass schmeckt, soll hier das Gegenteil beweisen — dank lebendigem Boden und kurzen Wegen vom Beet zum Korb.</p>
+      </div>
+      <!-- Fundiert -->
       <div class="werte-item">
         <svg class="icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
           <ellipse cx="50" cy="55" rx="28" ry="20" stroke="#5d4a3a" stroke-width="2" fill="#8b6f47" class="icon-fill"/>
@@ -717,41 +687,9 @@
           <circle cx="65" cy="54" r="1.4" fill="#9a8968" opacity="0.6"/>
         </svg>
         <h3>Fundiert</h3>
-        <p>Ich weiss, was in meinem Boden lebt. Und warum das wichtig ist. Regelmässige Bodenanalysen auf Bakterien, Pilze und Bodenleben sind für mich keine Option, sondern Grundlage.</p>
+        <p>Ich weiss, was in meinem Boden lebt. Und warum das wichtig ist. Regelmässige Bodenanalysen auf hilfreiche Mikroorganismen sind für mich keine Option, sondern Grundlage.</p>
       </div>
-      <div class="werte-item">
-        <svg class="icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <ellipse cx="50" cy="72" rx="22" ry="8" stroke="#7a6545" stroke-width="1.8" fill="#9a8968" class="icon-fill"/>
-          <path d="M 30 72 C 35 70 42 69 50 69 C 58 69 65 70 70 72" stroke="#8b6f47" stroke-width="1.5" opacity="0.6"/>
-          <path d="M 50 69 C 49 62 48 54 48 46 C 48 38 48 30 49 25" stroke="#6b8e4e" stroke-width="2.5"/>
-          <ellipse cx="42" cy="48" rx="5" ry="9" stroke="#5d9970" stroke-width="2" fill="#7bc491" class="icon-fill" transform="rotate(-30 42 48)"/>
-          <path d="M 48 50 C 46 49 44 48 42 48" stroke="#5d9970" stroke-width="1.8"/>
-          <ellipse cx="40" cy="38" rx="4.5" ry="8" stroke="#6ba87a" stroke-width="2" fill="#8dd4a7" class="icon-fill" transform="rotate(-35 40 38)"/>
-          <path d="M 48 40 C 46 39 43 38 40 38" stroke="#6ba87a" stroke-width="1.8"/>
-          <ellipse cx="58" cy="45" rx="5" ry="9" stroke="#4a7c59" stroke-width="2" fill="#6ba87a" class="icon-fill" transform="rotate(30 58 45)"/>
-          <path d="M 48 47 C 52 46 56 45 58 45" stroke="#4a7c59" stroke-width="1.8"/>
-          <ellipse cx="60" cy="35" rx="4.5" ry="8" stroke="#5d9970" stroke-width="2" fill="#7bc491" class="icon-fill" transform="rotate(35 60 35)"/>
-          <path d="M 48 37 C 52 36 57 35 60 35" stroke="#5d9970" stroke-width="1.8"/>
-        </svg>
-        <h3>Regenerativ</h3>
-        <p>Jede Saison soll den Boden besser hinterlassen als sie ihn vorgefunden hat. Keine Abkürzungen, keine Ausbeutung, einfach gute Arbeit, die sich über die Jahre auszahlt.</p>
-      </div>
-      <div class="werte-item">
-        <svg class="icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <ellipse cx="50" cy="72" rx="18" ry="7" stroke="#5d4a3a" stroke-width="1.8" fill="#9a8968" class="icon-fill"/>
-          <path d="M 50 69 C 50 62 49 54 49 46 C 49 38 49 30 50 25" stroke="#6b8e4e" stroke-width="2.2"/>
-          <ellipse cx="40" cy="50" rx="6" ry="10" stroke="#5d9970" stroke-width="2" fill="#7bc491" class="icon-fill" transform="rotate(-30 40 50)"/>
-          <path d="M 49 52 C 46 51 43 50 40 50" stroke="#5d9970" stroke-width="1.5"/>
-          <ellipse cx="38" cy="40" rx="5" ry="9" stroke="#6ba87a" stroke-width="2" fill="#8dd4a7" class="icon-fill" transform="rotate(-35 38 40)"/>
-          <path d="M 48 40 C 46 39 43 38 40 38" stroke="#6ba87a" stroke-width="1.8"/>
-          <ellipse cx="58" cy="45" rx="5" ry="9" stroke="#4a7c59" stroke-width="2" fill="#6ba87a" class="icon-fill" transform="rotate(30 58 45)"/>
-          <path d="M 48 47 C 52 46 56 45 58 45" stroke="#4a7c59" stroke-width="1.8"/>
-          <ellipse cx="60" cy="35" rx="4.5" ry="8" stroke="#5d9970" stroke-width="2" fill="#7bc491" class="icon-fill" transform="rotate(35 60 35)"/>
-          <path d="M 48 37 C 52 36 57 35 60 35" stroke="#5d9970" stroke-width="1.8"/>
-        </svg>
-        <h3>Regional</h3>
-        <p>Dorfstrasse 192, Wangen bei Olten. Weiter weg kommt dein Gemüse nicht. Ich ernte kurz bevor du abholst, nicht drei Tage früher für den Weitertransport.</p>
-      </div>
+      <!-- Direkt & persönlich -->
       <div class="werte-item">
         <svg class="icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
           <path d="M 50 70 C 48 68 42 62 38 56 C 34 50 30 44 30 38 C 30 32 33 28 38 28 C 42 28 46 31 50 35 C 54 31 58 28 62 28 C 67 28 70 32 70 38 C 70 44 66 50 62 56 C 58 62 52 68 50 70 Z" stroke="#d66982" stroke-width="2.2" fill="#f29ead" class="icon-fill"/>
@@ -760,8 +698,6 @@
           <ellipse cx="58" cy="36" rx="3" ry="5" fill="#fef3f3" class="icon-fill" transform="rotate(20 58 36)"/>
           <path d="M 35 42 C 36 45 38 48 40 51" stroke="#e8789c" stroke-width="1.2" opacity="0.6"/>
           <path d="M 65 42 C 64 45 62 48 60 51" stroke="#e8789c" stroke-width="1.2" opacity="0.6"/>
-          <path d="M 45 58 C 47 61 48 64 50 66" stroke="#e8789c" stroke-width="1.2" opacity="0.6"/>
-          <path d="M 55 58 C 53 61 52 64 50 66" stroke="#e8789c" stroke-width="1.2" opacity="0.6"/>
         </svg>
         <h3>Direkt &amp; persönlich</h3>
         <p>Du kennst mich, ich kenne dich. Wenn du eine Frage hast, erreichst du mich direkt. Das ist mir wichtig.</p>
@@ -769,16 +705,16 @@
     </div>
   </section>
 
-  <!-- NEU: ABO 2026 -->
+  <!-- ABO -->
   <section id="abo" class="abo-section">
     <div class="abo-inner">
       <div class="abo-left">
-        <p class="section-label">Werde Erstkunde</p>
-        <h2>Dein Platz im<br><span>Kapellengarten</span></h2>
-        <p>20 Plätze. Eine Saison. Frisches Gemüse aus lebendigem Boden abgeholt samstags vormittags, direkt bei der Kapelle, Dorfstrasse 192, Wangen bei Olten.</p>
+        <p class="section-label">Gemüseabo Saison 2026</p>
+        <h2>Mitmachen und jede Woche<br><span>frisches Gemüse geniessen</span></h2>
+        <p>Das Gemüseabo startet im <strong style="color:#c8dbc9">April 2026</strong> und läuft bis Ende Oktober — insgesamt rund <strong style="color:#c8dbc9">26 Wochen</strong>. In jeder Kiste steckt, was die Saison gerade hergibt: frisch geerntet, samstags abgeholt.</p>
 
         <div class="abo-counter">
-          <div class="spot-label">🌿 Noch verfügbar</div>
+          <div class="spot-label">🌿 Noch verfügbar · Saison 2026</div>
           <div class="spot-row">
             <span class="spot-num" id="spotNum2">20</span>
             <span class="spot-of" style="color:rgba(247,245,240,.6)">von 20 Plätzen frei</span>
@@ -787,37 +723,62 @@
           <div class="spot-note" id="spotNote2">Gemüsekistenpreis für meine ersten 20 Kunden: <strong>CHF 20.– pro Kiste</strong> · 5–7 Kulturen</div>
         </div>
 
-        <div class="kiste-chips">
-          <div class="kiste-chip">
-            <svg class="chip-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="4" width="18" height="17" rx="2" stroke="currentColor" stroke-width="1.5"/><line x1="3" y1="9" x2="21" y2="9" stroke="currentColor" stroke-width="1.5"/><line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-            <strong>Abholung</strong>Samstag Vormittag · Dorfstrasse 192
+        <div class="abo-info-blocks">
+          <div class="abo-info-block">
+            <div class="abo-info-num">1</div>
+            <div>
+              <strong>Die Kiste</strong>
+              <p>Jede Kiste enthält 5–7 verschiedene Gemüsesorten — was gerade reif ist, ohne Vorauswahl. Die Kiste ist für eine Person pro Woche berechnet. Für Familien oder Paare ist auch eine zweite Kiste möglich, oder ihr teilt euch eine Kiste mit jemandem.</p>
+            </div>
           </div>
-          <div class="kiste-chip">
-            <svg class="chip-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3 C12 3 8 6 8 10 C8 13 10 15 12 15 C14 15 16 13 16 10 C16 6 12 3 12 3Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M12 15 L12 21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M9 18 C9 18 10.5 17 12 17 C13.5 17 15 18 15 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M7 11 C5 10 4 8 5 6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><path d="M17 11 C19 10 20 8 19 6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
-            <strong>Inhalt</strong>5–7 saisonale Kulturen pro Woche
+          <div class="abo-info-block">
+            <div class="abo-info-num">2</div>
+            <div>
+              <strong>Preis &amp; Gesamtkosten</strong>
+              <p>Als Erstkunde zahlst du <strong style="color:#c8dbc9">CHF 20.– pro Kiste</strong>. Bei 26 Wochen sind das CHF 520.– für die ganze Saison. Die Zahlung klären wir nach deiner Anmeldung — monatlich oder saisonal, wie es für dich passt.</p>
+            </div>
           </div>
-          <div class="kiste-chip">
-            <svg class="chip-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M9 10 C9 8.3 10.3 7 12 7 C13.7 7 15 8.3 15 10 C15 12.5 12 14 12 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="17" r="0.8" fill="currentColor"/></svg>
-            <strong>Preis</strong>CHF 20.– pro Kiste (Gemüsekistenpreis für die ersten 20 Kunden)
+          <div class="abo-info-block">
+            <div class="abo-info-num">3</div>
+            <div>
+              <strong>Abholung &amp; Korb</strong>
+              <p>Du holst jeden <strong style="color:#c8dbc9">Samstag von 10:00 bis 12:00 Uhr</strong> bei der Kapelle ab. Du bringst deinen eigenen Korb mit — ich fülle ihn mit frischem Gemüse. Wenn du mal verhindert bist, kann jemand anderes für dich abholen.</p>
+            </div>
           </div>
-          <div class="kiste-chip">
-            <svg class="chip-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="5" width="20" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M2 8 L12 14 L22 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-            <strong>Newsletter</strong>Freitags: was kommt diese Woche
+          <div class="abo-info-block">
+            <div class="abo-info-num">4</div>
+            <div>
+              <strong>Ferien &amp; Abwesenheit</strong>
+              <p>Wenn du in den Ferien bist, einfach kurz Bescheid geben — wir überspringen diese Woche unkompliziert. Deine Kiste landet dann nicht im Abfall.</p>
+            </div>
+          </div>
+          <div class="abo-info-block">
+            <div class="abo-info-num">5</div>
+            <div>
+              <strong>Nach der Anmeldung</strong>
+              <p>Du erhältst eine Bestätigung per E-Mail. Vor Saisonstart melde ich mich nochmals mit allen Details zum genauen Starttermin und Ablauf.</p>
+            </div>
           </div>
         </div>
       </div>
-
       <div>
         <div class="abo-form">
           <div id="formContent">
-            <h3>Jetzt Platz sichern</h3>
-            <div class="form-sub">Ich melde mich innerhalb von 48h bei dir.</div>
+            <h3>Jetzt anmelden</h3>
+            <div class="form-sub">Einfach ausfüllen — ich melde mich innerhalb von 48 Stunden mit einer Bestätigung.</div>
             <div class="form-2col">
               <div class="form-row"><label>Vorname</label><input type="text" id="fName" placeholder="Anna"></div>
               <div class="form-row"><label>Nachname</label><input type="text" id="lName" placeholder="Müller"></div>
             </div>
             <div class="form-row"><label>E-Mail</label><input type="email" id="fEmail" placeholder="anna@beispiel.ch"></div>
             <div class="form-row"><label>Ort / PLZ</label><input type="text" id="fLocation" placeholder="4600 Olten"></div>
+            <div class="form-row">
+              <label>Anzahl Kisten pro Woche</label>
+              <select id="fKisten">
+                <option value="1">1 Kiste (für 1 Person)</option>
+                <option value="2">2 Kisten (Familie / teilen)</option>
+              </select>
+            </div>
             <div class="form-row">
               <label>Wie hast du von uns erfahren?</label>
               <select id="fSource">
@@ -842,30 +803,30 @@
     </div>
   </section>
 
-  <!-- NEU: FAQ -->
+  <!-- FAQ -->
   <section id="faq" class="faq-section">
     <div class="faq-inner">
       <p class="section-label">Häufige Fragen</p>
       <h2>Alles <span>Wichtige</span></h2>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">Wann startet die Saison und wie lange dauert sie? <span class="faq-arrow">+</span></button>
-        <div class="faq-a">Die Saison startet voraussichtlich im <strong>April 2026</strong> und läuft bis Oktober rund 26–28 Lieferwochen. Der genaue Starttermin wird per E-Mail kommuniziert.</div>
+        <div class="faq-a">Die Saison startet voraussichtlich im <strong>April 2026</strong> und läuft bis Oktober &mdash; rund 26–28 Lieferwochen. Der genaue Starttermin wird per E-Mail kommuniziert.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">Wie läuft die Abholung ab? <span class="faq-arrow">+</span></button>
-        <div class="faq-a">Du holst deine Kiste jeden <strong>Samstag Vormittag</strong> direkt bei der Kapelle ab: <strong>Dorfstrasse 192, Wangen bei Olten</strong>. Falls du mal verhindert bist, kann die Kiste ausnahmsweise hinterlegt werden einfach kurz Bescheid geben.</div>
+        <div class="faq-a">Du holst deine Kiste jeden <strong>Samstag Vormittag</strong> direkt bei der Kapelle ab: <strong>Dorfstrasse 192, Wangen bei Olten</strong>. Ein Parkplatz steht direkt links neben der Gemüseausgabe zur Verfügung &mdash; kostenlos. Falls du mal verhindert bist, kann die Kiste ausnahmsweise hinterlegt werden &mdash; einfach kurz Bescheid geben.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">Was kostet das Abo? <span class="faq-arrow">+</span></button>
-        <div class="faq-a">Als einer meiner ersten 20 Kunden zahlst du <strong>CHF 20.– pro Kiste</strong> das ist der Gemüsekistenpreis, den ich speziell für meine Erstkunden anbiete (regulärer Preis ab 2027: CHF 26.–). Details zur Zahlungsweise klären wir nach deiner Anmeldung.</div>
+        <div class="faq-a">Als einer meiner ersten 20 Kunden zahlst du <strong>CHF 20.– pro Kiste</strong> &mdash; das ist der Gemüsekistenpreis, den ich speziell für meine Erstkunden anbiete (regulärer Preis ab 2027: CHF 26.–). Details zur Zahlungsweise klären wir nach deiner Anmeldung.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">Was ist in der Kiste? <span class="faq-arrow">+</span></button>
-        <div class="faq-a">Jede Woche <strong>5–7 saisonale Kulturen</strong> was gerade erntefrisch ist. Jeden Freitag erhältst du per Newsletter eine Vorschau, damit du dich auf die Woche vorbereiten kannst.</div>
+        <div class="faq-a">Jede Woche <strong>5–7 saisonale Kulturen</strong> &mdash; was gerade erntefrisch ist. Jeden Freitag erhältst du per Newsletter eine Vorschau, damit du dich auf die Woche vorbereiten kannst.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">Ist das Gemüse biologisch zertifiziert? <span class="faq-arrow">+</span></button>
-        <div class="faq-a">Der Kapellengarten arbeitet nach <strong>biologischen Prinzipien</strong> kein Kunstdünger, keine Pestizide. Ich bin ausgebildeter Bodenmikrobiologe (Soil Food Web) und analysiere die Bodenbiologie regelmässig. Eine offizielle Bio-Zertifizierung wird angestrebt.</div>
+        <div class="faq-a">Der Kapellengarten arbeitet nach <strong>biologischen Prinzipien</strong> &mdash; kein Kunstdünger, keine Pestizide. Ich bin ausgebildeter Bodenmikrobiologe (Soil Food Web) und analysiere die Bodenbiologie regelmässig. Eine offizielle Bio-Zertifizierung wird angestrebt.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">Was passiert, wenn alle Plätze besetzt sind? <span class="faq-arrow">+</span></button>
@@ -874,10 +835,10 @@
     </div>
   </section>
 
-  <!-- NEU: Newsletter-Band -->
+  <!-- NEWSLETTER -->
   <div class="newsletter-band">
     <h3>Bleib auf dem <span>Laufenden</span></h3>
-    <p>Wöchentliche Updates aus dem Garten Kisteninhalt, Rezeptideen, Neuigkeiten. Kein Spam.</p>
+    <p>Wöchentliche Updates aus dem Garten &mdash; Kisteninhalt, Rezeptideen, Neuigkeiten. Kein Spam.</p>
     <div class="nl-form">
       <input type="email" id="nlEmail" placeholder="deine@email.ch">
       <button onclick="subscribeNewsletter()">Anmelden</button>
@@ -885,88 +846,64 @@
     <div class="nl-note" id="nlNote">Nur für Abonnenten und Interessierte · Jederzeit abmeldbar</div>
   </div>
 
-  <!-- Kontakt -->
+  <!-- KONTAKT -->
   <section id="kontakt" class="kontakt">
     <div class="kontakt-content">
       <h2>Komm mit mir<br><span>ins Gespräch</span></h2>
-      <p>Interessiert am Kapellengarten? Fragen zum Abo oder Garten, ich freue mich auf deine Nachricht.</p>
-      <a href="mailto:francis@kapellengarten.ch" class="kontakt-email">francis@kapellengarten.ch</a>
+      <p>Interessiert am Kapellengarten? Fragen zum Abo oder Garten &mdash; ich freue mich auf deine Nachricht.</p>
+      <a href="/cdn-cgi/l/email-protection#3e584c5f505d574d7e555f4e5b52525b50595f4c4a5b50105d56" class="kontakt-email"><span class="__cf_email__" data-cfemail="254357444b464c56654e4455404949404b42445751404b0b464d">[email&#160;protected]</span></a>
       <p class="kontakt-ort">📍 Dorfstrasse 192, Wangen bei Olten</p>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     <div class="logo">Kapellengarten</div>
     <p>© 2026 Kapellengarten · Francis · Wangen bei Olten</p>
   </footer>
 
-  <script>
-    // ── PLATZ-ZÄHLER ──
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     const TOTAL = 20;
     let taken = 4;
-
     function updateSpots(n) {
       const left = TOTAL - n;
       const pct  = (n / TOTAL * 100) + '%';
       ['spotNum1','spotNum2'].forEach(id => { const el = document.getElementById(id); if(el) el.textContent = left; });
       ['spotFill1','spotFill2'].forEach(id => { const el = document.getElementById(id); if(el) el.style.width = pct; });
       ['spotNote1','spotNote2'].forEach(id => {
-        const el = document.getElementById(id);
-        if(!el) return;
-        if(left <= 3 && left > 0)
-          el.innerHTML = `<strong style="color:#c0392b">⚡ Nur noch ${left} Plätze frei!</strong>`;
-        else if(left === 0)
-          el.innerHTML = `<strong style="color:#c0392b">Alle Plätze vergeben Warteliste anfragen.</strong>`;
-        else
-          el.innerHTML = `<strong>Gemüsekistenpreis für meine ersten 20 Kunden: CHF 20.–</strong> pro Kiste · 5–7 Kulturen`;
+        const el = document.getElementById(id); if(!el) return;
+        if(left <= 3 && left > 0) el.innerHTML = '<strong style="color:#c0392b">⚡ Nur noch ' + left + ' Plätze frei!</strong>';
+        else if(left === 0) el.innerHTML = '<strong style="color:#c0392b">Alle Plätze vergeben — Warteliste anfragen.</strong>';
+        else el.innerHTML = '<strong>Gemüsekistenpreis für meine ersten 20 Kunden: CHF 20.–</strong> pro Kiste · 5–7 Kulturen';
       });
     }
     window.addEventListener('load', () => setTimeout(() => updateSpots(4), 700));
-
-    // ── FORMULAR ──
     function handleSubmit() {
       const first = document.getElementById('fName').value.trim();
       const last  = document.getElementById('lName').value.trim();
       const email = document.getElementById('fEmail').value.trim();
-      if(!first || !last || !email){ alert('Bitte fülle Vor- und Nachname sowie E-Mail aus.'); return; }
+      if(!first || !last || !email) { alert('Bitte fülle Vor- und Nachname sowie E-Mail aus.'); return; }
       taken = Math.min(taken + 1, TOTAL);
       updateSpots(taken);
       document.getElementById('formContent').style.display = 'none';
       document.getElementById('formSuccess').style.display  = 'block';
     }
-
-    // ── FAQ ──
     function toggleFaq(btn) {
-      const item   = btn.closest('.faq-item');
+      const item = btn.closest('.faq-item');
       const isOpen = item.classList.contains('open');
       document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
       if(!isOpen) item.classList.add('open');
     }
-
-    // ── NEWSLETTER ──
     function subscribeNewsletter() {
       const email = document.getElementById('nlEmail').value.trim();
       const note  = document.getElementById('nlNote');
-      if(!email || !email.includes('@')){ note.textContent = '⚠️ Bitte gültige E-Mail eingeben.'; return; }
+      if(!email || !email.includes('@')) { note.textContent = '⚠️ Bitte gültige E-Mail eingeben.'; return; }
       note.textContent = '✓ Danke! Du wirst informiert.';
-      note.style.opacity = '1';
       document.getElementById('nlEmail').value = '';
     }
-
-    // ── NAVIGATION ──
     function toggleMenu() {
       document.querySelector('.hamburger').classList.toggle('active');
       document.querySelector('.nav-links').classList.toggle('active');
     }
     function closeMenu() {
       document.querySelector('.hamburger').classList.remove('active');
-      document.querySelector('.nav-links').classList.remove('active');
-    }
-    document.addEventListener('click', function(event) {
-      const nav = document.querySelector('.nav');
-      if(nav && !nav.contains(event.target)) closeMenu();
-    });
-  </script>
-</body>
-</html>
+      document
