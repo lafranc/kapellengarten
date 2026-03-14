@@ -358,7 +358,7 @@
         <div class="spot-box">
           <div class="spot-label">🌿 Verfügbare Plätze · Saison 2026</div>
           <div class="spot-row">
-            <span class="spot-num" id="spotNum1">20</span>
+            <span class="spot-num" id="spotNum1">16</span>
             <span class="spot-of">von 20 Plätzen frei</span>
           </div>
           <div class="spot-bar"><div class="spot-fill" id="spotFill1"></div></div>
@@ -710,7 +710,7 @@
     <div class="abo-inner">
       <div class="abo-left">
         <p class="section-label">Gemüseabo Saison 2026</p>
-        <h2>Mitmachen und jede Woche<br><span>frisches Gemüse geniessen</span></h2>
+        <h2>Jede Woche<br><span>frisches Gemüse geniessen</span></h2>
         <p>Das Gemüseabo startet im <strong style="color:#c8dbc9">April 2026</strong> und läuft bis Ende Oktober, insgesamt rund <strong style="color:#c8dbc9">26 Wochen</strong>. In jeder Kiste steckt, was die Saison gerade hergibt: frisch geerntet, samstags abgeholt.</p>
 
         <div class="abo-counter">
@@ -876,7 +876,7 @@
         else el.innerHTML = '<strong>Gemüsekistenpreis für meine ersten 20 Kunden: CHF 20.–</strong> pro Kiste · 5–7 Kulturen';
       });
     }
-    window.addEventListener('load', () => setTimeout(() => updateSpots(4), 700));
+    window.addEventListener('load', () => updateSpots(4));
     function handleSubmit() {
       const first = document.getElementById('fName').value.trim();
       const last  = document.getElementById('lName').value.trim();
