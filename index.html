@@ -91,7 +91,7 @@
     .kiste-list { list-style:none; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:.35rem .5rem; }
     .kiste-list li { font-family:'DM Sans',sans-serif; font-size:.85rem; color:#4a5a4a; padding-left:1rem; position:relative; line-height:1.5; }
     .kiste-list li::before { content:'·'; position:absolute; left:0; color:#4a6741; font-size:1.1rem; line-height:1.2; }
-    /* ABHOLUNG – NEU erweitert */
+    /* ABHOLUNG */
     .kiste-abholung { display:grid; grid-template-columns:1fr auto; gap:2.5rem; align-items:start; background:rgba(255,255,255,.65); border-radius:8px; padding:2rem 2.5rem; }
     .kiste-abholung h3 { font-size:1.6rem; font-weight:400; margin-bottom:.75rem; }
     .kiste-abholung p { font-family:'DM Sans',sans-serif; font-size:.95rem; color:#4a5a4a; line-height:1.8; margin-bottom:.5rem; }
@@ -163,7 +163,7 @@
     .abo-info-block:last-child { border-bottom:none; }
     .abo-info-num { font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:600; color:#7a9e7e; line-height:1; flex-shrink:0; min-width:2rem; }
     .abo-info-block strong { display:block; font-family:'DM Sans',sans-serif; font-size:.8rem; font-weight:500; letter-spacing:.1em; text-transform:uppercase; color:#f7f5f0; margin-bottom:.3rem; }
-    .abo-info-block p { font-family:'DM Sans',sans-serif; font-size:.88rem; color:rgba(247,245,240,.65); line-height:1.65; margin:0; }
+    .abo-info-block p { font-family:'DM Sans',sans-serif; font-size:.95rem; color:rgba(247,245,240,.65); line-height:1.7; }
     .kiste-chips { display:grid; grid-template-columns:1fr 1fr; gap:.75rem; }
     .kiste-chip { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); border-radius:8px; padding:.9rem 1rem; font-family:'DM Sans',sans-serif; font-size:.85rem; color:rgba(247,245,240,.8); display:flex; flex-direction:column; gap:.3rem; }
     .kiste-chip strong { display:flex; align-items:center; gap:.5rem; color:#f7f5f0; margin-bottom:.1rem; }
@@ -377,7 +377,7 @@
     <div class="kiste-section-inner">
       <p class="section-label">So funktioniert die Gemüsekiste</p>
       <h2>Frisch geerntet,<br><span>bevor du es abholst</span></h2>
-      <p class="kiste-intro">Direkt vom Kapellengarten, Dorfstrasse 192, Wangen bei Olten. Jede Woche warten rund <strong>5–7 verschiedene Gemüsesorteн</strong> auf dich, was gerade erntefrisch ist, was die Saison hergibt, was ich für dich geerntet habe.</p>
+      <p class="kiste-intro">Direkt vom Kapellengarten, Dorfstrasse 192, Wangen bei Olten. Jede Woche warten rund <strong>5–7 verschiedene Gemüsesorten</strong> auf dich, was gerade erntefrisch ist, was die Saison hergibt, was ich für dich geerntet habe.</p>
 
       <div class="kiste-how">
         <div class="kiste-step">
@@ -460,7 +460,7 @@
         </div>
       </div>
 
-      <!-- ABHOLUNG – ERWEITERT mit Parkplatz-Info + Lageplan-Skizze -->
+      <!-- ABHOLUNG -->
       <div class="kiste-abholung">
         <div class="kiste-abholung-text">
           <h3>Abholung</h3>
@@ -494,7 +494,7 @@
             <text x="170" y="13" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#8b7a6a" letter-spacing="2.5" font-weight="500">DORFSTRASSE</text>
             <!-- Grünfläche Mitte -->
             <rect x="112" y="50" width="120" height="130" fill="#c8dab8" rx="3"/>
-            <text x="172" y="118" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#5a7a4a" opacity=".7">Garten</text>
+            <text x="172" y="118" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#5a7a4a" opacity=".7">Schnittblumen</text>
             <!-- Parkplatz links -->
             <rect x="4" y="50" width="102" height="130" fill="#dbd6cc" rx="3"/>
             <rect x="10" y="58" width="40" height="23" fill="#c4bdb2" rx="3" stroke="#a8a29a" stroke-width="1"/>
@@ -527,48 +527,30 @@
             <rect x="271" y="114" width="22" height="36" rx="11 11 0 0" fill="#8b9e7a" stroke="#6b7a5a" stroke-width="1.2"/>
             <!-- Gemüseausgabe Schild -->
             <rect x="224" y="152" width="116" height="22" fill="#4a6741" rx="4"/>
-            <text x="282" y="167" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="white" font-weight="500">🥕 GEMÜSEAUSGABE</text>
-            <!-- Weg -->
-            <rect x="106" y="110" width="8" height="64" fill="#c4bdb2" rx="2"/>
-            <rect x="106" y="170" width="126" height="7" fill="#c4bdb2" rx="2"/>
-            <!-- Pfeil Parkplatz zu Kapelle -->
-            <defs>
-              <marker id="arr" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
-                <path d="M0,1 L0,6 L7,3.5z" fill="#4a6741"/>
-              </marker>
-            </defs>
-            <path d="M 107 142 L 116 142" stroke="#4a6741" stroke-width="2.2" marker-end="url(#arr)" stroke-dasharray="3,2"/>
-            <!-- Legende -->
-            <rect x="0" y="186" width="340" height="64" fill="rgba(247,245,240,0.93)" rx="0 0 8 8"/>
-            <circle cx="16" cy="200" r="6" fill="#4a6741"/>
-            <text x="28" y="204" font-family="DM Sans,sans-serif" font-size="9" fill="#2d3a2d">Kapelle &amp; Gemüseausgabe</text>
-            <rect x="10" y="214" width="12" height="8" fill="#c4bdb2" rx="1" stroke="#a8a29a" stroke-width="1"/>
-            <text x="28" y="222" font-family="DM Sans,sans-serif" font-size="9" fill="#2d3a2d">Parkplatz (kostenlos, links daneben)</text>
-            <text x="170" y="200" font-family="DM Sans,sans-serif" font-size="9" fill="#4a6741" font-weight="600">Dorfstrasse 192</text>
-            <text x="170" y="213" font-family="DM Sans,sans-serif" font-size="8.5" fill="#5a6a5a">4612 Wangen bei Olten</text>
-            <text x="170" y="226" font-family="DM Sans,sans-serif" font-size="8" fill="#8b7355">Sa. Vormittag · ~1 Min. Fussweg vom Parkplatz</text>
+            <text x="282" y="167" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="#f7f5f0" font-weight="500">GEMÜSEAUSGABE</text>
+
           </svg>
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- ÜBER MICH -->
+  <!-- ÜBER UNS -->
   <section id="ueber-uns" class="ueber-uns-hero">
-    <p class="section-label">Wer steht hinter dem Kapellengarten?</p>
-    <h2><span>Francis</span></h2>
+    <h2>Der <span>Kapellengarten</span></h2>
   </section>
 
-  <section class="ueber-uns-content">
-    <div class="ueber-uns-portrait-grid">
-      <div class="ueber-uns-portrait-placeholder">
-        <img src="francis.png" alt="Francis – Kapellengarten Wangen bei Olten">
-      </div>
-      <div class="ueber-uns-portrait-text">
-        <h3>Hallo, ich bin <span>Francis</span></h3>
-        <p>2026 fängt für mich etwas Neues an. Ich übernehme das Areal rund um die historische Kapelle in Wangen bei Olten und baue dort meinen eigenen Marktgarten auf: den Kapellengarten. Schritt für Schritt, Beet für Beet, Saison für Saison.</p>
-        <p>Als einer meiner ersten 20 Kunden bist du von Anfang an dabei. Du siehst, was wächst, bekommst jede Woche mit, was der Boden hergibt und schmeckst den Unterschied. Ich freue mich darauf, dieses Projekt mit Menschen zu teilen, die Lust haben, nah dran zu sein.</p>
+  <div class="ueber-uns-content">
+    <div class="ueber-uns-section">
+      <div class="ueber-uns-portrait-grid">
+        <div class="ueber-uns-portrait-placeholder">
+          <img src="portrait.jpg" alt="Francis, Kapellengarten">
+        </div>
+        <div class="ueber-uns-portrait-text">
+          <h3>Hinter dem <span>Garten</span></h3>
+          <p>Ich bin Francis. Ich übernehme das Areal rund um die historische Kapelle in Wangen bei Olten und baue dort meinen eigenen Marktgarten auf: den Kapellengarten. Schritt für Schritt, Beet für Beet, Saison für Saison.</p>
+          <p>Als einer meiner ersten 20 Kunden bist du von Anfang an dabei. Du siehst, was wächst, bekommst jede Woche mit, was der Boden hergibt und schmeckst den Unterschied. Ich freue mich darauf, dieses Projekt mit Menschen zu teilen, die Lust haben, nah dran zu sein.</p>
+        </div>
       </div>
     </div>
 
@@ -596,7 +578,7 @@
         <p>Das ist eine Idee, die wächst. 2026 fängt sie klein an, mit 20 Gemüsekisten und einem offenen Tor samstags.</p>
       </div>
     </div>
-  </section>
+  </div>
 
   <!-- BLICK IN DIE ZUKUNFT -->
   <section id="weg" class="unser-weg">
@@ -607,7 +589,7 @@
           <div class="timeline-year">2026</div>
           <div>
             <div class="timeline-title">Startphase · 20 Gemüseabos</div>
-            <p class="timeline-desc">Anbau auf 400 m² mit 20 Gemüsekulturen, 20 Erstkunden. Aufbau der Bodenbiologie, wöchentliche Gemüsekiste ab April, abgeholt samstags vormittags, direkt bei der Kapelle.</p>
+            <p class="timeline-desc">Anbau auf 400 m² mit 20 Gemüsekulturen, 20 Erstkunden. Aufbau der Bodenbiologie, wöchentliche Gemüsekiste ab April, abgeholt samstags vormittags, direkt bei der Kapelle.</p>
           </div>
         </div>
         <div class="timeline-item">
@@ -628,40 +610,33 @@
     </div>
   </section>
 
-  <!-- WAS MIR WICHTIG IST (CHANGE 1: "uns" → "mir") -->
+  <!-- WAS MIR WICHTIG IST -->
   <section class="werte">
     <h2>Was mir <span>wichtig ist</span></h2>
     <div class="werte-grid">
-      <!-- Voller Geschmack, zuoberst, farbenfrohes Icon -->
+      <!-- Voller Geschmack -->
       <div class="werte-item">
         <svg class="icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <!-- Aufgeschnittene Tomate, saftig, farbig -->
           <circle cx="50" cy="52" r="34" fill="#e8523a" stroke="#c43820" stroke-width="2"/>
-          <!-- Innenfleisch -->
           <circle cx="50" cy="52" r="29" fill="#f07050" stroke="none"/>
-          <!-- Samenkammern -->
           <path d="M 50 23 L 50 81" stroke="#c43820" stroke-width="1.2" opacity=".5"/>
           <path d="M 50 52 L 22 37" stroke="#c43820" stroke-width="1.2" opacity=".5"/>
           <path d="M 50 52 L 78 37" stroke="#c43820" stroke-width="1.2" opacity=".5"/>
           <path d="M 50 52 L 22 67" stroke="#c43820" stroke-width="1.2" opacity=".5"/>
           <path d="M 50 52 L 78 67" stroke="#c43820" stroke-width="1.2" opacity=".5"/>
-          <!-- Saftiges Fruchtfleisch je Segment -->
           <ellipse cx="50" cy="34" rx="7" ry="9" fill="#fca070" opacity=".7"/>
           <ellipse cx="34" cy="43" rx="7" ry="9" fill="#fca070" opacity=".6" transform="rotate(-55 34 43)"/>
           <ellipse cx="34" cy="62" rx="7" ry="9" fill="#fca070" opacity=".6" transform="rotate(55 34 62)"/>
           <ellipse cx="50" cy="70" rx="7" ry="9" fill="#fca070" opacity=".7"/>
           <ellipse cx="66" cy="62" rx="7" ry="9" fill="#fca070" opacity=".6" transform="rotate(-55 66 62)"/>
           <ellipse cx="66" cy="43" rx="7" ry="9" fill="#fca070" opacity=".6" transform="rotate(55 66 43)"/>
-          <!-- Kerne, gelb -->
           <ellipse cx="50" cy="29" rx="3.5" ry="5" fill="#f8d858" stroke="#e0b828" stroke-width="1"/>
           <ellipse cx="32" cy="40" rx="3.5" ry="5" fill="#f8d858" stroke="#e0b828" stroke-width="1" transform="rotate(-55 32 40)"/>
           <ellipse cx="32" cy="64" rx="3.5" ry="5" fill="#f8d858" stroke="#e0b828" stroke-width="1" transform="rotate(55 32 64)"/>
           <ellipse cx="50" cy="75" rx="3.5" ry="5" fill="#f8d858" stroke="#e0b828" stroke-width="1"/>
           <ellipse cx="68" cy="64" rx="3.5" ry="5" fill="#f8d858" stroke="#e0b828" stroke-width="1" transform="rotate(-55 68 64)"/>
           <ellipse cx="68" cy="40" rx="3.5" ry="5" fill="#f8d858" stroke="#e0b828" stroke-width="1" transform="rotate(55 68 40)"/>
-          <!-- Mitte -->
           <circle cx="50" cy="52" r="6" fill="#e8523a" stroke="#c43820" stroke-width="1.2"/>
-          <!-- Stielansatz -->
           <path d="M 44 20 Q 50 14 56 20" stroke="#3a7828" stroke-width="2.5" fill="none" stroke-linecap="round"/>
           <path d="M 50 18 L 50 10" stroke="#3a7828" stroke-width="2.2" stroke-linecap="round"/>
         </svg>
@@ -728,7 +703,8 @@
             <div class="abo-info-num">1</div>
             <div>
               <strong>Die Kiste</strong>
-              <p>Jede Kiste enthält 5–7 verschiedene Gemüsesorten, was gerade reif ist, ohne Vorauswahl. Die Kiste ist für eine Person pro Woche berechnet. Für Familien oder Paare ist auch eine zweite Kiste möglich, oder ihr teilt euch eine Kiste mit jemandem.</p>
+              <!-- FIX 2: "was gerade reif ist" → "was gerade erntereif ist" -->
+              <p>Jede Kiste enthält 5–7 verschiedene Gemüsesorten, was gerade erntereif ist, ohne Vorauswahl. Die Kiste ist für eine Person pro Woche berechnet. Für Familien oder Paare ist auch eine zweite Kiste möglich, oder ihr teilt euch eine Kiste mit jemandem.</p>
             </div>
           </div>
           <div class="abo-info-block">
@@ -851,7 +827,7 @@
     <div class="kontakt-content">
       <h2>Komm mit mir<br><span>ins Gespräch</span></h2>
       <p>Interessiert am Kapellengarten? Fragen zum Abo oder Garten, ich freue mich auf deine Nachricht.</p>
-      <a href="/cdn-cgi/l/email-protection#3e584c5f505d574d7e555f4e5b52525b50595f4c4a5b50105d56" class="kontakt-email"><span class="__cf_email__" data-cfemail="254357444b464c56654e4455404949404b42445751404b0b464d">[email&#160;protected]</span></a>
+      <a href="/cdn-cgi/l/email-protection#dcb4bdb0b0b39cb7bdacb9b0b0b9b2bbbdaea8b9b2f2bfb4" class="kontakt-email"><span class="__cf_email__" data-cfemail="4f272e2323200f242e3f2a23232a21282e3d3b2a21612c27">[email&#160;protected]</span></a>
       <p class="kontakt-ort">📍 Dorfstrasse 192, Wangen bei Olten</p>
     </div>
   </section>
@@ -861,7 +837,7 @@
     <p>© 2026 Kapellengarten · Francis · Wangen bei Olten</p>
   </footer>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     const TOTAL = 20;
     let taken = 4;
     function updateSpots(n) {
@@ -877,6 +853,7 @@
       });
     }
     window.addEventListener('load', () => updateSpots(4));
+
     function handleSubmit() {
       const first = document.getElementById('fName').value.trim();
       const last  = document.getElementById('lName').value.trim();
@@ -887,6 +864,7 @@
       document.getElementById('formContent').style.display = 'none';
       document.getElementById('formSuccess').style.display  = 'block';
     }
+
     function toggleFaq(btn) {
       const item = btn.closest('.faq-item');
       if (!item) return;
@@ -894,11 +872,13 @@
       document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
       if (!isOpen) item.classList.add('open');
     }
-    document.addEventListener('DOMContentLoaded', function() {
-      document.querySelectorAll('.faq-q').forEach(function(btn) {
-        btn.addEventListener('click', function() { toggleFaq(this); });
-      });
+
+    /* FIX 1: DOMContentLoaded entfernt – Script läuft am Ende des body,
+       DOM ist bereits vorhanden */
+    document.querySelectorAll('.faq-q').forEach(function(btn) {
+      btn.addEventListener('click', function() { toggleFaq(this); });
     });
+
     function subscribeNewsletter() {
       const email = document.getElementById('nlEmail').value.trim();
       const note  = document.getElementById('nlNote');
@@ -906,10 +886,7 @@
       note.textContent = '✓ Danke! Du wirst informiert.';
       document.getElementById('nlEmail').value = '';
     }
+
     function toggleMenu() {
       document.querySelector('.hamburger').classList.toggle('active');
-      document.querySelector('.nav-links').classList.toggle('active');
-    }
-    function closeMenu() {
-      document.querySelector('.hamburger').classList.remove('active');
-      document
+      document.querySelector('
