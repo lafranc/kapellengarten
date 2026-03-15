@@ -183,17 +183,18 @@
     .success-icon { font-size:3rem; margin-bottom:1rem; }
     .form-success h4 { font-size:1.8rem; font-weight:400; margin-bottom:.5rem; }
     .form-success p { font-family:'DM Sans',sans-serif; color:#5a6a5a; }
-    /* FAQ */
+    /* FAQ – reines CSS, kein JavaScript */
     .faq-section { padding:6rem 2rem; background:#f7f5f0; }
     .faq-inner { max-width:800px; margin:0 auto; }
     .faq-inner h2 { font-size:clamp(2.5rem,6vw,4rem); font-weight:400; margin-bottom:2.5rem; }
     .faq-inner h2 span { font-style:italic; color:#4a6741; }
     .faq-item { border-bottom:1px solid #d4cfc3; }
-    .faq-q { width:100%; text-align:left; background:none; border:none; padding:1.4rem 0; font-family:'Cormorant Garamond',Georgia,serif; font-size:1.2rem; color:#2d3a2d; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:1rem; }
-    .faq-arrow { font-size:1.5rem; color:#4a6741; transition:transform .3s; flex-shrink:0; }
-    .faq-item.open .faq-arrow { transform:rotate(45deg); }
-    .faq-a { font-family:'DM Sans',sans-serif; font-size:.95rem; color:#4a5a4a; line-height:1.8; max-height:0; overflow:hidden; transition:max-height .4s ease, padding .3s ease; padding:0; }
-    .faq-item.open .faq-a { max-height:300px; padding-bottom:1.4rem; }
+    details.faq-item { border-bottom:1px solid #d4cfc3; }
+    details.faq-item summary { list-style:none; width:100%; padding:1.4rem 0; font-family:'Cormorant Garamond',Georgia,serif; font-size:1.2rem; color:#2d3a2d; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:1rem; user-select:none; }
+    details.faq-item summary::-webkit-details-marker { display:none; }
+    details.faq-item summary::after { content:'+'; font-size:1.5rem; color:#4a6741; transition:transform .3s; flex-shrink:0; line-height:1; }
+    details.faq-item[open] summary::after { transform:rotate(45deg); }
+    .faq-a { font-family:'DM Sans',sans-serif; font-size:.95rem; color:#4a5a4a; line-height:1.8; padding-bottom:1.4rem; }
     /* NEWSLETTER */
     .newsletter-band { background:#4a6741; color:#f7f5f0; padding:4rem 2rem; text-align:center; }
     .newsletter-band h3 { font-size:2.2rem; font-weight:400; margin-bottom:.5rem; }
@@ -784,30 +785,30 @@
     <div class="faq-inner">
       <p class="section-label">Häufige Fragen</p>
       <h2>Alles <span>Wichtige</span></h2>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Wann startet die Saison und wie lange dauert sie? <span class="faq-arrow">+</span></button>
+      <details class="faq-item">
+        <summary>Wann startet die Saison und wie lange dauert sie?</summary>
         <div class="faq-a">Die Saison startet voraussichtlich im <strong>April 2026</strong> und läuft bis Oktober, rund 26–28 Lieferwochen. Der genaue Starttermin wird per E-Mail kommuniziert.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Wie läuft die Abholung ab? <span class="faq-arrow">+</span></button>
+      </details>
+      <details class="faq-item">
+        <summary>Wie läuft die Abholung ab?</summary>
         <div class="faq-a">Du holst deine Kiste jeden <strong>Samstag Vormittag</strong> direkt bei der Kapelle ab: <strong>Dorfstrasse 192, Wangen bei Olten</strong>. Ein Parkplatz steht direkt links neben der Gemüseausgabe zur Verfügung, kostenlos. Falls du mal verhindert bist, kann die Kiste ausnahmsweise hinterlegt werden, einfach kurz Bescheid geben.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Was kostet das Abo? <span class="faq-arrow">+</span></button>
+      </details>
+      <details class="faq-item">
+        <summary>Was kostet das Abo?</summary>
         <div class="faq-a">Als einer meiner ersten 20 Kunden zahlst du <strong>CHF 20.– pro Kiste</strong>, das ist der Gemüsekistenpreis, den ich speziell für meine Erstkunden anbiete (regulärer Preis ab 2027: CHF 26.–). Details zur Zahlungsweise klären wir nach deiner Anmeldung.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Was ist in der Kiste? <span class="faq-arrow">+</span></button>
+      </details>
+      <details class="faq-item">
+        <summary>Was ist in der Kiste?</summary>
         <div class="faq-a">Jede Woche <strong>5–7 saisonale Kulturen</strong>, was gerade erntefrisch ist. Jeden Freitag erhältst du per Newsletter eine Vorschau, damit du dich auf die Woche vorbereiten kannst.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Ist das Gemüse biologisch zertifiziert? <span class="faq-arrow">+</span></button>
+      </details>
+      <details class="faq-item">
+        <summary>Ist das Gemüse biologisch zertifiziert?</summary>
         <div class="faq-a">Der Kapellengarten arbeitet nach <strong>biologischen Prinzipien</strong>, kein Kunstdünger, keine Pestizide. Ich bin ausgebildeter Bodenmikrobiologe (Soil Food Web) und analysiere die Bodenbiologie regelmässig. Eine offizielle Bio-Zertifizierung wird angestrebt.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Was passiert, wenn alle Plätze besetzt sind? <span class="faq-arrow">+</span></button>
+      </details>
+      <details class="faq-item">
+        <summary>Was passiert, wenn alle Plätze besetzt sind?</summary>
         <div class="faq-a">Dann führe ich eine <strong>Warteliste</strong>. Falls jemand absagt oder die Kapazität früher erweitert wird, melde ich mich in der Reihenfolge der Anmeldungen.</div>
-      </div>
+      </details>
     </div>
   </section>
 
@@ -827,7 +828,7 @@
     <div class="kontakt-content">
       <h2>Komm mit mir<br><span>ins Gespräch</span></h2>
       <p>Interessiert am Kapellengarten? Fragen zum Abo oder Garten, ich freue mich auf deine Nachricht.</p>
-      <a href="/cdn-cgi/l/email-protection#dcb4bdb0b0b39cb7bdacb9b0b0b9b2bbbdaea8b9b2f2bfb4" class="kontakt-email"><span class="__cf_email__" data-cfemail="4f272e2323200f242e3f2a23232a21282e3d3b2a21612c27">[email&#160;protected]</span></a>
+      <a href="mailto:francis@kapellengarten.ch" class="kontakt-email">francis@kapellengarten.ch</a>
       <p class="kontakt-ort">📍 Dorfstrasse 192, Wangen bei Olten</p>
     </div>
   </section>
