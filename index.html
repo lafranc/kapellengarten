@@ -363,7 +363,7 @@
             <span class="spot-of">von 20 Plätzen frei</span>
           </div>
           <div class="spot-bar"><div class="spot-fill" id="spotFill1"></div></div>
-          <div class="spot-note" id="spotNote1"><strong>Gemüsekistenpreis für meine ersten 20 Kunden: CHF 20.–</strong> pro Kiste · 5–7 Kulturen</div>
+          <div class="spot-note" id="spotNote1"><strong>CHF 25.– pro Kiste</strong> · 5–7 Kulturen · Saison 2026</div>
         </div>
       </div>
       <div class="einblenden einblenden-3">
@@ -529,7 +529,6 @@
             <!-- Gemüseausgabe Schild -->
             <rect x="224" y="152" width="116" height="22" fill="#4a6741" rx="4"/>
             <text x="282" y="167" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="#f7f5f0" font-weight="500">GEMÜSEAUSGABE</text>
-
           </svg>
         </div>
       </div>
@@ -696,7 +695,7 @@
             <span class="spot-of" style="color:rgba(247,245,240,.6)">von 20 Plätzen noch frei</span>
           </div>
           <div class="spot-bar"><div class="spot-fill" id="spotFill2"></div></div>
-          <div class="spot-note" id="spotNote2">Gemüsekistenpreis für meine ersten 20 Kunden: <strong>CHF 20.– pro Kiste</strong> · 5–7 Kulturen</div>
+          <div class="spot-note" id="spotNote2"><strong>CHF 25.– pro Kiste</strong> · 5–7 Kulturen · Saison 2026</div>
         </div>
 
         <div class="abo-info-blocks">
@@ -704,7 +703,6 @@
             <div class="abo-info-num">1</div>
             <div>
               <strong>Die Kiste</strong>
-              <!-- FIX 2: "was gerade reif ist" → "was gerade erntereif ist" -->
               <p>Jede Kiste enthält 5–7 verschiedene Gemüsesorten, was gerade erntereif ist, ohne Vorauswahl. Die Kiste ist für eine Person pro Woche berechnet. Für Familien oder Paare ist auch eine zweite Kiste möglich, oder ihr teilt euch eine Kiste mit jemandem.</p>
             </div>
           </div>
@@ -712,7 +710,7 @@
             <div class="abo-info-num">2</div>
             <div>
               <strong>Preis &amp; Gesamtkosten</strong>
-              <p>Als Erstkunde zahlst du <strong style="color:#c8dbc9">CHF 20.– pro Kiste</strong>. Bei 26 Wochen sind das CHF 520.– für die ganze Saison. Die Zahlung klären wir nach deiner Anmeldung, monatlich oder saisonal, wie es für dich passt.</p>
+              <p>Die Kiste kostet <strong style="color:#c8dbc9">CHF 25.– pro Woche</strong>. Bei 26 Wochen sind das CHF 650.– für die ganze Saison. Die Zahlung klären wir nach deiner Anmeldung, monatlich oder saisonal, wie es für dich passt.</p>
             </div>
           </div>
           <div class="abo-info-block">
@@ -795,7 +793,7 @@
       </details>
       <details class="faq-item">
         <summary>Was kostet das Abo?</summary>
-        <div class="faq-a">Als einer meiner ersten 20 Kunden zahlst du <strong>CHF 20.– pro Kiste</strong>, das ist der Gemüsekistenpreis, den ich speziell für meine Erstkunden anbiete (regulärer Preis ab 2027: CHF 26.–). Details zur Zahlungsweise klären wir nach deiner Anmeldung.</div>
+        <div class="faq-a">Die Kiste kostet <strong>CHF 25.– pro Woche</strong>. Bei 26 Wochen sind das CHF 650.– für die ganze Saison. Details zur Zahlungsweise klären wir nach deiner Anmeldung.</div>
       </details>
       <details class="faq-item">
         <summary>Was ist in der Kiste?</summary>
@@ -850,7 +848,7 @@
         const el = document.getElementById(id); if(!el) return;
         if(left <= 3 && left > 0) el.innerHTML = '<strong style="color:#c0392b">⚡ Nur noch ' + left + ' Plätze frei!</strong>';
         else if(left === 0) el.innerHTML = '<strong style="color:#c0392b">Alle Plätze vergeben, Warteliste anfragen.</strong>';
-        else el.innerHTML = '<strong>Gemüsekistenpreis für meine ersten 20 Kunden: CHF 20.–</strong> pro Kiste · 5–7 Kulturen';
+        else el.innerHTML = '<strong>CHF 25.– pro Kiste</strong> · 5–7 Kulturen · Saison 2026';
       });
     }
     window.addEventListener('load', () => updateSpots(4));
@@ -874,8 +872,6 @@
       if (!isOpen) item.classList.add('open');
     }
 
-
-
     function subscribeNewsletter() {
       const email = document.getElementById('nlEmail').value.trim();
       const note  = document.getElementById('nlNote');
@@ -886,4 +882,14 @@
 
     function toggleMenu() {
       document.querySelector('.hamburger').classList.toggle('active');
-      document.querySelector('
+      document.querySelector('.nav-links').classList.toggle('active');
+    }
+
+    function closeMenu() {
+      document.querySelector('.hamburger').classList.remove('active');
+      document.querySelector('.nav-links').classList.remove('active');
+    }
+  </script>
+
+</body>
+</html>
