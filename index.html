@@ -480,7 +480,7 @@
           </div>
         </div>
         <div class="kiste-abholung-badge">
-          <svg viewBox="0 0 340 250" xmlns="http://www.w3.org/2000/svg" class="kapelle-illustration" style="width:480px;" aria-label="Lageplan Kapellengarten">
+          <svg viewBox="0 0 340 250" xmlns="http://www.w3.org/2000/svg" class="kapelle-illustration" aria-label="Lageplan Kapellengarten">
             <rect width="340" height="250" fill="#edeae3" rx="8"/>
             <!-- Strasse -->
             <rect x="0" y="0" width="340" height="50" fill="#c8c2b4" rx="0"/>
@@ -793,7 +793,7 @@
       </details>
       <details class="faq-item">
         <summary>Was kostet das Abo?</summary>
-        <div class="faq-a">Die Kiste kostet <strong>CHF 25.– pro Woche</strong>. Bei 26 Wochen sind das CHF 650.– für die ganze Saison. Details zur Zahlungsweise klären wir nach deiner Anmeldung.</div>
+        <div class="faq-a">Als einer meiner ersten 20 Kunden zahlst du <strong>CHF 20.– pro Kiste</strong>, das ist der Gemüsekistenpreis, den ich speziell für meine Erstkunden anbiete (regulärer Preis ab 2027: CHF 26.–). Details zur Zahlungsweise klären wir nach deiner Anmeldung.</div>
       </details>
       <details class="faq-item">
         <summary>Was ist in der Kiste?</summary>
@@ -862,14 +862,6 @@
       updateSpots(taken);
       document.getElementById('formContent').style.display = 'none';
       document.getElementById('formSuccess').style.display  = 'block';
-    }
-
-    function toggleFaq(btn) {
-      const item = btn.closest('.faq-item');
-      if (!item) return;
-      const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
-      if (!isOpen) item.classList.add('open');
     }
 
     function subscribeNewsletter() {
