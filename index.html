@@ -51,8 +51,9 @@
     .spot-row { display:flex; align-items:baseline; gap:.4rem; margin-bottom:.6rem; }
     .spot-num { font-size:3.2rem; font-weight:600; color:#4a6741; line-height:1; font-family:'Cormorant Garamond',serif; }
     .spot-of { font-family:'DM Sans',sans-serif; font-size:.95rem; color:#5a6a5a; }
-    .spot-bar { background:#e8e4da; border-radius:6px; height:7px; overflow:hidden; margin-bottom:.5rem; }
+    .spot-bar { background:#e8e4da; border-radius:6px; height:7px; overflow:hidden; margin-bottom:.6rem; }
     .spot-fill { height:100%; border-radius:6px; background:linear-gradient(90deg,#4a6741,#7a9e7e); transition:width 1.2s cubic-bezier(.22,1,.36,1); width:0; }
+    .spot-tagline { font-family:'DM Sans',sans-serif; font-size:.82rem; color:#4a5a4a; line-height:1.5; margin-bottom:.35rem; }
     .spot-note { font-family:'DM Sans',sans-serif; font-size:.78rem; color:#5a6a5a; }
     .spot-note strong { color:#2d3a2d; }
     .btn { display:inline-block; padding:1rem 2.5rem; background:#4a6741; color:#f7f5f0; text-decoration:none; font-family:'DM Sans',sans-serif; font-size:.9rem; letter-spacing:.05em; text-transform:uppercase; transition:all .3s ease; border:2px solid #4a6741; cursor:pointer; }
@@ -74,7 +75,7 @@
     .kiste-step p { font-family:'DM Sans',sans-serif; font-size:.95rem; color:#5a6a5a; line-height:1.7; margin:0; }
     .kiste-seasons-title { font-size:1.9rem; font-weight:400; margin-bottom:.5rem; }
     .kiste-seasons-sub { font-family:'DM Sans',sans-serif; font-size:.95rem; color:#5a6a5a; margin-bottom:2.5rem; }
-    .kiste-seasons { display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; margin-bottom:3.5rem; }
+    .kiste-seasons { display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; margin-bottom:2rem; }
     .kiste-season { background:#f7f5f0; overflow:hidden; transition:transform .3s ease, box-shadow .3s ease; }
     .kiste-season:hover { transform:translateY(-6px); box-shadow:0 16px 40px rgba(45,58,45,.14); }
     .kiste-photo-wrap { position:relative; overflow:hidden; aspect-ratio:4/3; }
@@ -91,6 +92,8 @@
     .kiste-list { list-style:none; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:.35rem .5rem; }
     .kiste-list li { font-family:'DM Sans',sans-serif; font-size:.85rem; color:#4a5a4a; padding-left:1rem; position:relative; line-height:1.5; }
     .kiste-list li::before { content:'·'; position:absolute; left:0; color:#4a6741; font-size:1.1rem; line-height:1.2; }
+    .kiste-hinweis { background:rgba(255,255,255,.65); border-radius:8px; padding:1.6rem 2rem; margin-bottom:3.5rem; font-family:'DM Sans',sans-serif; font-size:.95rem; color:#4a5a4a; line-height:1.8; }
+    .kiste-hinweis strong { color:#2d3a2d; }
     /* ABHOLUNG */
     .kiste-abholung { display:grid; grid-template-columns:1fr auto; gap:2.5rem; align-items:start; background:rgba(255,255,255,.65); border-radius:8px; padding:2rem 2.5rem; }
     .kiste-abholung h3 { font-size:1.6rem; font-weight:400; margin-bottom:.75rem; }
@@ -105,34 +108,31 @@
     .ueber-uns-hero h2 span { font-style:italic; color:#4a6741; }
     .ueber-uns-content { padding:4rem 2rem; max-width:900px; margin:0 auto; }
     .ueber-uns-section { margin-bottom:3rem; }
-    .ueber-uns-section h3 { font-size:1.8rem; font-weight:400; margin-bottom:1rem; }
+    .ueber-uns-section h3 { font-size:1.8rem; font-weight:400; margin-bottom:1.2rem; }
     .ueber-uns-section h3 span { font-style:italic; color:#4a6741; }
-    .ueber-uns-section p { font-family:'DM Sans',sans-serif; font-size:1.05rem; color:#4a5a4a; line-height:1.8; margin-bottom:1.2rem; }
-    .ueber-uns-portrait-grid { display:grid; grid-template-columns:280px 1fr; gap:3rem; align-items:start; margin-bottom:3rem; }
-    .ueber-uns-portrait-placeholder { background:linear-gradient(135deg,#e8e4da,#d4cfc3); border-radius:8px; aspect-ratio:3/4; display:flex; align-items:center; justify-content:center; text-align:center; overflow:hidden; }
-    .ueber-uns-portrait-placeholder img { width:100%; height:100%; object-fit:cover; border-radius:8px; }
-    .ueber-uns-portrait-text h3 { font-size:1.8rem; font-weight:400; margin-bottom:1rem; }
-    .ueber-uns-portrait-text h3 span { font-style:italic; color:#4a6741; }
-    .ueber-uns-portrait-text p { font-family:'DM Sans',sans-serif; font-size:1.05rem; color:#4a5a4a; line-height:1.8; margin-bottom:1.2rem; }
-    .ueber-uns-method-grid { display:grid; grid-template-columns:1fr 280px; gap:2.5rem; align-items:start; }
-    .ueber-uns-method-img img { width:100%; border-radius:8px; object-fit:cover; max-height:320px; }
-    .ueber-uns-vision { display:grid; grid-template-columns:280px 1fr; gap:2.5rem; align-items:start; }
-    .ueber-uns-vision h3 { font-size:1.8rem; font-weight:400; margin-bottom:1rem; }
-    .ueber-uns-vision h3 span { font-style:italic; color:#4a6741; }
-    .ueber-uns-vision p { font-family:'DM Sans',sans-serif; font-size:1.05rem; color:#4a5a4a; line-height:1.8; margin-bottom:1.2rem; }
-    .ueber-uns-vision-img img { width:100%; border-radius:8px; object-fit:cover; max-height:340px; }
-    /* WEG */
-    .unser-weg { padding:6rem 2rem; background:linear-gradient(135deg,#e8e4da 0%,#d4cfc3 100%); }
+    .ueber-uns-portrait-grid { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; }
+    .ueber-uns-portrait-placeholder { border-radius:4px; overflow:hidden; aspect-ratio:3/4; }
+    .ueber-uns-portrait-placeholder img { width:100%; height:100%; object-fit:cover; display:block; }
+    .ueber-uns-portrait-text p { font-family:'DM Sans',sans-serif; font-size:1rem; color:#4a5a4a; line-height:1.8; margin-bottom:1rem; }
+    .ueber-uns-method-grid { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start; }
+    .ueber-uns-method-grid p { font-family:'DM Sans',sans-serif; font-size:1rem; color:#4a5a4a; line-height:1.8; margin-bottom:1rem; }
+    .ueber-uns-method-img { border-radius:4px; overflow:hidden; }
+    .ueber-uns-method-img img { width:100%; height:100%; object-fit:cover; display:block; }
+    .ueber-uns-vision { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; }
+    .ueber-uns-vision-img { border-radius:4px; overflow:hidden; }
+    .ueber-uns-vision-img img { width:100%; height:100%; object-fit:cover; display:block; }
+    .ueber-uns-vision p { font-family:'DM Sans',sans-serif; font-size:1rem; color:#4a5a4a; line-height:1.8; margin-bottom:1rem; }
+    /* TIMELINE */
+    .unser-weg { padding:6rem 2rem; background:#2d3a2d; color:#f7f5f0; }
     .unser-weg-content { max-width:900px; margin:0 auto; }
-    .unser-weg h2 { font-size:clamp(2.5rem,6vw,4rem); font-weight:400; text-align:center; margin-bottom:3rem; }
-    .unser-weg h2 span { font-style:italic; color:#4a6741; }
-    .timeline { position:relative; padding-left:2rem; }
-    .timeline::before { content:''; position:absolute; left:0; top:0; bottom:0; width:2px; background:#4a6741; }
-    .timeline-item { position:relative; padding-left:2rem; margin-bottom:2.5rem; display:flex; gap:1.5rem; }
-    .timeline-item::before { content:''; position:absolute; left:-.5rem; top:.5rem; width:12px; height:12px; border-radius:50%; background:#4a6741; }
-    .timeline-year { font-size:2rem; font-weight:600; color:#4a6741; min-width:100px; }
-    .timeline-title { font-size:1.4rem; font-weight:400; margin-bottom:.5rem; }
-    .timeline-desc { font-family:'DM Sans',sans-serif; font-size:.95rem; color:#5a6a5a; line-height:1.7; }
+    .unser-weg h2 { font-size:clamp(2.5rem,6vw,4rem); font-weight:400; margin-bottom:3rem; }
+    .unser-weg h2 span { font-style:italic; color:#7a9e7e; }
+    .timeline { padding-left:2rem; border-left:2px solid rgba(255,255,255,.15); display:flex; flex-direction:column; gap:2.5rem; }
+    .timeline-item { display:flex; gap:2rem; padding-left:2rem; position:relative; }
+    .timeline-item::before { content:''; position:absolute; left:-2.55rem; top:.6rem; width:10px; height:10px; border-radius:50%; background:#7a9e7e; }
+    .timeline-year { font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:600; color:#7a9e7e; line-height:1.2; min-width:4rem; flex-shrink:0; }
+    .timeline-title { font-family:'DM Sans',sans-serif; font-size:.8rem; font-weight:500; letter-spacing:.1em; text-transform:uppercase; color:#f7f5f0; margin-bottom:.4rem; }
+    .timeline-desc { font-family:'DM Sans',sans-serif; font-size:.95rem; color:rgba(247,245,240,.65); line-height:1.7; }
     /* WERTE */
     .werte { padding:6rem 2rem; background:#f7f5f0; }
     .werte h2 { font-size:clamp(2.5rem,6vw,4rem); font-weight:400; text-align:center; margin-bottom:3rem; }
@@ -156,6 +156,7 @@
     .abo-counter .spot-of { color:rgba(247,245,240,.6); }
     .abo-counter .spot-bar { background:rgba(255,255,255,.1); }
     .abo-counter .spot-fill { background:linear-gradient(90deg,#7a9e7e,#c8dbc9); }
+    .abo-counter .spot-tagline { color:rgba(247,245,240,.7); }
     .abo-counter .spot-note { color:rgba(247,245,240,.6); }
     .abo-counter .spot-note strong { color:#f7f5f0; }
     .abo-info-blocks { display:flex; flex-direction:column; gap:0; margin-bottom:2rem; }
@@ -167,7 +168,6 @@
     .kiste-chips { display:grid; grid-template-columns:1fr 1fr; gap:.75rem; }
     .kiste-chip { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); border-radius:8px; padding:.9rem 1rem; font-family:'DM Sans',sans-serif; font-size:.85rem; color:rgba(247,245,240,.8); display:flex; flex-direction:column; gap:.3rem; }
     .kiste-chip strong { display:flex; align-items:center; gap:.5rem; color:#f7f5f0; margin-bottom:.1rem; }
-    .chip-icon { width:15px; height:15px; color:rgba(247,245,240,.7); flex-shrink:0; }
     .abo-form { background:#f7f5f0; border-radius:8px; padding:2.5rem; color:#2d3a2d; }
     .abo-form h3 { font-size:1.8rem; font-weight:400; margin-bottom:.4rem; }
     .form-sub { font-family:'DM Sans',sans-serif; font-size:.9rem; color:#5a6a5a; margin-bottom:1.8rem; }
@@ -183,7 +183,7 @@
     .success-icon { font-size:3rem; margin-bottom:1rem; }
     .form-success h4 { font-size:1.8rem; font-weight:400; margin-bottom:.5rem; }
     .form-success p { font-family:'DM Sans',sans-serif; color:#5a6a5a; }
-    /* FAQ – reines CSS, kein JavaScript */
+    /* FAQ */
     .faq-section { padding:6rem 2rem; background:#f7f5f0; }
     .faq-inner { max-width:800px; margin:0 auto; }
     .faq-inner h2 { font-size:clamp(2.5rem,6vw,4rem); font-weight:400; margin-bottom:2.5rem; }
@@ -295,7 +295,6 @@
     <div class="schwebender-kreis kreis-4"></div>
     <div class="schwebendes-gemuese gemuese-1">
       <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <!-- Tomate -->
         <circle cx="50" cy="50" r="35" fill="#e6594a" stroke="#c44536" stroke-width="3"/>
         <circle cx="42" cy="38" r="8" fill="#f07167" opacity="0.6"/>
         <path d="M 40 18 C 42 12 44 8 46 5" stroke="#5d9970" stroke-width="3" fill="none"/>
@@ -308,7 +307,6 @@
     </div>
     <div class="schwebendes-gemuese gemuese-2">
       <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <!-- Salat -->
         <ellipse cx="50" cy="55" rx="28" ry="22" fill="#7dba6e" stroke="#5d9a50" stroke-width="3"/>
         <ellipse cx="44" cy="44" rx="13" ry="10" fill="#a8d89c" opacity="0.6"/>
         <path d="M 35 38 C 32 30 30 22 28 15" stroke="#5d9970" stroke-width="2.5" fill="none"/>
@@ -321,7 +319,6 @@
     </div>
     <div class="schwebendes-gemuese gemuese-3">
       <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <!-- Karotte -->
         <path d="M 48 20 C 50 35 52 55 53 70 C 53 80 52 88 50 92 C 48 88 47 80 47 70 C 48 55 48 35 48 20 Z" fill="#e8822a" stroke="#c06020" stroke-width="2"/>
         <path d="M 50 18 C 48 10 46 5 44 2" stroke="#5d9970" stroke-width="2.5"/>
         <ellipse cx="42" cy="0" rx="5" ry="7" fill="#7bc491" stroke="#5d9970" stroke-width="1.8" transform="rotate(-10 42 0)"/>
@@ -333,7 +330,6 @@
     </div>
     <div class="schwebendes-gemuese gemuese-4">
       <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <!-- Radieschen -->
         <circle cx="50" cy="50" r="25" fill="#d66982" stroke="#b84a6a" stroke-width="3"/>
         <ellipse cx="45" cy="42" rx="10" ry="13" fill="#f29ead" opacity="0.6"/>
         <path d="M 47 23 C 47 16 48 10 50 5" stroke="#5d9970" stroke-width="3" fill="none"/>
@@ -344,7 +340,6 @@
     </div>
     <div class="schwebendes-gemuese gemuese-5">
       <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <!-- Pak Choi -->
         <path d="M 50 85 C 49 75 46 60 43 42 C 42 30 40 18 39 10 C 38 4 39 0 42 -2 C 45 -4 48 1 48 9 C 48 20 47 35 47 50 C 47 62 49 72 50 78" fill="#d4e8dc" stroke="#7bc491" stroke-width="3"/>
         <path d="M 50 85 C 51 75 54 60 57 42 C 58 30 60 18 61 10 C 62 4 61 0 58 -2 C 55 -4 52 1 52 9 C 52 20 53 35 53 50 C 53 62 51 72 50 78" fill="#d4e8dc" stroke="#7bc491" stroke-width="3"/>
         <ellipse cx="39" cy="20" rx="11" ry="17" fill="#8dd4a7" stroke="#5d9970" stroke-width="3" transform="rotate(-8 39 20)"/>
@@ -363,7 +358,8 @@
             <span class="spot-of">von 20 Plätzen frei</span>
           </div>
           <div class="spot-bar"><div class="spot-fill" id="spotFill1"></div></div>
-          <div class="spot-note" id="spotNote1"><strong>CHF 25.– pro Kiste</strong> · 5–7 Kulturen · Saison 2026</div>
+          <p class="spot-tagline">Jede Woche frisch geerntetes Gemüse, direkt von der Kapelle abgeholt.</p>
+          <div class="spot-note" id="spotNote1"><strong>CHF 25.– pro Kiste · 5–7 Kulturen · Saison 2026</strong></div>
         </div>
       </div>
       <div class="einblenden einblenden-3">
@@ -385,7 +381,7 @@
           <div class="kiste-step-num">1</div>
           <div>
             <strong>Gemüsekistenabo abschliessen</strong>
-            <p>Du meldest dich einmal an und bekommst wöchentlich deine Kiste, von April bis Oktober, rund 26 Wochen.</p>
+            <p>Du meldest dich einmal an und bekommst wöchentlich deine Kiste, von April bis Oktober, rund 26 Wochen. Das hilft mir bei der Planung. Da das erste Jahr für uns beide neu ist, kannst du dein Abo jederzeit kündigen – quasi ein saisonales Probeabo für dich.</p>
           </div>
         </div>
         <div class="kiste-step">
@@ -399,7 +395,7 @@
           <div class="kiste-step-num">3</div>
           <div>
             <strong>Samstag: Abholen bei der Kapelle</strong>
-            <p>Du kommst samstags vorbei, nimmst deine bereitgestellte Kiste mit, und bringst sie nächste Woche einfach wieder zurück.</p>
+            <p>Du kommst samstags vorbei und füllst das Gemüse gleich in eine von dir mitgebrachte Tasche.</p>
           </div>
         </div>
       </div>
@@ -410,7 +406,7 @@
       <div class="kiste-seasons">
         <div class="kiste-season fruehling">
           <div class="kiste-photo-wrap">
-            <img src="fruhlingsset.jpg" alt="Frühlingskiste – Salat, Radieschen, Kräuter" class="kiste-photo">
+            <img src="fruhlingsset.jpg" alt="Frühlingskiste" class="kiste-photo">
             <div class="kiste-photo-overlay"></div>
             <div class="kiste-photo-label">
               <span class="kiste-season-name">Frühling</span>
@@ -427,7 +423,7 @@
         </div>
         <div class="kiste-season sommer">
           <div class="kiste-photo-wrap">
-            <img src="sommerset.jpg" alt="Sommerkiste – Tomaten, Gurken, Zucchetti" class="kiste-photo">
+            <img src="sommerset.jpg" alt="Sommerkiste" class="kiste-photo">
             <div class="kiste-photo-overlay"></div>
             <div class="kiste-photo-label">
               <span class="kiste-season-name">Sommer</span>
@@ -444,7 +440,7 @@
         </div>
         <div class="kiste-season herbst">
           <div class="kiste-photo-wrap">
-            <img src="herbstset.jpg" alt="Herbstkiste – Randen, Lauch, Asiasalate" class="kiste-photo">
+            <img src="herbstset.jpg" alt="Herbstkiste" class="kiste-photo">
             <div class="kiste-photo-overlay"></div>
             <div class="kiste-photo-label">
               <span class="kiste-season-name">Herbst</span>
@@ -459,6 +455,12 @@
             </ul>
           </div>
         </div>
+      </div>
+
+      <!-- MENGENHINWEIS -->
+      <div class="kiste-hinweis">
+        <p>Die Kiste ist <strong>für eine Person pro Woche</strong> berechnet – eine Menge, die sich gut kochen lässt, ohne dass etwas liegen bleibt. Typische Portionen: 2 kleine knackige Kopfsalate oder 1–2 Portionen Schnittsalatmischung. Ein Bund Radieschen (6–8 Stück). Spinat oder Rucola als Handvoll, etwa 80–100 g. Karotten als gebundener Bund mit 8–12 Stück. Mairübchen im Frühjahr als Bund mit 3–5 Knollen. Kohlrabi 1–2 Stück. Lauch 1–2 Stangen. Randen 3–4 Stück. Kräuter als Bund Petersilie oder Dill. Im Frühling ist die Kiste grüner und blattlastiger, in der Hochsaison kommen Fruchtgemüse wie Tomaten, Gurken und Zucchetti dazu.</p>
+        <p style="margin-top:.8rem;">Das Gemüse ist frisch geerntet, gewaschen und abholfertig. Für zwei Personen oder eine Familie empfehle ich zwei Kisten, oder ihr teilt euch eine mit jemandem aus dem Quartier.</p>
       </div>
 
       <!-- ABHOLUNG -->
@@ -480,9 +482,8 @@
           </div>
         </div>
         <div class="kiste-abholung-badge">
-          <svg viewBox="0 0 340 250" xmlns="http://www.w3.org/2000/svg" class="kapelle-illustration" aria-label="Lageplan Kapellengarten">
+          <svg viewBox="0 0 340 250" xmlns="http://www.w3.org/2000/svg" class="kapelle-illustration" style="width:480px;" aria-label="Lageplan Kapellengarten">
             <rect width="340" height="250" fill="#edeae3" rx="8"/>
-            <!-- Strasse -->
             <rect x="0" y="0" width="340" height="50" fill="#c8c2b4" rx="0"/>
             <rect x="0" y="0" width="340" height="3" fill="#b4ae9e"/>
             <rect x="18" y="21" width="26" height="5" fill="white" rx="2" opacity=".6"/>
@@ -588,21 +589,21 @@
         <div class="timeline-item">
           <div class="timeline-year">2026</div>
           <div>
-            <div class="timeline-title">Startphase · 20 Gemüseabos</div>
-            <p class="timeline-desc">Anbau auf 400 m² mit 20 Gemüsekulturen, 20 Erstkunden. Aufbau der Bodenbiologie, wöchentliche Gemüsekiste ab April, abgeholt samstags vormittags, direkt bei der Kapelle.</p>
+            <div class="timeline-title">Startphase · 20 Erstkunden</div>
+            <p class="timeline-desc">Wöchentliche Gemüsekiste ab April, 20 Erstkunden, samstags bei der Kapelle abgeholt. Der Fokus liegt auf einer Handvoll bewährter Kulturen, angebaut mit konsequenter Bodenbiologie.</p>
           </div>
         </div>
         <div class="timeline-item">
           <div class="timeline-year">2027</div>
           <div>
-            <div class="timeline-title">Vollbetrieb</div>
-            <p class="timeline-desc">Volle Bewirtschaftung der Fläche, mehr Kulturen, mehr Abos. Das Wissen über die Bodenbiologie und die Abläufe sind eingespielt, die Qualität steigt weiter.</p>
+            <div class="timeline-title">Erweiterungsphase · mehr Kulturen</div>
+            <p class="timeline-desc">Das Sortiment wächst: mehr Kundschaft, mehr Vielfalt. Ich beginne, mit seltenen und alten Sorten zu experimentieren – immer mit dem Ziel, die geschmacklich überzeugendsten Varianten zu finden und anzubauen.</p>
           </div>
         </div>
         <div class="timeline-item">
           <div class="timeline-year">2028+</div>
           <div>
-            <div class="timeline-title">Erweiterungsphase · Kapelle als Marktplatz</div>
+            <div class="timeline-title">Kapelle als Marktplatz</div>
             <p class="timeline-desc">Die historische Kapelle wird zum Treffpunkt: Direktverkauf von Gemüse und weiteren Produkten aus der Region, kleines Kapellenkaffee, saisonale Anlässe, ein Ort, der verbindet.</p>
           </div>
         </div>
@@ -614,7 +615,6 @@
   <section class="werte">
     <h2>Was mir <span>wichtig ist</span></h2>
     <div class="werte-grid">
-      <!-- Voller Geschmack -->
       <div class="werte-item">
         <svg class="icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
           <circle cx="50" cy="52" r="34" fill="#e8523a" stroke="#c43820" stroke-width="2"/>
@@ -643,7 +643,6 @@
         <h3>Voller Geschmack &amp; volle Nährstoffe</h3>
         <p>Mein Anspruch ist es, Gemüse mit den höchsten Nährstoffwerten und vollem Geschmack anzubieten.</p>
       </div>
-      <!-- Fundiert -->
       <div class="werte-item">
         <svg class="icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
           <ellipse cx="50" cy="55" rx="28" ry="20" stroke="#5d4a3a" stroke-width="2" fill="#8b6f47" class="icon-fill"/>
@@ -664,7 +663,6 @@
         <h3>Fundiert</h3>
         <p>Ich weiss, was in meinem Boden lebt. Und warum das wichtig ist. Regelmässige Bodenanalysen auf hilfreiche Mikroorganismen sind für mich keine Option, sondern Grundlage.</p>
       </div>
-      <!-- Direkt & persönlich -->
       <div class="werte-item">
         <svg class="icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
           <path d="M 50 70 C 48 68 42 62 38 56 C 34 50 30 44 30 38 C 30 32 33 28 38 28 C 42 28 46 31 50 35 C 54 31 58 28 62 28 C 67 28 70 32 70 38 C 70 44 66 50 62 56 C 58 62 52 68 50 70 Z" stroke="#d66982" stroke-width="2.2" fill="#f29ead" class="icon-fill"/>
@@ -695,7 +693,8 @@
             <span class="spot-of" style="color:rgba(247,245,240,.6)">von 20 Plätzen noch frei</span>
           </div>
           <div class="spot-bar"><div class="spot-fill" id="spotFill2"></div></div>
-          <div class="spot-note" id="spotNote2"><strong>CHF 25.– pro Kiste</strong> · 5–7 Kulturen · Saison 2026</div>
+          <p class="spot-tagline">Jede Woche frisch geerntetes Gemüse, direkt von der Kapelle abgeholt.</p>
+          <div class="spot-note" id="spotNote2"><strong>CHF 25.– pro Kiste · 5–7 Kulturen · Saison 2026</strong></div>
         </div>
 
         <div class="abo-info-blocks">
@@ -710,7 +709,7 @@
             <div class="abo-info-num">2</div>
             <div>
               <strong>Preis &amp; Gesamtkosten</strong>
-              <p>Die Kiste kostet <strong style="color:#c8dbc9">CHF 25.– pro Woche</strong>. Bei 26 Wochen sind das CHF 650.– für die ganze Saison. Die Zahlung klären wir nach deiner Anmeldung, monatlich oder saisonal, wie es für dich passt.</p>
+              <p>Das Abo kostet <strong style="color:#c8dbc9">CHF 25.– pro Kiste</strong>. Bei 26 Wochen sind das CHF 650.– für die ganze Saison. Die Zahlung klären wir nach deiner Anmeldung, monatlich oder saisonal, wie es für dich passt.</p>
             </div>
           </div>
           <div class="abo-info-block">
@@ -793,7 +792,7 @@
       </details>
       <details class="faq-item">
         <summary>Was kostet das Abo?</summary>
-        <div class="faq-a">Als einer meiner ersten 20 Kunden zahlst du <strong>CHF 20.– pro Kiste</strong>, das ist der Gemüsekistenpreis, den ich speziell für meine Erstkunden anbiete (regulärer Preis ab 2027: CHF 26.–). Details zur Zahlungsweise klären wir nach deiner Anmeldung.</div>
+        <div class="faq-a">Das Abo kostet <strong>CHF 25.– pro Kiste</strong>. Bei 26 Wochen sind das CHF 650.– für die ganze Saison. Details zur Zahlungsweise klären wir nach deiner Anmeldung.</div>
       </details>
       <details class="faq-item">
         <summary>Was ist in der Kiste?</summary>
@@ -826,7 +825,7 @@
     <div class="kontakt-content">
       <h2>Komm mit mir<br><span>ins Gespräch</span></h2>
       <p>Interessiert am Kapellengarten? Fragen zum Abo oder Garten, ich freue mich auf deine Nachricht.</p>
-      <a href="mailto:francis@kapellengarten.ch" class="kontakt-email">francis@kapellengarten.ch</a>
+      <a href="/cdn-cgi/l/email-protection#e680948788858f95a68d8796838a8a8388818794928388c8858e" class="kontakt-email"><span class="__cf_email__" data-cfemail="89effbe8e7eae0fac9e2e8f9ece5e5ece7eee8fbfdece7a7eae1">[email&#160;protected]</span></a>
       <p class="kontakt-ort">📍 Dorfstrasse 192, Wangen bei Olten</p>
     </div>
   </section>
@@ -848,7 +847,7 @@
         const el = document.getElementById(id); if(!el) return;
         if(left <= 3 && left > 0) el.innerHTML = '<strong style="color:#c0392b">⚡ Nur noch ' + left + ' Plätze frei!</strong>';
         else if(left === 0) el.innerHTML = '<strong style="color:#c0392b">Alle Plätze vergeben, Warteliste anfragen.</strong>';
-        else el.innerHTML = '<strong>CHF 25.– pro Kiste</strong> · 5–7 Kulturen · Saison 2026';
+        else el.innerHTML = '<strong>CHF 25.– pro Kiste · 5–7 Kulturen · Saison 2026</strong>';
       });
     }
     window.addEventListener('load', () => updateSpots(4));
@@ -874,14 +873,4 @@
 
     function toggleMenu() {
       document.querySelector('.hamburger').classList.toggle('active');
-      document.querySelector('.nav-links').classList.toggle('active');
-    }
-
-    function closeMenu() {
-      document.querySelector('.hamburger').classList.remove('active');
-      document.querySelector('.nav-links').classList.remove('active');
-    }
-  </script>
-
-</body>
-</html>
+      document.querySelect
