@@ -415,7 +415,7 @@
           </div>
           <div class="kiste-season-body">
             <ul class="kiste-list">
-              <li>Kopfsalat &amp; Jungsalate</li><li>Spinat</li>
+              <li>Kopfsalat &amp; zarter Schnittsalat</li><li>Spinat</li>
               <li>Radieschen</li><li>Frühlingszwiebeln</li>
               <li>Mairübchen</li><li>Petersilie</li>
             </ul>
@@ -432,9 +432,9 @@
           </div>
           <div class="kiste-season-body">
             <ul class="kiste-list">
-              <li>Tomaten</li><li>Gurken</li>
+              <li>Süsse Cherry-Tomaten</li><li>Gurken</li>
               <li>Zucchetti</li><li>Kohlrabi</li>
-              <li>Basilikum</li><li>Karotten</li>
+              <li>Snack-Peperoni</li><li>Karotten</li>
             </ul>
           </div>
         </div>
@@ -459,8 +459,20 @@
 
       <!-- MENGENHINWEIS -->
       <div class="kiste-hinweis">
-        <p>Die Kiste ist <strong>für eine Person pro Woche</strong> berechnet – eine Menge, die sich gut kochen lässt, ohne dass etwas liegen bleibt. Typische Portionen: 2 kleine knackige Kopfsalate oder 1–2 Portionen Schnittsalatmischung. Ein Bund Radieschen (6–8 Stück). Spinat oder Rucola als Handvoll, etwa 80–100 g. Karotten als gebundener Bund mit 8–12 Stück. Mairübchen im Frühjahr als Bund mit 3–5 Knollen. Kohlrabi 1–2 Stück. Lauch 1–2 Stangen. Randen 3–4 Stück. Kräuter als Bund Petersilie oder Dill. Im Frühling ist die Kiste grüner und blattlastiger, in der Hochsaison kommen Fruchtgemüse wie Tomaten, Gurken und Zucchetti dazu.</p>
-        <p style="margin-top:.8rem;">Das Gemüse ist frisch geerntet, gewaschen und abholfertig. Für zwei Personen oder eine Familie empfehle ich zwei Kisten, oder ihr teilt euch eine mit jemandem aus dem Quartier.</p>
+        <p>Die Kiste ist <strong>für eine Person pro Woche</strong> berechnet – eine Menge, die sich gut kochen lässt, ohne dass etwas liegen bleibt. Typische Portionen:</p>
+        <ul style="list-style:none;padding:0;margin:.8rem 0 1rem;display:grid;grid-template-columns:1fr 1fr;gap:.3rem .5rem;">
+          <li style="padding-left:1rem;position:relative;">‌<span style="position:absolute;left:0;color:#4a6741;">·</span>2 Kopfsalate oder 1–2 Portionen Schnittsalat</li>
+          <li style="padding-left:1rem;position:relative;"><span style="position:absolute;left:0;color:#4a6741;">·</span>Radieschen, 1 Bund (6–8 Stück)</li>
+          <li style="padding-left:1rem;position:relative;"><span style="position:absolute;left:0;color:#4a6741;">·</span>Spinat oder Rucola, ca. 80–100 g</li>
+          <li style="padding-left:1rem;position:relative;"><span style="position:absolute;left:0;color:#4a6741;">·</span>Karotten, 1 Bund (8–12 Stück)</li>
+          <li style="padding-left:1rem;position:relative;"><span style="position:absolute;left:0;color:#4a6741;">·</span>Mairübchen, 1 Bund (3–5 Knollen)</li>
+          <li style="padding-left:1rem;position:relative;"><span style="position:absolute;left:0;color:#4a6741;">·</span>Kohlrabi, 1–2 Stück</li>
+          <li style="padding-left:1rem;position:relative;"><span style="position:absolute;left:0;color:#4a6741;">·</span>Lauch, 1–2 Stangen</li>
+          <li style="padding-left:1rem;position:relative;"><span style="position:absolute;left:0;color:#4a6741;">·</span>Randen, 3–4 Stück</li>
+          <li style="padding-left:1rem;position:relative;"><span style="position:absolute;left:0;color:#4a6741;">·</span>Kräuter, 1 Bund Petersilie oder Dill</li>
+        </ul>
+        <p>Das Gemüse ist frisch geerntet, gewaschen und abholfertig. Im Frühling ist die Kiste blattlastiger, in der Hochsaison kommen Fruchtgemüse wie Cherry-Tomaten, Gurken und Zucchetti dazu.</p>
+        <p style="margin-top:.8rem;">Für zwei Personen oder eine Familie empfehle ich zwei Kisten, oder ihr teilt euch eine mit jemandem aus dem Quartier.</p>
       </div>
 
       <!-- ABHOLUNG -->
@@ -737,41 +749,10 @@
       </div>
       <div>
         <div class="abo-form">
-          <div id="formContent">
-            <h3>Jetzt anmelden</h3>
-            <div class="form-sub">Einfach ausfüllen, ich melde mich innerhalb von 48 Stunden mit einer Bestätigung.</div>
-            <div class="form-2col">
-              <div class="form-row"><label>Vorname</label><input type="text" id="fName" placeholder="Anna"></div>
-              <div class="form-row"><label>Nachname</label><input type="text" id="lName" placeholder="Müller"></div>
-            </div>
-            <div class="form-row"><label>E-Mail</label><input type="email" id="fEmail" placeholder="anna@beispiel.ch"></div>
-            <div class="form-row"><label>Ort / PLZ</label><input type="text" id="fLocation" placeholder="4600 Olten"></div>
-            <div class="form-row">
-              <label>Anzahl Kisten pro Woche</label>
-              <select id="fKisten">
-                <option value="1">1 Kiste (für 1 Person)</option>
-                <option value="2">2 Kisten (Familie / teilen)</option>
-              </select>
-            </div>
-            <div class="form-row">
-              <label>Wie hast du von uns erfahren?</label>
-              <select id="fSource">
-                <option value="">Bitte wählen …</option>
-                <option>Persönliche Empfehlung</option>
-                <option>Samstag-Markt Olten</option>
-                <option>Instagram / Social Media</option>
-                <option>Zeitung / Flyer</option>
-                <option>Anderes</option>
-              </select>
-            </div>
-            <button class="btn-submit" onclick="handleSubmit()">Platz reservieren →</button>
-            <div class="form-note">🔒 Deine Daten werden nur für die Abo-Verwaltung genutzt. Keine Weitergabe an Dritte.</div>
-          </div>
-          <div class="form-success" id="formSuccess">
-            <div class="success-icon">🌱</div>
-            <h4>Herzlichen Dank!</h4>
-            <p>Deine Anfrage ist eingegangen. Ich melde mich bald bei dir. Willkommen im Kapellengarten.</p>
-          </div>
+            <h3>Interesse?</h3>
+            <p style="font-family:'DM Sans',sans-serif;font-size:1rem;color:#5a6a5a;line-height:1.8;margin-bottom:1.8rem;">Schreib mir direkt eine kurze E-Mail – ich schicke dir dann alle Infos zum Abo, Preis und Starttermin zu.</p>
+            <a href="mailto:francis@kapellengarten.ch" style="display:block;text-align:center;padding:1rem 2rem;background:#4a6741;color:#f7f5f0;text-decoration:none;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:500;letter-spacing:.05em;border-radius:4px;transition:background .2s;" onmouseover="this.style.background='#2d3a2d'" onmouseout="this.style.background='#4a6741'">francis@kapellengarten.ch</a>
+            <p style="font-family:'DM Sans',sans-serif;font-size:.8rem;color:#8b9e8b;margin-top:1.2rem;text-align:center;">Ich melde mich innerhalb von 48 Stunden.</p>
         </div>
       </div>
     </div>
