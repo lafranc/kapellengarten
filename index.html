@@ -253,10 +253,7 @@
       .spot-box { min-width:auto; width:100%; max-width:340px; }
       .kiste-section { padding:4rem 1.5rem; }
       .kiste-how { grid-template-columns:1fr; gap:1rem; }
-      .kiste-seasons-wrap { margin-bottom:1rem; }
       .kiste-seasons { grid-template-columns:1fr; gap:.75rem; }
-      .ks-panel-desktop { display:none; }
-      .ks-panel-mobile { display:block; }
       .ks-card .kiste-photo-wrap { aspect-ratio:3/2; }
       .kiste-list { grid-template-columns:1fr 1fr; }
       .kiste-abholung { grid-template-columns:1fr; }
@@ -439,35 +436,45 @@
               <img src="fruhlingsset.jpg" alt="Frühlingskiste" class="kiste-photo">
               <div class="kiste-photo-overlay"></div>
               <div class="kiste-photo-label">
-                <span class="kiste-season-name">Frühling</span>
-                <span class="kiste-season-month">April – Mai</span>
+                <div class="kiste-photo-label-text">
+                  <span class="kiste-season-name">Frühling</span>
+                  <span class="kiste-season-month">April – Mai</span>
+                </div>
+                <svg class="ks-chevron" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 9l6 6 6-6" stroke="#f7f5f0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </div>
             </div>
+            <div class="ks-drawer"><div class="ks-drawer-inner" id="ks-drawer-0"></div></div>
           </div>
-          <div class="kiste-season sommer ks-card" onclick="ksSelect(1)">
+        <div class="kiste-season sommer ks-card" onclick="ksSelect(1)">
             <div class="kiste-photo-wrap">
               <img src="sommerset.jpg" alt="Sommerkiste" class="kiste-photo">
               <div class="kiste-photo-overlay"></div>
               <div class="kiste-photo-label">
-                <span class="kiste-season-name">Sommer</span>
-                <span class="kiste-season-month">Juni – August</span>
+                <div class="kiste-photo-label-text">
+                  <span class="kiste-season-name">Sommer</span>
+                  <span class="kiste-season-month">Juni – August</span>
+                </div>
+                <svg class="ks-chevron" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 9l6 6 6-6" stroke="#f7f5f0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </div>
             </div>
+            <div class="ks-drawer"><div class="ks-drawer-inner" id="ks-drawer-1"></div></div>
           </div>
-          <div class="kiste-season herbst ks-card" onclick="ksSelect(2)">
+        <div class="kiste-season herbst ks-card" onclick="ksSelect(2)">
             <div class="kiste-photo-wrap">
               <img src="herbstset.jpg" alt="Herbstkiste" class="kiste-photo">
               <div class="kiste-photo-overlay"></div>
               <div class="kiste-photo-label">
-                <span class="kiste-season-name">Herbst</span>
-                <span class="kiste-season-month">September – Oktober</span>
+                <div class="kiste-photo-label-text">
+                  <span class="kiste-season-name">Herbst</span>
+                  <span class="kiste-season-month">September – Oktober</span>
+                </div>
+                <svg class="ks-chevron" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 9l6 6 6-6" stroke="#f7f5f0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </div>
             </div>
+            <div class="ks-drawer"><div class="ks-drawer-inner" id="ks-drawer-2"></div></div>
           </div>
-        </div>
-        <div id="ks-panel-inline" class="ks-panel-desktop"></div>
       </div>
-      <div id="ks-panel" class="sp-contents ks-panel-mobile"></div>
+
 
       <!-- ABHOLUNG -->
       <div class="kiste-abholung">
@@ -850,7 +857,7 @@
       document.querySelector('.nav-links').classList.remove('active');
     }
 
-    // Saisonplan — kombinierte Saison-Karten
+    // Saisonplan Akkordeon
     (function() {
       var crops = {
         'Salat':             { info: 'Eichblatt grün und rot, zart-nussig, kaum bitter' },
@@ -914,39 +921,32 @@
         }
       ];
 
-      var panelMobile = document.getElementById('ks-panel');
-      var panelDesktop = document.getElementById('ks-panel-inline') || panelMobile;
       var cards = document.querySelectorAll('.ks-card');
 
-      function buildContent(idx) {
+      function buildDrawer(idx) {
         var s = seasons[idx];
         var out = '<div class="sp-contents-grid">';
         s.items.forEach(function(it) {
           var c = crops[it.key] || {};
-          out +=
-            '<div class="sp-item">' +
-            '<span class="sp-item-dot"></span>' +
-            '<span class="sp-item-body">' +
-              '<span class="sp-item-top">' +
-                '<span class="sp-item-name">' + it.name + '</span>' +
-                '<span class="sp-item-qty">· ' + it.qty + '</span>' +
-              '</span>' +
-              (c.info ? '<span class="sp-item-desc">' + c.info + '</span>' : '') +
-            '</span>' +
-            '</div>';
+          out += '<div class="sp-item"><span class="sp-item-dot"></span><span class="sp-item-body"><span class="sp-item-top"><span class="sp-item-name">' + it.name + '</span><span class="sp-item-qty">· ' + it.qty + '</span></span>' + (c.info ? '<span class="sp-item-desc">' + c.info + '</span>' : '') + '</span></div>';
         });
         out += '</div><p class="sp-contents-note">' + s.note + '</p>';
-        panelDesktop.innerHTML = out;
-        panelMobile.innerHTML = out;
+        return out;
       }
+
+      // Pre-fill all drawers
+      seasons.forEach(function(s, idx) {
+        var el = document.getElementById('ks-drawer-' + idx);
+        if (el) el.innerHTML = buildDrawer(idx);
+      });
 
       window.ksSelect = function(idx) {
         cards.forEach(function(c, i) { c.classList.toggle('ks-active', i === idx); });
-        buildContent(idx);
       };
 
-      buildContent(0);
+      // Open first by default
+      if (cards[0]) cards[0].classList.add('ks-active');
     })();
-  </script>-e 
+  </script>
 </body>
 </html>
