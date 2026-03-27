@@ -77,47 +77,33 @@
     .kiste-seasons-sub { font-family:'DM Sans',sans-serif; font-size:.95rem; color:#5a6a5a; margin-bottom:1.5rem; }
     .kiste-seasons-wrap { margin-bottom:1.5rem; }
     .ks-panel-desktop { min-height:200px; }
-    .kiste-seasons { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; margin-bottom:0; }
-    #ks-panel-inline { background:#fff; border:1px solid #e2ddd2; border-radius:8px; padding:1.5rem 1.75rem; }
-    .kiste-season { background:#f7f5f0; overflow:hidden; transition:transform .3s ease, box-shadow .3s ease; }
-    .kiste-season:not(.ks-card):hover { transform:translateY(-6px); box-shadow:0 16px 40px rgba(45,58,45,.14); }
-    .ks-card:hover { cursor:pointer; }
-    .kiste-photo-wrap { position:relative; overflow:hidden; aspect-ratio:4/3; }
-    .kiste-photo { width:100%; height:100%; object-fit:cover; object-position:center top; display:block; transition:transform .6s ease; }
-    .kiste-season:hover .kiste-photo { transform:scale(1.05); }
-    .kiste-photo-overlay { position:absolute; inset:0; background:linear-gradient(to top, rgba(20,32,18,.75) 0%, rgba(20,32,18,.1) 55%, transparent 100%); }
-    .kiste-photo-label { position:absolute; bottom:0; left:0; right:0; padding:1.4rem 1.6rem; }
-    .kiste-photo-label .kiste-season-name { font-family:'Cormorant Garamond',serif; font-size:2.8rem; font-weight:400; color:#f7f5f0; display:block; line-height:1.05; letter-spacing:.01em; }
-    .kiste-photo-label .kiste-season-month { font-family:'DM Sans',sans-serif; font-size:.7rem; color:rgba(247,245,240,.65); letter-spacing:.18em; text-transform:uppercase; display:block; margin-top:.3rem; }
-    .ks-card { cursor:pointer; }
-    .ks-card .kiste-photo-wrap { transition:opacity .2s; }
-    .ks-card:not(.ks-active) .kiste-photo-wrap { opacity:.55; }
-    .ks-card:not(.ks-active):hover .kiste-photo-wrap { opacity:.8; }
-    .ks-card.ks-active { box-shadow:0 0 0 3px #4a6741; }
-    .ks-card:not(.ks-active) .kiste-photo-overlay { background:linear-gradient(to top, rgba(20,32,18,.85) 0%, rgba(20,32,18,.55) 100%); }
-    /* SP TABS */
-    .sp-contents { background:#fff; border:1px solid #e2ddd2; border-radius:8px; margin-bottom:3.5rem; overflow:hidden; }
-    #ks-panel { padding:1.25rem 1.75rem 1.5rem; }
-    .ks-panel-desktop { display:block; }
-    .ks-panel-mobile { display:none; margin-bottom:3.5rem; }
-    .sp-tabs { display:flex; border-bottom:1px solid #e2ddd2; overflow-x:auto; scrollbar-width:none; }
-    .sp-tabs::-webkit-scrollbar { display:none; }
-    .sp-tab { font-family:'DM Sans',sans-serif; font-size:.72rem; color:#9a9a8a; padding:.65rem 1.1rem; cursor:pointer; white-space:nowrap; border-bottom:2px solid transparent; margin-bottom:-1px; background:none; border-top:none; border-left:none; border-right:none; transition:color .15s; letter-spacing:.01em; }
-    .sp-tab:hover { color:#4a6741; }
-    .sp-tab.sp-tab-active { color:#4a6741; border-bottom-color:#4a6741; font-weight:500; }
-    .sp-phase-panel { display:none; padding:1.25rem 1.75rem 1.5rem; }
-    .sp-phase-panel.sp-panel-active { display:block; }
-    .sp-contents-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:0; }
-    .sp-item { display:flex; align-items:flex-start; gap:10px; padding:.55rem .5rem .55rem 0; border-bottom:1px solid #f0ece0; }
-    .sp-item:nth-last-child(-n+2) { border-bottom:none; }
-    .sp-item-dot { width:5px; height:5px; border-radius:50%; background:#7a9e7e; flex-shrink:0; margin-top:.42rem; }
-    .sp-item-body { display:flex; flex-direction:column; gap:1px; }
-    .sp-item-top { display:flex; align-items:baseline; gap:6px; flex-wrap:wrap; }
-    .sp-item-name { font-family:'DM Sans',sans-serif; font-size:.84rem; font-weight:500; color:#2c2c1e; }
-    .sp-item-qty { font-family:'DM Sans',sans-serif; font-size:.74rem; color:#a8a898; }
-    .sp-item-desc { font-family:'DM Sans',sans-serif; font-size:.73rem; color:#7a7a6a; font-style:italic; line-height:1.45; }
-    .sp-contents-note { font-family:'DM Sans',sans-serif; font-size:.77rem; color:#8a8a7a; margin-top:1rem; padding-top:.85rem; border-top:1px solid #ece8e0; line-height:1.65; }
-    /* ABHOLUNG */
+    /* SAISONPLAN */
+    .ks-switcher { display:flex; gap:.75rem; margin-bottom:1.5rem; flex-wrap:wrap; }
+    .ks-btn { font-family:'DM Sans',sans-serif; font-size:.8rem; letter-spacing:.08em; text-transform:uppercase; padding:.55rem 1.4rem; border:1.5px solid #b8b0a0; border-radius:2rem; background:transparent; color:#7a7a6a; cursor:pointer; transition:all .2s; }
+    .ks-btn:hover { border-color:#4a6741; color:#4a6741; }
+    .ks-btn.ks-active { background:#4a6741; border-color:#4a6741; color:#f7f5f0; }
+    .ks-photo-wrap { position:relative; overflow:hidden; border-radius:6px; aspect-ratio:3/2; margin-bottom:1.5rem; }
+    .ks-photo { width:100%; height:100%; object-fit:cover; object-position:center top; display:block; transition:opacity .3s ease; }
+    .ks-photo.ks-fade { opacity:0; }
+    .ks-label { position:absolute; bottom:0; left:0; right:0; padding:1.5rem 2rem; background:linear-gradient(to top, rgba(20,32,18,.75) 0%, transparent 100%); }
+    .ks-label-name { font-family:'Cormorant Garamond',serif; font-size:2.4rem; font-weight:400; color:#f7f5f0; display:block; line-height:1; }
+    .ks-label-month { font-family:'DM Sans',sans-serif; font-size:.68rem; color:rgba(247,245,240,.75); letter-spacing:.18em; text-transform:uppercase; display:block; margin-top:.3rem; }
+    .ks-content { background:#fff; border:1px solid #e2ddd2; border-radius:8px; overflow:hidden; margin-bottom:3.5rem; }
+    .ks-content-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:0; }
+    .ks-item { display:flex; align-items:flex-start; gap:10px; padding:.6rem 1rem; border-bottom:1px solid #f0ece0; }
+    .ks-item:nth-last-child(-n+2) { border-bottom:none; }
+    .ks-item-dot { width:5px; height:5px; border-radius:50%; background:#7a9e7e; flex-shrink:0; margin-top:.44rem; }
+    .ks-item-body { display:flex; flex-direction:column; gap:1px; }
+    .ks-item-name { font-family:'DM Sans',sans-serif; font-size:.84rem; font-weight:500; color:#2c2c1e; }
+    .ks-item-qty { font-family:'DM Sans',sans-serif; font-size:.74rem; color:#a8a898; }
+    .ks-item-desc { font-family:'DM Sans',sans-serif; font-size:.73rem; color:#7a7a6a; font-style:italic; line-height:1.45; }
+    .ks-note { font-family:'DM Sans',sans-serif; font-size:.78rem; color:#8a8a7a; padding:.85rem 1rem; border-top:1px solid #ece8e0; }
+    @media (max-width:520px) {
+      .ks-content-grid { grid-template-columns:1fr; }
+      .ks-item:nth-last-child(-n+2) { border-bottom:1px solid #f0ece0; }
+      .ks-item:last-child { border-bottom:none; }
+    }
+        /* ABHOLUNG */
     .kiste-abholung { display:grid; grid-template-columns:1fr auto; gap:2.5rem; align-items:start; background:rgba(255,255,255,.65); border-radius:8px; padding:2rem 2.5rem; }
     .kiste-abholung h3 { font-size:1.6rem; font-weight:400; margin-bottom:.75rem; }
     .kiste-abholung p { font-family:'DM Sans',sans-serif; font-size:.95rem; color:#4a5a4a; line-height:1.8; margin-bottom:.5rem; }
@@ -429,52 +415,24 @@
       <h3 class="kiste-seasons-title">Was kommt in die Gemüsetasche?</h3>
       <p class="kiste-seasons-sub">Die Tasche ist für eine Person pro Woche berechnet. Je nach Jahreszeit variiert der Inhalt — klick auf eine Saison für Details.</p>
 
-      <div class="kiste-seasons-wrap">
-        <div class="kiste-seasons" id="ks-cards">
-          <div class="kiste-season fruehling ks-card ks-active" onclick="ksSelect(0)">
-            <div class="kiste-photo-wrap">
-              <img src="fruhlingsset.jpg" alt="Frühlingskiste" class="kiste-photo">
-              <div class="kiste-photo-overlay"></div>
-              <div class="kiste-photo-label">
-                <div class="kiste-photo-label-text">
-                  <span class="kiste-season-name">Frühling</span>
-                  <span class="kiste-season-month">April – Mai</span>
-                </div>
-                <svg class="ks-chevron" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 9l6 6 6-6" stroke="#f7f5f0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-            </div>
-            <div class="ks-drawer"><div class="ks-drawer-inner" id="ks-drawer-0"></div></div>
-          </div>
-        <div class="kiste-season sommer ks-card" onclick="ksSelect(1)">
-            <div class="kiste-photo-wrap">
-              <img src="sommerset.jpg" alt="Sommerkiste" class="kiste-photo">
-              <div class="kiste-photo-overlay"></div>
-              <div class="kiste-photo-label">
-                <div class="kiste-photo-label-text">
-                  <span class="kiste-season-name">Sommer</span>
-                  <span class="kiste-season-month">Juni – August</span>
-                </div>
-                <svg class="ks-chevron" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 9l6 6 6-6" stroke="#f7f5f0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-            </div>
-            <div class="ks-drawer"><div class="ks-drawer-inner" id="ks-drawer-1"></div></div>
-          </div>
-        <div class="kiste-season herbst ks-card" onclick="ksSelect(2)">
-            <div class="kiste-photo-wrap">
-              <img src="herbstset.jpg" alt="Herbstkiste" class="kiste-photo">
-              <div class="kiste-photo-overlay"></div>
-              <div class="kiste-photo-label">
-                <div class="kiste-photo-label-text">
-                  <span class="kiste-season-name">Herbst</span>
-                  <span class="kiste-season-month">September – Oktober</span>
-                </div>
-                <svg class="ks-chevron" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 9l6 6 6-6" stroke="#f7f5f0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-            </div>
-            <div class="ks-drawer"><div class="ks-drawer-inner" id="ks-drawer-2"></div></div>
-          </div>
+      <div class="ks-switcher" id="ks-switcher">
+        <button class="ks-btn ks-active" onclick="ksShow(0)">Frühling</button>
+        <button class="ks-btn" onclick="ksShow(1)">Sommer</button>
+        <button class="ks-btn" onclick="ksShow(2)">Herbst</button>
       </div>
 
+      <div class="ks-photo-wrap">
+        <img id="ks-photo" src="fruhlingsset.jpg" alt="Frühlingskiste" class="ks-photo">
+        <div class="ks-label">
+          <span class="ks-label-name" id="ks-name">Frühling</span>
+          <span class="ks-label-month" id="ks-month">April – Mai</span>
+        </div>
+      </div>
+
+      <div class="ks-content">
+        <div class="ks-content-grid" id="ks-grid"></div>
+        <p class="ks-note" id="ks-note"></p>
+      </div>
 
       <!-- ABHOLUNG -->
       <div class="kiste-abholung">
@@ -857,95 +815,81 @@
       document.querySelector('.nav-links').classList.remove('active');
     }
 
-    // Saisonplan Akkordeon
+    // Saisonplan
     (function() {
-      var crops = {
-        'Salat':             { info: 'Eichblatt grün und rot, zart-nussig, kaum bitter' },
-        'Spinat':            { info: 'Glatter Blattspinat, zart und mild, kaum Säure' },
-        'Asiasalat':         { info: 'Würzig-pikante Blattmischung, belebt jeden Salat' },
-        'Rucola':            { info: 'Feinblättrig, frische Schärfe, nussiger Abgang' },
-        'Mangold':           { info: 'Bunt, mild-erdig, Stiele und Blätter essbar' },
-        'Karotten':          { info: 'Sorte Napoli, klassisch orange, süss und knackig' },
-        'Radieschen':        { info: 'French Breakfast, lang-oval, mild-würzig, knackig' },
-        'Randen':            { info: 'Sorte Pablo, tiefrot, erdig-süss, gleichmässig' },
-        'Kohlrabi':          { info: 'Sorte Korist, zart-mild, roh und gekocht ein Genuss' },
-        'Mairübchen':        { info: 'Sorte Hakurai, kleine weisse Rübe, mild-süss, roh essbar' },
-        'Frühlingszwiebeln': { info: 'Sorte Elody, mild und frisch, jung geerntet' },
-        'Lauch':             { info: 'Sorte Krypton F1, fein und mild, dunkelgrüne Schäfte' },
-        'Petersilie':        { info: 'Sorte Lion, glattblättrig, intensiv aromatisch' },
-        'Schnittlauch':      { info: 'Mild-zwiebelartig, vielseitig einsetzbar' },
-        'Fenchel':           { info: 'Sorte Preludio, mild-anisig, roh und gegart ein Genuss' },
-        'Cherry-Tomaten':    { info: 'Sweet Million, intensiv-süss, zum Naschen' },
-        'Gurken':            { info: 'Sorte Flamingo, dünnschalig, ohne Bitterkeit' },
-        'Zucchetti':         { info: 'Diamant & Golden Glory, jung geerntet wenn sie zart sind' },
-        'Snack-Paprika':     { info: 'Snacky Mix, klein, süss, roh in allen Farben essbar' },
-        'Basilikum':         { info: 'Sorte Adi, Genueser Basilikum, intensiv-süsslich' },
-      };
-
       var seasons = [
         {
+          photo: 'fruhlingsset.jpg', alt: 'Frühlingskiste', name: 'Frühling', month: 'April – Mai',
           note: 'Der Start der Saison ist blattlastig — frische Salate, Kräuter und die ersten Knollen aus dem Freiland.',
           items: [
-            { name: 'Salat',              qty: '2 Stück',           key: 'Salat' },
-            { name: 'Asiasalat',          qty: '1 Bund ca. 200 g',  key: 'Asiasalat' },
-            { name: 'Spinat oder Rucola', qty: '1 Bund ca. 200 g',  key: 'Spinat' },
-            { name: 'Radieschen',         qty: '1 Bund, 6–8 Stück', key: 'Radieschen' },
-            { name: 'Kohlrabi',           qty: '1–2 Stück',         key: 'Kohlrabi' },
-            { name: 'Frühlingszwiebeln',  qty: '1 Bund',            key: 'Frühlingszwiebeln' },
-            { name: 'Petersilie',         qty: '1 Bund ca. 200 g',  key: 'Petersilie' },
+            { name: 'Salat',              qty: '2 Stück',           desc: 'Eichblatt grün und rot, zart-nussig, kaum bitter' },
+            { name: 'Asiasalat',          qty: '1 Bund ca. 200 g',  desc: 'Würzig-pikante Blattmischung, belebt jeden Salat' },
+            { name: 'Spinat oder Rucola', qty: '1 Bund ca. 200 g',  desc: 'Glatter Blattspinat, zart und mild, kaum Säure' },
+            { name: 'Radieschen',         qty: '1 Bund, 6–8 Stück', desc: 'French Breakfast, lang-oval, mild-würzig, knackig' },
+            { name: 'Kohlrabi',           qty: '1–2 Stück',         desc: 'Sorte Korist, zart-mild, roh und gekocht ein Genuss' },
+            { name: 'Frühlingszwiebeln',  qty: '1 Bund',            desc: 'Sorte Elody, mild und frisch, jung geerntet' },
+            { name: 'Petersilie',         qty: '1 Bund ca. 200 g',  desc: 'Sorte Lion, glattblättrig, intensiv aromatisch' },
           ]
         },
         {
+          photo: 'sommerset.jpg', alt: 'Sommerkiste', name: 'Sommer', month: 'Juni – August',
           note: 'Die reichhaltigste Phase — Fruchtgemüse aus dem Garten, dazu Karotten, Salat und aromatisches Basilikum.',
           items: [
-            { name: 'Salat',          qty: '2 Stück',   key: 'Salat' },
-            { name: 'Karotten',       qty: '1 Bund',    key: 'Karotten' },
-            { name: 'Cherry-Tomaten', qty: '1 Schale',  key: 'Cherry-Tomaten' },
-            { name: 'Gurken',         qty: '1 Stück',   key: 'Gurken' },
-            { name: 'Zucchetti',      qty: '1–2 Stück', key: 'Zucchetti' },
-            { name: 'Snack-Paprika',  qty: '3–5 Stück', key: 'Snack-Paprika' },
-            { name: 'Basilikum',      qty: '1 Bund',    key: 'Basilikum' },
+            { name: 'Salat',          qty: '2 Stück',   desc: 'Eichblatt grün und rot, zart-nussig, kaum bitter' },
+            { name: 'Karotten',       qty: '1 Bund',    desc: 'Sorte Napoli, klassisch orange, süss und knackig' },
+            { name: 'Cherry-Tomaten', qty: '1 Schale',  desc: 'Sweet Million, intensiv-süss, zum Naschen' },
+            { name: 'Gurken',         qty: '1 Stück',   desc: 'Sorte Flamingo, dünnschalig, ohne Bitterkeit' },
+            { name: 'Zucchetti',      qty: '1–2 Stück', desc: 'Diamant & Golden Glory, jung geerntet wenn sie zart sind' },
+            { name: 'Snack-Paprika',  qty: '3–5 Stück', desc: 'Snacky Mix, klein, süss, roh in allen Farben essbar' },
+            { name: 'Basilikum',      qty: '1 Bund',    desc: 'Sorte Adi, Genueser Basilikum, intensiv-süsslich' },
           ]
         },
         {
+          photo: 'herbstset.jpg', alt: 'Herbstkiste', name: 'Herbst', month: 'September – Oktober',
           note: 'Die Saison klingt aus — Lauch, Randen und Kohlrabi prägen die Tasche, dazu Mangold und Asiasalate.',
           items: [
-            { name: 'Salat',              qty: '2 Stück',           key: 'Salat' },
-            { name: 'Karotten',           qty: '1 Bund, 8–12 Stück',key: 'Karotten' },
-            { name: 'Lauch',              qty: '1–2 Stangen',       key: 'Lauch' },
-            { name: 'Randen',             qty: '3–4 Stück',         key: 'Randen' },
-            { name: 'Kohlrabi',           qty: '1–2 Stück',         key: 'Kohlrabi' },
-            { name: 'Rucola oder Spinat', qty: '1 Bund ca. 200 g',  key: 'Rucola' },
-            { name: 'Petersilie',         qty: '1 Bund ca. 200 g',  key: 'Petersilie' },
+            { name: 'Salat',              qty: '2 Stück',           desc: 'Eichblatt grün und rot, zart-nussig, kaum bitter' },
+            { name: 'Karotten',           qty: '1 Bund, 8–12 Stück',desc: 'Sorte Napoli, klassisch orange, süss und knackig' },
+            { name: 'Lauch',              qty: '1–2 Stangen',       desc: 'Sorte Krypton F1, fein und mild, dunkelgrüne Schäfte' },
+            { name: 'Randen',             qty: '3–4 Stück',         desc: 'Sorte Pablo, tiefrot, erdig-süss, gleichmässig' },
+            { name: 'Kohlrabi',           qty: '1–2 Stück',         desc: 'Sorte Korist, zart-mild, roh und gekocht ein Genuss' },
+            { name: 'Rucola oder Spinat', qty: '1 Bund ca. 200 g',  desc: 'Feinblättrig, frische Schärfe, nussiger Abgang' },
+            { name: 'Petersilie',         qty: '1 Bund ca. 200 g',  desc: 'Sorte Lion, glattblättrig, intensiv aromatisch' },
           ]
         }
       ];
 
-      var cards = document.querySelectorAll('.ks-card');
+      var photo = document.getElementById('ks-photo');
+      var nameEl = document.getElementById('ks-name');
+      var monthEl = document.getElementById('ks-month');
+      var grid = document.getElementById('ks-grid');
+      var note = document.getElementById('ks-note');
+      var btns = document.querySelectorAll('.ks-btn');
 
-      function buildDrawer(idx) {
+      function render(idx) {
         var s = seasons[idx];
-        var out = '<div class="sp-contents-grid">';
+        // Fade photo
+        photo.classList.add('ks-fade');
+        setTimeout(function() {
+          photo.src = s.photo;
+          photo.alt = s.alt;
+          photo.onload = function() { photo.classList.remove('ks-fade'); };
+          // If already cached, onload may not fire
+          if (photo.complete) photo.classList.remove('ks-fade');
+        }, 200);
+        nameEl.textContent = s.name;
+        monthEl.textContent = s.month;
+        note.textContent = s.note;
+        var out = '';
         s.items.forEach(function(it) {
-          var c = crops[it.key] || {};
-          out += '<div class="sp-item"><span class="sp-item-dot"></span><span class="sp-item-body"><span class="sp-item-top"><span class="sp-item-name">' + it.name + '</span><span class="sp-item-qty">· ' + it.qty + '</span></span>' + (c.info ? '<span class="sp-item-desc">' + c.info + '</span>' : '') + '</span></div>';
+          out += '<div class="ks-item"><span class="ks-item-dot"></span><span class="ks-item-body"><span class="ks-item-name">' + it.name + ' <span class="ks-item-qty">· ' + it.qty + '</span></span><span class="ks-item-desc">' + it.desc + '</span></span></div>';
         });
-        out += '</div><p class="sp-contents-note">' + s.note + '</p>';
-        return out;
+        grid.innerHTML = out;
+        btns.forEach(function(b, i) { b.classList.toggle('ks-active', i === idx); });
       }
 
-      // Pre-fill all drawers
-      seasons.forEach(function(s, idx) {
-        var el = document.getElementById('ks-drawer-' + idx);
-        if (el) el.innerHTML = buildDrawer(idx);
-      });
-
-      window.ksSelect = function(idx) {
-        cards.forEach(function(c, i) { c.classList.toggle('ks-active', i === idx); });
-      };
-
-      // Open first by default
-      if (cards[0]) cards[0].classList.add('ks-active');
+      window.ksShow = function(idx) { render(idx); };
+      render(0);
     })();
   </script>
 </body>
