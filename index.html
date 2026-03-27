@@ -75,15 +75,18 @@
     .kiste-step p { font-family:'DM Sans',sans-serif; font-size:.95rem; color:#5a6a5a; line-height:1.7; margin:0; }
     .kiste-seasons-title { font-size:1.9rem; font-weight:400; margin-bottom:.5rem; }
     .kiste-seasons-sub { font-family:'DM Sans',sans-serif; font-size:.95rem; color:#5a6a5a; margin-bottom:1.5rem; }
-    .kiste-seasons { display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; margin-bottom:2rem; }
+    .kiste-seasons-wrap { display:grid; grid-template-columns:1fr 1.6fr; gap:2.5rem; align-items:start; margin-bottom:3.5rem; }
+    .kiste-seasons { display:flex; flex-direction:column; gap:1rem; }
+    #ks-panel-inline { background:#fff; border:1px solid #e2ddd2; border-radius:8px; padding:1.5rem 1.75rem; }
     .kiste-season { background:#f7f5f0; overflow:hidden; transition:transform .3s ease, box-shadow .3s ease; }
-    .kiste-season:hover { transform:translateY(-6px); box-shadow:0 16px 40px rgba(45,58,45,.14); }
-    .kiste-photo-wrap { position:relative; overflow:hidden; aspect-ratio:4/3; }
+    .kiste-season:not(.ks-card):hover { transform:translateY(-6px); box-shadow:0 16px 40px rgba(45,58,45,.14); }
+    .ks-card:hover { cursor:pointer; }
+    .kiste-photo-wrap { position:relative; overflow:hidden; aspect-ratio:16/9; }
     .kiste-photo { width:100%; height:100%; object-fit:cover; object-position:center; display:block; transition:transform .6s ease; }
     .kiste-season:hover .kiste-photo { transform:scale(1.05); }
     .kiste-photo-overlay { position:absolute; inset:0; background:linear-gradient(to top, rgba(20,32,18,.75) 0%, rgba(20,32,18,.1) 55%, transparent 100%); }
     .kiste-photo-label { position:absolute; bottom:0; left:0; right:0; padding:1.4rem 1.6rem; }
-    .kiste-photo-label .kiste-season-name { font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:400; color:#f7f5f0; display:block; line-height:1.05; letter-spacing:.01em; }
+    .kiste-photo-label .kiste-season-name { font-family:'Cormorant Garamond',serif; font-size:2.8rem; font-weight:400; color:#f7f5f0; display:block; line-height:1.05; letter-spacing:.01em; }
     .kiste-photo-label .kiste-season-month { font-family:'DM Sans',sans-serif; font-size:.7rem; color:rgba(247,245,240,.65); letter-spacing:.18em; text-transform:uppercase; display:block; margin-top:.3rem; }
     .ks-card { cursor:pointer; }
     .ks-card .kiste-photo-wrap { transition:opacity .2s; }
@@ -91,7 +94,10 @@
     .ks-card:not(.ks-active):hover .kiste-photo-wrap { opacity:.8; }
     .ks-card.ks-active { box-shadow:0 0 0 3px #4a6741; }
     /* SP TABS */
-    .sp-contents { background:#fff; border:1px solid #e2ddd2; border-radius:8px; margin-bottom:3.5rem; overflow:hidden; }
+    .sp-contents { background:#fff; border:1px solid #e2ddd2; border-radius:8px; margin-bottom:0; overflow:hidden; }
+    #ks-panel { padding:1.25rem 1.75rem 1.5rem; }
+    .ks-panel-desktop { display:block; }
+    .ks-panel-mobile { display:none; }
     .sp-tabs { display:flex; border-bottom:1px solid #e2ddd2; overflow-x:auto; scrollbar-width:none; }
     .sp-tabs::-webkit-scrollbar { display:none; }
     .sp-tab { font-family:'DM Sans',sans-serif; font-size:.72rem; color:#9a9a8a; padding:.65rem 1.1rem; cursor:pointer; white-space:nowrap; border-bottom:2px solid transparent; margin-bottom:-1px; background:none; border-top:none; border-left:none; border-right:none; transition:color .15s; letter-spacing:.01em; }
@@ -245,7 +251,10 @@
       .spot-box { min-width:auto; width:100%; max-width:340px; }
       .kiste-section { padding:4rem 1.5rem; }
       .kiste-how { grid-template-columns:1fr; gap:1rem; }
-      .kiste-seasons { grid-template-columns:1fr; }
+      .kiste-seasons-wrap { grid-template-columns:1fr; }
+      .kiste-seasons { flex-direction:row; }
+      .ks-panel-desktop { display:none; }
+      .ks-panel-mobile { display:block; }
       .kiste-list { grid-template-columns:1fr 1fr; }
       .kiste-abholung { grid-template-columns:1fr; }
       .kapelle-illustration { width:100%; max-width:480px; margin:1rem auto 0; display:block; }
@@ -420,40 +429,42 @@
       <h3 class="kiste-seasons-title">Was kommt in die Gemüsetasche?</h3>
       <p class="kiste-seasons-sub">Die Tasche ist für eine Person pro Woche berechnet. Je nach Jahreszeit variiert der Inhalt — klick auf eine Saison für Details.</p>
 
-      <div class="kiste-seasons" id="ks-cards">
-        <div class="kiste-season fruehling ks-card ks-active" onclick="ksSelect(0)">
-          <div class="kiste-photo-wrap">
-            <img src="fruhlingsset.jpg" alt="Frühlingskiste" class="kiste-photo">
-            <div class="kiste-photo-overlay"></div>
-            <div class="kiste-photo-label">
-              <span class="kiste-season-name">Frühling</span>
-              <span class="kiste-season-month">April – Mai</span>
+      <div class="kiste-seasons-wrap">
+        <div class="kiste-seasons" id="ks-cards">
+          <div class="kiste-season fruehling ks-card ks-active" onclick="ksSelect(0)">
+            <div class="kiste-photo-wrap">
+              <img src="fruhlingsset.jpg" alt="Frühlingskiste" class="kiste-photo">
+              <div class="kiste-photo-overlay"></div>
+              <div class="kiste-photo-label">
+                <span class="kiste-season-name">Frühling</span>
+                <span class="kiste-season-month">April – Mai</span>
+              </div>
+            </div>
+          </div>
+          <div class="kiste-season sommer ks-card" onclick="ksSelect(1)">
+            <div class="kiste-photo-wrap">
+              <img src="sommerset.jpg" alt="Sommerkiste" class="kiste-photo">
+              <div class="kiste-photo-overlay"></div>
+              <div class="kiste-photo-label">
+                <span class="kiste-season-name">Sommer</span>
+                <span class="kiste-season-month">Juni – August</span>
+              </div>
+            </div>
+          </div>
+          <div class="kiste-season herbst ks-card" onclick="ksSelect(2)">
+            <div class="kiste-photo-wrap">
+              <img src="herbstset.jpg" alt="Herbstkiste" class="kiste-photo">
+              <div class="kiste-photo-overlay"></div>
+              <div class="kiste-photo-label">
+                <span class="kiste-season-name">Herbst</span>
+                <span class="kiste-season-month">September – Oktober</span>
+              </div>
             </div>
           </div>
         </div>
-        <div class="kiste-season sommer ks-card" onclick="ksSelect(1)">
-          <div class="kiste-photo-wrap">
-            <img src="sommerset.jpg" alt="Sommerkiste" class="kiste-photo">
-            <div class="kiste-photo-overlay"></div>
-            <div class="kiste-photo-label">
-              <span class="kiste-season-name">Sommer</span>
-              <span class="kiste-season-month">Juni – August</span>
-            </div>
-          </div>
-        </div>
-        <div class="kiste-season herbst ks-card" onclick="ksSelect(2)">
-          <div class="kiste-photo-wrap">
-            <img src="herbstset.jpg" alt="Herbstkiste" class="kiste-photo">
-            <div class="kiste-photo-overlay"></div>
-            <div class="kiste-photo-label">
-              <span class="kiste-season-name">Herbst</span>
-              <span class="kiste-season-month">September – Oktober</span>
-            </div>
-          </div>
-        </div>
+        <div id="ks-panel-inline" class="ks-panel-desktop"></div>
       </div>
-
-      <div class="sp-contents" id="ks-panel"></div>
+      <div id="ks-panel" class="sp-contents ks-panel-mobile"></div>
 
       <!-- ABHOLUNG -->
       <div class="kiste-abholung">
@@ -900,15 +911,16 @@
         }
       ];
 
-      var panel = document.getElementById('ks-panel');
+      var panelMobile = document.getElementById('ks-panel');
+      var panelDesktop = document.getElementById('ks-panel-inline');
       var cards = document.querySelectorAll('.ks-card');
 
-      function buildPanel(idx) {
+      function buildContent(idx) {
         var s = seasons[idx];
-        var grid = '<div class="sp-contents-grid">';
+        var html = '<div class="sp-contents-grid">';
         s.items.forEach(function(it) {
           var c = crops[it.key] || {};
-          grid +=
+          html +=
             '<div class="sp-item">' +
             '<span class="sp-item-dot"></span>' +
             '<span class="sp-item-body">' +
@@ -920,19 +932,22 @@
             '</span>' +
             '</div>';
         });
-        grid += '</div>';
-        grid += '<p class="sp-contents-note">' + s.note + '</p>';
-        panel.innerHTML = grid;
+        html += '</div><p class="sp-contents-note">' + s.note + '</p>';
+        panelDesktop.innerHTML = html;
+        panelMobile.innerHTML = html;
       }
 
       window.ksSelect = function(idx) {
-        cards.forEach(function(c, i) {
-          c.classList.toggle('ks-active', i === idx);
-        });
-        buildPanel(idx);
+        cards.forEach(function(c, i) { c.classList.toggle('ks-active', i === idx); });
+        buildContent(idx);
+        if (window.innerWidth < 768) {
+          setTimeout(function() {
+            panelMobile.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }, 50);
+        }
       };
 
-      buildPanel(0);
+      buildContent(0);
     })();
   </script>-e 
 </body>
