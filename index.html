@@ -82,8 +82,14 @@
     .ks-btn { font-family:'DM Sans',sans-serif; font-size:.8rem; letter-spacing:.08em; text-transform:uppercase; padding:.55rem 1.4rem; border:1.5px solid #b8b0a0; border-radius:2rem; background:transparent; color:#7a7a6a; cursor:pointer; transition:all .2s; }
     .ks-btn:hover { border-color:#4a6741; color:#4a6741; }
     .ks-btn.ks-active { background:#4a6741; border-color:#4a6741; color:#f7f5f0; }
-    .ks-photo-wrap { margin-bottom:1.5rem; text-align:center; }
-    .ks-photo { width:100%; height:auto; max-width:600px; border-radius:6px; display:inline-block; transition:opacity .3s ease; }
+    .ks-layout { display:grid; grid-template-columns:1fr 1fr; gap:2.5rem; align-items:start; margin-bottom:3.5rem; }
+    .ks-photo-wrap { text-align:center; }
+    .ks-photo { width:100%; height:auto; border-radius:6px; display:inline-block; transition:opacity .3s ease; }
+    .ks-content { background:#fff; border:1px solid #e2ddd2; border-radius:8px; overflow:hidden; margin-bottom:0; }
+    @media (max-width:768px) {
+      .ks-layout { grid-template-columns:1fr; gap:1rem; }
+      .ks-content { margin-bottom:2rem; }
+    }
     .ks-photo.ks-fade { opacity:0; }
     .ks-label { display:none; }
     .ks-content-header { padding:.85rem 1rem .75rem; border-bottom:1px solid #f0ece0; }
@@ -422,6 +428,7 @@
         <button class="ks-btn" onclick="ksShow(2)">Herbst</button>
       </div>
 
+      <div class="ks-layout">
       <div class="ks-photo-wrap">
         <img id="ks-photo" src="fruhlingsset.jpg" alt="Frühlingskiste" class="ks-photo">
         <div class="ks-label">
@@ -434,6 +441,7 @@
         <div class="ks-content-header"><span class="ks-label-name" id="ks-name">Frühling</span><span class="ks-label-month" id="ks-month">April – Mai</span></div>
         <div class="ks-content-grid" id="ks-grid"></div>
         <p class="ks-note" id="ks-note"></p>
+      </div>
       </div>
 
       <!-- ABHOLUNG -->
