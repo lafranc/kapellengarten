@@ -76,6 +76,7 @@
     .kiste-seasons-title { font-size:1.9rem; font-weight:400; margin-bottom:.5rem; }
     .kiste-seasons-sub { font-family:'DM Sans',sans-serif; font-size:.95rem; color:#5a6a5a; margin-bottom:1.5rem; }
     .kiste-seasons-wrap { display:grid; grid-template-columns:1fr 1.6fr; gap:2.5rem; align-items:start; margin-bottom:3.5rem; }
+    .ks-panel-desktop { min-height:200px; }
     .kiste-seasons { display:flex; flex-direction:column; gap:1rem; }
     #ks-panel-inline { background:#fff; border:1px solid #e2ddd2; border-radius:8px; padding:1.5rem 1.75rem; }
     .kiste-season { background:#f7f5f0; overflow:hidden; transition:transform .3s ease, box-shadow .3s ease; }
@@ -93,6 +94,7 @@
     .ks-card:not(.ks-active) .kiste-photo-wrap { opacity:.55; }
     .ks-card:not(.ks-active):hover .kiste-photo-wrap { opacity:.8; }
     .ks-card.ks-active { box-shadow:0 0 0 3px #4a6741; }
+    .ks-card:not(.ks-active) .kiste-photo-overlay { background:linear-gradient(to top, rgba(20,32,18,.85) 0%, rgba(20,32,18,.55) 100%); }
     /* SP TABS */
     .sp-contents { background:#fff; border:1px solid #e2ddd2; border-radius:8px; margin-bottom:0; overflow:hidden; }
     #ks-panel { padding:1.25rem 1.75rem 1.5rem; }
@@ -251,12 +253,14 @@
       .spot-box { min-width:auto; width:100%; max-width:340px; }
       .kiste-section { padding:4rem 1.5rem; }
       .kiste-how { grid-template-columns:1fr; gap:1rem; }
-      .kiste-seasons-wrap { grid-template-columns:1fr; }
-      .kiste-seasons { flex-direction:row; }
+      .kiste-seasons-wrap { grid-template-columns:1fr; gap:0; }
+      .kiste-seasons { flex-direction:column; gap:.75rem; margin-bottom:0; }
       .ks-panel-desktop { display:none; }
-      .ks-panel-mobile { display:block; }
+      .ks-panel-mobile { display:block; margin-top:.75rem; }
       .kiste-list { grid-template-columns:1fr 1fr; }
       .kiste-abholung { grid-template-columns:1fr; }
+      .ks-card .kiste-photo-wrap { aspect-ratio:16/7; }
+      .ks-card.ks-active .kiste-photo-wrap { aspect-ratio:16/7; }
       .kapelle-illustration { width:100%; max-width:480px; margin:1rem auto 0; display:block; }
       .ueber-uns-hero { padding:6rem 1.5rem 3rem; }
       .ueber-uns-content { padding:3rem 1.5rem; }
