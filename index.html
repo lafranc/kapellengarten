@@ -74,26 +74,26 @@
     .kiste-step strong { display:block; font-family:'DM Sans',sans-serif; font-size:1.05rem; font-weight:600; color:#2d3a2d; margin-bottom:.45rem; }
     .kiste-step p { font-family:'DM Sans',sans-serif; font-size:.95rem; color:#5a6a5a; line-height:1.7; margin:0; }
     .kiste-seasons-title { font-size:1.9rem; font-weight:400; margin-bottom:.5rem; }
-    .kiste-seasons-sub { font-family:'DM Sans',sans-serif; font-size:.95rem; color:#5a6a5a; margin-bottom:2.5rem; }
-    .kiste-seasons { display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; margin-bottom:2rem; }
-    .kiste-season { background:#f7f5f0; overflow:hidden; transition:transform .3s ease, box-shadow .3s ease; }
-    .kiste-season:hover { transform:translateY(-6px); box-shadow:0 16px 40px rgba(45,58,45,.14); }
-    .kiste-photo-wrap { position:relative; overflow:hidden; aspect-ratio:4/3; }
-    .kiste-photo { width:100%; height:100%; object-fit:cover; object-position:center; display:block; transition:transform .6s ease; }
-    .kiste-season:hover .kiste-photo { transform:scale(1.05); }
-    .kiste-photo-overlay { position:absolute; inset:0; background:linear-gradient(to top, rgba(20,32,18,.75) 0%, rgba(20,32,18,.1) 55%, transparent 100%); }
-    .kiste-photo-label { position:absolute; bottom:0; left:0; right:0; padding:1.4rem 1.6rem; }
-    .kiste-photo-label .kiste-season-name { font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:400; color:#f7f5f0; display:block; line-height:1.05; letter-spacing:.01em; }
-    .kiste-photo-label .kiste-season-month { font-family:'DM Sans',sans-serif; font-size:.7rem; color:rgba(247,245,240,.65); letter-spacing:.18em; text-transform:uppercase; display:block; margin-top:.3rem; }
-    .kiste-season-body { padding:1.4rem 1.8rem 1.8rem; border-top:2px solid transparent; }
-    .kiste-season.fruehling .kiste-season-body { border-color:#7a9e7e; }
-    .kiste-season.sommer    .kiste-season-body { border-color:#c47d2a; }
-    .kiste-season.herbst    .kiste-season-body { border-color:#8b7355; }
-    .kiste-list { list-style:none; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:.35rem .5rem; }
-    .kiste-list li { font-family:'DM Sans',sans-serif; font-size:.85rem; color:#4a5a4a; padding-left:1rem; position:relative; line-height:1.5; }
-    .kiste-list li::before { content:'·'; position:absolute; left:0; color:#4a6741; font-size:1.1rem; line-height:1.2; }
-    .kiste-hinweis { background:rgba(255,255,255,.65); border-radius:8px; padding:1.6rem 2rem; margin-bottom:3.5rem; font-family:'DM Sans',sans-serif; font-size:.95rem; color:#4a5a4a; line-height:1.8; }
-    .kiste-hinweis strong { color:#2d3a2d; }
+    .kiste-seasons-sub { font-family:'DM Sans',sans-serif; font-size:.95rem; color:#5a6a5a; margin-bottom:1.5rem; }
+    /* SP TABS */
+    .sp-contents { background:#fff; border:1px solid #e2ddd2; border-radius:8px; margin-bottom:3.5rem; overflow:hidden; }
+    .sp-tabs { display:flex; border-bottom:1px solid #e2ddd2; overflow-x:auto; scrollbar-width:none; }
+    .sp-tabs::-webkit-scrollbar { display:none; }
+    .sp-tab { font-family:'DM Sans',sans-serif; font-size:.72rem; color:#9a9a8a; padding:.65rem 1.1rem; cursor:pointer; white-space:nowrap; border-bottom:2px solid transparent; margin-bottom:-1px; background:none; border-top:none; border-left:none; border-right:none; transition:color .15s; letter-spacing:.01em; }
+    .sp-tab:hover { color:#4a6741; }
+    .sp-tab.sp-tab-active { color:#4a6741; border-bottom-color:#4a6741; font-weight:500; }
+    .sp-phase-panel { display:none; padding:1.25rem 1.75rem 1.5rem; }
+    .sp-phase-panel.sp-panel-active { display:block; }
+    .sp-contents-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:0; }
+    .sp-item { display:flex; align-items:flex-start; gap:10px; padding:.55rem .5rem .55rem 0; border-bottom:1px solid #f0ece0; }
+    .sp-item:nth-last-child(-n+2) { border-bottom:none; }
+    .sp-item-dot { width:5px; height:5px; border-radius:50%; background:#7a9e7e; flex-shrink:0; margin-top:.42rem; }
+    .sp-item-body { display:flex; flex-direction:column; gap:1px; }
+    .sp-item-top { display:flex; align-items:baseline; gap:6px; flex-wrap:wrap; }
+    .sp-item-name { font-family:'DM Sans',sans-serif; font-size:.84rem; font-weight:500; color:#2c2c1e; }
+    .sp-item-qty { font-family:'DM Sans',sans-serif; font-size:.74rem; color:#a8a898; }
+    .sp-item-desc { font-family:'DM Sans',sans-serif; font-size:.73rem; color:#7a7a6a; font-style:italic; line-height:1.45; }
+    .sp-contents-note { font-family:'DM Sans',sans-serif; font-size:.77rem; color:#8a8a7a; margin-top:1rem; padding-top:.85rem; border-top:1px solid #ece8e0; line-height:1.65; }
     /* ABHOLUNG */
     .kiste-abholung { display:grid; grid-template-columns:1fr auto; gap:2.5rem; align-items:start; background:rgba(255,255,255,.65); border-radius:8px; padding:2rem 2.5rem; }
     .kiste-abholung h3 { font-size:1.6rem; font-weight:400; margin-bottom:.75rem; }
@@ -230,8 +230,6 @@
       .spot-box { min-width:auto; width:100%; max-width:340px; }
       .kiste-section { padding:4rem 1.5rem; }
       .kiste-how { grid-template-columns:1fr; gap:1rem; }
-      .kiste-seasons { grid-template-columns:1fr; }
-      .kiste-list { grid-template-columns:1fr 1fr; }
       .kiste-abholung { grid-template-columns:1fr; }
       .kapelle-illustration { width:100%; max-width:480px; margin:1rem auto 0; display:block; }
       .ueber-uns-hero { padding:6rem 1.5rem 3rem; }
@@ -259,6 +257,10 @@
       .gemuese-3 { width:45px; height:45px; }
       .gemuese-4 { width:55px; height:55px; }
       .gemuese-5 { width:50px; height:50px; }
+      .sp-contents-grid { grid-template-columns:1fr; }
+      .sp-item:nth-last-child(-n+2) { border-bottom:1px solid #f0ece0; }
+      .sp-item:last-child { border-bottom:none; }
+      .sp-tab { font-size:.67rem; padding:.6rem .8rem; }
     }
     @media (max-width:480px) {
       .nav { padding:1rem; }
@@ -324,8 +326,6 @@
         <ellipse cx="42" cy="0" rx="5" ry="7" fill="#7bc491" stroke="#5d9970" stroke-width="1.8" transform="rotate(-10 42 0)"/>
         <path d="M 50 18 C 52 10 54 5 56 2" stroke="#4a7c59" stroke-width="2.5"/>
         <ellipse cx="58" cy="0" rx="5" ry="7" fill="#6ba87a" stroke="#4a7c59" stroke-width="1.8" transform="rotate(10 58 0)"/>
-        <path d="M 48 43 C 48 50 48 58 48 65" stroke="#d4732a" stroke-width="1.5"/>
-        <path d="M 62 52 C 60 56 58 62 56 68" stroke="#5d9970" stroke-width="1.5"/>
       </svg>
     </div>
     <div class="schwebendes-gemuese gemuese-4">
@@ -401,79 +401,11 @@
       </div>
 
       <h3 class="kiste-seasons-title">Was kommt in die Gemüsetasche?</h3>
-      <p class="kiste-seasons-sub">Die Inhalte wechseln mit der Jahreszeit, hier ein paar typische Beispiele:</p>
+      <p class="kiste-seasons-sub">Die Tasche ist für eine Person pro Woche berechnet — eine Menge, die sich gut kochen lässt, ohne dass etwas liegen bleibt. Je nach Jahreszeit variiert der Inhalt:</p>
 
-      <div class="kiste-seasons">
-        <div class="kiste-season fruehling">
-          <div class="kiste-photo-wrap">
-            <img src="fruhlingsset.jpg" alt="Frühlingskiste" class="kiste-photo">
-            <div class="kiste-photo-overlay"></div>
-            <div class="kiste-photo-label">
-              <span class="kiste-season-name">Frühling</span>
-              <span class="kiste-season-month">April – Mai</span>
-            </div>
-          </div>
-          <div class="kiste-season-body">
-            <ul class="kiste-list">
-              <li>Kopfsalat &amp; zarter Schnittsalat</li><li>Spinat</li>
-              <li>Radieschen</li><li>Frühlingszwiebeln</li>
-              <li>Mairübchen</li><li>Petersilie</li>
-            </ul>
-          </div>
-        </div>
-        <div class="kiste-season sommer">
-          <div class="kiste-photo-wrap">
-            <img src="sommerset.jpg" alt="Sommerkiste" class="kiste-photo">
-            <div class="kiste-photo-overlay"></div>
-            <div class="kiste-photo-label">
-              <span class="kiste-season-name">Sommer</span>
-              <span class="kiste-season-month">Juni – August</span>
-            </div>
-          </div>
-          <div class="kiste-season-body">
-            <ul class="kiste-list">
-              <li>Süsse Cherry-Tomaten</li><li>Gurken</li>
-              <li>Zucchetti</li><li>Kohlrabi</li>
-              <li>Snack-Peperoni</li><li>Karotten</li>
-            </ul>
-          </div>
-        </div>
-        <div class="kiste-season herbst">
-          <div class="kiste-photo-wrap">
-            <img src="herbstset.jpg" alt="Herbstkiste" class="kiste-photo">
-            <div class="kiste-photo-overlay"></div>
-            <div class="kiste-photo-label">
-              <span class="kiste-season-name">Herbst</span>
-              <span class="kiste-season-month">September – Oktober</span>
-            </div>
-          </div>
-          <div class="kiste-season-body">
-            <ul class="kiste-list">
-              <li>Randen</li><li>Lauch</li>
-              <li>Mangold</li><li>Asiasalate</li>
-              <li>Rucola</li><li>Fenchel</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- MENGENHINWEIS -->
-      <div class="kiste-hinweis">
-        <p>Die Gemüsetasche ist <strong>für eine Person pro Woche</strong> berechnet – eine Menge, die sich gut kochen lässt, ohne dass etwas liegen bleibt. Was du typischerweise drin findest:</p>
-        <ul style="list-style:none;padding:0;margin:.8rem 0 1rem;display:grid;grid-template-columns:1fr 1fr;gap:.3rem .5rem;">
-          <li style="padding-left:1rem;position:relative;font-family:'DM Sans',sans-serif;font-size:.9rem;color:#4a5a4a;line-height:1.6;"><span style="position:absolute;left:0;color:#4a6741;">·</span>Kopfsalat, 2 Stück – oder Schnittsalat, ca. 200 g</li>
-          <li style="padding-left:1rem;position:relative;font-family:'DM Sans',sans-serif;font-size:.9rem;color:#4a5a4a;line-height:1.6;"><span style="position:absolute;left:0;color:#4a6741;">·</span>Radieschen, 1 Bund (6–8 Stück)</li>
-          <li style="padding-left:1rem;position:relative;font-family:'DM Sans',sans-serif;font-size:.9rem;color:#4a5a4a;line-height:1.6;"><span style="position:absolute;left:0;color:#4a6741;">·</span>Spinat oder Rucola, 1 Bund ca. 200 g</li>
-          <li style="padding-left:1rem;position:relative;font-family:'DM Sans',sans-serif;font-size:.9rem;color:#4a5a4a;line-height:1.6;"><span style="position:absolute;left:0;color:#4a6741;">·</span>Karotten, 1 Bund (8–12 Stück)</li>
-          <li style="padding-left:1rem;position:relative;font-family:'DM Sans',sans-serif;font-size:.9rem;color:#4a5a4a;line-height:1.6;"><span style="position:absolute;left:0;color:#4a6741;">·</span>Mairübchen, 1 Bund (3–5 Knollen)</li>
-          <li style="padding-left:1rem;position:relative;font-family:'DM Sans',sans-serif;font-size:.9rem;color:#4a5a4a;line-height:1.6;"><span style="position:absolute;left:0;color:#4a6741;">·</span>Kohlrabi, 1–2 Stück</li>
-          <li style="padding-left:1rem;position:relative;font-family:'DM Sans',sans-serif;font-size:.9rem;color:#4a5a4a;line-height:1.6;"><span style="position:absolute;left:0;color:#4a6741;">·</span>Asiasalat oder Mangold, 1 Bund ca. 200 g</li>
-          <li style="padding-left:1rem;position:relative;font-family:'DM Sans',sans-serif;font-size:.9rem;color:#4a5a4a;line-height:1.6;"><span style="position:absolute;left:0;color:#4a6741;">·</span>Lauch, 1–2 Stangen</li>
-          <li style="padding-left:1rem;position:relative;font-family:'DM Sans',sans-serif;font-size:.9rem;color:#4a5a4a;line-height:1.6;"><span style="position:absolute;left:0;color:#4a6741;">·</span>Randen, 3–4 Stück</li>
-          <li style="padding-left:1rem;position:relative;font-family:'DM Sans',sans-serif;font-size:.9rem;color:#4a5a4a;line-height:1.6;"><span style="position:absolute;left:0;color:#4a6741;">·</span>Kräuter, 1 Bund Petersilie oder Dill (ca. 200 g)</li>
-        </ul>
-        <p style="font-family:'DM Sans',sans-serif;font-size:.9rem;color:#4a5a4a;line-height:1.7;">Das Gemüse ist frisch geerntet, gewaschen und abholfertig. Im Frühling ist die Tasche blattlastiger, in der Hochsaison kommen Fruchtgemüse wie Cherry-Tomaten, Gurken und Zucchetti dazu. Nicht jede Sorte ist jede Woche dabei – was kommt, entscheidet die Ernte.</p>
-        <p style="font-family:'DM Sans',sans-serif;font-size:.9rem;color:#4a5a4a;line-height:1.7;margin-top:.8rem;">Für zwei Personen oder eine Familie empfehle ich zwei Taschen, oder ihr teilt euch eine mit jemandem aus dem Quartier.</p>
+      <div class="sp-contents">
+        <div class="sp-tabs" id="sp-tabs"></div>
+        <div id="sp-panels"></div>
       </div>
 
       <!-- ABHOLUNG -->
@@ -507,10 +439,8 @@
             <rect x="238" y="21" width="26" height="5" fill="white" rx="2" opacity=".6"/>
             <rect x="282" y="21" width="26" height="5" fill="white" rx="2" opacity=".6"/>
             <text x="170" y="13" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#8b7a6a" letter-spacing="2.5" font-weight="500">DORFSTRASSE</text>
-            <!-- Grünfläche Mitte -->
             <rect x="112" y="50" width="120" height="130" fill="#c8dab8" rx="3"/>
             <text x="172" y="118" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#5a7a4a" opacity=".7">Schnittblumen</text>
-            <!-- Parkplatz links -->
             <rect x="4" y="50" width="102" height="130" fill="#dbd6cc" rx="3"/>
             <rect x="10" y="58" width="40" height="23" fill="#c4bdb2" rx="3" stroke="#a8a29a" stroke-width="1"/>
             <rect x="56" y="58" width="40" height="23" fill="#c4bdb2" rx="3" stroke="#a8a29a" stroke-width="1"/>
@@ -518,29 +448,20 @@
             <rect x="56" y="87" width="40" height="23" fill="#c4bdb2" rx="3" stroke="#a8a29a" stroke-width="1"/>
             <rect x="10" y="116" width="40" height="23" fill="#c4bdb2" rx="3" stroke="#a8a29a" stroke-width="1"/>
             <rect x="56" y="116" width="40" height="23" fill="#c4bdb2" rx="3" stroke="#a8a29a" stroke-width="1"/>
-            <!-- Autos -->
             <rect x="15" y="62" width="30" height="15" fill="#8a9faa" rx="2"/>
             <rect x="61" y="91" width="30" height="15" fill="#7a8f9a" rx="2"/>
             <rect x="15" y="120" width="30" height="15" fill="#8a9faa" rx="2"/>
-            <!-- P -->
             <text x="55" y="152" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9.5" fill="#4a453e" font-weight="700">PARKPLATZ</text>
             <text x="55" y="163" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="#6a6258">kostenlos</text>
-            <!-- Kapelle rechts -->
             <rect x="238" y="62" width="94" height="88" fill="#f0ece2" stroke="#b8a98a" stroke-width="1.5" rx="2"/>
-            <!-- Dach -->
             <polygon points="230,64 285,24 340,64" fill="#8b7355" stroke="#6b5a3e" stroke-width="1.5"/>
-            <!-- Türmchen -->
             <rect x="267" y="40" width="30" height="24" fill="#f0ece2" stroke="#b8a98a" stroke-width="1"/>
             <polygon points="261,42 282,16 303,42" fill="#6b5a3e" stroke="#4a3f2e" stroke-width="1.2"/>
-            <!-- Kreuz -->
             <line x1="282" y1="8" x2="282" y2="0" stroke="#4a3f2e" stroke-width="2.2" stroke-linecap="round"/>
             <line x1="276" y1="4" x2="288" y2="4" stroke="#4a3f2e" stroke-width="2.2" stroke-linecap="round"/>
-            <!-- Fenster -->
             <rect x="244" y="75" width="15" height="18" rx="7 7 0 0" fill="#a8c4a0" stroke="#7a9e7e" stroke-width="1"/>
             <rect x="307" y="75" width="15" height="18" rx="7 7 0 0" fill="#a8c4a0" stroke="#7a9e7e" stroke-width="1"/>
-            <!-- Tür -->
             <rect x="271" y="114" width="22" height="36" rx="11 11 0 0" fill="#8b9e7a" stroke="#6b7a5a" stroke-width="1.2"/>
-            <!-- Gemüseausgabe Schild -->
             <rect x="224" y="152" width="116" height="22" fill="#4a6741" rx="4"/>
             <text x="282" y="167" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="#f7f5f0" font-weight="500">GEMÜSEAUSGABE</text>
           </svg>
@@ -668,10 +589,6 @@
           <path d="M 45 72 C 43 76 42 78 40 80" stroke="#7a6545" stroke-width="1.8"/>
           <path d="M 50 74 C 50 78 50 82 50 85" stroke="#7a6545" stroke-width="1.8"/>
           <path d="M 55 72 C 57 76 58 78 60 80" stroke="#7a6545" stroke-width="1.8"/>
-          <circle cx="35" cy="53" r="1.5" fill="#9a8968" opacity="0.6"/>
-          <circle cx="42" cy="60" r="1.2" fill="#9a8968" opacity="0.6"/>
-          <circle cx="58" cy="59" r="1.3" fill="#9a8968" opacity="0.6"/>
-          <circle cx="65" cy="54" r="1.4" fill="#9a8968" opacity="0.6"/>
         </svg>
         <h3>Fundiert</h3>
         <p>Ich weiss, was in meinem Boden lebt. Und warum das wichtig ist. Regelmässige Bodenanalysen auf hilfreiche Mikroorganismen sind für mich keine Option, sondern Grundlage.</p>
@@ -682,8 +599,6 @@
           <path d="M 50 35 C 54 32 57 30 60 30 C 65 30 67 33 67 38 C 67 42 64 47 61 52 C 58 56 54 62 50 66 C 50 62 50 55 50 48 C 50 42 50 38 50 35" fill="#f8b4c3" class="icon-fill" stroke="none"/>
           <ellipse cx="42" cy="38" rx="4" ry="6" fill="#fef3f3" class="icon-fill" transform="rotate(-25 42 38)"/>
           <ellipse cx="58" cy="36" rx="3" ry="5" fill="#fef3f3" class="icon-fill" transform="rotate(20 58 36)"/>
-          <path d="M 35 42 C 36 45 38 48 40 51" stroke="#e8789c" stroke-width="1.2" opacity="0.6"/>
-          <path d="M 65 42 C 64 45 62 48 60 51" stroke="#e8789c" stroke-width="1.2" opacity="0.6"/>
         </svg>
         <h3>Direkt &amp; persönlich</h3>
         <p>Du kennst mich, ich kenne dich. Wenn du eine Frage hast, erreichst du mich direkt. Das ist mir wichtig.</p>
@@ -819,7 +734,8 @@
     <p>© 2026 Kapellengarten · Francis · Wangen bei Olten</p>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script data-cfasync="false">
     const TOTAL = 20;
     let taken = 4;
     function updateSpots(n) {
@@ -835,17 +751,6 @@
       });
     }
     window.addEventListener('load', () => updateSpots(4));
-
-    function handleSubmit() {
-      const first = document.getElementById('fName').value.trim();
-      const last  = document.getElementById('lName').value.trim();
-      const email = document.getElementById('fEmail').value.trim();
-      if(!first || !last || !email) { alert('Bitte fülle Vor- und Nachname sowie E-Mail aus.'); return; }
-      taken = Math.min(taken + 1, TOTAL);
-      updateSpots(taken);
-      document.getElementById('formContent').style.display = 'none';
-      document.getElementById('formSuccess').style.display  = 'block';
-    }
 
     function subscribeNewsletter() {
       const email = document.getElementById('nlEmail').value.trim();
@@ -883,6 +788,133 @@
       document.querySelector('.hamburger').classList.remove('active');
       document.querySelector('.nav-links').classList.remove('active');
     }
+
+    // Saisonplan Tabs
+    (function() {
+      var crops = {
+        'Salat':             { info: 'Eichblatt grün und rot, zart-nussig, kaum bitter' },
+        'Spinat':            { info: 'Glatter Blattspinat, zart und mild, kaum Säure' },
+        'Asiasalat':         { info: 'Würzig-pikante Blattmischung, belebt jeden Salat' },
+        'Rucola':            { info: 'Feinblättrig, frische Schärfe, nussiger Abgang' },
+        'Mangold':           { info: 'Bunt, mild-erdig, Stiele und Blätter essbar' },
+        'Karotten':          { info: 'Sorte Napoli, klassisch orange, süss und knackig' },
+        'Radieschen':        { info: 'French Breakfast, lang-oval, mild-würzig, knackig' },
+        'Randen':            { info: 'Sorte Pablo, tiefrot, erdig-süss, gleichmässig' },
+        'Kohlrabi':          { info: 'Sorte Korist, zart-mild, roh und gekocht ein Genuss' },
+        'Mairübchen':        { info: 'Sorte Hakurai, kleine weisse Rübe, mild-süss, roh essbar' },
+        'Frühlingszwiebeln': { info: 'Sorte Elody, mild und frisch, jung geerntet' },
+        'Lauch':             { info: 'Sorte Krypton F1, fein und mild, dunkelgrüne Schäfte' },
+        'Petersilie':        { info: 'Sorte Lion, glattblättrig, intensiv aromatisch' },
+        'Schnittlauch':      { info: 'Mild-zwiebelartig, vielseitig einsetzbar' },
+        'Fenchel':           { info: 'Sorte Preludio, mild-anisig, roh und gegart ein Genuss' },
+        'Cherry-Tomaten':    { info: 'Sweet Million, intensiv-süss, zum Naschen' },
+        'Gurken':            { info: 'Sorte Flamingo, dünnschalig, ohne Bitterkeit' },
+        'Zucchetti':         { info: 'Diamant & Golden Glory, jung geerntet wenn sie zart sind' },
+        'Snack-Paprika':     { info: 'Snacky Mix, klein, süss, roh in allen Farben essbar' },
+        'Basilikum':         { info: 'Sorte Adi, Genueser Basilikum, intensiv-süsslich' },
+      };
+
+      var phases = [
+        {
+          tab: 'Frühling · Apr/Mai',
+          note: 'Der Start der Saison ist blattlastig — frische Salate, Kräuter und die ersten Knollen aus dem Freiland.',
+          items: [
+            { name: 'Salat',              qty: '2 Stück',              key: 'Salat' },
+            { name: 'Asiasalat',          qty: '1 Bund ca. 200 g',     key: 'Asiasalat' },
+            { name: 'Spinat oder Rucola', qty: '1 Bund ca. 200 g',     key: 'Spinat' },
+            { name: 'Radieschen',         qty: '1 Bund, 6–8 Stück',    key: 'Radieschen' },
+            { name: 'Kohlrabi',           qty: '1–2 Stück',            key: 'Kohlrabi' },
+            { name: 'Frühlingszwiebeln',  qty: '1 Bund',               key: 'Frühlingszwiebeln' },
+            { name: 'Petersilie',         qty: '1 Bund ca. 200 g',     key: 'Petersilie' },
+          ]
+        },
+        {
+          tab: 'Frühsommer · Mai/Jun',
+          note: 'Das Angebot wird breiter — Wurzelgemüse, erste Karotten, Mairübchen und Mangold kommen dazu.',
+          items: [
+            { name: 'Salat',                  qty: '2 Stück',             key: 'Salat' },
+            { name: 'Mairübchen',             qty: '1 Bund, 3–5 Knollen', key: 'Mairübchen' },
+            { name: 'Randen',                 qty: '3–4 Stück',           key: 'Randen' },
+            { name: 'Karotten',               qty: '1 Bund, 8–12 Stück',  key: 'Karotten' },
+            { name: 'Mangold',                qty: '1 Bund ca. 200 g',    key: 'Mangold' },
+            { name: 'Fenchel',                qty: '1–2 Stück',           key: 'Fenchel' },
+            { name: 'Schnittlauch oder Dill', qty: '1 Bund',              key: 'Schnittlauch' },
+          ]
+        },
+        {
+          tab: 'Hochsommer · Jul/Aug',
+          note: 'Die reichhaltigste Phase — Fruchtgemüse aus dem Garten, dazu Karotten, Salat und aromatisches Basilikum.',
+          items: [
+            { name: 'Salat',          qty: '2 Stück',   key: 'Salat' },
+            { name: 'Karotten',       qty: '1 Bund',    key: 'Karotten' },
+            { name: 'Cherry-Tomaten', qty: '1 Schale',  key: 'Cherry-Tomaten' },
+            { name: 'Gurken',         qty: '1 Stück',   key: 'Gurken' },
+            { name: 'Zucchetti',      qty: '1–2 Stück', key: 'Zucchetti' },
+            { name: 'Snack-Paprika',  qty: '3–5 Stück', key: 'Snack-Paprika' },
+            { name: 'Basilikum',      qty: '1 Bund',    key: 'Basilikum' },
+          ]
+        },
+        {
+          tab: 'Herbst · Sep/Okt',
+          note: 'Die Saison klingt aus — Lauch, Randen und Kohlrabi prägen die Tasche, dazu die letzten Tomaten und Paprika.',
+          items: [
+            { name: 'Salat',              qty: '2 Stück',           key: 'Salat' },
+            { name: 'Karotten',           qty: '1 Bund, 8–12 Stück',key: 'Karotten' },
+            { name: 'Lauch',              qty: '1–2 Stangen',       key: 'Lauch' },
+            { name: 'Randen',             qty: '3–4 Stück',         key: 'Randen' },
+            { name: 'Kohlrabi',           qty: '1–2 Stück',         key: 'Kohlrabi' },
+            { name: 'Rucola oder Spinat', qty: '1 Bund ca. 200 g',  key: 'Rucola' },
+            { name: 'Petersilie',         qty: '1 Bund ca. 200 g',  key: 'Petersilie' },
+          ]
+        }
+      ];
+
+      var tabsEl   = document.getElementById('sp-tabs');
+      var panelsEl = document.getElementById('sp-panels');
+      if (!tabsEl || !panelsEl) return;
+
+      phases.forEach(function(phase, idx) {
+        var btn = document.createElement('button');
+        btn.className = 'sp-tab' + (idx === 0 ? ' sp-tab-active' : '');
+        btn.textContent = phase.tab;
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('.sp-tab').forEach(function(t) { t.classList.remove('sp-tab-active'); });
+          document.querySelectorAll('.sp-phase-panel').forEach(function(p) { p.classList.remove('sp-panel-active'); });
+          btn.classList.add('sp-tab-active');
+          document.getElementById('sp-panel-' + idx).classList.add('sp-panel-active');
+        });
+        tabsEl.appendChild(btn);
+
+        var panel = document.createElement('div');
+        panel.className = 'sp-phase-panel' + (idx === 0 ? ' sp-panel-active' : '');
+        panel.id = 'sp-panel-' + idx;
+
+        var grid = document.createElement('div');
+        grid.className = 'sp-contents-grid';
+        phase.items.forEach(function(it) {
+          var c = crops[it.key] || {};
+          var div = document.createElement('div');
+          div.className = 'sp-item';
+          div.innerHTML =
+            '<span class="sp-item-dot"></span>' +
+            '<span class="sp-item-body">' +
+              '<span class="sp-item-top">' +
+                '<span class="sp-item-name">' + it.name + '</span>' +
+                '<span class="sp-item-qty">· ' + it.qty + '</span>' +
+              '</span>' +
+              (c.info ? '<span class="sp-item-desc">' + c.info + '</span>' : '') +
+            '</span>';
+          grid.appendChild(div);
+        });
+
+        var note = document.createElement('p');
+        note.className = 'sp-contents-note';
+        note.textContent = phase.note;
+        panel.appendChild(grid);
+        panel.appendChild(note);
+        panelsEl.appendChild(panel);
+      });
+    })();
   </script>
 </body>
 </html>
