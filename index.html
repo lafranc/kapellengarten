@@ -82,12 +82,13 @@
     .ks-btn { font-family:'DM Sans',sans-serif; font-size:.8rem; letter-spacing:.08em; text-transform:uppercase; padding:.55rem 1.4rem; border:1.5px solid #b8b0a0; border-radius:2rem; background:transparent; color:#7a7a6a; cursor:pointer; transition:all .2s; }
     .ks-btn:hover { border-color:#4a6741; color:#4a6741; }
     .ks-btn.ks-active { background:#4a6741; border-color:#4a6741; color:#f7f5f0; }
-    .ks-photo-wrap { position:relative; overflow:hidden; border-radius:6px; aspect-ratio:3/2; margin-bottom:1.5rem; }
-    .ks-photo { width:100%; height:100%; object-fit:cover; object-position:center top; display:block; transition:opacity .3s ease; }
+    .ks-photo-wrap { position:relative; border-radius:6px; margin-bottom:1.5rem; background:#d4cfc3; }
+    .ks-photo { width:100%; height:auto; display:block; transition:opacity .3s ease; border-radius:6px; }
     .ks-photo.ks-fade { opacity:0; }
-    .ks-label { position:absolute; bottom:0; left:0; right:0; padding:1.5rem 2rem; background:linear-gradient(to top, rgba(20,32,18,.75) 0%, transparent 100%); }
-    .ks-label-name { font-family:'Cormorant Garamond',serif; font-size:2.4rem; font-weight:400; color:#f7f5f0; display:block; line-height:1; }
-    .ks-label-month { font-family:'DM Sans',sans-serif; font-size:.68rem; color:rgba(247,245,240,.75); letter-spacing:.18em; text-transform:uppercase; display:block; margin-top:.3rem; }
+    .ks-label { display:none; }
+    .ks-content-header { padding:.85rem 1rem .75rem; border-bottom:1px solid #f0ece0; }
+    .ks-label-name { font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:400; color:#2c2c1e; display:inline; }
+    .ks-label-month { font-family:'DM Sans',sans-serif; font-size:.72rem; color:#9a9a8a; letter-spacing:.1em; text-transform:uppercase; display:inline; margin-left:.6rem; }
     .ks-content { background:#fff; border:1px solid #e2ddd2; border-radius:8px; overflow:hidden; margin-bottom:3.5rem; }
     .ks-content-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:0; }
     .ks-item { display:flex; align-items:flex-start; gap:10px; padding:.6rem 1rem; border-bottom:1px solid #f0ece0; }
@@ -430,6 +431,7 @@
       </div>
 
       <div class="ks-content">
+        <div class="ks-content-header"><span class="ks-label-name" id="ks-name">Frühling</span><span class="ks-label-month" id="ks-month">April – Mai</span></div>
         <div class="ks-content-grid" id="ks-grid"></div>
         <p class="ks-note" id="ks-note"></p>
       </div>
