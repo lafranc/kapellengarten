@@ -46,16 +46,6 @@
     .hero h1 { font-size:clamp(3rem,8vw,6rem); font-weight:400; line-height:1.1; margin-bottom:1.5rem; }
     .hero h1 span { display:block; font-style:italic; color:#4a6741; }
     .hero-text { font-family:'DM Sans',sans-serif; font-size:clamp(1rem,2vw,1.2rem); color:#5a6a5a; margin-bottom:2rem; max-width:600px; margin-left:auto; margin-right:auto; }
-    .spot-box { display:inline-block; background:rgba(255,255,255,.88); border:2px solid #4a6741; border-radius:12px; padding:1.2rem 2rem; margin-bottom:2rem; min-width:300px; text-align:left; }
-    .spot-label { font-family:'DM Sans',sans-serif; font-size:.7rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:#4a6741; margin-bottom:.5rem; }
-    .spot-row { display:flex; align-items:baseline; gap:.4rem; margin-bottom:.6rem; }
-    .spot-num { font-size:3.2rem; font-weight:600; color:#4a6741; line-height:1; font-family:'Cormorant Garamond',serif; }
-    .spot-of { font-family:'DM Sans',sans-serif; font-size:.95rem; color:#5a6a5a; }
-    .spot-bar { background:#e8e4da; border-radius:6px; height:7px; overflow:hidden; margin-bottom:.6rem; }
-    .spot-fill { height:100%; border-radius:6px; background:linear-gradient(90deg,#4a6741,#7a9e7e); transition:width 1.2s cubic-bezier(.22,1,.36,1); width:0; }
-    .spot-tagline { font-family:'DM Sans',sans-serif; font-size:.82rem; color:#4a5a4a; line-height:1.5; margin-bottom:.35rem; }
-    .spot-note { font-family:'DM Sans',sans-serif; font-size:.78rem; color:#5a6a5a; }
-    .spot-note strong { color:#2d3a2d; }
     .btn { display:inline-block; padding:1rem 2.5rem; background:#4a6741; color:#f7f5f0; text-decoration:none; font-family:'DM Sans',sans-serif; font-size:.9rem; letter-spacing:.05em; text-transform:uppercase; transition:all .3s ease; border:2px solid #4a6741; cursor:pointer; }
     .btn:hover { background:transparent; color:#4a6741; }
     .btn-ghost { display:inline-block; padding:1rem 2rem; background:transparent; color:#4a6741; text-decoration:none; font-family:'DM Sans',sans-serif; font-size:.9rem; letter-spacing:.05em; text-transform:uppercase; border:2px solid #4a6741; transition:all .3s ease; margin-left:1rem; cursor:pointer; }
@@ -166,15 +156,6 @@
     .abo-left h2 { font-size:clamp(2.5rem,5vw,3.5rem); font-weight:400; line-height:1.15; margin-bottom:1.2rem; }
     .abo-left h2 span { font-style:italic; color:#7a9e7e; }
     .abo-left > p { font-family:'DM Sans',sans-serif; font-size:1rem; color:rgba(247,245,240,.75); line-height:1.8; margin-bottom:1.5rem; }
-    .abo-counter { background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.12); border-radius:10px; padding:1.5rem 2rem; margin-bottom:2rem; }
-    .abo-counter .spot-label { color:#7a9e7e; }
-    .abo-counter .spot-num { color:#f7f5f0; font-size:3rem; }
-    .abo-counter .spot-of { color:rgba(247,245,240,.6); }
-    .abo-counter .spot-bar { background:rgba(255,255,255,.1); }
-    .abo-counter .spot-fill { background:linear-gradient(90deg,#7a9e7e,#c8dbc9); }
-    .abo-counter .spot-tagline { color:rgba(247,245,240,.7); }
-    .abo-counter .spot-note { color:rgba(247,245,240,.6); }
-    .abo-counter .spot-note strong { color:#f7f5f0; }
     .abo-info-blocks { display:flex; flex-direction:column; gap:0; margin-bottom:2rem; }
     .abo-info-block { padding:1.2rem 0; border-bottom:1px solid rgba(255,255,255,.1); display:flex; gap:1.2rem; align-items:flex-start; }
     .abo-info-block:last-child { border-bottom:none; }
@@ -243,7 +224,6 @@
       .nav-links.active { right:0; }
       .nav-links a { font-size:1rem; padding:.5rem 0; }
       .hero { padding:2rem 1.5rem; }
-      .spot-box { min-width:auto; width:100%; max-width:340px; }
       .kiste-section { padding:4rem 1.5rem; }
       .kiste-how { grid-template-columns:1fr; gap:1rem; }
       .kiste-seasons { grid-template-columns:1fr; gap:.75rem; }
@@ -366,21 +346,10 @@
       </svg>
     </div>
     <div class="hero-content">
-      <p class="hero-location">Olten · Schweiz</p>
-      <h1 class="einblenden einblenden-1">Frisches Gemüse<br><span>aus der Region Olten</span></h1>
-      <p class="hero-text einblenden einblenden-2">Es geht los. Begleite mich in meine erste Saison 2026, als einer von 20 ersten Gemüseabonnenten.</p>
-      <div class="einblenden einblenden-2" style="display:flex;justify-content:center;margin-bottom:2rem;">
-        <div class="spot-box">
-          <div class="spot-label">🌿 Verfügbare Plätze · Saison 2026</div>
-          <div class="spot-row">
-            <span class="spot-num" id="spotNum1">16</span>
-            <span class="spot-of">von 20 Plätzen frei</span>
-          </div>
-          <div class="spot-bar"><div class="spot-fill" id="spotFill1"></div></div>
-          <p class="spot-tagline">Jede Woche frisch geerntetes Gemüse, direkt von der Kapelle abgeholt.</p>
-          <div class="spot-note" id="spotNote1"><strong>CHF 25.– pro Gemüsetasche · gefüllt mit 5–7 frisch geernteten Gemüsesorten</strong></div>
-        </div>
-      </div>
+      <p class="hero-location">Wangen bei Olten · Schweiz</p>
+      <h1 class="einblenden einblenden-1">Gemüse mit<br><span>Geschmacksexplosion</span></h1>
+      <p class="hero-text einblenden einblenden-2">Frisch geerntet, samstags abgeholt &ndash; direkt vom <strong>Kapellengarten</strong> in Wangen bei Olten.</p>
+      <p class="einblenden einblenden-2" style="font-family:'DM Sans',sans-serif;font-size:1rem;color:#4a6741;font-weight:500;margin-bottom:2rem;letter-spacing:.03em;">🌿 Noch Pl&auml;tze frei &ndash; meld dich jetzt</p>
       <div class="einblenden einblenden-3">
         <a href="#abo" class="btn">Platz sichern</a>
         <a href="#kiste" class="btn-ghost">Mehr erfahren</a>
@@ -393,14 +362,14 @@
     <div class="kiste-section-inner">
       <p class="section-label">So funktioniert die Gemüsekiste</p>
       <h2>Frisch geerntet,<br><span>bevor du es abholst</span></h2>
-      <p class="kiste-intro">Direkt vom Kapellengarten, Dorfstrasse 192, Wangen bei Olten. Jede Woche warten rund <strong>5–7 verschiedene Gemüsesorten</strong> auf dich, was gerade erntefrisch ist, was die Saison hergibt, was ich für dich geerntet habe.</p>
+      <p class="kiste-intro">Direkt vom Kapellengarten, Dorfstrasse 192, Wangen bei Olten. Jede Woche warten rund <strong>6–8 verschiedene Gemüsesorten</strong> auf dich, was gerade erntefrisch ist, was die Saison hergibt, was ich für dich geerntet habe.</p>
 
       <div class="kiste-how">
         <div class="kiste-step">
           <div class="kiste-step-num">1</div>
           <div>
             <strong>Gemüseabo abschliessen</strong>
-            <p>Du meldest dich einmal an und bekommst wöchentlich deine Gemüsetasche, von April bis Oktober, rund 26 Wochen. Das hilft mir bei der Planung. Da das erste Jahr für uns beide neu ist, kannst du dein Gemüseabo jederzeit kündigen – quasi ein saisonales Probe-Gemüseabo für dich.</p>
+            <p>Du meldest dich einmal an und bekommst wöchentlich deine Gemüsetasche, von April bis Oktober, rund 26 Wochen. Das hilft mir bei der Planung. Du kannst dein Gemüseabo jederzeit kündigen, unkompliziert.</p>
           </div>
         </div>
         <div class="kiste-step">
@@ -519,8 +488,8 @@
         </div>
         <div class="ueber-uns-portrait-text">
           <h3>Hinter dem <span>Garten</span></h3>
-          <p>Ich bin Francis. Ich übernehme das Areal rund um die historische Kapelle in Wangen bei Olten und baue dort meinen eigenen Marktgarten auf: den Kapellengarten. Schritt für Schritt, Beet für Beet, Saison für Saison.</p>
-          <p>Als einer meiner ersten 20 Kunden bist du von Anfang an dabei. Du siehst, was wächst, bekommst jede Woche mit, was der Boden hergibt und schmeckst den Unterschied. Ich freue mich darauf, dieses Projekt mit Menschen zu teilen, die Lust haben, nah dran zu sein.</p>
+          <p>Ich bin Francis. Ich übernehme das Areal rund um die historische Kapelle in Wangen bei Olten und baue dort meinen eigenen Marktgarten auf: den <strong>Kapellengarten</strong>. Schritt für Schritt, Beet für Beet, Saison für Saison.</p>
+          <p>Du siehst, was wächst, bekommst jede Woche mit, was der Boden hergibt und schmeckst den Unterschied. Ich freue mich darauf, dieses Projekt mit Menschen zu teilen, die Lust haben, nah dran zu sein.</p>
         </div>
       </div>
     </div>
@@ -529,8 +498,8 @@
       <h3>Das <span>Marktgartensystem</span></h3>
       <div class="ueber-uns-method-grid">
         <div>
-          <p>Im Kapellengarten wende ich das Marktgartensystem an: eine Methode, die zeigt, dass auf kleiner Fläche intensiv, hochwertig und wirtschaftlich angebaut werden kann. Pioniere wie <strong>Jean-Martin Fortier</strong> («The Market Gardener»), <strong>Eliot Coleman</strong> oder <strong>Charles Dowding</strong> haben dieses System geprägt: Handarbeit, permanente Beete, schonende Bodenbearbeitung und konsequente Fruchtfolgen führen zu ausserordentlicher Qualität.</p>
-          <p>Den entscheidenden Unterschied macht die Bodenbiologie: Als zertifizierter <strong>Bodenmikrobiologe</strong> (nach Dr. Elaine Ingham) analysiere ich das Bodenleben regelmässig und fördere es gezielt, für Gemüse mit messbarer Nährstoffdichte und einem Geschmack, der den Unterschied macht.</p>
+          <p>Im <strong>Kapellengarten</strong> wende ich das Marktgartensystem an: eine Methode, die zeigt, dass auf kleiner Fläche intensiv, hochwertig und wirtschaftlich angebaut werden kann. Pioniere wie <strong>Jean-Martin Fortier</strong> («The Market Gardener»), <strong>Eliot Coleman</strong> oder <strong>Charles Dowding</strong> haben dieses System geprägt: Handarbeit, permanente Beete, schonende Bodenbearbeitung und konsequente Fruchtfolgen führen zu ausserordentlicher Qualität.</p>
+          <p>Den entscheidenden Unterschied macht die Bodenbiologie: Als zertifizierter <strong>Bodenmikrobiologe</strong> (Soil Food Web School, Dr. Elaine Ingham) analysiere ich das Bodenleben regelmässig und baue es kontinuierlich auf. Ein lebendiger Boden bringt maximale Nährstoffdichte ins Gemüse &ndash; und damit den Geschmack, der den Unterschied macht. Parallel teste ich laufend neue Sorten, immer mit dem Ziel, die geschmacklich und aromatisch überzeugendsten Kulturen zu finden.</p>
         </div>
         <div class="ueber-uns-method-img">
           <img src="kapelle-aussen.png" alt="Kapelle Kapellengarten Wangen bei Olten">
@@ -544,9 +513,9 @@
       </div>
       <div>
         <h3>Die <span>Kapelle</span> als Marktplatz</h3>
-        <p>Der Kapellengarten soll mehr sein als ein Ort, wo man Gemüse abholt. Die Vision ist ein Samstagvormittag, an dem man kurz innehalten kann. Eine Tasse Kaffee, ein frisches Stück Brot vom lokalen Bäcker, ein kurzes Gespräch über das, was gerade wächst.</p>
+        <p>Der <strong>Kapellengarten</strong> soll mehr sein als ein Ort, wo man Gemüse abholt. Die Vision ist ein Samstagvormittag, an dem man kurz innehalten kann. Eine Tasse Kaffee, ein frisches Stück Brot vom lokalen Bäcker, ein kurzes Gespräch über das, was gerade wächst.</p>
         <p>Produkte aus der Region, saisonale Anlässe, eine Führung durch den Garten. Ein Treffpunkt für alle, denen es wichtig ist, zu wissen, woher ihr Essen kommt, und wer es anbaut.</p>
-        <p>Das ist eine Idee, die wächst. 2026 fängt sie klein an, mit 20 Gemüsetaschen und einem offenen Tor samstags.</p>
+        <p>Das ist eine Idee, die wächst &ndash; mit einem offenen Tor samstags.</p>
       </div>
     </div>
   </div>
@@ -559,22 +528,22 @@
         <div class="timeline-item">
           <div class="timeline-year">2026</div>
           <div>
-            <div class="timeline-title">Startphase · 20 erste Gemüseabonnenten</div>
-            <p class="timeline-desc">Wöchentliche Gemüsekiste ab April, 20 erste Gemüseabonnenten, samstags bei der Kapelle abgeholt. Der Fokus liegt auf einer Handvoll bewährter Kulturen, angebaut mit konsequenter Bodenbiologie.</p>
+            <div class="timeline-title">Startphase · Gemüseabo ab April</div>
+            <p class="timeline-desc">Wöchentliche Gemüsetasche ab April, samstags bei der Kapelle abgeholt. Der Fokus liegt auf bewährten Kulturen, maximalem Geschmack und dem achtsamen Aufbau eines lebendigen Bodens.</p>
           </div>
         </div>
         <div class="timeline-item">
           <div class="timeline-year">2027</div>
           <div>
             <div class="timeline-title">Erweiterungsphase · mehr Kulturen</div>
-            <p class="timeline-desc">Das Sortiment wächst: mehr Kundschaft, mehr Vielfalt. Ich beginne, mit seltenen und alten Sorten zu experimentieren – immer mit dem Ziel, die geschmacklich überzeugendsten Varianten zu finden und anzubauen.</p>
+            <p class="timeline-desc">Das Sortiment wächst. Ich teste kontinuierlich neue und seltene Sorten &ndash; immer mit dem Ziel, die aromatisch und geschmacklich überzeugendsten Kulturen zu finden. Der Boden wird von Saison zu Saison weiter aufgebaut: mehr Biodiversität, mehr Nährstoffdichte, mehr Frische im Gemüse.</p>
           </div>
         </div>
         <div class="timeline-item">
           <div class="timeline-year">2028+</div>
           <div>
             <div class="timeline-title">Kapelle als Marktplatz</div>
-            <p class="timeline-desc">Die historische Kapelle wird zum Treffpunkt: Direktverkauf von Gemüse und weiteren Produkten aus der Region, kleines Kapellenkaffee, saisonale Anlässe, ein Ort, der verbindet.</p>
+            <p class="timeline-desc">Die historische Kapelle wird zum Treffpunkt: Direktverkauf von Gemüse mit nachgewiesener Nährstoffdichte, Produkte aus der Region, kleines Kapellenkaffee, saisonale Anlässe &ndash; ein Ort, der verbindet.</p>
           </div>
         </div>
       </div>
@@ -650,23 +619,14 @@
         <h2>Jede Woche<br><span>frisches Gemüse geniessen</span></h2>
         <p>Das Gemüseabo startet im <strong style="color:#c8dbc9">April 2026</strong> und läuft bis Ende Oktober, insgesamt rund <strong style="color:#c8dbc9">26 Wochen</strong>. In jeder Gemüsetasche steckt, was die Saison gerade hergibt: frisch geerntet, samstags abgeholt.</p>
 
-        <div class="abo-counter">
-          <div class="spot-label">🌿 Noch verfügbar · Saison 2026</div>
-          <div class="spot-row">
-            <span class="spot-num" id="spotNum2">16</span>
-            <span class="spot-of" style="color:rgba(247,245,240,.6)">von 20 Plätzen noch frei</span>
-          </div>
-          <div class="spot-bar"><div class="spot-fill" id="spotFill2"></div></div>
-          <p class="spot-tagline">Jede Woche frisch geerntetes Gemüse, direkt von der Kapelle abgeholt.</p>
-          <div class="spot-note" id="spotNote2"><strong>CHF 25.– pro Kiste · 5–7 Kulturen · Saison 2026</strong></div>
-        </div>
+        <p style="font-family:'DM Sans',sans-serif;font-size:1rem;color:#c8dbc9;font-weight:500;margin-bottom:2rem;letter-spacing:.03em;">🌿 Noch Pl&auml;tze frei &ndash; meld dich jetzt</p>
 
         <div class="abo-info-blocks">
           <div class="abo-info-block">
             <div class="abo-info-num">1</div>
             <div>
               <strong>Die Gemüsetasche</strong>
-              <p>Jede Gemüsetasche enthält 5–7 verschiedene Gemüsesorten, was gerade erntereif ist, ohne Vorauswahl. Die Gemüsetasche ist für eine Person pro Woche berechnet. Für Familien oder Paare ist auch eine zweite Gemüsetasche möglich, oder ihr teilt euch eine Gemüsetasche mit jemandem.</p>
+              <p>Jede Gemüsetasche enthält 6–8 verschiedene Gemüsesorten, was gerade erntereif ist, ohne Vorauswahl. Die Gemüsetasche ist für eine Person pro Woche berechnet. Für Familien oder Paare ist auch eine zweite Gemüsetasche möglich, oder ihr teilt euch eine Gemüsetasche mit jemandem.</p>
             </div>
           </div>
           <div class="abo-info-block">
@@ -730,11 +690,11 @@
       </details>
       <details class="faq-item">
         <summary>Was ist in der Gemüsetasche?</summary>
-        <div class="faq-a">Jede Woche <strong>5–7 saisonale Kulturen</strong>, was gerade erntefrisch ist. Jeden Freitag erhältst du per Newsletter eine Vorschau, damit du dich auf die Woche vorbereiten kannst.</div>
+        <div class="faq-a">Jede Woche <strong>6–8 saisonale Kulturen</strong>, was gerade erntefrisch ist. Jeden Freitag erhältst du per Newsletter eine Vorschau, damit du dich auf die Woche vorbereiten kannst.</div>
       </details>
       <details class="faq-item">
         <summary>Ist das Gemüse biologisch zertifiziert?</summary>
-        <div class="faq-a">Der Kapellengarten arbeitet nach <strong>biologischen Prinzipien</strong>, kein Kunstdünger, keine Pestizide. Ich bin ausgebildeter Bodenmikrobiologe (Soil Food Web) und analysiere die Bodenbiologie regelmässig. Eine offizielle Bio-Zertifizierung wird angestrebt.</div>
+        <div class="faq-a">Der <strong>Kapellengarten</strong> arbeitet nach <strong>biologischen Prinzipien</strong>, kein Kunstdünger, keine Pestizide. Ich bin zertifizierter Bodenmikrobiologe (Soil Food Web School, Dr. Elaine Ingham) und analysiere die Bodenbiologie regelmässig, um maximale Nährstoffdichte und Geschmack zu erreichen. Eine offizielle Bio-Zertifizierung wird angestrebt.</div>
       </details>
       <details class="faq-item">
         <summary>Was passiert, wenn alle Plätze besetzt sind?</summary>
@@ -772,22 +732,6 @@
 
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
   <script data-cfasync="false">
-    const TOTAL = 20;
-    let taken = 4;
-    function updateSpots(n) {
-      const left = TOTAL - n;
-      const pct  = (n / TOTAL * 100) + '%';
-      ['spotNum1','spotNum2'].forEach(id => { const el = document.getElementById(id); if(el) el.textContent = left; });
-      ['spotFill1','spotFill2'].forEach(id => { const el = document.getElementById(id); if(el) el.style.width = pct; });
-      ['spotNote1','spotNote2'].forEach(id => {
-        const el = document.getElementById(id); if(!el) return;
-        if(left <= 3 && left > 0) el.innerHTML = '<strong style="color:#c0392b">⚡ Nur noch ' + left + ' Plätze frei!</strong>';
-        else if(left === 0) el.innerHTML = '<strong style="color:#c0392b">Alle Plätze vergeben, Warteliste anfragen.</strong>';
-        else el.innerHTML = '<strong>CHF 25.– pro Gemüsetasche · gefüllt mit 5–7 frisch geernteten Gemüsesorten</strong>';
-      });
-    }
-    window.addEventListener('load', () => updateSpots(4));
-
     function subscribeNewsletter() {
       const email = document.getElementById('nlEmail').value.trim();
       const note  = document.getElementById('nlNote');
@@ -878,13 +822,11 @@
 
       function render(idx) {
         var s = seasons[idx];
-        // Fade photo
         photo.classList.add('ks-fade');
         setTimeout(function() {
           photo.src = s.photo;
           photo.alt = s.alt;
           photo.onload = function() { photo.classList.remove('ks-fade'); };
-          // If already cached, onload may not fire
           if (photo.complete) photo.classList.remove('ks-fade');
         }, 200);
         nameEl.textContent = s.name;
