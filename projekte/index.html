@@ -247,8 +247,8 @@
     .badge-erledigt .badge-dot { background: var(--emerald-dot); }
 
     .priority { font-size: .7rem; font-weight: 600; }
-    .priority-hoch { color: var(--red); }
-    .priority-mittel { color: var(--amber-dot); }
+    .priority-jetzt { color: var(--red); font-weight:700; }
+    .priority-bald { color: var(--amber-dot); }
 
     .card-title {
       font-family: var(--font-heading);
@@ -296,6 +296,16 @@
       border-top: 1px solid #f3f4f6;
     }
     .card.open .card-detail { display: block; padding-top: 1.25rem; }
+
+    .card-detail-img {
+      width: 100%;
+      height: 200px;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 1.25rem;
+    }
+    .card-detail-img img { width: 100%; height: 100%; object-fit: cover; }
+    @media (min-width: 640px) { .card-detail-img { height: 280px; } }
 
     .video-link {
       display: flex;
@@ -556,8 +566,8 @@ const PROJECTS = [
     title: "Überkopf-Bewässerung Folientunnel",
     category: "infrastruktur",
     status: "offen",
-    priority: "hoch",
-    deadline: "Bis KW 16",
+    priority: "bald",
+    deadline: "Bis KW 16 (13.\u201319. April)",
     location: "Folientunnel",
     image: "images/bewasserung-sprinkler.jpg",
     video: "https://www.youtube.com/watch?v=k6xP9j5XQhM",
@@ -590,8 +600,8 @@ const PROJECTS = [
     title: "Tomaten-Hochdrahtsystem",
     category: "infrastruktur",
     status: "offen",
-    priority: "mittel",
-    deadline: "Bis KW 18",
+    priority: "bald",
+    deadline: "Bis KW 18 (27. April – 3. Mai)",
     location: "Folientunnel, Beet 2a + 2b",
     image: "images/tomaten-hochdraht.jpg",
     summary: "Ein Längsdraht wird zwischen den 5 Querstreben des Tunnels gespannt. An diesem Draht werden individuelle Schnüre befestigt, an denen die Tomatenpflanzen (Sweet Million) hochgeleitet werden. Ca. 45 Pflanzen pro 10-Meter-Beet bei 22 cm Abstand.",
@@ -614,10 +624,10 @@ const PROJECTS = [
     title: "Abtropf-Tisch für Waschplatz (70 cm)",
     category: "infrastruktur",
     status: "offen",
-    priority: "hoch",
-    deadline: "Bis KW 16",
+    priority: "bald",
+    deadline: "Bis KW 16 (13.–19. April)",
     location: "Waschplatzstrasse",
-    image: "images/waschplatz-tisch2.jpg",
+    image: "images/waschplatz-tisch.jpg",
     summary: "Stabiler Holztisch (70 cm Höhe) für die Waschplatzstrasse. Auf den Tisch wird ein Abtropfgitter gelegt, auf dem das gewaschene Gemüse trocknet. Ergonomische Höhe zum Sortieren und Abwiegen.",
     materials: [
       "Kantholz 60\u00d760 mm oder 70\u00d770 mm für Beine (4 Stk., je 70 cm)",
@@ -642,8 +652,8 @@ const PROJECTS = [
     title: "Bottich-Ständer für Waschplatz (60 cm)",
     category: "infrastruktur",
     status: "offen",
-    priority: "hoch",
-    deadline: "Bis KW 16",
+    priority: "bald",
+    deadline: "Bis KW 16 (13.–19. April)",
     location: "Waschplatzstrasse",
     image: "images/waschplatz-bottich.jpg",
     summary: "Kleines Tischchen (60 cm Höhe) als Ständer für den Waschbottich (ca. 30 cm hoch). Bottichrand liegt so bei ~90 cm Arbeitshöhe, ergonomisch zum Waschen im Stehen.",
@@ -663,45 +673,150 @@ const PROJECTS = [
     hinweis: "Rechnung: 60 cm Tischchen + 30 cm Bottich = 90 cm Arbeitshöhe am Bottichrand. Auch hier Gummifüsse verwenden gegen Verrutschen."
   },
   {
-    id: "kraeuterbeet",
-    title: "Kräuterbeet anlegen",
+    id: "randen-bor",
+    title: "Randen: Bor-Blattd\u00fcngung",
     category: "produktion",
     status: "offen",
-    priority: "mittel",
-    deadline: "KW 16\u201318",
-    location: "Block 2, Beet 7 (a/b/c)",
-    image: "images/kraeuterbeet.jpg",
-    summary: "Beet 7 in Block 2 wird dreigeteilt: Schnittlauch (Dauerbepflanzung am Beetende), Dill und Koriander. Dill und Koriander erst ab KW 16\u201318 aussäen, um Schossgefahr zu reduzieren.",
-    materials: [
-      "Schnittlauch-Jungpflanzen oder Teilung",
-      "Dill-Saatgut",
-      "Koriander-Saatgut",
-      "Luzernepellets (200 g/Beetmeter)",
-      "Grünschnittkompost (15 L/Beetmeter)"
-    ],
-    tools: ["Grelinette (Broadfork)", "Mini-Tilther", "Jang JP-5 Seeder", "Giessbrause"],
+    priority: "jetzt",
+    deadline: "KW 14 \u2013 Jetzt (31. M\u00e4rz \u2013 6. April)",
+    location: "Block 2, Beet 1a (Randen, gepflanzt KW 10)",
+    image: "images/randen.jpg",
+    summary: "24 Tage nach Pflanzung: Bor-Blattd\u00fcnger auf Randen spr\u00fchen. Sch\u00fctzt vor Pilzkrankheiten und verhindert Bormangel (hohle Knollen). Die Randen in Block 2 Beet 1a wurden in KW 10 gepflanzt \u2013 Bor ist jetzt f\u00e4llig.",
+    materials: ["Lebosol-Bor-150 (g/l) Fl\u00fcssigd\u00fcnger", "Wasser", "Messbecher"],
+    tools: ["Handspr\u00fcher oder R\u00fcckenspritze"],
     steps: [
-      { title: "Beet vorbereiten", details: "Beet mit Grelinette lockern (nicht wenden!). Luzernepellets und Grünschnittkompost flach einarbeiten mit Mini-Tilther." },
-      { title: "Schnittlauch pflanzen (Beet 7a)", details: "Schnittlauch als Staude an ein Beetende setzen. Wächst mehrjährig und breitet sich aus. Kein Umbruch nötig in den Folgejahren." },
-      { title: "Dill säen (Beet 7b) \u2013 ab KW 16", details: "Dill direkt ins Beet säen. Reihenabstand ca. 15 cm. Feucht halten bis zur Keimung. Nicht zu früh säen (Schossgefahr bei kühlen Temperaturen)." },
-      { title: "Koriander säen (Beet 7c) \u2013 ab KW 16\u201318", details: "Koriander in Reihen säen. Langtag-empfindlich, daher spätere Aussaat bevorzugen. Regelmässig nachsäen für kontinuierliche Ernte." }
+      { title: "L\u00f6sung anmischen", details: "Pro Beetmeter: 0,63 ml Lebosol-Bor-150 auf 63 ml Wasser. Das entspricht ca. 0,1 g Bor pro Beetmeter. F\u00fcr die gesamte Randen-Fl\u00e4che (Beet 1a) hochrechnen." },
+      { title: "Blattd\u00fcngung ausbringen", details: "Am besten abends oder bei bedecktem Himmel spr\u00fchen. L\u00f6sung gleichm\u00e4ssig auf die Bl\u00e4tter spr\u00fchen, beide Blattseiten benetzen." }
     ],
-    hinweis: "Koriander und Dill schossen schnell bei Hitze und Langtag. Gestaffelte Aussaaten alle 2\u20133 Wochen planen."
+    hinweis: "Laut Handbuch: 24 Tage nach Pflanzung. Block 2 Beet 1a wurde KW 10 gepflanzt \u2192 jetzt f\u00e4llig. Mangold (Block 1 Beet 1, gepflanzt KW 13) bekommt Bor sp\u00e4ter in KW 17."
+  },
+  {
+    id: "beikraut-1durchgang",
+    title: "Beikraut: 1. Durchgang KW-13-Pflanzungen",
+    category: "produktion",
+    status: "offen",
+    priority: "jetzt",
+    deadline: "KW 14\u201315 \u2013 Jetzt (diese + n\u00e4chste Woche)",
+    location: "Block 1 Beete 1+2, Block 2 Beete 3b, 7a/b, 8a/b",
+    image: "images/beikraut.jpg",
+    summary: "10 Tage nach Pflanzung (KW 13): Erster Durchgang Drahthacke bei Mangold, Salat (Block 1), Kohlrabi, Schnittlauch, Dill, Fenchel (Block 2).",
+    materials: [],
+    tools: ["Drahthacke (5 cm f\u00fcr enge Reihen, 12 cm f\u00fcr weite)", "Pendelhacke als Alternative"],
+    steps: [
+      { title: "Netz/Vlies aufdecken", details: "Insektennetz oder Vlies vorsichtig abheben und zur Seite legen." },
+      { title: "Drahthacke einsetzen", details: "An einem sonnigen Morgen: mit der Drahthacke zwischen den Reihen durchgehen. Ziel: 80% des Beikrauts st\u00f6ren. Beide Daumen nach oben, gerader R\u00fccken." },
+      { title: "Netz/Vlies wieder auflegen", details: "Abdeckung wieder sorgf\u00e4ltig auflegen und an den R\u00e4ndern beschweren." }
+    ],
+    hinweis: "2. Durchgang folgt in KW 15\u201316 (17 Tage nach Pflanzung). Bei Zeitknappheit nur zwischen den Reihen hacken."
+  },
+  {
+    id: "vlies-tausch",
+    title: "Vlies gegen Insektennetz tauschen",
+    category: "produktion",
+    status: "offen",
+    priority: "jetzt",
+    deadline: "KW 14\u201315 \u2013 Sobald Boden \u00fcber 10\u00b0C",
+    location: "Block 1 + 2, Kreuzbl\u00fctler-Beete",
+    image: "images/vlies-netz.jpg",
+    summary: "Sobald Bodentemperatur \u00fcber 10\u00b0C: Vlies bei Kreuzbl\u00fctlern (Kohlrabi, Asiasalat, Radieschen, Rucola) durch Insektennetz ersetzen. Erdfl\u00f6he werden bei W\u00e4rme aktiv.",
+    materials: ["Insektennetz (feinmaschig)", "Federstahlst\u00e4be f\u00fcr Hoops (bei Kohlrabi)"],
+    tools: [],
+    steps: [
+      { title: "Bodentemperatur pr\u00fcfen", details: "Wenn Bodentemperatur dauerhaft \u00fcber 10\u00b0C, werden Erdfl\u00f6he aktiv. Dann Vlies durch Insektennetz ersetzen." },
+      { title: "Vlies entfernen", details: "Vlies vorsichtig abheben, zusammenfalten und trocken lagern." },
+      { title: "Insektennetz auflegen", details: "Bei Kohlrabi: Hoops (Federstahlst\u00e4be) setzen, damit das Netz nicht aufliegt. Bei Salat, Randen, Mangold: Netz kann flach aufgelegt werden." }
+    ],
+    hinweis: "Kohlrabi und Brassicas brauchen Hoops. Salat, Randen und Mangold k\u00f6nnen flach abgedeckt werden."
+  },
+  {
+    id: "karotten-abflammen",
+    title: "Karotten: Abflammen Beet 4",
+    category: "produktion",
+    status: "offen",
+    priority: "bald",
+    deadline: "KW 16 (13.\u201319. April)",
+    location: "Block 2, Beet 4 (Karotten, ges\u00e4t KW 12)",
+    image: "images/karotten.jpg",
+    summary: "Mair\u00fcbchen (Beet 3a, ebenfalls KW 12) keimen jetzt als Indikator. Karotten sind wegen der K\u00e4lte noch nicht aufgelaufen. Abflammen voraussichtlich KW 16, sobald Beikraut sichtbar aber Karotten noch unter der Erde.",
+    materials: ["Abflammger\u00e4t + Gaskartusche"],
+    tools: ["Abflammger\u00e4t"],
+    steps: [
+      { title: "Keimung beobachten", details: "T\u00e4glich Beet 4 kontrollieren. Sobald Beikraut-Keimlinge sichtbar sind aber Karotten noch nicht aufgelaufen \u2192 Zeitpunkt zum Abflammen." },
+      { title: "Abflammen", details: "Gleichm\u00e4ssig \u00fcber das gesamte Beet abflammen. Z\u00fcgig arbeiten (Beikraut welken lassen, nicht verkohlen). Karotten sind noch unter der Erde gesch\u00fctzt." },
+      { title: "Vlies wieder auflegen", details: "Nach dem Abflammen Vlies wieder auflegen und Beet feucht halten." }
+    ],
+    hinweis: "Mair\u00fcbchen auf Beet 3a keimen jetzt (KW 14) als Referenz. Karotten brauchen l\u00e4nger (14\u201321 Tage). Abflammen nur solange Karotten noch UNTER der Erde sind!"
+  },
+  {
+    id: "beikraut-2durchgang",
+    title: "Beikraut: 2. Durchgang KW-13-Pflanzungen",
+    category: "produktion",
+    status: "offen",
+    priority: "bald",
+    deadline: "KW 15\u201316 (7.\u201319. April)",
+    location: "Block 1 Beete 1+2, Block 2 Beete 3b, 7a/b, 8a/b",
+    image: "images/beikraut.jpg",
+    summary: "17 Tage nach Pflanzung (KW 13): Zweiter Durchgang Drahthacke bei Mangold, Salat, Kohlrabi, Schnittlauch, Dill, Fenchel.",
+    materials: [],
+    tools: ["Drahthacke (5 cm / 12 cm)", "Pendelhacke als Alternative"],
+    steps: [
+      { title: "Netz/Vlies aufdecken", details: "Abdeckung vorsichtig abheben." },
+      { title: "Drahthacke einsetzen", details: "An einem sonnigen Morgen zwischen den Reihen hacken. Ziel: 80% des Beikrauts st\u00f6ren." },
+      { title: "Netz/Vlies wieder auflegen", details: "Abdeckung wieder sorgf\u00e4ltig auflegen." }
+    ],
+    hinweis: "Immer an einem sonnigen Morgen hacken. Bei Zeitknappheit nur zwischen den Reihen."
+  },
+  {
+    id: "mangold-bor",
+    title: "Mangold: Bor-Blattd\u00fcngung",
+    category: "produktion",
+    status: "offen",
+    priority: "bald",
+    deadline: "KW 17 (20.\u201326. April)",
+    location: "Block 1, Beet 1 (Mangold, gepflanzt KW 13)",
+    image: "images/randen.jpg",
+    summary: "24 Tage nach Pflanzung: Bor-Blattd\u00fcnger auf Mangold spr\u00fchen. Gleiche Familie wie Randen, gleiche Dosierung. Block 1 Beet 1 wurde KW 13 gepflanzt.",
+    materials: ["Lebosol-Bor-150 (g/l)", "Wasser"],
+    tools: ["Handspr\u00fcher", "Messbecher"],
+    steps: [
+      { title: "L\u00f6sung anmischen", details: "Pro Beetmeter: 0,63 ml Lebosol-Bor-150 auf 63 ml Wasser (ca. 0,1 g Bor pro Beetmeter)." },
+      { title: "Blattd\u00fcngung ausbringen", details: "Abends oder bei bedecktem Himmel spr\u00fchen. Gleichm\u00e4ssig auf beide Blattseiten." }
+    ],
+    hinweis: "Mangold und Randen geh\u00f6ren zur gleichen Familie (Fuchsschwanzgew\u00e4chse). Gleiche Bor-Dosierung."
+  },
+  {
+    id: "kraeuterbeet",
+    title: "Kr\u00e4uterbeet: Dill + Koriander s\u00e4en",
+    category: "produktion",
+    status: "offen",
+    priority: "bald",
+    deadline: "KW 16\u201318 (13. April \u2013 3. Mai)",
+    location: "Block 2, Beet 7b (Dill) + 7c (Koriander)",
+    image: "images/kraeuterbeet.jpg",
+    summary: "Schnittlauch (Beet 7a) wurde bereits KW 13 gepflanzt. Dill und Koriander erst ab KW 16\u201318 auss\u00e4en, um Schossgefahr zu reduzieren.",
+    materials: ["Dill-Saatgut", "Koriander-Saatgut", "Luzernepellets (200 g/Beetmeter)", "Gr\u00fcnschnittkompost (15 L/Beetmeter)"],
+    tools: ["Grelinette", "Mini-Tilther", "Jang JP-5 Seeder", "Giessbrause"],
+    steps: [
+      { title: "Beet vorbereiten (7b + 7c)", details: "Beet mit Grelinette lockern. Luzernepellets und Kompost flach einarbeiten mit Mini-Tilther." },
+      { title: "Dill s\u00e4en (Beet 7b) \u2013 ab KW 16", details: "Direkt ins Beet s\u00e4en. Reihenabstand ca. 15 cm. Feucht halten." },
+      { title: "Koriander s\u00e4en (Beet 7c) \u2013 ab KW 16\u201318", details: "In Reihen s\u00e4en. Langtag-empfindlich, sp\u00e4tere Aussaat bevorzugen. Regelm\u00e4ssig nachs\u00e4en." }
+    ],
+    hinweis: "Schnittlauch (7a) ist bereits gepflanzt (KW 13). Dill und Koriander schossen schnell bei Hitze \u2013 gestaffelte Aussaaten alle 2\u20133 Wochen."
   },
   {
     id: "freiland-pflanzungen",
     title: "Erste Freiland-Pflanzungen Block 1 + 2",
     category: "produktion",
     status: "erledigt",
-    priority: "hoch",
-    deadline: "KW 12\u201313",
+    priority: "geplant",
+    deadline: "KW 12\u201313 (16.\u201329. M\u00e4rz)",
     location: "Block 1 + Block 2",
     image: "images/freiland-pflanzung.jpg",
-    summary: "KW 12: Direktsaat von Radieschen, Mairübchen und Karotten (Block 2 Beete 2a, 3a, 4). KW 13: Pflanzung von Jungpflanzen in Block 1 (Beete 1+2) und Block 2 (Beete 2b, 3b, 7a/b, 8a/b).",
+    summary: "KW 12: Direktsaat Radieschen (2a), Mair\u00fcbchen (3a), Karotten (4). KW 13: Pflanzung Mangold (B1-1), Salat (B1-2), Kohlrabi (3b), Schnittlauch (7a), Dill (7b), Fenchel (8a/b).",
     materials: [],
     tools: [],
     steps: [],
-    hinweis: "Abgeschlossen. Fleece-Abdeckung kontrollieren und bei Bedarf durch Insektennetz ersetzen."
+    hinweis: "Abgeschlossen. Mair\u00fcbchen keimen jetzt (KW 14). Karotten noch nicht aufgelaufen (K\u00e4lte)."
   }
 ];
 
@@ -754,7 +869,7 @@ function render() {
               <div class="card-thumb-mobile"><img src="${p.image}" alt="" onerror="this.parentElement.style.display='none'"></div>
               <div class="card-badges">
                 <span class="badge badge-${p.status}"><span class="badge-dot"></span>${{offen:'Offen',geplant:'Geplant',erledigt:'Erledigt'}[p.status]}</span>
-                <span class="priority priority-${p.priority}">${{hoch:'Priorität hoch',mittel:'Priorität mittel'}[p.priority]}</span>
+                <span class="priority priority-${p.priority}">${{jetzt:'Jetzt fällig',bald:'Bald fällig',geplant:'Geplant'}[p.priority]}</span>
               </div>
               <div class="card-title">${p.title}</div>
               <div class="card-meta">
@@ -766,6 +881,7 @@ function render() {
             ${hasSteps ? '<div class="card-chevron"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/></svg></div>' : ''}
           </button>
           <div class="card-detail">
+            <div class="card-detail-img"><img src="${p.image}" alt="" onerror="this.parentElement.style.display='none'"></div>
             ${p.video ? `<a href="${p.video}" target="_blank" rel="noopener" class="video-link"><div class="video-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div><div class="video-text"><strong>Montagevideo ansehen</strong><span>Schritt-für-Schritt auf YouTube (Farmers Friend)</span></div></a>` : ''}
             ${(p.materials.length||p.tools.length) ? `<div class="mat-tools">
               ${p.materials.length ? `<div class="mat-box material"><h4>Material</h4><ul>${p.materials.map(m=>`<li>${m}</li>`).join('')}</ul></div>` : ''}
