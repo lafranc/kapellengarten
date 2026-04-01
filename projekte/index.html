@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projekte | Kapellengarten</title>
+  <meta name="description" content="Projektübersicht für Helfer im Kapellengarten Wangen bei Olten.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green: #2d4a23;
+      --green-light: #4a6741;
+      --green-bg: #f6f9f4;
+      --green-bg2: #eef2eb;
+      --green-accent: #a3c293;
+      --green-soft: #f0f5ed;
+      --terra: #b85c2a;
+      --amber-bg: #fffbeb;
+      --amber-text: #92400e;
+      --amber-dot: #f59e0b;
+      --blue-bg: #eff6ff;
+      --blue-text: #1e40af;
+      --blue-dot: #3b82f6;
+      --emerald-bg: #ecfdf5;
+      --emerald-text: #065f46;
+      --emerald-dot: #10b981;
+      --warn-bg: #fefce8;
+      --warn-text: #a16207;
+      --warn-title: #854d0e;
+      --red: #dc2626;
+      --font-heading: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: linear-gradient(180deg, var(--green-bg) 0%, var(--green-bg2) 100%);
+      color: #1f2937;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 1.2rem 1rem;
+    }
+    .nav-logo {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 1.25rem;
+      color: var(--green);
+      text-decoration: none;
+    }
+    .nav-back {
+      font-size: .85rem;
+      color: var(--green-light);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+    }
+    .nav-back:hover { text-decoration: underline; }
+
+    /* ── HEADER ── */
+    .header {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 1rem 1.5rem;
+    }
+    .header h1 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 2rem;
+      color: #111827;
+      margin-bottom: .15rem;
+    }
+    .header .subtitle {
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .15em;
+      color: #9ca3af;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .header p {
+      font-size: .9rem;
+      color: #4b5563;
+      line-height: 1.6;
+      max-width: 580px;
+    }
+
+    /* ── FILTERS ── */
+    .filters {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 1rem 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+    }
+    .filter-btn {
+      font-family: var(--font-body);
+      font-size: .85rem;
+      font-weight: 600;
+      padding: .45rem 1rem;
+      border-radius: 999px;
+      border: 1px solid #e5e7eb;
+      background: white;
+      color: #4b5563;
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .filter-btn:hover { border-color: #d1d5db; }
+    .filter-btn.active {
+      background: var(--green);
+      color: white;
+      border-color: var(--green);
+      box-shadow: 0 2px 8px rgba(45,74,35,.25);
+    }
+
+    /* ── CATEGORY HEADER ── */
+    .cat-header {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: .5rem 1rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: .65rem;
+    }
+    .cat-icon {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cat-header h2 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #1f2937;
+    }
+    .cat-count {
+      font-size: .75rem;
+      color: #9ca3af;
+      margin-left: .3rem;
+    }
+
+    /* ── CARD ── */
+    .cards {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 1rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: .75rem;
+    }
+    .card {
+      background: white;
+      border-radius: 16px;
+      border: 1px solid #e5e7eb;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,.06);
+      transition: all .3s;
+    }
+    .card:hover { box-shadow: 0 4px 12px rgba(0,0,0,.08); }
+    .card.open {
+      border: 2px solid var(--green-accent);
+      box-shadow: 0 8px 30px rgba(45,74,35,.1);
+    }
+    .card.done { opacity: .55; }
+
+    .card-toggle {
+      width: 100%;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      display: flex;
+      font-family: inherit;
+      color: inherit;
+    }
+    .card-toggle:disabled { cursor: default; }
+
+    .card-thumb {
+      width: 140px;
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+      display: none;
+    }
+    .card-thumb img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    @media (min-width: 640px) {
+      .card-thumb { display: block; }
+    }
+
+    .card-thumb-mobile {
+      height: 150px;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: .75rem;
+    }
+    .card-thumb-mobile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    @media (min-width: 640px) {
+      .card-thumb-mobile { display: none; }
+    }
+
+    .card-body { flex: 1; min-width: 0; padding: 1rem 1.25rem; }
+    @media (min-width: 640px) { .card-body { padding: 1.25rem; } }
+
+    .card-badges { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin-bottom: .4rem; }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      padding: .25rem .65rem;
+      border-radius: 999px;
+      font-size: .7rem;
+      font-weight: 600;
+    }
+    .badge-dot { width: 6px; height: 6px; border-radius: 50%; }
+
+    .badge-offen { background: var(--amber-bg); color: var(--amber-text); }
+    .badge-offen .badge-dot { background: var(--amber-dot); }
+    .badge-geplant { background: var(--blue-bg); color: var(--blue-text); }
+    .badge-geplant .badge-dot { background: var(--blue-dot); }
+    .badge-erledigt { background: var(--emerald-bg); color: var(--emerald-text); }
+    .badge-erledigt .badge-dot { background: var(--emerald-dot); }
+
+    .priority { font-size: .7rem; font-weight: 600; }
+    .priority-hoch { color: var(--red); }
+    .priority-mittel { color: var(--amber-dot); }
+
+    .card-title {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #111827;
+      margin-bottom: .35rem;
+    }
+    @media (min-width: 640px) { .card-title { font-size: 1.2rem; } }
+
+    .card-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .25rem 1rem;
+      font-size: .75rem;
+      color: #9ca3af;
+      margin-bottom: .5rem;
+    }
+    .card-meta span { display: flex; align-items: center; gap: .3rem; }
+    .card-meta svg { width: 14px; height: 14px; }
+
+    .card-summary {
+      font-size: .875rem;
+      color: #4b5563;
+      line-height: 1.55;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .card-chevron {
+      flex-shrink: 0;
+      align-self: center;
+      padding-right: 1rem;
+      transition: transform .3s;
+    }
+    .card-chevron svg { width: 20px; height: 20px; color: #9ca3af; }
+    .card.open .card-chevron svg { transform: rotate(180deg); }
+
+    /* ── EXPANDED ── */
+    .card-detail {
+      display: none;
+      padding: 0 1.25rem 1.5rem;
+      border-top: 1px solid #f3f4f6;
+    }
+    .card.open .card-detail { display: block; padding-top: 1.25rem; }
+
+    .video-link {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      padding: .85rem 1rem;
+      border-radius: 12px;
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      text-decoration: none;
+      margin-bottom: 1.25rem;
+      transition: background .2s;
+    }
+    .video-link:hover { background: #fee2e2; }
+    .video-play {
+      width: 40px; height: 40px;
+      border-radius: 8px;
+      background: var(--red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .video-play svg { width: 20px; height: 20px; color: white; }
+    .video-text strong { display: block; font-size: .875rem; color: #111827; }
+    .video-text span { font-size: .75rem; color: #6b7280; }
+
+    .mat-tools { display: grid; gap: .75rem; margin-bottom: 1.25rem; }
+    @media (min-width: 640px) { .mat-tools { grid-template-columns: 1fr 1fr; } }
+
+    .mat-box {
+      border-radius: 12px;
+      padding: 1rem;
+    }
+    .mat-box.material { background: var(--green-soft); }
+    .mat-box.werkzeug { background: #fef7ed; }
+
+    .mat-box h4 {
+      font-size: .85rem;
+      font-weight: 700;
+      margin-bottom: .5rem;
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+    }
+    .mat-box.material h4 { color: var(--green); }
+    .mat-box.werkzeug h4 { color: var(--amber-text); }
+    .mat-box ul { list-style: none; }
+    .mat-box li {
+      font-size: .75rem;
+      color: #374151;
+      line-height: 1.5;
+      padding-left: .9rem;
+      position: relative;
+    }
+    .mat-box li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+    }
+    .mat-box.material li::before { color: #6b9c5a; }
+    .mat-box.werkzeug li::before { color: #d97706; }
+
+    .steps-title { font-size: .85rem; font-weight: 700; color: #1f2937; margin-bottom: 1rem; }
+
+    .step {
+      display: flex;
+      gap: .75rem;
+    }
+    @media (min-width: 640px) { .step { gap: 1rem; } }
+
+    .step-line {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .step-num {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--green);
+      color: white;
+      font-size: .75rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .step-connector {
+      width: 2px;
+      flex: 1;
+      margin-top: .5rem;
+      background: #d1dcc9;
+    }
+    .step-content { padding-bottom: 1rem; flex: 1; min-width: 0; }
+    .step-content h5 { font-size: .875rem; font-weight: 600; color: #111827; margin-bottom: .25rem; }
+    .step-content p { font-size: .875rem; color: #4b5563; line-height: 1.55; }
+
+    .hinweis {
+      display: flex;
+      gap: .75rem;
+      background: var(--warn-bg);
+      border-radius: 12px;
+      padding: 1rem;
+      margin-top: 1.25rem;
+    }
+    .hinweis svg { width: 20px; height: 20px; color: #ca8a04; flex-shrink: 0; margin-top: 2px; }
+    .hinweis strong { display: block; font-size: .85rem; color: var(--warn-title); margin-bottom: .2rem; }
+    .hinweis p { font-size: .85rem; color: var(--warn-text); line-height: 1.5; }
+
+    /* ── FOOTER ── */
+    .footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: .75rem;
+      color: #9ca3af;
+    }
+
+    /* ── PASSWORD OVERLAY ── */
+    .pw-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: linear-gradient(180deg, var(--green-bg) 0%, var(--green-bg2) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .pw-overlay.hidden { display: none; }
+    .pw-box {
+      background: white;
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      max-width: 360px;
+      width: 90%;
+      box-shadow: 0 8px 40px rgba(45,74,35,.12);
+      text-align: center;
+    }
+    .pw-box h2 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #111827;
+      margin-bottom: .25rem;
+    }
+    .pw-box p {
+      font-size: .85rem;
+      color: #6b7280;
+      margin-bottom: 1.5rem;
+    }
+    .pw-input {
+      width: 100%;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      padding: .75rem 1rem;
+      border: 2px solid #e5e7eb;
+      border-radius: 12px;
+      outline: none;
+      transition: border-color .2s;
+      text-align: center;
+    }
+    .pw-input:focus { border-color: var(--green-accent); }
+    .pw-input.error { border-color: var(--red); animation: shake .4s; }
+    @keyframes shake {
+      0%,100% { transform: translateX(0); }
+      25% { transform: translateX(-6px); }
+      75% { transform: translateX(6px); }
+    }
+    .pw-btn {
+      width: 100%;
+      margin-top: .75rem;
+      font-family: var(--font-body);
+      font-size: .9rem;
+      font-weight: 600;
+      padding: .75rem;
+      border: none;
+      border-radius: 12px;
+      background: var(--green);
+      color: white;
+      cursor: pointer;
+      transition: opacity .2s;
+    }
+    .pw-btn:hover { opacity: .9; }
+    .pw-error-msg {
+      font-size: .8rem;
+      color: var(--red);
+      margin-top: .5rem;
+      min-height: 1.2em;
+    }
+    #content { display: none; }
+    #content.visible { display: block; }
+  </style>
+</head>
+<body>
+
+  <!-- Password overlay -->
+  <div class="pw-overlay" id="pwOverlay">
+    <div class="pw-box">
+      <h2>Kapellengarten</h2>
+      <p>Passwort für Helfer-Zugang</p>
+      <input type="password" class="pw-input" id="pwInput" placeholder="Passwort" autocomplete="off">
+      <button class="pw-btn" onclick="checkPw()">Öffnen</button>
+      <div class="pw-error-msg" id="pwError"></div>
+    </div>
+  </div>
+
+  <div id="content">
+
+  <nav class="nav">
+    <a href="/" class="nav-logo">Kapellengarten</a>
+    <a href="/" class="nav-back">
+      <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5"/></svg>
+      Zurück zur Hauptseite
+    </a>
+  </nav>
+
+  <header class="header">
+    <h1>Projekte</h1>
+    <div class="subtitle">Übersicht für Helfer</div>
+    <p>Hier findest du alle aktuellen Projekte im Marktgarten. Klicke auf ein Projekt, um die detaillierte Anleitung mit Schritten, Material und Werkzeug zu sehen.</p>
+  </header>
+
+  <div class="filters" id="filters"></div>
+
+  <main id="main"></main>
+
+  <footer class="footer">Kapellengarten · Dorfstrasse 192 · Wangen bei Olten</footer>
+
+  </div><!-- /content -->
+
+<script>
+/* ── PASSWORD ── */
+// Passwort hier ändern:
+const PW = "kapelle2026";
+
+function checkPw() {
+  const input = document.getElementById("pwInput");
+  if (input.value === PW) {
+    sessionStorage.setItem("kg_auth", "1");
+    unlock();
+  } else {
+    input.classList.add("error");
+    document.getElementById("pwError").textContent = "Falsches Passwort";
+    setTimeout(() => input.classList.remove("error"), 400);
+  }
+}
+function unlock() {
+  document.getElementById("pwOverlay").classList.add("hidden");
+  document.getElementById("content").classList.add("visible");
+}
+document.getElementById("pwInput").addEventListener("keydown", e => { if (e.key === "Enter") checkPw(); });
+if (sessionStorage.getItem("kg_auth") === "1") unlock();
+</script>
+<script>
+const PROJECTS = [
+  {
+    id: "bewasserung",
+    title: "Überkopf-Bewässerung Folientunnel",
+    category: "infrastruktur",
+    status: "offen",
+    priority: "hoch",
+    deadline: "Bis KW 16",
+    location: "Folientunnel",
+    image: "images/bewasserung-sprinkler.jpg",
+    video: "https://www.youtube.com/watch?v=k6xP9j5XQhM",
+    summary: "Installation des Farmers Friend Overhead Irrigation Kit (FF-3465) im Folientunnel. Eine zentrale Wasserleitung wird an der Firstpfette montiert, Sprinklerköpfe hängen alle 90 cm herunter.",
+    materials: [
+      "Farmers Friend Overhead Irrigation Kit FF-3465",
+      "Weisses Polyethylen-Rohr (1 Zoll, Hauptleitung)",
+      "Weisses Polyethylen-Rohr 20 ft (Zuleitung am Bogen)",
+      "SpinNet Sprinklerköpfe",
+      "Hänge-Assemblies mit Verlängerungen",
+      "Edelstahl-Kabelbinder",
+      "Lochstanzer-Werkzeug",
+      "Kugelhahn, Druckregler (35 PSI), Scheibenfilter",
+      "Power-Loc Winkel, Adapter, Spülventil"
+    ],
+    tools: ["Massband", "Marker/Stift", "Messer oder Rohrschneider", "Zange"],
+    steps: [
+      { title: "Hauptleitung vorbereiten", details: "Weisses Rohr ausrollen (am besten bei Wärme). Am zweiten Bogen beginnen und bis ca. 15\u201320 cm vor die Endwand legen. Am Zuleitungsende den Power-Loc Winkel anschliessen. Am anderen Ende den Gewinde-Adapter montieren. Spülventil wird erst später aufgeschraubt." },
+      { title: "Hänge-Assemblies installieren", details: "Alle 90 cm (3 Fuss) Markierungen auf der Hauptleitung setzen. Leitung über die Querstreben des Tunnels führen und mit Edelstahl-Kabelbindern alle 60\u201390 cm an der Firstpfette befestigen. Verlängerungsrohre auf gewünschte Höhe kürzen (Sprinklerköpfe idealerweise 180\u2013210 cm über Kultur). Hänge-Assemblies an die Verlängerungen stecken. Noch keine Sprinklerköpfe montieren." },
+      { title: "Löcher stanzen und Assemblies einsetzen", details: "Mit dem mitgelieferten Lochstanzer beim Winkel beginnend alle 90 cm Löcher in die Hauptleitung stanzen. Darauf achten, dass alle Löcher auf einer Linie sind. Mit der Rückseite des Stanzwerkzeugs die fertigen Hänge-Assemblies in die Löcher drücken." },
+      { title: "Zuleitung am Bogen montieren", details: "Das 20-ft-Rohr an den Winkel der Hauptleitung anschliessen. Mit Kabelbindern alle 60\u201390 cm an der Unterseite von Bogen 2 befestigen und nach unten führen." },
+      { title: "Ventil- und Filtereinheit zusammenbauen", details: "Kugelhahn, Druckregler und Scheibenfilter gemäss Anleitung zusammenschrauben. Die Einheit wird in die Zuleitung eingesetzt: Rohr an gewünschter Höhe durchschneiden und beide Enden an die Filtereinheit anschliessen. Alles mit Kabelbindern am Bogen sichern." },
+      { title: "Wasseranschluss herstellen", details: "Am Boden das Rohr abschneiden und den zweiten Power-Loc Winkel montieren. Restliches Rohr in Richtung Wasserquelle verlegen. Schlauchadapter anschliessen und mit Gartenschlauch verbinden." },
+      { title: "System spülen und Sprinklerköpfe montieren", details: "Wasser aufdrehen und Hauptleitung durchspülen lassen. Spülventil am Ende aufschrauben. Dann jede Hänge-Assembly einzeln spülen. Zum Schluss die SpinNet-Sprinklerköpfe auf alle Assemblies aufstecken. Fertig!" }
+    ],
+    hinweis: "Bei zu geringem Wasserdurchfluss: Jeden zweiten Sprinkler durch einen mitgelieferten Goof Plug ersetzen. Filter regelmässig reinigen (Kappe abschrauben, Sieb ausspülen). Vor Frost: System entleeren, Filtereinheit frostfrei lagern, Sprinklerköpfe abnehmen."
+  },
+  {
+    id: "hochdraht",
+    title: "Tomaten-Hochdrahtsystem",
+    category: "infrastruktur",
+    status: "offen",
+    priority: "mittel",
+    deadline: "Bis KW 18",
+    location: "Folientunnel, Beet 2a + 2b",
+    image: "images/tomaten-hochdraht.jpg",
+    summary: "Ein Längsdraht wird zwischen den 5 Querstreben des Tunnels gespannt. An diesem Draht werden individuelle Schnüre befestigt, an denen die Tomatenpflanzen (Sweet Million) hochgeleitet werden. Ca. 45 Pflanzen pro 10-Meter-Beet bei 22 cm Abstand.",
+    materials: [
+      "Spanndraht (verzinkt oder Edelstahl, ca. 12 m)",
+      "Drahtspanner oder Schraubösen",
+      "Tomatenclips oder Schnur zum Anbinden",
+      "Tomatenhaken / Rankhilfe-Schnüre (ca. 90 Stk. für 2 Beete)"
+    ],
+    tools: ["Zange", "Drahtschneider", "Leiter oder Tritt"],
+    steps: [
+      { title: "Draht spannen", details: "Einen Längsdraht pro Beet auf ca. 200 cm Höhe zwischen den Querstreben spannen. An jeder der 5 Querstreben mit Drahtspanner oder Kabelbinder befestigen. Draht muss straff sein." },
+      { title: "Schnüre vorbereiten", details: "Pro Pflanze eine Schnur (ca. 250 cm lang) am Draht befestigen. Bei 22 cm Pflanzabstand alle 22 cm eine Schnur anbringen. Schnüre locker bis zum Boden hängen lassen." },
+      { title: "Pflanzen anbinden", details: "Sobald Tomaten gesetzt sind, die Schnur locker um den Stängel wickeln (im Uhrzeigersinn von oben betrachtet). Regelmässig nachwickeln, sobald die Pflanzen wachsen." }
+    ],
+    hinweis: "Sweet Million ist eine Cherrytomate mit starkem Wachstum. Regelmässig ausgeizen (Seitentriebe entfernen). Schnüre nicht zu straff wickeln, damit der Stängel Platz zum Wachsen hat."
+  },
+  {
+    id: "wasch-abtropftisch",
+    title: "Abtropf-Tisch für Waschplatz (70 cm)",
+    category: "infrastruktur",
+    status: "offen",
+    priority: "hoch",
+    deadline: "Bis KW 16",
+    location: "Waschplatzstrasse",
+    image: "images/waschplatz-tisch.jpg",
+    summary: "Stabiler Holztisch (70 cm Höhe) für die Waschplatzstrasse. Auf den Tisch wird ein Abtropfgitter gelegt, auf dem das gewaschene Gemüse trocknet. Ergonomische Höhe zum Sortieren und Abwiegen.",
+    materials: [
+      "Kantholz 60\u00d760 mm oder 70\u00d770 mm für Beine (4 Stk., je 70 cm)",
+      "Kantholz oder Latten für Längs- und Querrahmen (ca. 40\u00d760 mm)",
+      "Bretter oder Latten für Tischfläche",
+      "Edelstahl-Schrauben (rostfrei, Ausseneinsatz)",
+      "Abtropfgitter (Kunststoff oder Edelstahl, passend zur Tischbreite)",
+      "Holzschutz / Leinöl für Witterungsschutz"
+    ],
+    tools: ["Akkubohrer / Schrauber", "Handsäge oder Kappsäge", "Winkel / Zollstock", "Schleifpapier (80er/120er)"],
+    steps: [
+      { title: "Masse festlegen und Holz zuschneiden", details: "Tischhöhe: exakt 70 cm. Breite und Länge je nach verfügbarem Abtropfgitter und Platz. Typisch: ca. 180\u2013200 cm lang, 60\u201370 cm tief. Alle vier Beine auf gleiche Länge sägen." },
+      { title: "Rahmen zusammenbauen", details: "Längs- und Querstreben auf Höhe der Beinoberkanten verschrauben. Mindestens 2 Querstreben und 2 Längsstreben für Stabilität. Rechte Winkel kontrollieren." },
+      { title: "Tischfläche montieren", details: "Bretter oder Latten als Auflage auf den Rahmen schrauben. Zwischen den Latten darf Abstand sein (Wasser kann ablaufen). Alternativ: nur den Rahmen als Auflage für das Abtropfgitter nutzen." },
+      { title: "Oberfläche behandeln", details: "Alle Kanten leicht abschleifen. Holz mit Leinöl oder Holzschutzlasur behandeln (Aussenbereich + Wasserkontakt). Mehrere Schichten für besseren Schutz." },
+      { title: "Abtropfgitter auflegen", details: "Abtropfgitter auf den Tisch legen. Prüfen ob es stabil aufliegt. Falls nötig: kleine Leisten als Anschlag an den Kanten montieren, damit das Gitter nicht verrutscht." }
+    ],
+    hinweis: "Tisch auf Verbundsteinboden mit Gummifüssen versehen, damit er nicht rutscht. So platzieren, dass Wasserabfluss vom Gitter direkt auf den Boden oder in eine Rinne läuft."
+  },
+  {
+    id: "wasch-bottichstaender",
+    title: "Bottich-Ständer für Waschplatz (60 cm)",
+    category: "infrastruktur",
+    status: "offen",
+    priority: "hoch",
+    deadline: "Bis KW 16",
+    location: "Waschplatzstrasse",
+    image: "images/waschplatz-bottich.jpg",
+    summary: "Kleines Tischchen (60 cm Höhe) als Ständer für den Waschbottich (ca. 30 cm hoch). Bottichrand liegt so bei ~90 cm Arbeitshöhe, ergonomisch zum Waschen im Stehen.",
+    materials: [
+      "Kantholz 60\u00d760 mm oder 70\u00d770 mm für Beine (4 Stk., je 60 cm)",
+      "Kantholz oder Latten für Rahmen (ca. 40\u00d760 mm)",
+      "Edelstahl-Schrauben (rostfrei, Ausseneinsatz)",
+      "Holzschutz / Leinöl für Witterungsschutz"
+    ],
+    tools: ["Akkubohrer / Schrauber", "Handsäge oder Kappsäge", "Winkel / Zollstock", "Schleifpapier"],
+    steps: [
+      { title: "Bottich ausmessen", details: "Waschbottich genau ausmessen (Breite, Tiefe, Höhe). Rahmen so planen, dass der Bottich stabil aufliegt und seitlich nicht wegrutschen kann." },
+      { title: "Gestell bauen (60 cm Höhe)", details: "4 Beine à 60 cm. Rahmen so zusammenschrauben, dass er den Bottich sicher trägt. Kleine Anschlagleisten am Rand anbringen, damit der Bottich fixiert ist." },
+      { title: "Oberfläche behandeln", details: "Kanten schleifen, Holz mit Leinöl oder Holzschutzlasur behandeln. Steht im Nassbereich, daher mehrere Schichten auftragen." },
+      { title: "Aufstellen und testen", details: "Neben den Abtropf-Tisch stellen. Bottich auflegen und prüfen: Oberkante Bottichrand sollte bei ca. 90 cm liegen. Workflow testen: Gemüse waschen \u2192 aufs Gitter zum Abtropfen." }
+    ],
+    hinweis: "Rechnung: 60 cm Tischchen + 30 cm Bottich = 90 cm Arbeitshöhe am Bottichrand. Auch hier Gummifüsse verwenden gegen Verrutschen."
+  },
+  {
+    id: "kraeuterbeet",
+    title: "Kräuterbeet anlegen",
+    category: "produktion",
+    status: "offen",
+    priority: "mittel",
+    deadline: "KW 16\u201318",
+    location: "Block 2, Beet 7 (a/b/c)",
+    image: "images/kraeuterbeet.jpg",
+    summary: "Beet 7 in Block 2 wird dreigeteilt: Schnittlauch (Dauerbepflanzung am Beetende), Dill und Koriander. Dill und Koriander erst ab KW 16\u201318 aussäen, um Schossgefahr zu reduzieren.",
+    materials: [
+      "Schnittlauch-Jungpflanzen oder Teilung",
+      "Dill-Saatgut",
+      "Koriander-Saatgut",
+      "Luzernepellets (200 g/Beetmeter)",
+      "Grünschnittkompost (15 L/Beetmeter)"
+    ],
+    tools: ["Grelinette (Broadfork)", "Mini-Tilther", "Jang JP-5 Seeder", "Giessbrause"],
+    steps: [
+      { title: "Beet vorbereiten", details: "Beet mit Grelinette lockern (nicht wenden!). Luzernepellets und Grünschnittkompost flach einarbeiten mit Mini-Tilther." },
+      { title: "Schnittlauch pflanzen (Beet 7a)", details: "Schnittlauch als Staude an ein Beetende setzen. Wächst mehrjährig und breitet sich aus. Kein Umbruch nötig in den Folgejahren." },
+      { title: "Dill säen (Beet 7b) \u2013 ab KW 16", details: "Dill direkt ins Beet säen. Reihenabstand ca. 15 cm. Feucht halten bis zur Keimung. Nicht zu früh säen (Schossgefahr bei kühlen Temperaturen)." },
+      { title: "Koriander säen (Beet 7c) \u2013 ab KW 16\u201318", details: "Koriander in Reihen säen. Langtag-empfindlich, daher spätere Aussaat bevorzugen. Regelmässig nachsäen für kontinuierliche Ernte." }
+    ],
+    hinweis: "Koriander und Dill schossen schnell bei Hitze und Langtag. Gestaffelte Aussaaten alle 2\u20133 Wochen planen."
+  },
+  {
+    id: "freiland-pflanzungen",
+    title: "Erste Freiland-Pflanzungen Block 1 + 2",
+    category: "produktion",
+    status: "erledigt",
+    priority: "hoch",
+    deadline: "KW 12\u201313",
+    location: "Block 1 + Block 2",
+    image: "images/freiland-pflanzung.jpg",
+    summary: "KW 12: Direktsaat von Radieschen, Mairübchen und Karotten (Block 2 Beete 2a, 3a, 4). KW 13: Pflanzung von Jungpflanzen in Block 1 (Beete 1+2) und Block 2 (Beete 2b, 3b, 7a/b, 8a/b).",
+    materials: [],
+    tools: [],
+    steps: [],
+    hinweis: "Abgeschlossen. Fleece-Abdeckung kontrollieren und bei Bedarf durch Insektennetz ersetzen."
+  }
+];
+
+const CATEGORIES = [
+  { key: "infrastruktur", label: "Infrastruktur", color: "#2563eb", bg: "#dbeafe", icon: '<path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085"/>' },
+  { key: "produktion", label: "Produktion", color: "#16a34a", bg: "#dcfce7", icon: '<path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/>' }
+];
+
+let currentFilter = "alle";
+let openId = null;
+
+function render() {
+  const filtered = currentFilter === "alle" ? PROJECTS : PROJECTS.filter(p => p.status === currentFilter);
+  const counts = {
+    alle: PROJECTS.length,
+    offen: PROJECTS.filter(p => p.status === "offen").length,
+    geplant: PROJECTS.filter(p => p.status === "geplant").length,
+    erledigt: PROJECTS.filter(p => p.status === "erledigt").length
+  };
+
+  // Filters
+  document.getElementById("filters").innerHTML = ["alle","offen","geplant","erledigt"].map(k => {
+    const labels = { alle:"Alle", offen:"Offen", geplant:"Geplant", erledigt:"Erledigt" };
+    return `<button class="filter-btn ${currentFilter===k?'active':''}" onclick="setFilter('${k}')">${labels[k]} (${counts[k]})</button>`;
+  }).join("");
+
+  // Main
+  let html = "";
+  CATEGORIES.forEach(cat => {
+    const items = filtered.filter(p => p.category === cat.key);
+    if (!items.length) return;
+    html += `
+      <div class="cat-header">
+        <div class="cat-icon" style="background:${cat.bg}">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="${cat.color}" stroke-width="2">${cat.icon}</svg>
+        </div>
+        <h2>${cat.label}</h2>
+        <span class="cat-count">${items.length} Projekt${items.length!==1?'e':''}</span>
+      </div>
+      <div class="cards">
+    `;
+    items.forEach(p => {
+      const isOpen = openId === p.id;
+      const hasSteps = p.steps && p.steps.length > 0;
+      html += `
+        <div class="card ${isOpen?'open':''} ${p.status==='erledigt'?'done':''}">
+          <button class="card-toggle" onclick="toggle('${p.id}')" ${!hasSteps?'disabled':''}>
+            <div class="card-thumb"><img src="${p.image}" alt="" onerror="this.style.display='none'"></div>
+            <div class="card-body">
+              <div class="card-thumb-mobile"><img src="${p.image}" alt="" onerror="this.parentElement.style.display='none'"></div>
+              <div class="card-badges">
+                <span class="badge badge-${p.status}"><span class="badge-dot"></span>${{offen:'Offen',geplant:'Geplant',erledigt:'Erledigt'}[p.status]}</span>
+                <span class="priority priority-${p.priority}">${{hoch:'Priorität hoch',mittel:'Priorität mittel'}[p.priority]}</span>
+              </div>
+              <div class="card-title">${p.title}</div>
+              <div class="card-meta">
+                <span><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 0115 0Z"/></svg>${p.location}</span>
+                <span><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/></svg>${p.deadline}</span>
+              </div>
+              <div class="card-summary">${p.summary}</div>
+            </div>
+            ${hasSteps ? '<div class="card-chevron"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/></svg></div>' : ''}
+          </button>
+          <div class="card-detail">
+            ${p.video ? `<a href="${p.video}" target="_blank" rel="noopener" class="video-link"><div class="video-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div><div class="video-text"><strong>Montagevideo ansehen</strong><span>Schritt-für-Schritt auf YouTube (Farmers Friend)</span></div></a>` : ''}
+            ${(p.materials.length||p.tools.length) ? `<div class="mat-tools">
+              ${p.materials.length ? `<div class="mat-box material"><h4>Material</h4><ul>${p.materials.map(m=>`<li>${m}</li>`).join('')}</ul></div>` : ''}
+              ${p.tools.length ? `<div class="mat-box werkzeug"><h4>Werkzeug</h4><ul>${p.tools.map(t=>`<li>${t}</li>`).join('')}</ul></div>` : ''}
+            </div>` : ''}
+            ${p.steps.length ? `<div class="steps-title">Arbeitsschritte</div>${p.steps.map((s,i) => `
+              <div class="step">
+                <div class="step-line"><div class="step-num">${i+1}</div>${i<p.steps.length-1?'<div class="step-connector"></div>':''}</div>
+                <div class="step-content"><h5>${s.title}</h5><p>${s.details}</p></div>
+              </div>
+            `).join('')}` : ''}
+            ${p.hinweis ? `<div class="hinweis"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"/></svg><div><strong>Hinweis</strong><p>${p.hinweis}</p></div></div>` : ''}
+          </div>
+        </div>
+      `;
+    });
+    html += `</div>`;
+  });
+
+  if (!filtered.length) html = '<div style="text-align:center;padding:4rem 1rem;color:#9ca3af;font-size:.9rem;">Keine Projekte in dieser Kategorie.</div>';
+  document.getElementById("main").innerHTML = html;
+}
+
+function setFilter(f) { currentFilter = f; render(); }
+function toggle(id) { openId = openId === id ? null : id; render(); }
+
+render();
+</script>
+
+</body>
+</html>
