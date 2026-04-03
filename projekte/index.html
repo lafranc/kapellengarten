@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projekte | Kapellengarten</title>
-  <meta name="description" content="Projektübersicht für Helfer im Kapellengarten Wangen bei Olten.">
+  <meta name="description" content="Projektübersicht Kapellengarten Wangen bei Olten.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -152,7 +152,7 @@
   <div class="pw-overlay" id="pwOverlay">
     <div class="pw-box">
       <h2>Kapellengarten</h2>
-      <p>Passwort für Helfer-Zugang</p>
+      <p>Passwort für Zugang</p>
       <input type="password" class="pw-input" id="pwInput" placeholder="Passwort" autocomplete="off">
       <button class="pw-btn" onclick="checkPw()">Öffnen</button>
       <div class="pw-error-msg" id="pwError"></div>
@@ -165,7 +165,7 @@
   </nav>
   <header class="header">
     <h1>Projekte</h1>
-    <div class="subtitle">Übersicht für Helfer</div>
+    <div class="subtitle">Projektübersicht</div>
     <p>Hier findest du alle aktuellen Projekte im Marktgarten. Klicke auf ein Projekt, um die detaillierte Anleitung mit Schritten, Material und Werkzeug zu sehen.</p>
   </header>
   <div class="filters" id="filters"></div>
@@ -357,6 +357,59 @@ const PROJECTS = [
     hinweis: "Dieser Platz wird in der Saison täglich genutzt \u2013 Ergonomie ist entscheidend. Bottichrand bei 90 cm Arbeitshöhe (60 cm Ständer + 30 cm Bottich). Waschplatz hat Blick auf den Berg \u2013 schönster Arbeitsplatz im ganzen Garten. Später kann der Pavillon durch eine permanentere Struktur ersetzt werden."
   },
   {
+    id: "gewaechshaus-reinigung",
+    title: "Gewächshaus reinigen (innen + aussen)",
+    category: "infrastruktur",
+    status: "offen",
+    priority: "bald",
+    deadline: "Bis KW 16 (13.\u201319. April)",
+    location: "Gewächshaus bei der Gemüseausgabezone",
+    image: "images/gewaechshaus.jpeg",
+    summary: "Das Gewächshaus gründlich reinigen \u2013 aussen Veralgung vom Dach entfernen, innen säubern und aufräumen. Das Gewächshaus liegt zentral bei der Gemüseausgabezone und muss repräsentativ sein. Für die Algenentfernung auf den Glasflächen braucht es eventuell ein Spezialmittel.",
+    materials: [
+      "Algenentferner für Glas/Gewächshaus (z.B. Mellerud Algenentferner oder Grünbelagentferner)",
+      "Eimer + warmes Wasser",
+      "Schwamm / weiche Bürste (keine Scheuermittel auf Glas!)",
+      "Gartenschlauch zum Abspülen",
+      "Optional: Kärcher mit niedrigem Druck (nur auf stabilen Flächen, nicht direkt auf altes Glas)"
+    ],
+    tools: ["Leiter oder Trittleiter", "Teleskop-Fensterwischer", "Besen", "Lappen / Mikrofasertücher", "Handschuhe"],
+    steps: [
+      { title: "Aussenbereich freiräumen", details: "Unkraut und Bewuchs rund um das Gewächshaus entfernen. Dachrinne und Ablauf freiräumen. Lose Gegenstände wegräumen." },
+      { title: "Dach und Aussenwände reinigen", details: "Algenentferner gemäss Herstelleranweisung auftragen (meist einsprühen, einwirken lassen, abspülen). Bei starker Veralgung eventuell wiederholen. Mit weicher Bürste oder Teleskop-Wischer nacharbeiten. Gründlich mit Schlauch abspülen." },
+      { title: "Innenreinigung", details: "Alles aus dem Gewächshaus räumen. Boden fegen. Glasflächen von innen mit warmem Wasser und Schwamm reinigen. Gestelle, Tische und Ablagen abwischen. Spinnweben entfernen." },
+      { title: "Struktur prüfen", details: "Glasscheiben auf Risse oder lose Stellen kontrollieren. Dichtungen und Rahmen prüfen. Lüftungsklappen testen. Kaputte Scheiben notieren für Ersatz." },
+      { title: "Einrichten und schön machen", details: "Gewächshaus wieder einräumen. Alles ordentlich platzieren. So herrichten, dass es bei der Gemüseausgabe einen guten Eindruck macht." }
+    ],
+    hinweis: "Das Gewächshaus ist das Erste was Abonnenten bei der Gemüseausgabe sehen \u2013 es muss einladend wirken. Beim Reinigen des Dachs vorsichtig sein: altes Glas kann spröde sein. Kärcher nur mit niedrigem Druck und nicht direkt auf Glas richten. Algenentferner vorher an einer kleinen Stelle testen."
+  },
+  {
+    id: "eingangsbereich",
+    title: "Eingangsbereich Kapelle herrichten",
+    category: "infrastruktur",
+    status: "offen",
+    priority: "bald",
+    deadline: "Bis KW 16 (13.\u201319. April)",
+    location: "Eingangsbereich vor der Kapelle",
+    image: "images/eingangsbereich.jpeg",
+    summary: "Den Eingangsbereich vor der Kapelle aufräumen und mit dem Kärcher reinigen. Verbundsteine und Platten von Moos, Unkraut und Schmutz befreien. Erster Eindruck zählt \u2013 hier kommen die Abonnenten samstags zur Gemüseausgabe an.",
+    materials: [
+      "Kärcher Hochdruckreiniger",
+      "Verlängerungskabel (falls nötig)",
+      "Wasseranschluss / Gartenschlauch",
+      "Besen / Wischer für danach"
+    ],
+    tools: ["Kärcher mit Flächenreiniger-Aufsatz", "Fugenkratzer (für grobe Stellen)", "Besen"],
+    steps: [
+      { title: "Bereich freiräumen", details: "Alles wegräumen was im Weg steht: Töpfe, Werkzeug, loses Material. Unkraut zwischen den Platten und am Rand von Hand oder mit Fugenkratzer entfernen." },
+      { title: "Kärcher vorbereiten", details: "Hochdruckreiniger an Wasser und Strom anschliessen. Flächenreiniger-Aufsatz verwenden falls vorhanden (gleichmässigeres Ergebnis, weniger Spritzer)." },
+      { title: "Platten und Verbundsteine reinigen", details: "Systematisch von der Kapellenwand nach aussen arbeiten. Moos und Schmutz werden vom Hochdruck gelöst. Fugen besonders gründlich reinigen." },
+      { title: "Ränder und Übergang säubern", details: "Auch die Übergänge zum Rasen und die Kapellenwand im unteren Bereich reinigen. Rinne/Abfluss freihalten." },
+      { title: "Aufräumen und trocknen lassen", details: "Gelöstes Material zusammenwischen. Bereich trocknen lassen. Optional: Pflanzen am Eingang schön arrangieren für einen einladenden Empfang." }
+    ],
+    hinweis: "Die Abonnenten kommen samstags zwischen 10 und 12 Uhr zur Gemüseausgabe \u2013 ein sauberer, einladender Eingangsbereich macht einen guten ersten Eindruck. Bei Bedarf im Herbst wiederholen."
+  },
+  {
     id: "toilettenhaeuschen",
     title: "Toilettenhäuschen: Kompotoi in Betrieb nehmen",
     category: "infrastruktur",
@@ -394,8 +447,8 @@ const PROJECTS = [
     title: "Sumi Soaker Staubnebelbewässerung Freiland",
     category: "infrastruktur",
     status: "offen",
-    priority: "bald",
-    deadline: "Bis KW 16\u201317 (vor Hauptsaison)",
+    priority: "jetzt",
+    deadline: "KW 14\u201315 \u2013 Jetzt",
     location: "Block 1 + Block 2 (Freiland-Beete)",
     image: "images/sumisoaker.jpg",
     video: "https://www.youtube.com/watch?v=mTM13JkgjQQ",
