@@ -9,7 +9,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
       --green: #2d4a23;
       --green-light: #4a6741;
@@ -34,470 +33,114 @@
       --font-heading: 'Cormorant Garamond', Georgia, serif;
       --font-body: 'DM Sans', system-ui, sans-serif;
     }
-
-    body {
-      font-family: var(--font-body);
-      background: linear-gradient(180deg, var(--green-bg) 0%, var(--green-bg2) 100%);
-      color: #1f2937;
-      min-height: 100vh;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* ── NAV ── */
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 1.2rem 1rem;
-    }
-    .nav-logo {
-      font-family: var(--font-heading);
-      font-weight: 600;
-      font-size: 1.25rem;
-      color: var(--green);
-      text-decoration: none;
-    }
-    .nav-back {
-      font-size: .85rem;
-      color: var(--green-light);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: .4rem;
-    }
+    body { font-family: var(--font-body); background: linear-gradient(180deg, var(--green-bg) 0%, var(--green-bg2) 100%); color: #1f2937; min-height: 100vh; -webkit-font-smoothing: antialiased; }
+    .nav { display: flex; align-items: center; justify-content: space-between; max-width: 760px; margin: 0 auto; padding: 1.2rem 1rem; }
+    .nav-logo { font-family: var(--font-heading); font-weight: 600; font-size: 1.25rem; color: var(--green); text-decoration: none; }
+    .nav-back { font-size: .85rem; color: var(--green-light); text-decoration: none; display: flex; align-items: center; gap: .4rem; }
     .nav-back:hover { text-decoration: underline; }
-
-    /* ── HEADER ── */
-    .header {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 0 1rem 1.5rem;
-    }
-    .header h1 {
-      font-family: var(--font-heading);
-      font-weight: 700;
-      font-size: 2rem;
-      color: #111827;
-      margin-bottom: .15rem;
-    }
-    .header .subtitle {
-      font-size: .7rem;
-      font-weight: 600;
-      letter-spacing: .15em;
-      color: #9ca3af;
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-    }
-    .header p {
-      font-size: .9rem;
-      color: #4b5563;
-      line-height: 1.6;
-      max-width: 580px;
-    }
-
-    /* ── FILTERS ── */
-    .filters {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 0 1rem 1.5rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: .5rem;
-    }
-    .filter-btn {
-      font-family: var(--font-body);
-      font-size: .85rem;
-      font-weight: 600;
-      padding: .45rem 1rem;
-      border-radius: 999px;
-      border: 1px solid #e5e7eb;
-      background: white;
-      color: #4b5563;
-      cursor: pointer;
-      transition: all .2s;
-    }
+    .header { max-width: 760px; margin: 0 auto; padding: 0 1rem 1.5rem; }
+    .header h1 { font-family: var(--font-heading); font-weight: 700; font-size: 2rem; color: #111827; margin-bottom: .15rem; }
+    .header .subtitle { font-size: .7rem; font-weight: 600; letter-spacing: .15em; color: #9ca3af; text-transform: uppercase; margin-bottom: 1rem; }
+    .header p { font-size: .9rem; color: #4b5563; line-height: 1.6; max-width: 580px; }
+    .filters { max-width: 760px; margin: 0 auto; padding: 0 1rem 1.5rem; display: flex; flex-wrap: wrap; gap: .5rem; }
+    .filter-btn { font-family: var(--font-body); font-size: .85rem; font-weight: 600; padding: .45rem 1rem; border-radius: 999px; border: 1px solid #e5e7eb; background: white; color: #4b5563; cursor: pointer; transition: all .2s; }
     .filter-btn:hover { border-color: #d1d5db; }
-    .filter-btn.active {
-      background: var(--green);
-      color: white;
-      border-color: var(--green);
-      box-shadow: 0 2px 8px rgba(45,74,35,.25);
-    }
-
-    /* ── CATEGORY HEADER ── */
-    .cat-header {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: .5rem 1rem 1rem;
-      display: flex;
-      align-items: center;
-      gap: .65rem;
-    }
-    .cat-icon {
-      width: 32px; height: 32px;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .cat-header h2 {
-      font-family: var(--font-heading);
-      font-weight: 700;
-      font-size: 1.2rem;
-      color: #1f2937;
-    }
-    .cat-count {
-      font-size: .75rem;
-      color: #9ca3af;
-      margin-left: .3rem;
-    }
-
-    /* ── CARD ── */
-    .cards {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 0 1rem 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: .75rem;
-    }
-    .card {
-      background: white;
-      border-radius: 16px;
-      border: 1px solid #e5e7eb;
-      overflow: hidden;
-      box-shadow: 0 1px 3px rgba(0,0,0,.06);
-      transition: all .3s;
-    }
+    .filter-btn.active { background: var(--green); color: white; border-color: var(--green); box-shadow: 0 2px 8px rgba(45,74,35,.25); }
+    .cat-header { max-width: 760px; margin: 0 auto; padding: .5rem 1rem 1rem; display: flex; align-items: center; gap: .65rem; }
+    .cat-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+    .cat-header h2 { font-family: var(--font-heading); font-weight: 700; font-size: 1.2rem; color: #1f2937; }
+    .cat-count { font-size: .75rem; color: #9ca3af; margin-left: .3rem; }
+    .cards { max-width: 760px; margin: 0 auto; padding: 0 1rem 2rem; display: flex; flex-direction: column; gap: .75rem; }
+    .card { background: white; border-radius: 16px; border: 1px solid #e5e7eb; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,.06); transition: all .3s; }
     .card:hover { box-shadow: 0 4px 12px rgba(0,0,0,.08); }
-    .card.open {
-      border: 2px solid var(--green-accent);
-      box-shadow: 0 8px 30px rgba(45,74,35,.1);
-    }
+    .card.open { border: 2px solid var(--green-accent); box-shadow: 0 8px 30px rgba(45,74,35,.1); }
     .card.done { opacity: .55; }
-
-    .card-toggle {
-      width: 100%;
-      background: none;
-      border: none;
-      cursor: pointer;
-      text-align: left;
-      display: flex;
-      font-family: inherit;
-      color: inherit;
-    }
+    .card-toggle { width: 100%; background: none; border: none; cursor: pointer; text-align: left; display: flex; font-family: inherit; color: inherit; }
     .card-toggle:disabled { cursor: default; }
-
-    .card-thumb {
-      width: 140px;
-      flex-shrink: 0;
-      position: relative;
-      overflow: hidden;
-      display: none;
-    }
-    .card-thumb img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    @media (min-width: 640px) {
-      .card-thumb { display: block; }
-    }
-
-    .card-thumb-mobile {
-      height: 150px;
-      border-radius: 12px;
-      overflow: hidden;
-      margin-bottom: .75rem;
-    }
-    .card-thumb-mobile img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    @media (min-width: 640px) {
-      .card-thumb-mobile { display: none; }
-    }
-
+    .card-thumb { width: 140px; flex-shrink: 0; position: relative; overflow: hidden; display: none; }
+    .card-thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    @media (min-width: 640px) { .card-thumb { display: block; } }
+    .card-thumb-mobile { height: 150px; border-radius: 12px; overflow: hidden; margin-bottom: .75rem; }
+    .card-thumb-mobile img { width: 100%; height: 100%; object-fit: cover; }
+    @media (min-width: 640px) { .card-thumb-mobile { display: none; } }
     .card-body { flex: 1; min-width: 0; padding: 1rem 1.25rem; }
     @media (min-width: 640px) { .card-body { padding: 1.25rem; } }
-
     .card-badges { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin-bottom: .4rem; }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: .35rem;
-      padding: .25rem .65rem;
-      border-radius: 999px;
-      font-size: .7rem;
-      font-weight: 600;
-    }
+    .badge { display: inline-flex; align-items: center; gap: .35rem; padding: .25rem .65rem; border-radius: 999px; font-size: .7rem; font-weight: 600; }
     .badge-dot { width: 6px; height: 6px; border-radius: 50%; }
-
     .badge-offen { background: var(--amber-bg); color: var(--amber-text); }
     .badge-offen .badge-dot { background: var(--amber-dot); }
     .badge-geplant { background: var(--blue-bg); color: var(--blue-text); }
     .badge-geplant .badge-dot { background: var(--blue-dot); }
     .badge-erledigt { background: var(--emerald-bg); color: var(--emerald-text); }
     .badge-erledigt .badge-dot { background: var(--emerald-dot); }
-
     .priority { font-size: .7rem; font-weight: 600; }
     .priority-jetzt { color: var(--red); font-weight:700; }
     .priority-bald { color: var(--amber-dot); }
-
-    .card-title {
-      font-family: var(--font-heading);
-      font-weight: 700;
-      font-size: 1.1rem;
-      color: #111827;
-      margin-bottom: .35rem;
-    }
+    .card-title { font-family: var(--font-heading); font-weight: 700; font-size: 1.1rem; color: #111827; margin-bottom: .35rem; }
     @media (min-width: 640px) { .card-title { font-size: 1.2rem; } }
-
-    .card-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .25rem 1rem;
-      font-size: .75rem;
-      color: #9ca3af;
-      margin-bottom: .5rem;
-    }
+    .card-meta { display: flex; flex-wrap: wrap; gap: .25rem 1rem; font-size: .75rem; color: #9ca3af; margin-bottom: .5rem; }
     .card-meta span { display: flex; align-items: center; gap: .3rem; }
     .card-meta svg { width: 14px; height: 14px; }
-
-    .card-summary {
-      font-size: .875rem;
-      color: #4b5563;
-      line-height: 1.55;
-    }
-
-    .card-chevron {
-      flex-shrink: 0;
-      align-self: center;
-      padding-right: 1rem;
-      transition: transform .3s;
-    }
+    .card-summary { font-size: .875rem; color: #4b5563; line-height: 1.55; }
+    .card-chevron { flex-shrink: 0; align-self: center; padding-right: 1rem; transition: transform .3s; }
     .card-chevron svg { width: 20px; height: 20px; color: #9ca3af; }
     .card.open .card-chevron svg { transform: rotate(180deg); }
-
-    /* ── EXPANDED ── */
-    .card-detail {
-      display: none;
-      padding: 0 1.25rem 1.5rem;
-      border-top: 1px solid #f3f4f6;
-    }
+    .card-detail { display: none; padding: 0 1.25rem 1.5rem; border-top: 1px solid #f3f4f6; }
     .card.open .card-detail { display: block; padding-top: 1.25rem; }
-
-    .card-detail-img {
-      width: 100%;
-      height: 200px;
-      border-radius: 12px;
-      overflow: hidden;
-      margin-bottom: 1.25rem;
-    }
+    .card-detail-img { width: 100%; height: 200px; border-radius: 12px; overflow: hidden; margin-bottom: 1.25rem; }
     .card-detail-img img { width: 100%; height: 100%; object-fit: cover; }
     @media (min-width: 640px) { .card-detail-img { height: 280px; } }
-
-    .video-link {
-      display: flex;
-      align-items: center;
-      gap: .75rem;
-      padding: .85rem 1rem;
-      border-radius: 12px;
-      background: #fef2f2;
-      border: 1px solid #fecaca;
-      text-decoration: none;
-      margin-bottom: 1.25rem;
-      transition: background .2s;
-    }
+    .video-link { display: flex; align-items: center; gap: .75rem; padding: .85rem 1rem; border-radius: 12px; background: #fef2f2; border: 1px solid #fecaca; text-decoration: none; margin-bottom: 1.25rem; transition: background .2s; }
     .video-link:hover { background: #fee2e2; }
-    .video-play {
-      width: 40px; height: 40px;
-      border-radius: 8px;
-      background: var(--red);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
+    .video-play { width: 40px; height: 40px; border-radius: 8px; background: var(--red); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .video-play svg { width: 20px; height: 20px; color: white; }
     .video-text strong { display: block; font-size: .875rem; color: #111827; }
     .video-text span { font-size: .75rem; color: #6b7280; }
-
     .mat-tools { display: grid; gap: .75rem; margin-bottom: 1.25rem; }
     @media (min-width: 640px) { .mat-tools { grid-template-columns: 1fr 1fr; } }
-
-    .mat-box {
-      border-radius: 12px;
-      padding: 1rem;
-    }
+    .mat-box { border-radius: 12px; padding: 1rem; }
     .mat-box.material { background: var(--green-soft); }
     .mat-box.werkzeug { background: #fef7ed; }
-
-    .mat-box h4 {
-      font-size: .85rem;
-      font-weight: 700;
-      margin-bottom: .5rem;
-      display: flex;
-      align-items: center;
-      gap: .4rem;
-    }
+    .mat-box h4 { font-size: .85rem; font-weight: 700; margin-bottom: .5rem; display: flex; align-items: center; gap: .4rem; }
     .mat-box.material h4 { color: var(--green); }
     .mat-box.werkzeug h4 { color: var(--amber-text); }
     .mat-box ul { list-style: none; }
-    .mat-box li {
-      font-size: .75rem;
-      color: #374151;
-      line-height: 1.5;
-      padding-left: .9rem;
-      position: relative;
-    }
-    .mat-box li::before {
-      content: '•';
-      position: absolute;
-      left: 0;
-    }
+    .mat-box li { font-size: .75rem; color: #374151; line-height: 1.5; padding-left: .9rem; position: relative; }
+    .mat-box li::before { content: '\2022'; position: absolute; left: 0; }
     .mat-box.material li::before { color: #6b9c5a; }
     .mat-box.werkzeug li::before { color: #d97706; }
-
     .steps-title { font-size: .85rem; font-weight: 700; color: #1f2937; margin-bottom: 1rem; }
-
-    .step {
-      display: flex;
-      gap: .75rem;
-    }
+    .step { display: flex; gap: .75rem; }
     @media (min-width: 640px) { .step { gap: 1rem; } }
-
-    .step-line {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .step-num {
-      width: 28px; height: 28px;
-      border-radius: 50%;
-      background: var(--green);
-      color: white;
-      font-size: .75rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .step-connector {
-      width: 2px;
-      flex: 1;
-      margin-top: .5rem;
-      background: #d1dcc9;
-    }
+    .step-line { display: flex; flex-direction: column; align-items: center; }
+    .step-num { width: 28px; height: 28px; border-radius: 50%; background: var(--green); color: white; font-size: .75rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .step-connector { width: 2px; flex: 1; margin-top: .5rem; background: #d1dcc9; }
     .step-content { padding-bottom: 1rem; flex: 1; min-width: 0; }
     .step-content h5 { font-size: .875rem; font-weight: 600; color: #111827; margin-bottom: .25rem; }
     .step-content p { font-size: .875rem; color: #4b5563; line-height: 1.55; }
-
-    .hinweis {
-      display: flex;
-      gap: .75rem;
-      background: var(--warn-bg);
-      border-radius: 12px;
-      padding: 1rem;
-      margin-top: 1.25rem;
-    }
+    .hinweis { display: flex; gap: .75rem; background: var(--warn-bg); border-radius: 12px; padding: 1rem; margin-top: 1.25rem; }
     .hinweis svg { width: 20px; height: 20px; color: #ca8a04; flex-shrink: 0; margin-top: 2px; }
     .hinweis strong { display: block; font-size: .85rem; color: var(--warn-title); margin-bottom: .2rem; }
     .hinweis p { font-size: .85rem; color: var(--warn-text); line-height: 1.5; }
-
-    /* ── FOOTER ── */
-    .footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: .75rem;
-      color: #9ca3af;
-    }
-
-    /* ── PASSWORD OVERLAY ── */
-    .pw-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-      background: linear-gradient(180deg, var(--green-bg) 0%, var(--green-bg2) 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+    .footer { text-align: center; padding: 2rem 1rem; font-size: .75rem; color: #9ca3af; }
+    .pw-overlay { position: fixed; inset: 0; z-index: 9999; background: linear-gradient(180deg, var(--green-bg) 0%, var(--green-bg2) 100%); display: flex; align-items: center; justify-content: center; }
     .pw-overlay.hidden { display: none; }
-    .pw-box {
-      background: white;
-      border-radius: 20px;
-      padding: 2.5rem 2rem;
-      max-width: 360px;
-      width: 90%;
-      box-shadow: 0 8px 40px rgba(45,74,35,.12);
-      text-align: center;
-    }
-    .pw-box h2 {
-      font-family: var(--font-heading);
-      font-weight: 700;
-      font-size: 1.5rem;
-      color: #111827;
-      margin-bottom: .25rem;
-    }
-    .pw-box p {
-      font-size: .85rem;
-      color: #6b7280;
-      margin-bottom: 1.5rem;
-    }
-    .pw-input {
-      width: 100%;
-      font-family: var(--font-body);
-      font-size: 1rem;
-      padding: .75rem 1rem;
-      border: 2px solid #e5e7eb;
-      border-radius: 12px;
-      outline: none;
-      transition: border-color .2s;
-      text-align: center;
-    }
+    .pw-box { background: white; border-radius: 20px; padding: 2.5rem 2rem; max-width: 360px; width: 90%; box-shadow: 0 8px 40px rgba(45,74,35,.12); text-align: center; }
+    .pw-box h2 { font-family: var(--font-heading); font-weight: 700; font-size: 1.5rem; color: #111827; margin-bottom: .25rem; }
+    .pw-box p { font-size: .85rem; color: #6b7280; margin-bottom: 1.5rem; }
+    .pw-input { width: 100%; font-family: var(--font-body); font-size: 1rem; padding: .75rem 1rem; border: 2px solid #e5e7eb; border-radius: 12px; outline: none; transition: border-color .2s; text-align: center; }
     .pw-input:focus { border-color: var(--green-accent); }
     .pw-input.error { border-color: var(--red); animation: shake .4s; }
-    @keyframes shake {
-      0%,100% { transform: translateX(0); }
-      25% { transform: translateX(-6px); }
-      75% { transform: translateX(6px); }
-    }
-    .pw-btn {
-      width: 100%;
-      margin-top: .75rem;
-      font-family: var(--font-body);
-      font-size: .9rem;
-      font-weight: 600;
-      padding: .75rem;
-      border: none;
-      border-radius: 12px;
-      background: var(--green);
-      color: white;
-      cursor: pointer;
-      transition: opacity .2s;
-    }
+    @keyframes shake { 0%,100% { transform: translateX(0); } 25% { transform: translateX(-6px); } 75% { transform: translateX(6px); } }
+    .pw-btn { width: 100%; margin-top: .75rem; font-family: var(--font-body); font-size: .9rem; font-weight: 600; padding: .75rem; border: none; border-radius: 12px; background: var(--green); color: white; cursor: pointer; transition: opacity .2s; }
     .pw-btn:hover { opacity: .9; }
-    .pw-error-msg {
-      font-size: .8rem;
-      color: var(--red);
-      margin-top: .5rem;
-      min-height: 1.2em;
-    }
+    .pw-error-msg { font-size: .8rem; color: var(--red); margin-top: .5rem; min-height: 1.2em; }
     #content { display: none; }
     #content.visible { display: block; }
   </style>
 </head>
 <body>
-
-  <!-- Password overlay -->
   <div class="pw-overlay" id="pwOverlay">
     <div class="pw-box">
       <h2>Kapellengarten</h2>
@@ -507,51 +150,24 @@
       <div class="pw-error-msg" id="pwError"></div>
     </div>
   </div>
-
   <div id="content">
-
   <nav class="nav">
     <a href="/" class="nav-logo">Kapellengarten</a>
-    <a href="/" class="nav-back">
-      <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5"/></svg>
-      Zurück zur Hauptseite
-    </a>
+    <a href="/" class="nav-back"><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5"/></svg>Zurück zur Hauptseite</a>
   </nav>
-
   <header class="header">
     <h1>Projekte</h1>
     <div class="subtitle">Übersicht für Helfer</div>
     <p>Hier findest du alle aktuellen Projekte im Marktgarten. Klicke auf ein Projekt, um die detaillierte Anleitung mit Schritten, Material und Werkzeug zu sehen.</p>
   </header>
-
   <div class="filters" id="filters"></div>
-
   <main id="main"></main>
-
   <footer class="footer">Kapellengarten · Dorfstrasse 192 · Wangen bei Olten</footer>
-
-  </div><!-- /content -->
-
+  </div>
 <script>
-/* ── PASSWORD ── */
-// Passwort hier ändern:
 const PW = "kapelle2026";
-
-function checkPw() {
-  const input = document.getElementById("pwInput");
-  if (input.value === PW) {
-    sessionStorage.setItem("kg_auth", "1");
-    unlock();
-  } else {
-    input.classList.add("error");
-    document.getElementById("pwError").textContent = "Falsches Passwort";
-    setTimeout(() => input.classList.remove("error"), 400);
-  }
-}
-function unlock() {
-  document.getElementById("pwOverlay").classList.add("hidden");
-  document.getElementById("content").classList.add("visible");
-}
+function checkPw() { const input = document.getElementById("pwInput"); if (input.value === PW) { sessionStorage.setItem("kg_auth", "1"); unlock(); } else { input.classList.add("error"); document.getElementById("pwError").textContent = "Falsches Passwort"; setTimeout(() => input.classList.remove("error"), 400); } }
+function unlock() { document.getElementById("pwOverlay").classList.add("hidden"); document.getElementById("content").classList.add("visible"); }
 document.getElementById("pwInput").addEventListener("keydown", e => { if (e.key === "Enter") checkPw(); });
 if (sessionStorage.getItem("kg_auth") === "1") unlock();
 </script>
@@ -569,28 +185,18 @@ const PROJECTS = [
     image: "images/bewasserung-sprinkler.jpg",
     video: "https://www.youtube.com/watch?v=k6xP9j5XQhM",
     summary: "Installation des Farmers Friend Overhead Irrigation Kit (FF-3465) im Folientunnel. Die aktuellen Tunnelkulturen (Salat, Spinat, Kohlrabi, Asiasalat, Rucola, Radieschen) brauchen jetzt Überkopfbewässerung.",
-    materials: [
-      "Farmers Friend Overhead Irrigation Kit FF-3465",
-      "Weisses Polyethylen-Rohr (1 Zoll, Hauptleitung)",
-      "Weisses Polyethylen-Rohr 20 ft (Zuleitung am Bogen)",
-      "SpinNet Sprinklerköpfe",
-      "Hänge-Assemblies mit Verlängerungen",
-      "Edelstahl-Kabelbinder",
-      "Lochstanzer-Werkzeug",
-      "Kugelhahn, Druckregler (35 PSI), Scheibenfilter",
-      "Power-Loc Winkel, Adapter, Spülventil"
-    ],
+    materials: ["Farmers Friend Overhead Irrigation Kit FF-3465","Weisses Polyethylen-Rohr (1 Zoll, Hauptleitung)","Weisses Polyethylen-Rohr 20 ft (Zuleitung am Bogen)","SpinNet Sprinklerköpfe","Hänge-Assemblies mit Verlängerungen","Edelstahl-Kabelbinder","Lochstanzer-Werkzeug","Kugelhahn, Druckregler (35 PSI), Scheibenfilter","Power-Loc Winkel, Adapter, Spülventil"],
     tools: ["Massband", "Marker/Stift", "Messer oder Rohrschneider", "Zange"],
     steps: [
-      { title: "Hauptleitung vorbereiten", details: "Weisses Rohr ausrollen (am besten bei Wärme). Am zweiten Bogen beginnen und bis ca. 15\u201320 cm vor die Endwand legen. Am Zuleitungsende den Power-Loc Winkel anschliessen. Am anderen Ende den Gewinde-Adapter montieren. Spülventil wird erst später aufgeschraubt." },
-      { title: "Hänge-Assemblies installieren", details: "Alle 90 cm (3 Fuss) Markierungen auf der Hauptleitung setzen. Leitung über die Querstreben des Tunnels führen und mit Edelstahl-Kabelbindern alle 60\u201390 cm an der Firstpfette befestigen. Verlängerungsrohre auf gewünschte Höhe kürzen (Sprinklerköpfe idealerweise 180\u2013210 cm über Kultur). Hänge-Assemblies an die Verlängerungen stecken. Noch keine Sprinklerköpfe montieren." },
-      { title: "Löcher stanzen und Assemblies einsetzen", details: "Mit dem mitgelieferten Lochstanzer beim Winkel beginnend alle 90 cm Löcher in die Hauptleitung stanzen. Darauf achten, dass alle Löcher auf einer Linie sind. Mit der Rückseite des Stanzwerkzeugs die fertigen Hänge-Assemblies in die Löcher drücken." },
+      { title: "Hauptleitung vorbereiten", details: "Weisses Rohr ausrollen (am besten bei Wärme). Am zweiten Bogen beginnen und bis ca. 15\u201320 cm vor die Endwand legen. Am Zuleitungsende den Power-Loc Winkel anschliessen. Am anderen Ende den Gewinde-Adapter montieren." },
+      { title: "Hänge-Assemblies installieren", details: "Alle 90 cm (3 Fuss) Markierungen auf der Hauptleitung setzen. Leitung über die Querstreben des Tunnels führen und mit Edelstahl-Kabelbindern alle 60\u201390 cm an der Firstpfette befestigen. Verlängerungsrohre auf gewünschte Höhe kürzen (Sprinklerköpfe 180\u2013210 cm über Kultur)." },
+      { title: "Löcher stanzen und Assemblies einsetzen", details: "Mit dem Lochstanzer beim Winkel beginnend alle 90 cm Löcher in die Hauptleitung stanzen. Alle Löcher auf einer Linie. Mit der Rückseite des Stanzwerkzeugs die Hänge-Assemblies in die Löcher drücken." },
       { title: "Zuleitung am Bogen montieren", details: "Das 20-ft-Rohr an den Winkel der Hauptleitung anschliessen. Mit Kabelbindern alle 60\u201390 cm an der Unterseite von Bogen 2 befestigen und nach unten führen." },
-      { title: "Ventil- und Filtereinheit zusammenbauen", details: "Kugelhahn, Druckregler und Scheibenfilter gemäss Anleitung zusammenschrauben. Die Einheit wird in die Zuleitung eingesetzt: Rohr an gewünschter Höhe durchschneiden und beide Enden an die Filtereinheit anschliessen. Alles mit Kabelbindern am Bogen sichern." },
-      { title: "Wasseranschluss herstellen", details: "Am Boden das Rohr abschneiden und den zweiten Power-Loc Winkel montieren. Restliches Rohr in Richtung Wasserquelle verlegen. Schlauchadapter anschliessen und mit Gartenschlauch verbinden." },
-      { title: "System spülen und Sprinklerköpfe montieren", details: "Wasser aufdrehen und Hauptleitung durchspülen lassen. Spülventil am Ende aufschrauben. Dann jede Hänge-Assembly einzeln spülen. Zum Schluss die SpinNet-Sprinklerköpfe auf alle Assemblies aufstecken. Fertig!" }
+      { title: "Ventil- und Filtereinheit zusammenbauen", details: "Kugelhahn, Druckregler und Scheibenfilter gemäss Anleitung zusammenschrauben. Die Einheit wird in die Zuleitung eingesetzt." },
+      { title: "Wasseranschluss herstellen", details: "Am Boden das Rohr abschneiden und den zweiten Power-Loc Winkel montieren. Restliches Rohr in Richtung Wasserquelle verlegen. Schlauchadapter anschliessen." },
+      { title: "System spülen und Sprinklerköpfe montieren", details: "Wasser aufdrehen und Hauptleitung durchspülen lassen. Spülventil am Ende aufschrauben. Dann jede Hänge-Assembly einzeln spülen. Zum Schluss die SpinNet-Sprinklerköpfe auf alle Assemblies aufstecken." }
     ],
-    hinweis: "Bei zu geringem Wasserdurchfluss: Jeden zweiten Sprinkler durch einen mitgelieferten Goof Plug ersetzen. Filter regelmässig reinigen (Kappe abschrauben, Sieb ausspülen). Vor Frost: System entleeren, Filtereinheit frostfrei lagern, Sprinklerköpfe abnehmen."
+    hinweis: "Bei zu geringem Durchfluss: Jeden zweiten Sprinkler durch Goof Plug ersetzen. Filter regelmässig reinigen. Vor Frost: System entleeren, Filtereinheit frostfrei lagern, Sprinklerköpfe abnehmen."
   },
   {
     id: "krauter-schnittlauch-dill",
@@ -601,22 +207,17 @@ const PROJECTS = [
     deadline: "KW 14 \u2013 Heute (2. April)",
     location: "Block 2, Beet 7a (Schnittlauch) + 7b (Dill)",
     image: "",
-    summary: "Schnittlauch und Dill aus grossen Töpfen pflanzen. Jede Pflanze in 4 Teile teilen und als Stauden setzen. Schnittlauch ist mehrjährig, Dill wird sich selber aussäen.",
-    materials: [
-      "Schnittlauch-Topfpflanzen (gross, zum Teilen in 4)",
-      "Dill-Topfpflanzen (gross, zum Teilen in 4)",
-      "Luzernepellets (200 g/Beetmeter)",
-      "Grünschnittkompost (15 L/Beetmeter)"
-    ],
+    summary: "Schnittlauch und Dill aus grossen Töpfen pflanzen. Jede Pflanze in 4 Teile teilen und als Stauden setzen.",
+    materials: ["Schnittlauch-Topfpflanzen (gross, zum Teilen in 4)","Dill-Topfpflanzen (gross, zum Teilen in 4)","Luzernepellets (200 g/Beetmeter)","Grünschnittkompost (15 L/Beetmeter)"],
     tools: ["Grelinette (Broadfork)", "Mini-Tilther", "Messer oder Spaten zum Teilen", "Giessbrause"],
     steps: [
       { title: "Beet vorbereiten", details: "Beet 7a + 7b mit Grelinette lockern (nicht wenden!). Luzernepellets und Grünschnittkompost flach einarbeiten mit Mini-Tilther." },
-      { title: "Topfpflanzen teilen", details: "Jeden grossen Topf in 4 gleichmässige Teile aufteilen. Mit einem scharfen Messer oder Spaten den Wurzelballen vierteln. Darauf achten, dass jedes Teilstück genügend Wurzeln hat." },
-      { title: "Schnittlauch pflanzen (Beet 7a)", details: "Die 4 Teilungen mit ca. 25 cm Abstand in Beet 7a setzen. Schnittlauch ist mehrjährig und breitet sich über die Saison aus. Gut angiessen." },
-      { title: "Dill pflanzen (Beet 7b)", details: "Die 4 Teilungen in Beet 7b setzen. Gut angiessen. Dill wächst schnell und kann später durch Nachsaat (ab KW 16\u201318) ergänzt werden." },
+      { title: "Topfpflanzen teilen", details: "Jeden grossen Topf in 4 gleichmässige Teile aufteilen. Darauf achten, dass jedes Teilstück genügend Wurzeln hat." },
+      { title: "Schnittlauch pflanzen (Beet 7a)", details: "Die 4 Teilungen mit ca. 25 cm Abstand in Beet 7a setzen. Gut angiessen." },
+      { title: "Dill pflanzen (Beet 7b)", details: "Die 4 Teilungen in Beet 7b setzen. Gut angiessen." },
       { title: "Angiessen", details: "Beide Beete gründlich mit der Giessbrause angiessen. Die nächsten 4 Tage feucht halten." }
     ],
-    hinweis: "Schnittlauch ist eine Staude \u2013 kein Umbruch nötig in den Folgejahren. Dill kann später durch gestaffelte Nachsaaten (KW 16\u201318) ergänzt werden, um Schossgefahr zu reduzieren."
+    hinweis: "Schnittlauch ist eine Staude \u2013 kein Umbruch nötig in den Folgejahren. Dill kann durch gestaffelte Nachsaaten (KW 16\u201318) ergänzt werden."
   },
   {
     id: "randen-bor",
@@ -627,12 +228,12 @@ const PROJECTS = [
     deadline: "KW 14 \u2013 Jetzt (31. März \u2013 6. April)",
     location: "Block 2, Beet 1a (Randen, gepflanzt KW 10)",
     image: "",
-    summary: "24 Tage nach Pflanzung: Bor-Blattdünger auf Randen sprühen. Schützt vor Pilzkrankheiten und verhindert Bormangel (hohle Knollen). Die Randen in Block 2 Beet 1a wurden in KW 10 gepflanzt \u2013 Bor ist jetzt fällig.",
+    summary: "24 Tage nach Pflanzung: Bor-Blattdünger auf Randen sprühen. Schützt vor Pilzkrankheiten und verhindert Bormangel (hohle Knollen).",
     materials: ["Lebosol-Bor-150 (g/l) Flüssigdünger", "Wasser", "Messbecher"],
     tools: ["Handsprüher oder Rückenspritze"],
     steps: [
-      { title: "Lösung anmischen", details: "Pro Beetmeter: 0,63 ml Lebosol-Bor-150 auf 63 ml Wasser. Das entspricht ca. 0,1 g Bor pro Beetmeter. Für die gesamte Randen-Fläche (Beet 1a) hochrechnen." },
-      { title: "Blattdüngung ausbringen", details: "Am besten abends oder bei bedecktem Himmel sprühen. Lösung gleichmässig auf die Blätter sprühen, beide Blattseiten benetzen." }
+      { title: "Lösung anmischen", details: "Pro Beetmeter: 0,63 ml Lebosol-Bor-150 auf 63 ml Wasser (ca. 0,1 g Bor pro Beetmeter)." },
+      { title: "Blattdüngung ausbringen", details: "Am besten abends oder bei bedecktem Himmel sprühen. Beide Blattseiten benetzen." }
     ],
     hinweis: "Laut Handbuch: 24 Tage nach Pflanzung. Block 2 Beet 1a wurde KW 10 gepflanzt \u2192 jetzt fällig. Mangold (Block 1 Beet 1, gepflanzt KW 13) bekommt Bor später in KW 17."
   },
@@ -645,7 +246,7 @@ const PROJECTS = [
     deadline: "KW 14\u201315 \u2013 Jetzt (diese + nächste Woche)",
     location: "Block 1 Beete 1+2, Block 2 Beete 3b, 8a/b",
     image: "",
-    summary: "10 Tage nach Pflanzung (KW 13): Erster Durchgang Drahthacke bei Mangold, Salat (Block 1), Kohlrabi, Fenchel (Block 2). Schnittlauch/Dill (7a/b) wurden erst KW 14 gepflanzt \u2013 dort später hacken.",
+    summary: "10 Tage nach Pflanzung (KW 13): Erster Durchgang Drahthacke bei Mangold, Salat (Block 1), Kohlrabi, Fenchel (Block 2).",
     materials: [],
     tools: ["Drahthacke (5 cm für enge Reihen, 12 cm für weite)", "Pendelhacke als Alternative"],
     steps: [
@@ -668,7 +269,7 @@ const PROJECTS = [
     materials: ["Insektennetz (feinmaschig)", "Federstahlstäbe für Hoops (bei Kohlrabi)"],
     tools: [],
     steps: [
-      { title: "Bodentemperatur prüfen", details: "Wenn Bodentemperatur dauerhaft über 10°C, werden Erdflöhe aktiv. Dann Vlies durch Insektennetz ersetzen." },
+      { title: "Bodentemperatur prüfen", details: "Wenn Bodentemperatur dauerhaft über 10°C, werden Erdflöhe aktiv." },
       { title: "Vlies entfernen", details: "Vlies vorsichtig abheben, zusammenfalten und trocken lagern." },
       { title: "Insektennetz auflegen", details: "Bei Kohlrabi: Hoops (Federstahlstäbe) setzen, damit das Netz nicht aufliegt. Bei Salat, Randen, Mangold: Netz kann flach aufgelegt werden." }
     ],
@@ -684,24 +285,17 @@ const PROJECTS = [
     deadline: "Bis KW 16 (13.\u201319. April)",
     location: "Waschplatzstrasse",
     image: "images/waschplatz-tisch2.jpg",
-    summary: "Stabiler Holztisch (70 cm Höhe) für die Waschplatzstrasse. Auf den Tisch wird ein Abtropfgitter gelegt, auf dem das gewaschene Gemüse trocknet. Ergonomische Höhe zum Sortieren und Abwiegen.",
-    materials: [
-      "Kantholz 60×60 mm oder 70×70 mm für Beine (4 Stk., je 70 cm)",
-      "Kantholz oder Latten für Längs- und Querrahmen (ca. 40×60 mm)",
-      "Bretter oder Latten für Tischfläche",
-      "Edelstahl-Schrauben (rostfrei, Ausseneinsatz)",
-      "Abtropfgitter (Kunststoff oder Edelstahl, passend zur Tischbreite)",
-      "Holzschutz / Leinöl für Witterungsschutz"
-    ],
-    tools: ["Akkubohrer / Schrauber", "Handsäge oder Kappsäge", "Winkel / Zollstock", "Schleifpapier (80er/120er)"],
+    summary: "Stabiler Holztisch (70 cm Höhe) für die Waschplatzstrasse. Auf den Tisch wird ein Abtropfgitter gelegt, auf dem das gewaschene Gemüse trocknet.",
+    materials: ["Kantholz 60\u00d760 mm für Beine (4 Stk., je 70 cm)","Kantholz oder Latten für Rahmen","Bretter oder Latten für Tischfläche","Edelstahl-Schrauben","Abtropfgitter","Holzschutz / Leinöl"],
+    tools: ["Akkubohrer / Schrauber", "Handsäge oder Kappsäge", "Winkel / Zollstock", "Schleifpapier"],
     steps: [
-      { title: "Masse festlegen und Holz zuschneiden", details: "Tischhöhe: exakt 70 cm. Breite und Länge je nach verfügbarem Abtropfgitter und Platz. Typisch: ca. 180\u2013200 cm lang, 60\u201370 cm tief. Alle vier Beine auf gleiche Länge sägen." },
-      { title: "Rahmen zusammenbauen", details: "Längs- und Querstreben auf Höhe der Beinoberkanten verschrauben. Mindestens 2 Querstreben und 2 Längsstreben für Stabilität. Rechte Winkel kontrollieren." },
-      { title: "Tischfläche montieren", details: "Bretter oder Latten als Auflage auf den Rahmen schrauben. Zwischen den Latten darf Abstand sein (Wasser kann ablaufen). Alternativ: nur den Rahmen als Auflage für das Abtropfgitter nutzen." },
-      { title: "Oberfläche behandeln", details: "Alle Kanten leicht abschleifen. Holz mit Leinöl oder Holzschutzlasur behandeln (Aussenbereich + Wasserkontakt). Mehrere Schichten für besseren Schutz." },
-      { title: "Abtropfgitter auflegen", details: "Abtropfgitter auf den Tisch legen. Prüfen ob es stabil aufliegt. Falls nötig: kleine Leisten als Anschlag an den Kanten montieren, damit das Gitter nicht verrutscht." }
+      { title: "Masse festlegen und Holz zuschneiden", details: "Tischhöhe: exakt 70 cm. Ca. 180\u2013200 cm lang, 60\u201370 cm tief." },
+      { title: "Rahmen zusammenbauen", details: "Längs- und Querstreben auf Höhe der Beinoberkanten verschrauben. Rechte Winkel kontrollieren." },
+      { title: "Tischfläche montieren", details: "Bretter oder Latten als Auflage auf den Rahmen schrauben." },
+      { title: "Oberfläche behandeln", details: "Alle Kanten leicht abschleifen. Holz mit Leinöl oder Holzschutzlasur behandeln." },
+      { title: "Abtropfgitter auflegen", details: "Abtropfgitter auf den Tisch legen. Falls nötig: kleine Leisten als Anschlag montieren." }
     ],
-    hinweis: "Tisch auf Verbundsteinboden mit Gummifüssen versehen, damit er nicht rutscht. So platzieren, dass Wasserabfluss vom Gitter direkt auf den Boden oder in eine Rinne läuft."
+    hinweis: "Tisch auf Verbundsteinboden mit Gummifüssen versehen, damit er nicht rutscht."
   },
   {
     id: "wasch-bottichstaender",
@@ -712,21 +306,45 @@ const PROJECTS = [
     deadline: "Bis KW 16 (13.\u201319. April)",
     location: "Waschplatzstrasse",
     image: "images/waschplatz-bottich.jpg",
-    summary: "Kleines Tischchen (60 cm Höhe) als Ständer für den Waschbottich (ca. 30 cm hoch). Bottichrand liegt so bei ~90 cm Arbeitshöhe, ergonomisch zum Waschen im Stehen.",
-    materials: [
-      "Kantholz 60×60 mm oder 70×70 mm für Beine (4 Stk., je 60 cm)",
-      "Kantholz oder Latten für Rahmen (ca. 40×60 mm)",
-      "Edelstahl-Schrauben (rostfrei, Ausseneinsatz)",
-      "Holzschutz / Leinöl für Witterungsschutz"
-    ],
+    summary: "Kleines Tischchen (60 cm Höhe) als Ständer für den Waschbottich (ca. 30 cm hoch). Bottichrand bei ~90 cm Arbeitshöhe.",
+    materials: ["Kantholz 60\u00d760 mm für Beine (4 Stk., je 60 cm)","Kantholz oder Latten für Rahmen","Edelstahl-Schrauben","Holzschutz / Leinöl"],
     tools: ["Akkubohrer / Schrauber", "Handsäge oder Kappsäge", "Winkel / Zollstock", "Schleifpapier"],
     steps: [
-      { title: "Bottich ausmessen", details: "Waschbottich genau ausmessen (Breite, Tiefe, Höhe). Rahmen so planen, dass der Bottich stabil aufliegt und seitlich nicht wegrutschen kann." },
-      { title: "Gestell bauen (60 cm Höhe)", details: "4 Beine à 60 cm. Rahmen so zusammenschrauben, dass er den Bottich sicher trägt. Kleine Anschlagleisten am Rand anbringen, damit der Bottich fixiert ist." },
-      { title: "Oberfläche behandeln", details: "Kanten schleifen, Holz mit Leinöl oder Holzschutzlasur behandeln. Steht im Nassbereich, daher mehrere Schichten auftragen." },
-      { title: "Aufstellen und testen", details: "Neben den Abtropf-Tisch stellen. Bottich auflegen und prüfen: Oberkante Bottichrand sollte bei ca. 90 cm liegen. Workflow testen: Gemüse waschen \u2192 aufs Gitter zum Abtropfen." }
+      { title: "Bottich ausmessen", details: "Waschbottich genau ausmessen. Rahmen so planen, dass der Bottich stabil aufliegt." },
+      { title: "Gestell bauen (60 cm Höhe)", details: "4 Beine à 60 cm. Rahmen zusammenschrauben. Anschlagleisten am Rand anbringen." },
+      { title: "Oberfläche behandeln", details: "Kanten schleifen, Holz mit Leinöl behandeln. Mehrere Schichten." },
+      { title: "Aufstellen und testen", details: "Neben den Abtropf-Tisch stellen. Oberkante Bottichrand sollte bei ca. 90 cm liegen." }
     ],
-    hinweis: "Rechnung: 60 cm Tischchen + 30 cm Bottich = 90 cm Arbeitshöhe am Bottichrand. Auch hier Gummifüsse verwenden gegen Verrutschen."
+    hinweis: "Rechnung: 60 cm Tischchen + 30 cm Bottich = 90 cm Arbeitshöhe. Gummifüsse verwenden."
+  },
+  {
+    id: "sumi-soaker",
+    title: "Sumi Soaker Staubnebelbewässerung Freiland",
+    category: "infrastruktur",
+    status: "offen",
+    priority: "bald",
+    deadline: "Bis KW 16\u201317 (vor Hauptsaison)",
+    location: "Block 1 + Block 2 (Freiland-Beete)",
+    image: "images/sumisoaker.jpg",
+    video: "https://www.youtube.com/watch?v=mTM13JkgjQQ",
+    summary: "Aufbau des Sumisansui Mark III Staubnebel-Bewässerungssystems für die Freiland-Beete. Feiner Sprühnebel wie sanfter Regen \u2013 schont Setzlinge, verhindert Bodenverdichtung und Erosion. Schlauch wird im Weg zwischen den Beeten ausgerollt. Max. Druck: 0.8 bar (11 psi), Druckminderer zwingend nötig.",
+    materials: [
+      "Sumisansui Mark III Schlauch (bis 5 m breit, bis 100 m lang)",
+      "Druckminderer / Druckregler (max. 0.8 bar / 11 psi)",
+      "Inline-Filter (150 Mesh)",
+      "Gartenschlauch-Anschluss oder Agline-Fitting",
+      "Sliding Stopper (am Ende des Schlauchs)",
+      "Winder/Bobbin für Aufwicklung und Lagerung"
+    ],
+    tools: ["Gartenschlauch zur Wasserquelle", "Messband für Positionierung"],
+    steps: [
+      { title: "Druckminderer + Filter montieren", details: "Druckminderer auf max. 0.8 bar (80 kPa / 11 psi) einstellen \u2013 das ist entscheidend! Normaler Hauswasserdruck liegt bei ca. 5 bar und würde den Schlauch zerstören. Filter direkt nach dem Druckminderer einsetzen." },
+      { title: "Schlauch ausrollen", details: "Sumi-Schlauch im Weg zwischen den Beeten ausrollen, Löcher nach oben zeigend. Der Mark III sprüht ca. 2.5 m auf jede Seite (5 m total). Pro Weg ein Schlauch, der die Beete links und rechts bewässert." },
+      { title: "Anschliessen", details: "Schlauchende an den Gartenschlauch-Anschluss (mit Druckminderer) anschliessen. Am anderen Ende den Sliding Stopper aufsetzen. Die Position des Stoppers bestimmt die aktive Länge." },
+      { title: "System testen", details: "Wasser langsam aufdrehen. Prüfen ob ein gleichmässiger feiner Nebel entsteht. Falls Tropfen statt Nebel: Druck zu hoch, Druckminderer weiter runterdrehen. Auf Lecks kontrollieren." },
+      { title: "Aufwicklung vorbereiten", details: "Winder/Bobbin bereithalten. Nach der Bewässerung Schlauch mit dem Winder aufwickeln und trocken lagern. UV-beständig, aber bei Nichtgebrauch aufwickeln verlängert die Lebensdauer." }
+    ],
+    hinweis: "Maximaldruck 0.8 bar / 11 psi \u2013 NICHT ohne Druckminderer betreiben! Der Sumi Mark III erzeugt einen feinen Staubnebel, ideal für Jungpflanzen, Direktsaaten und empfindliche Kulturen. Wiederverwendbar über mehrere Saisons."
   },
   {
     id: "karotten-aussaat-kw15",
@@ -737,16 +355,16 @@ const PROJECTS = [
     deadline: "KW 15 (7.\u201312. April)",
     location: "Block 1, Beet 5",
     image: "",
-    summary: "Laut Anbauplan: Direktsaat Karotten in Block 1 Beet 5 (KW 15). Beet vorbereiten mit Standarddüngung, 6 Reihen säen mit Jang Seeder, Vlies auflegen.",
+    summary: "Laut Anbauplan: Direktsaat Karotten in Block 1 Beet 5 (KW 15). Beet vorbereiten, 6 Reihen säen mit Jang Seeder, Vlies auflegen.",
     materials: ["Karotten-Saatgut (Napoli F1, 0,4 g/Beetmeter)", "Luzernepellets (200 g/Beetmeter)", "Grünschnittkompost (15 L/Beetmeter)", "Vlies (19 g)"],
     tools: ["Grelinette", "Mini-Tilther", "Markierrechen (6 Reihen)", "Jang JP-5 Seeder", "Giessbrause"],
     steps: [
       { title: "Beet vorbereiten", details: "Grelinette lockern, Luzernepellets und Kompost einarbeiten mit Mini-Tilther." },
-      { title: "Falsches Saatbeet (optional)", details: "Beet angiessen und 6\u20137 Tage Beikräuter keimen lassen. Dann abflammen und in das saubere Beet säen." },
-      { title: "Aussaat", details: "Mit Markierrechen 6 Reihen ziehen (12 cm Abstand). Jang Seeder mit 0,4 g Saatgut pro Beetmeter befüllen. Alle 6 Reihen säen." },
-      { title: "Abdecken", details: "Gut angiessen mit Giessbrause. Vlies auflegen (Frühjahr). Täglich kontrollieren \u2013 aufdecken sobald Karotten keimen." }
+      { title: "Falsches Saatbeet (optional)", details: "Beet angiessen und 6\u20137 Tage Beikräuter keimen lassen. Dann abflammen." },
+      { title: "Aussaat", details: "Mit Markierrechen 6 Reihen ziehen (12 cm Abstand). Jang Seeder mit 0,4 g Saatgut pro Beetmeter." },
+      { title: "Abdecken", details: "Gut angiessen. Vlies auflegen. Täglich kontrollieren." }
     ],
-    hinweis: "Hakurai-Mairübchensamen als Indikator mitsäen (keimen 1\u20132 Tage vor Karotten). Abflammen 4\u20135 Tage nach Aussaat möglich, solange Karotten noch unter der Erde."
+    hinweis: "Hakurai-Mairübchensamen als Indikator mitsäen (keimen 1\u20132 Tage vor Karotten). Abflammen 4\u20135 Tage nach Aussaat möglich."
   },
   {
     id: "beikraut-2durchgang",
@@ -757,7 +375,7 @@ const PROJECTS = [
     deadline: "KW 15\u201316 (7.\u201319. April)",
     location: "Block 1 Beete 1+2, Block 2 Beete 3b, 8a/b",
     image: "",
-    summary: "17 Tage nach Pflanzung (KW 13): Zweiter Durchgang Drahthacke bei Mangold, Salat, Kohlrabi, Fenchel. Schnittlauch/Dill (7a/b) bekommen ihren 1. Durchgang (10 Tage nach KW 14).",
+    summary: "17 Tage nach Pflanzung (KW 13): Zweiter Durchgang Drahthacke bei Mangold, Salat, Kohlrabi, Fenchel.",
     materials: [],
     tools: ["Drahthacke (5 cm / 12 cm)", "Pendelhacke als Alternative"],
     steps: [
@@ -776,12 +394,12 @@ const PROJECTS = [
     deadline: "KW 16 (13.\u201319. April)",
     location: "Block 2, Beet 4 (Karotten, gesät KW 12)",
     image: "",
-    summary: "Mairübchen (Beet 3a, ebenfalls KW 12) keimen jetzt als Indikator. Karotten sind wegen der Kälte noch nicht aufgelaufen. Abflammen voraussichtlich KW 16, sobald Beikraut sichtbar aber Karotten noch unter der Erde.",
+    summary: "Mairübchen (Beet 3a) keimen jetzt als Indikator. Abflammen sobald Beikraut sichtbar aber Karotten noch unter der Erde.",
     materials: ["Abflammgerät + Gaskartusche"],
     tools: ["Abflammgerät"],
     steps: [
-      { title: "Keimung beobachten", details: "Täglich Beet 4 kontrollieren. Sobald Beikraut-Keimlinge sichtbar sind aber Karotten noch nicht aufgelaufen \u2192 Zeitpunkt zum Abflammen." },
-      { title: "Abflammen", details: "Gleichmässig über das gesamte Beet abflammen. Zügig arbeiten (Beikraut welken lassen, nicht verkohlen). Karotten sind noch unter der Erde geschützt." },
+      { title: "Keimung beobachten", details: "Täglich Beet 4 kontrollieren. Sobald Beikraut sichtbar aber Karotten noch nicht aufgelaufen \u2192 Abflammen." },
+      { title: "Abflammen", details: "Gleichmässig über das gesamte Beet abflammen. Zügig arbeiten (Beikraut welken lassen, nicht verkohlen)." },
       { title: "Vlies wieder auflegen", details: "Nach dem Abflammen Vlies wieder auflegen und Beet feucht halten." }
     ],
     hinweis: "Mairübchen auf Beet 3a keimen jetzt (KW 14) als Referenz. Karotten brauchen länger (14\u201321 Tage). Abflammen nur solange Karotten noch UNTER der Erde sind!"
@@ -795,12 +413,12 @@ const PROJECTS = [
     deadline: "KW 16 (13.\u201319. April)",
     location: "Block 1 Beete 3+6b, Block 2 Beete 7c+8a/b",
     image: "",
-    summary: "Laut Anbauplan: Block 1 Beet 3 und 6b bepflanzen, Block 2 Beet 8a/b neu bepflanzen, Koriander (7c) setzen. Gleichzeitig starten die ersten Tunnel-Ernten (Petersilie, Salat, Spinat, Asiasalat, Radieschen).",
+    summary: "Laut Anbauplan: Block 1 Beet 3 und 6b bepflanzen, Block 2 Beet 8a/b neu bepflanzen, Koriander (7c) setzen.",
     materials: ["Jungpflanzen gemäss Max Schwarz Bestellung", "Koriander-Jungpflanzen oder Saatgut", "Luzernepellets (200 g/Beetmeter)", "Grünschnittkompost (15 L/Beetmeter)"],
     tools: ["Grelinette", "Mini-Tilther", "Pflanzwagen", "Giessbrause"],
     steps: [
-      { title: "Beete vorbereiten", details: "Block 1 Beet 3, Block 1 Beet 6b, Block 2 Beet 8a/b: Grelinette lockern, Düngen, Kompost einarbeiten mit Mini-Tilther." },
-      { title: "Jungpflanzen setzen", details: "Markierrechen oder Markierwalze für Pflanzabstände. Jungpflanzen setzen, gut angiessen. Nächste 4 Tage feucht halten." },
+      { title: "Beete vorbereiten", details: "Grelinette lockern, Düngen, Kompost einarbeiten mit Mini-Tilther." },
+      { title: "Jungpflanzen setzen", details: "Markierrechen für Pflanzabstände. Jungpflanzen setzen, gut angiessen. Nächste 4 Tage feucht halten." },
       { title: "Koriander pflanzen (Beet 7c)", details: "Koriander in Block 2 Beet 7c setzen. Langtag-empfindlich, regelmässig nachsäen." },
       { title: "Abdeckung", details: "Vlies oder Insektennetz auflegen je nach Kultur und Temperatur." }
     ],
@@ -816,11 +434,11 @@ const PROJECTS = [
     deadline: "KW 17 (20.\u201326. April)",
     location: "Block 1, Beet 1 (Mangold, gepflanzt KW 13)",
     image: "",
-    summary: "24 Tage nach Pflanzung: Bor-Blattdünger auf Mangold sprühen. Gleiche Familie wie Randen, gleiche Dosierung. Block 1 Beet 1 wurde KW 13 gepflanzt.",
+    summary: "24 Tage nach Pflanzung: Bor-Blattdünger auf Mangold sprühen. Gleiche Familie wie Randen, gleiche Dosierung.",
     materials: ["Lebosol-Bor-150 (g/l)", "Wasser"],
     tools: ["Handsprüher", "Messbecher"],
     steps: [
-      { title: "Lösung anmischen", details: "Pro Beetmeter: 0,63 ml Lebosol-Bor-150 auf 63 ml Wasser (ca. 0,1 g Bor pro Beetmeter)." },
+      { title: "Lösung anmischen", details: "Pro Beetmeter: 0,63 ml Lebosol-Bor-150 auf 63 ml Wasser." },
       { title: "Blattdüngung ausbringen", details: "Abends oder bei bedecktem Himmel sprühen. Gleichmässig auf beide Blattseiten." }
     ],
     hinweis: "Mangold und Randen gehören zur gleichen Familie (Fuchsschwanzgewächse). Gleiche Bor-Dosierung."
@@ -834,20 +452,41 @@ const PROJECTS = [
     deadline: "Bis KW 18\u201319 (27. April \u2013 10. Mai)",
     location: "Folientunnel, Beet 2a + 2b",
     image: "",
-    summary: "Ein Längsdraht wird zwischen den 5 Querstreben des Tunnels gespannt. An diesem Draht werden individuelle Schnüre befestigt, an denen die Tomatenpflanzen (Sweet Million) hochgeleitet werden. Ca. 45 Pflanzen pro 10-Meter-Beet bei 22 cm Abstand. Muss vor der Tomatenpflanzung stehen.",
-    materials: [
-      "Spanndraht (verzinkt oder Edelstahl, ca. 12 m)",
-      "Drahtspanner oder Schraubösen",
-      "Tomatenclips oder Schnur zum Anbinden",
-      "Tomatenhaken / Rankhilfe-Schnüre (ca. 90 Stk. für 2 Beete)"
-    ],
+    summary: "Ein Längsdraht wird zwischen den 5 Querstreben gespannt. An diesem Draht werden Schnüre befestigt, an denen die Tomatenpflanzen (Sweet Million) hochgeleitet werden. Ca. 45 Pflanzen pro 10-Meter-Beet bei 22 cm Abstand.",
+    materials: ["Spanndraht (verzinkt oder Edelstahl, ca. 12 m)","Drahtspanner oder Schraubösen","Tomatenclips oder Schnur","Tomatenhaken / Rankhilfe-Schnüre (ca. 90 Stk. für 2 Beete)"],
     tools: ["Zange", "Drahtschneider", "Leiter oder Tritt"],
     steps: [
-      { title: "Draht spannen", details: "Einen Längsdraht pro Beet auf ca. 200 cm Höhe zwischen den Querstreben spannen. An jeder der 5 Querstreben mit Drahtspanner oder Kabelbinder befestigen. Draht muss straff sein." },
-      { title: "Schnüre vorbereiten", details: "Pro Pflanze eine Schnur (ca. 250 cm lang) am Draht befestigen. Bei 22 cm Pflanzabstand alle 22 cm eine Schnur anbringen. Schnüre locker bis zum Boden hängen lassen." },
-      { title: "Pflanzen anbinden", details: "Sobald Tomaten gesetzt sind, die Schnur locker um den Stängel wickeln (im Uhrzeigersinn von oben betrachtet). Regelmässig nachwickeln, sobald die Pflanzen wachsen." }
+      { title: "Draht spannen", details: "Einen Längsdraht pro Beet auf ca. 200 cm Höhe zwischen den Querstreben spannen. Draht muss straff sein." },
+      { title: "Schnüre vorbereiten", details: "Pro Pflanze eine Schnur (ca. 250 cm lang) am Draht befestigen. Alle 22 cm eine Schnur." },
+      { title: "Pflanzen anbinden", details: "Sobald Tomaten gesetzt sind, die Schnur locker um den Stängel wickeln. Regelmässig nachwickeln." }
     ],
-    hinweis: "Sweet Million ist eine Cherrytomate mit starkem Wachstum. Regelmässig ausgeizen (Seitentriebe entfernen). Schnüre nicht zu straff wickeln, damit der Stängel Platz zum Wachsen hat."
+    hinweis: "Sweet Million ist eine Cherrytomate mit starkem Wachstum. Regelmässig ausgeizen. Schnüre nicht zu straff wickeln."
+  },
+  {
+    id: "gruenduengung-block345",
+    title: "Gründüngung: Insektenbuffet Block 3, 4 + 5",
+    category: "produktion",
+    status: "offen",
+    priority: "bald",
+    deadline: "KW 19\u201320 (5.\u201316. Mai)",
+    location: "Block 3, Block 4, Block 5",
+    image: "images/gruenduengung_insektenbuffet.jpg",
+    summary: "Auf den drei nicht bewirtschafteten Blöcken wird die Sativa Insektenbuffet-Mischung (GR58) als Gründüngung ausgesät. Blüht den ganzen Sommer, friert im Winter ab. 2027 Rasenmäher + Silofolie, dann neue Beete. Kein Kreuzblütler \u2013 ideal für die Fruchtfolge.",
+    materials: [
+      "Sativa Insektenbuffet GR58, 5 kg (<a href='https://www.sativa.bio/de_ch/insektenbuffet-gruenduengung-gr58' target='_blank'>Sativa Shop</a>)",
+      "Trockener Sand zum Mischen (ca. 5 kg)",
+      "Silofolie (zum Abdecken KW 15\u201318)"
+    ],
+    tools: ["Fräse", "Rechen", "Eimer zum Mischen", "Grelinette (optional)"],
+    steps: [
+      { title: "Restkulturen entfernen (jetzt, KW 14\u201315)", details: "Federkohl, Lauch und Restkulturen auf Block 3, 4, 5 abräumen. Schaumkraut sofort rausreissen solange es blüht \u2013 bevor die Schoten aufplatzen. Pflanzen nicht liegen lassen, Samen reifen auch an abgerissenen Pflanzen nach." },
+      { title: "Silofolie auflegen (KW 15\u201316)", details: "Alle drei Blöcke mit Silofolie zudecken. 3\u20134 Wochen liegen lassen. Unter der Folie keimen vorhandene Unkrautsamen, finden kein Licht und sterben ab (Stale Seedbed / falsches Saatbett)." },
+      { title: "Folie abnehmen + Fräse (KW 19)", details: "Mitte Mai Silofolie entfernen. Einmal mit der Fräse über alle Flächen für ein gleichmässiges Saatbett. Kein feiner Beetaufbau nötig." },
+      { title: "Saatgut mit Sand mischen", details: "5 kg Insektenbuffet mit ca. 5 kg trockenem Sand im Eimer mischen (1:1). Die Mischung enthält sehr unterschiedliche Korngrössen (feine Phacelia bis grosse Sonnenblumenkerne). Sand sorgt für gleichmässige Verteilung und zeigt wo man schon gesät hat." },
+      { title: "Breitwürfig aussäen", details: "Saatgut-Sand-Mischung gleichmässig von Hand über alle drei Blöcke streuen. Saatstärke: 300 g/100 m². Idealerweise vor einem Regen säen." },
+      { title: "Einarbeiten + angiessen", details: "Mit Rechen 2\u20133 cm einarbeiten. Falls kein Regen: einmal beregnen für Bodenkontakt." }
+    ],
+    hinweis: "Zusammensetzung: Buchweizen, Phacelia, Sonnenblumen, Borretsch, Bitterlupine, Alexandrinerklee, Perserklee, Sommerwicke, Seradella, Herzgespann, Dill, Malve. Einjährig, friert zuverlässig ab (Überwinterung: nein). 5 Leguminosen für N-Fixierung, kein Getreide. Frühling 2027: Rasenmäher drüber, Silofolie 3\u20134 Wochen, dann Beete anlegen."
   },
   {
     id: "troepfchenbewasserung",
@@ -858,21 +497,16 @@ const PROJECTS = [
     deadline: "KW 19\u201320 (nach Kulturwechsel im Tunnel)",
     location: "Folientunnel, Beete 2a/2b (Tomaten), 3a (Basilikum), 4a (Paprika), 5a (Gurken)",
     image: "",
-    summary: "Sobald die Frühjahrskulturen (Salat, Spinat, Asiasalat, Radieschen) abgeerntet sind und Tomaten, Gurken, Paprika, Basilikum in den Tunnel kommen, wird die Überkopfbewässerung durch Tröpfchenbewässerung ergänzt oder ersetzt. 3 Tropfschläuche pro Beet mit 30 cm Tropfabstand.",
-    materials: [
-      "Tropfschläuche (3 pro Beet, 30 cm Tropfabstand)",
-      "T-Stücke und Verbinder",
-      "Absperrhähne pro Beet",
-      "Hauptleitung / Verteiler"
-    ],
+    summary: "Sobald die Frühjahrskulturen abgeerntet sind und Tomaten, Gurken, Paprika, Basilikum in den Tunnel kommen, wird die Überkopfbewässerung durch Tröpfchenbewässerung ergänzt. 3 Tropfschläuche pro Beet.",
+    materials: ["Tropfschläuche (3 pro Beet, 30 cm Tropfabstand)","T-Stücke und Verbinder","Absperrhähne pro Beet","Hauptleitung / Verteiler"],
     tools: ["Messer oder Rohrschneider", "Massband"],
     steps: [
-      { title: "Layoutplanung", details: "Pro Beet 3 Tropfschläuche verlegen (30 cm Tropfabstand). Hauptleitung am Tunneleingang, von dort Abzweigungen zu jedem Beet." },
-      { title: "Schläuche verlegen", details: "Tropfschläuche auf die Beete legen, gerade ausrichten. An der Hauptleitung mit T-Stücken anschliessen. Am Ende verschliessen." },
-      { title: "Absperrhähne montieren", details: "Jeden Beet-Abzweig mit einem Absperrhahn versehen, damit einzelne Beete separat gesteuert werden können." },
-      { title: "System testen", details: "Wasser aufdrehen, Druck prüfen, auf Lecks kontrollieren. Durchflussrate testen \u2013 Tomaten, Gurken und Paprika brauchen gleichmässige, tiefe Bewässerung." }
+      { title: "Layoutplanung", details: "Pro Beet 3 Tropfschläuche verlegen. Hauptleitung am Tunneleingang." },
+      { title: "Schläuche verlegen", details: "Tropfschläuche auf die Beete legen, an der Hauptleitung mit T-Stücken anschliessen." },
+      { title: "Absperrhähne montieren", details: "Jeden Beet-Abzweig mit einem Absperrhahn versehen." },
+      { title: "System testen", details: "Wasser aufdrehen, Druck prüfen, auf Lecks kontrollieren." }
     ],
-    hinweis: "Tomaten, Gurken und Paprika mögen keine nassen Blätter \u2013 Tröpfchenbewässerung beugt Pilzkrankheiten vor. Überkopfbewässerung kann für Basilikum und junge Setzlinge weiterhin genutzt werden."
+    hinweis: "Tomaten, Gurken und Paprika mögen keine nassen Blätter \u2013 Tröpfchenbewässerung beugt Pilzkrankheiten vor."
   },
   // === ERLEDIGT ===
   {
@@ -902,34 +536,16 @@ let openId = null;
 
 function render() {
   const filtered = currentFilter === "alle" ? PROJECTS : PROJECTS.filter(p => p.status === currentFilter);
-  const counts = {
-    alle: PROJECTS.length,
-    offen: PROJECTS.filter(p => p.status === "offen").length,
-    geplant: PROJECTS.filter(p => p.status === "geplant").length,
-    erledigt: PROJECTS.filter(p => p.status === "erledigt").length
-  };
-
-  // Filters
+  const counts = { alle: PROJECTS.length, offen: PROJECTS.filter(p => p.status === "offen").length, geplant: PROJECTS.filter(p => p.status === "geplant").length, erledigt: PROJECTS.filter(p => p.status === "erledigt").length };
   document.getElementById("filters").innerHTML = ["alle","offen","geplant","erledigt"].map(k => {
     const labels = { alle:"Alle", offen:"Offen", geplant:"Geplant", erledigt:"Erledigt" };
     return `<button class="filter-btn ${currentFilter===k?'active':''}" onclick="setFilter('${k}')">${labels[k]} (${counts[k]})</button>`;
   }).join("");
-
-  // Main
   let html = "";
   CATEGORIES.forEach(cat => {
     const items = filtered.filter(p => p.category === cat.key);
     if (!items.length) return;
-    html += `
-      <div class="cat-header">
-        <div class="cat-icon" style="background:${cat.bg}">
-          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="${cat.color}" stroke-width="2">${cat.icon}</svg>
-        </div>
-        <h2>${cat.label}</h2>
-        <span class="cat-count">${items.length} Projekt${items.length!==1?'e':''}</span>
-      </div>
-      <div class="cards">
-    `;
+    html += `<div class="cat-header"><div class="cat-icon" style="background:${cat.bg}"><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="${cat.color}" stroke-width="2">${cat.icon}</svg></div><h2>${cat.label}</h2><span class="cat-count">${items.length} Projekt${items.length!==1?'e':''}</span></div><div class="cards">`;
     items.forEach(p => {
       const isOpen = openId === p.id;
       const hasSteps = p.steps && p.steps.length > 0;
@@ -954,7 +570,7 @@ function render() {
           </button>
           <div class="card-detail">
             <div class="card-detail-img"><img src="${p.image}" alt="" onerror="this.parentElement.style.display='none'"></div>
-            ${p.video ? `<a href="${p.video}" target="_blank" rel="noopener" class="video-link"><div class="video-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div><div class="video-text"><strong>Montagevideo ansehen</strong><span>Schritt-für-Schritt auf YouTube (Farmers Friend)</span></div></a>` : ''}
+            ${p.video ? `<a href="${p.video}" target="_blank" rel="noopener" class="video-link"><div class="video-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div><div class="video-text"><strong>Montagevideo ansehen</strong><span>Schritt-für-Schritt auf YouTube</span></div></a>` : ''}
             ${(p.materials.length||p.tools.length) ? `<div class="mat-tools">
               ${p.materials.length ? `<div class="mat-box material"><h4>Material</h4><ul>${p.materials.map(m=>`<li>${m}</li>`).join('')}</ul></div>` : ''}
               ${p.tools.length ? `<div class="mat-box werkzeug"><h4>Werkzeug</h4><ul>${p.tools.map(t=>`<li>${t}</li>`).join('')}</ul></div>` : ''}
@@ -963,25 +579,19 @@ function render() {
               <div class="step">
                 <div class="step-line"><div class="step-num">${i+1}</div>${i<p.steps.length-1?'<div class="step-connector"></div>':''}</div>
                 <div class="step-content"><h5>${s.title}</h5><p>${s.details}</p></div>
-              </div>
-            `).join('')}` : ''}
+              </div>`).join('')}` : ''}
             ${p.hinweis ? `<div class="hinweis"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"/></svg><div><strong>Hinweis</strong><p>${p.hinweis}</p></div></div>` : ''}
           </div>
-        </div>
-      `;
+        </div>`;
     });
     html += `</div>`;
   });
-
   if (!filtered.length) html = '<div style="text-align:center;padding:4rem 1rem;color:#9ca3af;font-size:.9rem;">Keine Projekte in dieser Kategorie.</div>';
   document.getElementById("main").innerHTML = html;
 }
-
 function setFilter(f) { currentFilter = f; render(); }
 function toggle(id) { openId = openId === id ? null : id; render(); }
-
 render();
 </script>
-
 </body>
 </html>
