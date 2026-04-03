@@ -386,6 +386,60 @@ const PROJECTS = [
     hinweis: "Dieser Platz wird in der Saison täglich genutzt \u2013 Ergonomie ist entscheidend. Bottichrand bei 90 cm Arbeitshöhe (60 cm Ständer + 30 cm Bottich). Waschplatz hat Blick auf den Berg \u2013 schönster Arbeitsplatz im ganzen Garten. Später kann der Pavillon durch eine permanentere Struktur ersetzt werden."
   },
   {
+    id: "umgebungspflege",
+    title: "Umgebungspflege: Ordnung rund um die Kapelle",
+    category: "infrastruktur",
+    status: "offen",
+    priority: "jetzt",
+    deadline: "KW 14\u201315 \u2013 Laufend",
+    location: "Rund um die Kapelle, v.a. Kundenbereich",
+    image: "images/umgebungspflege.jpg",
+    summary: "Rund um die Kapelle aufräumen und Ordnung schaffen \u2013 insbesondere im Kundenbereich wo die Abonnenten samstags vorbeikommen. Herumliegendes Material entsorgen oder sauber einlagern, Paletten wegräumen, Holz stapeln, Unkraut jäten, Rasen mähen. Alles was einen gepflegten, einladenden Eindruck macht.",
+    materials: [
+      "Abfallsäcke für Entsorgung",
+      "Optional: Grüngut-Container organisieren"
+    ],
+    tools: ["Rasenmäher", "Rechen", "Schubkarre", "Gartenschere / Astschere", "Besen"],
+    steps: [
+      { title: "Rundgang und Bestandsaufnahme", details: "Einmal komplett um die Kapelle gehen. Alles notieren was wegmuss, repariert oder umplatziert werden soll. Kundenbereich (Eingang, Ausgabezone, Parkplatz) hat Priorität." },
+      { title: "Entsorgen und wegräumen", details: "Kaputte Paletten, altes Holz, Gerümpel entsorgen oder zum Werkhof bringen. Brauchbares Material ordentlich im Gerätehaus oder an einem unsichtbaren Ort lagern." },
+      { title: "Grünpflege", details: "Gras mähen im Kundenbereich und rund um die Kapelle. Unkraut an Wegen und Platten entfernen. Überhängende Äste zurückschneiden wo nötig." },
+      { title: "Ordnung schaffen", details: "Werkzeuge, Schläuche und Material ordentlich versorgen. Alles hat seinen Platz. Der Bereich soll so aussehen, dass man stolz darauf ist wenn Besucher kommen." }
+    ],
+    hinweis: "Die Umgebungspflege ist keine einmalige Aktion sondern ein laufendes Projekt. Jeden Freitag vor der Samstags-Ausgabe kurz durchgehen und kontrollieren ob alles ordentlich ist."
+  },
+  {
+    id: "wassertanks",
+    title: "Wassertanks: Regenwasserversorgung in Betrieb nehmen",
+    category: "infrastruktur",
+    status: "offen",
+    priority: "bald",
+    deadline: "Bis KW 17\u201318 (20. April \u2013 3. Mai)",
+    location: "Kapelle (Dachrinne) \u2192 Wassertanks \u2192 Beete",
+    image: "images/wassertanks.jpg",
+    summary: "Die zwei vorhandenen 1000-Liter IBC-Tanks werden gereinigt und an die Dachrinne der Kapelle angeschlossen für autarke Regenwasserversorgung. Eine Pumpe wird angebracht um später die Bewässerungsanlage (Sumi Soaker, Tröpfchenbewässerung) zu speisen. Wasserleitungen von der Kapelle zu den Beeten verlegen.",
+    materials: [
+      "2\u00d7 IBC-Tank 1000 L (vorhanden, müssen gereinigt werden)",
+      "Regenrinnen-Ablauf / Fallrohr-Adapter (Anschluss Dachrinne \u2192 Tank)",
+      "Überlaufverbindung zwischen den zwei Tanks",
+      "Gartenpumpe (selbstansaugend, ca. 3\u20134 bar Förderdruck)",
+      "PE-Wasserleitung (25 mm oder 32 mm)",
+      "Absperrhähne, T-Stücke, Verbinder",
+      "Feinfilter am Tankeinlauf (gegen Laub und Schmutz)",
+      "Optional: Schwimmerventil oder Überlauf zum Versickern"
+    ],
+    tools: ["Akkubohrer", "Rohrzange", "Schaufel (für Leitungsgräben)", "Teflonband für Gewindedichtung", "Wasserwaage"],
+    steps: [
+      { title: "Tanks reinigen", details: "Beide IBC-Tanks gründlich ausspülen. Algen und Ablagerungen mit Bürste und Hochdruckreiniger entfernen. Tanks auf Risse und Dichtheit prüfen. Auslaufhahn kontrollieren." },
+      { title: "Tanks positionieren", details: "Tanks neben der Kapelle aufstellen, möglichst nah an der Dachrinne. Auf stabilen, ebenen Untergrund achten (1000 L = 1 Tonne!). Leicht erhöht platzieren falls möglich (erleichtert Schwerkraft-Bewässerung als Backup)." },
+      { title: "An Dachrinne anschliessen", details: "Fallrohr der Kapellen-Dachrinne mit einem Regensammler/Adapter an den ersten Tank anschliessen. Feinfilter einbauen (Laub, Moos). Überlaufverbindung vom ersten zum zweiten Tank montieren." },
+      { title: "Pumpe installieren", details: "Gartenpumpe am Auslauf des zweiten Tanks anschliessen (oder zwischen beiden Tanks). Pumpe muss selbstansaugend sein und genug Druck für die Bewässerungsanlage liefern (Sumi Soaker: max. 0.8 bar, Tröpfchen: ca. 1\u20131.5 bar)." },
+      { title: "Wasserleitungen verlegen", details: "PE-Leitung von der Pumpe zu den Beeten verlegen (Block 1, Block 2, Folientunnel). Leitungen knapp unter der Grasnarbe oder oberirdisch am Wegrand führen. Absperrhähne an den Abzweigungen zu jedem Block." },
+      { title: "System testen", details: "Tanks füllen lassen (Regen abwarten oder mit Schlauch vorfüllen). Pumpe starten, Druck prüfen, auf Lecks kontrollieren. Durchfluss an den Endpunkten testen." }
+    ],
+    hinweis: "2000 Liter Speicher reichen für ca. 1\u20132 Bewässerungsdurchgänge je nach Beetfläche. Bei längerer Trockenheit muss mit Leitungswasser nachgefüllt werden. IBC-Tanks lichtdicht abdecken (verhindert Algenwachstum). Im Winter Tanks entleeren und Pumpe frostfrei lagern."
+  },
+  {
     id: "gewaechshaus-reinigung",
     title: "Gewächshaus reinigen (innen + aussen)",
     category: "infrastruktur",
