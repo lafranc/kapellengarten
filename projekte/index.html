@@ -186,9 +186,9 @@ const PROJECTS = [
     id: "bewasserung",
     title: "Überkopf-Bewässerung Folientunnel",
     category: "infrastruktur",
-    status: "offen",
-    priority: "jetzt",
-    deadline: "KW 14 \u2013 Jetzt",
+    status: "erledigt",
+    priority: "geplant",
+    deadline: "KW 14 \u2013 Erledigt",
     location: "Folientunnel",
     image: "images/bewasserung-sprinkler.jpg",
     video: "https://www.youtube.com/watch?v=k6xP9j5XQhM",
@@ -454,14 +454,15 @@ const PROJECTS = [
       "Eimer + warmes Wasser",
       "Schwamm / weiche Bürste (keine Scheuermittel auf Glas!)",
       "Gartenschlauch zum Abspülen",
-      "Optional: Kärcher mit niedrigem Druck (nur auf stabilen Flächen, nicht direkt auf altes Glas)"
+      "Optional: Kärcher mit niedrigem Druck (nur auf stabilen Flächen, nicht direkt auf altes Glas)",
+      "Fensterkitt / Glaserkitt (zum Kitten loser Scheiben)"
     ],
     tools: ["Leiter oder Trittleiter", "Teleskop-Fensterwischer", "Besen", "Lappen / Mikrofasertücher", "Handschuhe"],
     steps: [
       { title: "Aussenbereich freiräumen", details: "Unkraut und Bewuchs rund um das Gewächshaus entfernen. Dachrinne und Ablauf freiräumen. Lose Gegenstände wegräumen." },
       { title: "Dach und Aussenwände reinigen", details: "Algenentferner gemäss Herstelleranweisung auftragen (meist einsprühen, einwirken lassen, abspülen). Bei starker Veralgung eventuell wiederholen. Mit weicher Bürste oder Teleskop-Wischer nacharbeiten. Gründlich mit Schlauch abspülen." },
       { title: "Innenreinigung", details: "Alles aus dem Gewächshaus räumen. Boden fegen. Glasflächen von innen mit warmem Wasser und Schwamm reinigen. Gestelle, Tische und Ablagen abwischen. Spinnweben entfernen." },
-      { title: "Struktur prüfen", details: "Glasscheiben auf Risse oder lose Stellen kontrollieren. Dichtungen und Rahmen prüfen. Lüftungsklappen testen. Kaputte Scheiben notieren für Ersatz." },
+      { title: "Struktur prüfen und kitten", details: "Glasscheiben auf Risse oder lose Stellen kontrollieren. Lose Scheiben mit Fensterkitt neu einsetzen. Dichtungen und Rahmen prüfen. Lüftungsklappen testen. Kaputte Scheiben notieren für Ersatz." },
       { title: "Einrichten und schön machen", details: "Gewächshaus wieder einräumen. Alles ordentlich platzieren. So herrichten, dass es bei der Gemüseausgabe einen guten Eindruck macht." }
     ],
     hinweis: "Das Gewächshaus ist das Erste was Abonnenten bei der Gemüseausgabe sehen \u2013 es muss einladend wirken. Beim Reinigen des Dachs vorsichtig sein: altes Glas kann spröde sein. Kärcher nur mit niedrigem Druck und nicht direkt auf Glas richten. Algenentferner vorher an einer kleinen Stelle testen."
@@ -480,7 +481,8 @@ const PROJECTS = [
       "Kärcher Hochdruckreiniger",
       "Verlängerungskabel (falls nötig)",
       "Wasseranschluss / Gartenschlauch",
-      "Besen / Wischer für danach"
+      "Besen / Wischer für danach",
+      "Fugensand (zum Auffüllen der Fugen nach dem Kärchern)"
     ],
     tools: ["Kärcher mit Flächenreiniger-Aufsatz", "Fugenkratzer (für grobe Stellen)", "Besen"],
     steps: [
@@ -488,7 +490,7 @@ const PROJECTS = [
       { title: "Kärcher vorbereiten", details: "Hochdruckreiniger an Wasser und Strom anschliessen. Flächenreiniger-Aufsatz verwenden falls vorhanden (gleichmässigeres Ergebnis, weniger Spritzer)." },
       { title: "Platten und Verbundsteine reinigen", details: "Systematisch von der Kapellenwand nach aussen arbeiten. Moos und Schmutz werden vom Hochdruck gelöst. Fugen besonders gründlich reinigen." },
       { title: "Ränder und Übergang säubern", details: "Auch die Übergänge zum Rasen und die Kapellenwand im unteren Bereich reinigen. Rinne/Abfluss freihalten." },
-      { title: "Aufräumen und trocknen lassen", details: "Gelöstes Material zusammenwischen. Bereich trocknen lassen. Optional: Pflanzen am Eingang schön arrangieren für einen einladenden Empfang." }
+      { title: "Aufräumen und trocknen lassen", details: "Gelöstes Material zusammenwischen. Fugensand in die gereinigten Fugen zwischen den Platten einkehren (der Kärcher spült den alten Sand raus). Bereich trocknen lassen. Optional: Pflanzen am Eingang schön arrangieren für einen einladenden Empfang." }
     ],
     hinweis: "Die Abonnenten kommen samstags zwischen 10 und 12 Uhr zur Gemüseausgabe \u2013 ein sauberer, einladender Eingangsbereich macht einen guten ersten Eindruck. Bei Bedarf im Herbst wiederholen."
   },
@@ -695,6 +697,30 @@ const PROJECTS = [
       { title: "Einarbeiten + angiessen", details: "Mit Rechen 2\u20133 cm einarbeiten. Falls kein Regen: einmal beregnen für Bodenkontakt." }
     ],
     hinweis: "Zusammensetzung: Buchweizen, Phacelia, Sonnenblumen, Borretsch, Bitterlupine, Alexandrinerklee, Perserklee, Sommerwicke, Seradella, Herzgespann, Dill, Malve. Einjährig, friert zuverlässig ab (Überwinterung: nein). 5 Leguminosen für N-Fixierung, kein Getreide. Frühling 2027: Rasenmäher drüber, Silofolie 3\u20134 Wochen, dann Beete anlegen."
+  },
+  {
+    id: "kompostanlage",
+    title: "Kompostplatz: Lagerung Grün- und Braunmaterial",
+    category: "infrastruktur",
+    status: "offen",
+    priority: "bald",
+    deadline: "Bis KW 18\u201320 (Ende April / Mai)",
+    location: "Beim Gerätehaus (halbschattiger Standort)",
+    image: "images/kompostanlage.jpg",
+    summary: "Einen ordentlichen Platz einrichten wo Gartenabfälle sauber getrennt gelagert werden können: Grünmaterial (frischer Grünschnitt, Ernterückstände, Rasenschnitt) und Braunmaterial (Holzhäcksel, trockenes Laub, Stroh, Äste). Später wird daraus Bio-Complete Compost hergestellt.",
+    materials: [
+      "Paletten für Abtrennungen / Boxen (mind. 2 Kammern)",
+      "Schrauben / Winkel zum Fixieren der Paletten",
+      "Beschriftung: 'Grün' und 'Braun'",
+      "Optional: Vlies oder Plane zum Abdecken bei Regen"
+    ],
+    tools: ["Akkubohrer", "Schubkarre", "Mistgabel"],
+    steps: [
+      { title: "Standort bestimmen", details: "Halbschattiger, gut zugänglicher Platz mit Schubkarre. Nicht direkt im Kundenbereich. Boden offen lassen." },
+      { title: "Zwei Kammern bauen", details: "Aus Paletten zwei getrennte Boxen bauen: eine für Grünmaterial (stickstoffreich: Ernterückstände, Grünschnitt, Unkraut ohne Samen), eine für Braunmaterial (kohlenstoffreich: Holzhäcksel, trockenes Laub, Stroh). Paletten mit Schrauben fixieren." },
+      { title: "Beschriften und einrichten", details: "Kammern klar beschriften. Schubkarre und Mistgabel in der Nähe deponieren. Vlies oder Plane bereithalten um bei Dauerregen abzudecken." }
+    ],
+    hinweis: "Ab Saisonstart fallen laufend Ernterückstände und Grünschnitt an \u2013 ohne Lagerplatz liegt alles verstreut herum. Getrennte Lagerung von Grün und Braun ist die Vorbereitung für spätere Kompostherstellung (Bio-Complete Compost nach Ingham)."
   },
   {
     id: "cozyzone",
