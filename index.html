@@ -350,7 +350,7 @@
       <a href="#kiste" onclick="closeMenu()">Gemüsekiste</a>
       <a href="#ueber-uns" onclick="closeMenu()">Über mich</a>
       <a href="#kontakt" onclick="closeMenu()">Kontakt</a>
-      <a href="#abo" onclick="closeMenu()" class="nav-cta">Gemüseabo 2026</a>
+      <a href="#abo" onclick="closeMenu()" class="nav-cta">Probiertasche</a>
     </div>
   </nav>
 
@@ -711,7 +711,7 @@
             <p style="font-family:'DM Sans',sans-serif;font-size:.8rem;color:#8b9e8b;margin-top:1.2rem;text-align:center;">Ich melde mich innerhalb von 48 Stunden.</p>
             <div style="border-top:1px solid #d4cfc3;margin-top:1.8rem;padding-top:1.5rem;">
               <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.2rem;color:#2d3a2d;margin-bottom:.4rem;">Noch unsicher?</p>
-              <p style="font-family:'DM Sans',sans-serif;font-size:.9rem;color:#5a6a5a;line-height:1.7;">Probier eine einzelne <strong>Schnuppertasche</strong> für CHF 25, ganz unverbindlich. Gleicher Inhalt, keine Verpflichtung. Schreib mir einfach «Schnuppertasche» per Mail, ich reserviere dir einen Platz für den nächsten Samstag.</p>
+              <p style="font-family:'DM Sans',sans-serif;font-size:.9rem;color:#5a6a5a;line-height:1.7;">Probier eine einzelne <strong>Schnuppertasche</strong> für CHF 25, ganz unverbindlich. Gleicher Inhalt, keine Verpflichtung. Einfach samstags zwischen 10 und 12 vorbeikommen. Wenn du sicher gehen willst, dass noch Platz ist, reicht eine kurze Mail.</p>
               <p style="font-family:'DM Sans',sans-serif;font-size:.75rem;color:#8b9e8b;margin-top:.6rem;">Begrenzt auf wenige Plätze pro Woche.</p>
             </div>
         </div>
@@ -745,10 +745,10 @@
         <div class="faq-a">Der <strong>Kapellengarten</strong> arbeitet nach <strong>biologischen Prinzipien</strong>, kein Kunstdünger, keine Pestizide. Ich bin zertifizierter Bodenmikrobiologe (Soil Food Web School, Dr. Elaine Ingham) und analysiere die Bodenbiologie regelmässig, um maximale Nährstoffdichte und Geschmack zu erreichen. Eine offizielle Bio-Zertifizierung wird angestrebt.</div>
       </details>
       <details class="faq-item">
-        <details class="faq-item">
         <summary>Kann ich zuerst eine einzelne Gemüsetasche probieren?</summary>
-        <div class="faq-a">Ja. Du kannst eine <strong>Schnuppertasche</strong> für <strong>CHF 25</strong> bestellen, einmalig und unverbindlich. Der Inhalt ist identisch mit der regulären Gemüsetasche. Schreib mir einfach eine kurze Mail mit dem Stichwort «Schnuppertasche», ich melde mich mit einem Termin. Pro Woche sind nur wenige Plätze verfügbar.</div>
+        <div class="faq-a">Ja. Du kannst eine <strong>Schnuppertasche</strong> für <strong>CHF 25</strong> holen, einmalig und unverbindlich. Der Inhalt ist identisch mit der regulären Gemüsetasche. Einfach samstags zwischen 10 und 12 vorbeikommen. Pro Woche sind nur wenige Plätze verfügbar, wenn du sicher gehen willst, reicht eine kurze Mail.</div>
       </details>
+      <details class="faq-item">
         <summary>Was passiert, wenn alle Plätze besetzt sind?</summary>
         <div class="faq-a">Dann führe ich eine <strong>Warteliste</strong>. Falls jemand absagt oder die Kapazität früher erweitert wird, melde ich mich in der Reihenfolge der Anmeldungen.</div>
       </details>
@@ -892,8 +892,53 @@
         btns.forEach(function(b, i) { b.classList.toggle('ks-active', i === idx); });
       }
 
-      window.ksShow = function(idx) { render(idx); };
+window.ksShow = function(idx) { render(idx); };
       render(0);
+    })();
+
+    // Nächster Abholsamstag - automatisch
+    (function() {
+      // Saisondaten pro Jahr anpassen:
+      var SAISON_START = new Date(2026, 3, 25);  // 25. April 2026 (Monat: 0=Jan, 3=Apr)
+      var SAISON_ENDE  = new Date(2026, 9, 31);  // 31. Oktober 2026
+
+      var monate = ['Januar','Februar','März','April','Mai','Juni',
+                    'Juli','August','September','Oktober','November','Dezember'];
+      var now = new Date();
+      var day = now.getDay();
+      var hour = now.getHours();
+
+      var tagsBisSa;
+      if (day === 6 && hour < 12) {
+        tagsBisSa = 0;
+      } else {
+        tagsBisSa = (6 - day + 7) % 7;
+        if (tagsBisSa === 0) tagsBisSa = 7;
+      }
+      var nextSat = new Date(now);
+      nextSat.setHours(0,0,0,0);
+      nextSat.setDate(now.getDate() + tagsBisSa);
+
+      var istHeute = (day === 6 && hour < 12);
+      var text;
+
+      if (nextSat < SAISON_START) {
+        var d = SAISON_START;
+        text = 'Saisonstart: Samstag, ' + d.getDate() + '. ' + monate[d.getMonth()] + ', 10–12 Uhr';
+      } else if (nextSat > SAISON_ENDE) {
+        text = 'Saison vorbei. Nächste Saison ab April ' + (SAISON_START.getFullYear() + 1) + '.';
+      } else {
+        var dateStr = nextSat.getDate() + '. ' + monate[nextSat.getMonth()];
+        if (istHeute) {
+          text = 'Heute, ' + dateStr + ', 10–12 Uhr: Gemüseausgabe bei der Kapelle';
+        } else {
+          text = 'Nächster Abholtag: Samstag, ' + dateStr + ', 10–12 Uhr';
+        }
+      }
+
+      document.querySelectorAll('[data-naechster-samstag]').forEach(function(el) {
+        el.textContent = text;
+      });
     })();
   </script>
 </body>
