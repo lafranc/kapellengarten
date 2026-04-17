@@ -66,8 +66,8 @@
     .hero { position:relative; min-height:100vh; display:flex; align-items:center; justify-content:center; padding:2rem; overflow:hidden; }
     .hero-content { text-align:center; max-width:900px; z-index:2; }
     .hero-location { font-family:'DM Sans',sans-serif; font-size:.85rem; letter-spacing:.2em; text-transform:uppercase; color:#8b7355; margin-bottom:1.5rem; }
-    .hero h1 { font-size:clamp(3rem,8vw,6rem); font-weight:400; line-height:1.1; margin-bottom:1.5rem; }
-    .hero h1 span { display:block; font-style:italic; color:#4a6741; }
+    .hero h1 { font-size:clamp(2.5rem,7vw,5rem); font-weight:400; line-height:1.15; margin-bottom:1.5rem; }
+    .hero h1 span { font-style:italic; color:#4a6741; }
     .hero-text { font-family:'DM Sans',sans-serif; font-size:clamp(1rem,2vw,1.2rem); color:#5a6a5a; margin-bottom:2rem; max-width:600px; margin-left:auto; margin-right:auto; }
     .btn { display:inline-block; padding:1rem 2.5rem; background:#4a6741; color:#f7f5f0; text-decoration:none; font-family:'DM Sans',sans-serif; font-size:.9rem; letter-spacing:.05em; text-transform:uppercase; transition:all .3s ease; border:2px solid #4a6741; cursor:pointer; }
     .btn:hover { background:transparent; color:#4a6741; }
@@ -347,10 +347,10 @@
     <a href="#" class="nav-logo">Kapellengarten</a>
     <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
     <div class="nav-links">
-      <a href="#kiste" onclick="closeMenu()">Gemüsekiste</a>
+      <a href="#kiste" onclick="closeMenu()">Gemüsetasche</a>
       <a href="#ueber-uns" onclick="closeMenu()">Über mich</a>
       <a href="#kontakt" onclick="closeMenu()">Kontakt</a>
-      <a href="#abo" onclick="closeMenu()" class="nav-cta">Probiertasche</a>
+      <a href="#abo" onclick="closeMenu()" class="nav-cta">Gemüseabo</a>
     </div>
   </nav>
 
@@ -411,13 +411,12 @@
         <ellipse cx="61" cy="20" rx="11" ry="17" fill="#8dd4a7" stroke="#5d9970" stroke-width="3" transform="rotate(8 61 20)"/>
       </svg>
     </div>
-    </div>
     <div class="hero-content">
-    <p class="hero-location">Wangen bei Olten · Schweiz</p>
-      <h1 class="einblenden einblenden-1">Frisches Gemüse das schmeckt.<br><span>Biologisch, lokal, nährstoffreich.</span></h1>
+      <p class="hero-location">Wangen bei Olten · Schweiz</p>
+      <h1 class="einblenden einblenden-1">Frisches Gemüse das schmeckt. <span>Biologisch, lokal, nährstoffreich.</span></h1>
       <p class="hero-text einblenden einblenden-2">Samstags abholbar beim <strong>Kapellengarten</strong> in Wangen bei Olten.</p>
       <p class="einblenden einblenden-2" data-naechster-samstag style="font-family:'DM Sans',sans-serif;font-size:1rem;color:#4a6741;font-weight:500;margin-bottom:.4rem;letter-spacing:.03em;">Nächster Abholtag: Samstag, 10–12 Uhr</p>
-      <p class="einblenden einblenden-2" style="font-family:'DM Sans',sans-serif;font-size:.9rem;color:#5a6a5a;margin-bottom:2rem;">Einfach vorbeikommen, CHF 25.– pro Gemüsetasche.</p>
+      <p class="einblenden einblenden-2" style="font-family:'DM Sans',sans-serif;font-size:.9rem;color:#5a6a5a;margin-bottom:2rem;">Einfach vorbeikommen, CHF 25.– pro Gemüsetasche, keine Anmeldung nötig.</p>
       <div class="einblenden einblenden-3">
         <a href="#kiste" class="btn">Am Samstag vorbeikommen</a>
         <a href="#abo" class="btn-ghost">Gemüseabo ansehen</a>
@@ -425,33 +424,33 @@
     </div>
   </section>
 
-  <!-- SO FUNKTIONIERT DIE KISTE -->
+  <!-- SO FUNKTIONIERT DIE GEMÜSETASCHE -->
   <section id="kiste" class="kiste-section">
     <div class="kiste-section-inner">
-      <p class="section-label">So funktioniert die Gemüsekiste</p>
-      <h2>Frisch geerntet,<br><span>bevor du es abholst</span></h2>
+      <p class="section-label">So funktioniert die Gemüsetasche</p>
+      <h2>Frisch geerntet,<br><span>bevor du sie abholst</span></h2>
       <p class="kiste-intro">Direkt vom Kapellengarten, Dorfstrasse 192, Wangen bei Olten. Jede Woche warten rund <strong>6–8 verschiedene Gemüsesorten</strong> auf dich, was gerade erntefrisch ist, was die Saison hergibt, was ich für dich geerntet habe.</p>
 
       <div class="kiste-how">
         <div class="kiste-step">
           <div class="kiste-step-num">1</div>
           <div>
-            <strong>Gemüseabo abschliessen</strong>
-            <p>Du meldest dich einmal an und bekommst wöchentlich deine Gemüsetasche, von April bis Oktober, rund 26 Wochen. Das hilft mir bei der Planung. Du kannst dein Gemüseabo jederzeit kündigen, unkompliziert.</p>
+            <strong>Probieren</strong>
+            <p>Komm einfach am Samstag zwischen 10 und 12 bei der Kapelle vorbei und hol dir eine <strong>Probier-Gemüsetasche</strong> für CHF 25.–. Keine Anmeldung, keine Verpflichtung. Gleicher Inhalt wie beim Abo.</p>
           </div>
         </div>
         <div class="kiste-step">
           <div class="kiste-step-num">2</div>
           <div>
-            <strong>Freitags: Vorschau per Newsletter</strong>
-            <p>Du erfährst jeden Freitag, was in der Gemüsetasche ist, damit du die Woche planen und kochen kannst.</p>
+            <strong>Abonnieren</strong>
+            <p>Wenn dir's passt, schliesst du ein <strong>Gemüseabo</strong> ab. Dann bekommst du deine Gemüsetasche von April bis Oktober jede Woche. Jederzeit kündbar.</p>
           </div>
         </div>
         <div class="kiste-step">
           <div class="kiste-step-num">3</div>
           <div>
-            <strong>Samstag: Abholen bei der Kapelle</strong>
-            <p>Du kommst samstags vorbei und füllst das Gemüse gleich in eine von dir mitgebrachte Tasche.</p>
+            <strong>Abholen</strong>
+            <p>Jeden Samstag 10–12 Uhr bei der Kapelle. Korb mitbringen, Gemüse einfüllen. Am Freitag davor gibt's eine Vorschau per Newsletter.</p>
           </div>
         </div>
       </div>
@@ -543,7 +542,6 @@
     </div>
   </section>
 
-  <!-- ÜBER UNS -->
   <!-- ÜBER UNS -->
   <section id="ueber-uns" class="ueber-uns-hero">
     <h2>Der <span>Kapellengarten</span></h2>
@@ -664,7 +662,6 @@
         <h2>Jede Woche<br><span>frisches Gemüse geniessen</span></h2>
         <p>Das Gemüseabo startet im <strong style="color:#c8dbc9">April 2026</strong> und läuft bis Ende Oktober, insgesamt rund <strong style="color:#c8dbc9">26 Wochen</strong>. In jeder Gemüsetasche steckt, was die Saison gerade hergibt: frisch geerntet, samstags abgeholt.</p>
 
-
         <div class="abo-info-blocks">
           <div class="abo-info-block">
             <div class="abo-info-num">1</div>
@@ -711,9 +708,9 @@
             <script>document.getElementById('cta-mail').href='mai'+'lto:'+'francis'+'@'+'kapellengarten.ch';</script>
             <p style="font-family:'DM Sans',sans-serif;font-size:.8rem;color:#8b9e8b;margin-top:1.2rem;text-align:center;">Ich melde mich innerhalb von 48 Stunden.</p>
             <div style="border-top:1px solid #d4cfc3;margin-top:1.8rem;padding-top:1.5rem;">
-              <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.2rem;color:#2d3a2d;margin-bottom:.4rem;">Noch unsicher?</p>
-              <p style="font-family:'DM Sans',sans-serif;font-size:.9rem;color:#5a6a5a;line-height:1.7;">Probier eine einzelne <strong>Schnuppertasche</strong> für CHF 25, ganz unverbindlich. Gleicher Inhalt, keine Verpflichtung. Einfach samstags zwischen 10 und 12 vorbeikommen. Wenn du sicher gehen willst, dass noch Platz ist, reicht eine kurze Mail.</p>
-              <p style="font-family:'DM Sans',sans-serif;font-size:.75rem;color:#8b9e8b;margin-top:.6rem;">Begrenzt auf wenige Plätze pro Woche.</p>
+              <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.2rem;color:#2d3a2d;margin-bottom:.4rem;">Lieber zuerst probieren?</p>
+              <p style="font-family:'DM Sans',sans-serif;font-size:.9rem;color:#5a6a5a;line-height:1.7;">Hol dir eine einzelne <strong>Probier-Gemüsetasche</strong> für CHF 25.–, ganz unverbindlich. Gleicher Inhalt wie beim Abo, keine Verpflichtung. Einfach samstags zwischen 10 und 12 bei der Kapelle vorbeikommen.</p>
+              <p style="font-family:'DM Sans',sans-serif;font-size:.75rem;color:#8b9e8b;margin-top:.6rem;">Pro Woche nur wenige Plätze. Wenn du sicher gehen willst, reicht eine kurze Mail.</p>
             </div>
         </div>
       </div>
@@ -727,11 +724,11 @@
       <h2>Alles <span>Wichtige</span></h2>
       <details class="faq-item">
         <summary>Wann startet die Saison und wie lange dauert sie?</summary>
-        <div class="faq-a">Die Saison startet voraussichtlich im <strong>April 2026</strong> und läuft bis Oktober, rund 26–28 Lieferwochen. Der genaue Starttermin wird per E-Mail kommuniziert.</div>
+        <div class="faq-a">Die Saison startet am <strong>Samstag, 25. April 2026</strong> und läuft bis Oktober, rund 26–28 Lieferwochen.</div>
       </details>
       <details class="faq-item">
         <summary>Wie läuft die Abholung ab?</summary>
-        <div class="faq-a">Du holst deine Gemüsetasche jeden <strong>Samstag Vormittag</strong> direkt bei der Kapelle ab: <strong>Dorfstrasse 192, Wangen bei Olten</strong>. Ein Parkplatz steht direkt links neben der Gemüseausgabe zur Verfügung, kostenlos. Falls du mal verhindert bist, kann die Gemüsetasche ausnahmsweise hinterlegt werden, einfach kurz Bescheid geben.</div>
+        <div class="faq-a">Du holst deine Gemüsetasche jeden <strong>Samstag von 10:00 bis 12:00 Uhr</strong> direkt bei der Kapelle ab: <strong>Dorfstrasse 192, Wangen bei Olten</strong>. Ein Parkplatz steht direkt links neben der Gemüseausgabe zur Verfügung, kostenlos. Falls du mal verhindert bist, kann die Gemüsetasche ausnahmsweise hinterlegt werden, einfach kurz Bescheid geben.</div>
       </details>
       <details class="faq-item">
         <summary>Was kostet das Gemüseabo?</summary>
@@ -747,7 +744,7 @@
       </details>
       <details class="faq-item">
         <summary>Kann ich zuerst eine einzelne Gemüsetasche probieren?</summary>
-        <div class="faq-a">Ja. Du kannst eine <strong>Schnuppertasche</strong> für <strong>CHF 25</strong> holen, einmalig und unverbindlich. Der Inhalt ist identisch mit der regulären Gemüsetasche. Einfach samstags zwischen 10 und 12 vorbeikommen. Pro Woche sind nur wenige Plätze verfügbar, wenn du sicher gehen willst, reicht eine kurze Mail.</div>
+        <div class="faq-a">Ja. Du kannst eine <strong>Probier-Gemüsetasche</strong> für <strong>CHF 25.–</strong> holen, einmalig und unverbindlich. Der Inhalt ist identisch mit der regulären Gemüsetasche. Einfach samstags zwischen 10 und 12 bei der Kapelle vorbeikommen. Pro Woche sind nur wenige Plätze verfügbar, wenn du sicher gehen willst, reicht eine kurze Mail.</div>
       </details>
       <details class="faq-item">
         <summary>Was passiert, wenn alle Plätze besetzt sind?</summary>
@@ -893,7 +890,7 @@
         btns.forEach(function(b, i) { b.classList.toggle('ks-active', i === idx); });
       }
 
-window.ksShow = function(idx) { render(idx); };
+      window.ksShow = function(idx) { render(idx); };
       render(0);
     })();
 
