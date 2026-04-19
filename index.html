@@ -11,7 +11,8 @@
   <meta property="og:url" content="https://kapellengarten.ch">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="de_CH">
-  <link rel="canonical" href="https://kapellengarten.ch">  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="canonical" href="https://kapellengarten.ch">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
   <!-- Meta Pixel Code -->
   <script>
@@ -45,70 +46,41 @@
     .hamburger.active span:nth-child(1) { transform:rotate(45deg) translate(7px,7px); }
     .hamburger.active span:nth-child(2) { opacity:0; }
     .hamburger.active span:nth-child(3) { transform:rotate(-45deg) translate(7px,-7px); }
-    @keyframes schweben { 0%,100%{transform:translateY(0) rotate(0deg)} 50%{transform:translateY(-15px) rotate(3deg)} }
-    @keyframes schweben-gemuese { 0%,100%{transform:translateY(0px) rotate(0deg)} 50%{transform:translateY(-20px) rotate(5deg)} }
     @keyframes einblenden { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
     .einblenden { animation:einblenden 1s ease forwards; }
     .einblenden-1 { animation-delay:.2s; opacity:0; }
     .einblenden-2 { animation-delay:.4s; opacity:0; }
     .einblenden-3 { animation-delay:.6s; opacity:0; }
-    .schwebender-kreis { position:absolute; border-radius:60% 40% 70% 30% / 50% 60% 40% 50%; animation:schweben 6s ease-in-out infinite; pointer-events:none; }
-    .kreis-1 { top:15%; right:10%; width:120px; height:120px; background:linear-gradient(135deg,rgba(74,103,65,.15),rgba(74,103,65,.05)); }
-    .kreis-2 { bottom:20%; left:8%; width:150px; height:150px; background:linear-gradient(135deg,rgba(139,115,85,.12),rgba(139,115,85,.04)); animation-delay:-2s; }
-    .kreis-3 { top:50%; right:25%; width:90px; height:90px; background:linear-gradient(135deg,rgba(74,103,65,.1),rgba(74,103,65,.03)); animation-delay:-4s; }
-    .kreis-4 { bottom:35%; left:35%; width:70px; height:70px; background:linear-gradient(135deg,rgba(139,115,85,.08),rgba(139,115,85,.02)); animation-delay:-1s; }
-    .schwebendes-gemuese { position:absolute; pointer-events:none; animation:schweben-gemuese 5s ease-in-out infinite; filter:drop-shadow(0 5px 15px rgba(0,0,0,.1)); }
-    .gemuese-1 { top:12%; right:15%; width:80px; height:80px; animation-delay:-1s; }
-    .gemuese-2 { top:60%; right:8%; width:100px; height:100px; animation-delay:-3s; }
-    .gemuese-3 { top:25%; left:12%; width:70px; height:70px; animation-delay:-2s; }
-    .gemuese-4 { bottom:15%; right:20%; width:90px; height:90px; animation-delay:-4s; }
-    .gemuese-5 { top:45%; left:18%; width:75px; height:75px; animation-delay:-1.5s; }
-    .hero { position:relative; min-height:100vh; display:flex; align-items:center; justify-content:center; padding:2rem; overflow:hidden; }
+    .hero { position:relative; min-height:100vh; display:flex; align-items:center; justify-content:center; padding:2rem; overflow:hidden; background:url('kapellengartenimagined.jpg') center/cover no-repeat; }
+    .hero::before { content:''; position:absolute; inset:0; background:linear-gradient(to bottom,rgba(15,28,12,.52) 0%,rgba(15,28,12,.28) 55%,rgba(15,28,12,.58) 100%); z-index:1; }
     .hero-content { text-align:center; max-width:900px; z-index:2; }
-    .hero-location { font-family:'DM Sans',sans-serif; font-size:.85rem; letter-spacing:.2em; text-transform:uppercase; color:#8b7355; margin-bottom:1.5rem; }
-    .hero h1 { font-size:clamp(2.5rem,7vw,5rem); font-weight:400; line-height:1.15; margin-bottom:1.5rem; }
-    .hero h1 span { font-style:italic; color:#4a6741; }
-    .hero-text { font-family:'DM Sans',sans-serif; font-size:clamp(1rem,2vw,1.2rem); color:#5a6a5a; margin-bottom:2rem; max-width:600px; margin-left:auto; margin-right:auto; }
+    .hero-location { font-family:'DM Sans',sans-serif; font-size:.85rem; letter-spacing:.2em; text-transform:uppercase; color:rgba(247,245,240,.68); margin-bottom:1.5rem; }
+    .hero h1 { font-size:clamp(2.5rem,7vw,5rem); font-weight:400; line-height:1.15; margin-bottom:1.5rem; color:#f7f5f0; }
+    .hero h1 span { font-style:italic; color:#b8ddb0; }
+    .hero-text { font-family:'DM Sans',sans-serif; font-size:clamp(1rem,2vw,1.2rem); color:rgba(247,245,240,.82); margin-bottom:2rem; max-width:600px; margin-left:auto; margin-right:auto; }
     .btn { display:inline-block; padding:1rem 2.5rem; background:#4a6741; color:#f7f5f0; text-decoration:none; font-family:'DM Sans',sans-serif; font-size:.9rem; letter-spacing:.05em; text-transform:uppercase; transition:all .3s ease; border:2px solid #4a6741; cursor:pointer; }
-    .btn:hover { background:transparent; color:#4a6741; }
-    .btn-ghost { display:inline-block; padding:1rem 2rem; background:transparent; color:#4a6741; text-decoration:none; font-family:'DM Sans',sans-serif; font-size:.9rem; letter-spacing:.05em; text-transform:uppercase; border:2px solid #4a6741; transition:all .3s ease; margin-left:1rem; cursor:pointer; }
-    .btn-ghost:hover { background:#4a6741; color:#f7f5f0; }
-    .section { padding:6rem 2rem; max-width:1400px; margin:0 auto; }
+    .btn:hover { background:#2d4a23; border-color:#2d4a23; }
+    .btn-ghost { display:inline-block; padding:1rem 2rem; background:transparent; color:#f7f5f0; text-decoration:none; font-family:'DM Sans',sans-serif; font-size:.9rem; letter-spacing:.05em; text-transform:uppercase; border:2px solid rgba(247,245,240,.65); transition:all .3s ease; margin-left:1rem; cursor:pointer; }
+    .btn-ghost:hover { background:rgba(247,245,240,.12); border-color:#f7f5f0; }
     .section-label { font-family:'DM Sans',sans-serif; font-size:.85rem; letter-spacing:.2em; text-transform:uppercase; color:#8b7355; margin-bottom:1rem; }
-    /* KISTE */
+    /* KISTE — season switcher */
     .kiste-section { padding:6rem 2rem; background:linear-gradient(135deg,#e8e4da 0%,#d4cfc3 100%); }
     .kiste-section-inner { max-width:1000px; margin:0 auto; }
     .kiste-section h2 { font-size:clamp(2.5rem,6vw,4rem); font-weight:400; margin-bottom:1rem; line-height:1.15; }
     .kiste-section h2 span { font-style:italic; color:#4a6741; }
-    .kiste-intro { font-family:'DM Sans',sans-serif; font-size:1.05rem; color:#4a5a4a; line-height:1.8; max-width:680px; margin-bottom:3rem; }
-    .kiste-how { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-bottom:3.5rem; }
-    .kiste-step { display:flex; gap:1rem; align-items:flex-start; background:rgba(255,255,255,.65); border-radius:8px; padding:1.4rem; }
-    .kiste-step-num { font-family:'Cormorant Garamond',serif; font-size:2.2rem; font-weight:600; color:#4a6741; line-height:1; flex-shrink:0; min-width:2.2rem; }
-    .kiste-step strong { display:block; font-family:'DM Sans',sans-serif; font-size:1.05rem; font-weight:600; color:#2d3a2d; margin-bottom:.45rem; }
-    .kiste-step p { font-family:'DM Sans',sans-serif; font-size:.95rem; color:#5a6a5a; line-height:1.7; margin:0; }
-    .kiste-seasons-title { font-size:1.9rem; font-weight:400; margin-bottom:.5rem; }
-    .kiste-seasons-sub { font-family:'DM Sans',sans-serif; font-size:.95rem; color:#5a6a5a; margin-bottom:1.5rem; }
-    .kiste-seasons-wrap { margin-bottom:1.5rem; }
-    .ks-panel-desktop { min-height:200px; }
-    /* SAISONPLAN */
+    .kiste-intro { font-family:'DM Sans',sans-serif; font-size:1.05rem; color:#4a5a4a; line-height:1.8; max-width:680px; margin-bottom:2rem; }
     .ks-switcher { display:flex; gap:.75rem; margin-bottom:1.5rem; flex-wrap:wrap; }
     .ks-btn { font-family:'DM Sans',sans-serif; font-size:.8rem; letter-spacing:.08em; text-transform:uppercase; padding:.55rem 1.4rem; border:1.5px solid #b8b0a0; border-radius:2rem; background:transparent; color:#7a7a6a; cursor:pointer; transition:all .2s; }
     .ks-btn:hover { border-color:#4a6741; color:#4a6741; }
     .ks-btn.ks-active { background:#4a6741; border-color:#4a6741; color:#f7f5f0; }
-    .ks-layout { display:grid; grid-template-columns:1fr 1fr; gap:2.5rem; align-items:start; margin-bottom:3.5rem; }
+    .ks-layout { display:grid; grid-template-columns:1fr 1fr; gap:2.5rem; align-items:start; }
     .ks-photo-wrap { text-align:center; }
     .ks-photo { width:100%; height:auto; border-radius:6px; display:inline-block; transition:opacity .3s ease; }
-    .ks-content { background:#fff; border:1px solid #e2ddd2; border-radius:8px; overflow:hidden; margin-bottom:0; }
-    @media (max-width:768px) {
-      .ks-layout { grid-template-columns:1fr; gap:1rem; }
-      .ks-content { margin-bottom:2rem; }
-    }
     .ks-photo.ks-fade { opacity:0; }
-    .ks-label { display:none; }
+    .ks-content { background:#fff; border:1px solid #e2ddd2; border-radius:8px; overflow:hidden; }
     .ks-content-header { padding:.85rem 1rem .75rem; border-bottom:1px solid #f0ece0; }
     .ks-label-name { font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:400; color:#2c2c1e; display:inline; }
     .ks-label-month { font-family:'DM Sans',sans-serif; font-size:.72rem; color:#9a9a8a; letter-spacing:.1em; text-transform:uppercase; display:inline; margin-left:.6rem; }
-    .ks-content { background:#fff; border:1px solid #e2ddd2; border-radius:8px; overflow:hidden; margin-bottom:3.5rem; }
     .ks-content-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:0; }
     .ks-item { display:flex; align-items:flex-start; gap:10px; padding:.6rem 1rem; border-bottom:1px solid #f0ece0; }
     .ks-item:nth-last-child(-n+2) { border-bottom:none; }
@@ -123,14 +95,29 @@
       .ks-item:nth-last-child(-n+2) { border-bottom:1px solid #f0ece0; }
       .ks-item:last-child { border-bottom:none; }
     }
-        /* ABHOLUNG */
-    .kiste-abholung { display:grid; grid-template-columns:1fr auto; gap:2.5rem; align-items:start; background:rgba(255,255,255,.65); border-radius:8px; padding:2rem 2.5rem; }
-    .kiste-abholung h3 { font-size:1.6rem; font-weight:400; margin-bottom:.75rem; }
-    .kiste-abholung p { font-family:'DM Sans',sans-serif; font-size:.95rem; color:#4a5a4a; line-height:1.8; margin-bottom:.5rem; }
-    .abholung-infos { display:flex; flex-direction:column; gap:.55rem; margin-top:1rem; }
-    .abholung-info { display:flex; gap:.7rem; font-family:'DM Sans',sans-serif; font-size:.9rem; color:#4a5a4a; line-height:1.5; }
+    /* ABO + HOW IT WORKS + ABHOLUNG */
+    .abo-section { padding:7rem 2rem; background:#2d3a2d; color:#f7f5f0; }
+    .abo-inner { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start; }
+    .abo-left .section-label { color:#7a9e7e; }
+    .abo-left h2 { font-size:clamp(2.5rem,5vw,3.5rem); font-weight:400; line-height:1.15; margin-bottom:2rem; }
+    .abo-left h2 span { font-style:italic; color:#7a9e7e; }
+    .kiste-how { display:flex; flex-direction:column; gap:1rem; margin-bottom:2rem; }
+    .kiste-step { display:flex; gap:1rem; align-items:flex-start; background:rgba(255,255,255,.07); border-radius:8px; padding:1.2rem 1.4rem; border:1px solid rgba(255,255,255,.1); }
+    .kiste-step-num { font-family:'Cormorant Garamond',serif; font-size:2.2rem; font-weight:600; color:#7a9e7e; line-height:1; flex-shrink:0; min-width:2.2rem; }
+    .kiste-step strong { display:block; font-family:'DM Sans',sans-serif; font-size:1rem; font-weight:600; color:#f7f5f0; margin-bottom:.35rem; }
+    .kiste-step p { font-family:'DM Sans',sans-serif; font-size:.9rem; color:rgba(247,245,240,.7); line-height:1.7; margin:0; }
+    .kiste-chips { display:grid; grid-template-columns:1fr 1fr; gap:.75rem; margin-bottom:2rem; }
+    .kiste-chip { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); border-radius:8px; padding:.9rem 1rem; font-family:'DM Sans',sans-serif; font-size:.85rem; color:rgba(247,245,240,.8); display:flex; flex-direction:column; gap:.3rem; }
+    .kiste-chip strong { display:block; color:#f7f5f0; margin-bottom:.1rem; }
+    .kiste-abholung { background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.1); border-radius:8px; padding:1.5rem; margin-top:2rem; }
+    .kiste-abholung h3 { font-size:1.4rem; font-weight:400; margin-bottom:.75rem; color:#f7f5f0; }
+    .kiste-abholung p { font-family:'DM Sans',sans-serif; font-size:.9rem; color:rgba(247,245,240,.7); line-height:1.8; margin-bottom:.5rem; }
+    .abholung-infos { display:flex; flex-direction:column; gap:.5rem; margin-top:.75rem; }
+    .abholung-info { display:flex; gap:.7rem; font-family:'DM Sans',sans-serif; font-size:.88rem; color:rgba(247,245,240,.6); line-height:1.5; }
     .abholung-info-icon { font-size:1rem; flex-shrink:0; margin-top:.1rem; }
-    .kapelle-illustration { width:100%; max-width:480px; height:auto; filter:drop-shadow(0 2px 8px rgba(45,58,45,.14)); }
+    .abo-form { background:#f7f5f0; border-radius:8px; padding:2.5rem; color:#2d3a2d; }
+    .abo-form h3 { font-size:1.8rem; font-weight:400; margin-bottom:.4rem; }
+    .kapelle-illustration { width:100%; height:auto; border-radius:6px; margin-top:2rem; }
     /* UEBER UNS */
     .ueber-uns-hero { padding:8rem 2rem 4rem; text-align:center; background:linear-gradient(135deg,#f7f5f0 0%,#e8e4da 100%); }
     .ueber-uns-hero h2 { font-size:clamp(2.5rem,6vw,4rem); font-weight:400; }
@@ -143,14 +130,6 @@
     .ueber-uns-portrait-placeholder { border-radius:4px; overflow:hidden; aspect-ratio:4/3; }
     .ueber-uns-portrait-placeholder img { width:100%; height:100%; object-fit:cover; display:block; }
     .ueber-uns-portrait-text p { font-family:'DM Sans',sans-serif; font-size:1rem; color:#4a5a4a; line-height:1.8; margin-bottom:1rem; }
-    .ueber-uns-method-grid { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start; }
-    .ueber-uns-method-grid p { font-family:'DM Sans',sans-serif; font-size:1rem; color:#4a5a4a; line-height:1.8; margin-bottom:1rem; }
-    .ueber-uns-method-img { border-radius:4px; overflow:hidden; }
-    .ueber-uns-method-img img { width:100%; height:100%; object-fit:cover; display:block; }
-    .ueber-uns-vision { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; }
-    .ueber-uns-vision-img { border-radius:4px; overflow:hidden; }
-    .ueber-uns-vision-img img { width:100%; height:100%; object-fit:cover; display:block; }
-    .ueber-uns-vision p { font-family:'DM Sans',sans-serif; font-size:1rem; color:#4a5a4a; line-height:1.8; margin-bottom:1rem; }
     /* TIMELINE */
     .unser-weg { padding:6rem 2rem; background:#2d3a2d; color:#f7f5f0; }
     .unser-weg-content { max-width:900px; margin:0 auto; }
@@ -172,37 +151,6 @@
     .werte-item .icon-fill { opacity:.25; stroke:none; }
     .werte-item h3 { font-size:1.4rem; font-weight:400; margin-bottom:.75rem; }
     .werte-item p { font-family:'DM Sans',sans-serif; font-size:.95rem; color:#5a6a5a; line-height:1.7; }
-    /* ABO */
-    .abo-section { padding:7rem 2rem; background:#2d3a2d; color:#f7f5f0; }
-    .abo-inner { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start; }
-    .abo-left .section-label { color:#7a9e7e; }
-    .abo-left h2 { font-size:clamp(2.5rem,5vw,3.5rem); font-weight:400; line-height:1.15; margin-bottom:1.2rem; }
-    .abo-left h2 span { font-style:italic; color:#7a9e7e; }
-    .abo-left > p { font-family:'DM Sans',sans-serif; font-size:1rem; color:rgba(247,245,240,.75); line-height:1.8; margin-bottom:1.5rem; }
-    .abo-info-blocks { display:flex; flex-direction:column; gap:0; margin-bottom:2rem; }
-    .abo-info-block { padding:1.2rem 0; border-bottom:1px solid rgba(255,255,255,.1); display:flex; gap:1.2rem; align-items:flex-start; }
-    .abo-info-block:last-child { border-bottom:none; }
-    .abo-info-num { font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:600; color:#7a9e7e; line-height:1; flex-shrink:0; min-width:2rem; }
-    .abo-info-block strong { display:block; font-family:'DM Sans',sans-serif; font-size:.8rem; font-weight:500; letter-spacing:.1em; text-transform:uppercase; color:#f7f5f0; margin-bottom:.3rem; }
-    .abo-info-block p { font-family:'DM Sans',sans-serif; font-size:.95rem; color:rgba(247,245,240,.65); line-height:1.7; }
-    .kiste-chips { display:grid; grid-template-columns:1fr 1fr; gap:.75rem; }
-    .kiste-chip { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); border-radius:8px; padding:.9rem 1rem; font-family:'DM Sans',sans-serif; font-size:.85rem; color:rgba(247,245,240,.8); display:flex; flex-direction:column; gap:.3rem; }
-    .kiste-chip strong { display:flex; align-items:center; gap:.5rem; color:#f7f5f0; margin-bottom:.1rem; }
-    .abo-form { background:#f7f5f0; border-radius:8px; padding:2.5rem; color:#2d3a2d; }
-    .abo-form h3 { font-size:1.8rem; font-weight:400; margin-bottom:.4rem; }
-    .form-sub { font-family:'DM Sans',sans-serif; font-size:.9rem; color:#5a6a5a; margin-bottom:1.8rem; }
-    .form-row { margin-bottom:1rem; }
-    .form-row label { display:block; font-family:'DM Sans',sans-serif; font-size:.72rem; font-weight:500; letter-spacing:.1em; text-transform:uppercase; color:#5a6a5a; margin-bottom:.4rem; }
-    .form-row input, .form-row select { width:100%; padding:.75rem 1rem; border:1.5px solid #d4cfc3; border-radius:4px; font-size:1rem; font-family:'DM Sans',sans-serif; color:#2d3a2d; background:white; outline:none; transition:border-color .2s; }
-    .form-row input:focus, .form-row select:focus { border-color:#4a6741; }
-    .form-2col { display:grid; grid-template-columns:1fr 1fr; gap:.75rem; }
-    .form-note { font-family:'DM Sans',sans-serif; font-size:.75rem; color:#8b7355; margin-top:1rem; }
-    .btn-submit { width:100%; padding:1rem; background:#4a6741; color:#f7f5f0; border:none; font-family:'DM Sans',sans-serif; font-size:.95rem; font-weight:500; letter-spacing:.05em; cursor:pointer; border-radius:4px; margin-top:.5rem; transition:background .2s; }
-    .btn-submit:hover { background:#2d3a2d; }
-    .form-success { display:none; text-align:center; padding:2rem; }
-    .success-icon { font-size:3rem; margin-bottom:1rem; }
-    .form-success h4 { font-size:1.8rem; font-weight:400; margin-bottom:.5rem; }
-    .form-success p { font-family:'DM Sans',sans-serif; color:#5a6a5a; }
     /* FAQ */
     .faq-section { padding:6rem 2rem; background:#f7f5f0; }
     .faq-inner { max-width:800px; margin:0 auto; }
@@ -248,56 +196,30 @@
       .nav-links a { font-size:1rem; padding:.5rem 0; }
       .hero { padding:2rem 1.5rem; }
       .kiste-section { padding:4rem 1.5rem; }
-      .kiste-how { grid-template-columns:1fr; gap:1rem; }
-      .kiste-seasons { grid-template-columns:1fr; gap:.75rem; }
-      .ks-card .kiste-photo-wrap { aspect-ratio:3/2; }
-      .kiste-list { grid-template-columns:1fr 1fr; }
-      .kiste-abholung { grid-template-columns:1fr; }
-      .kapelle-illustration { width:100%; max-width:480px; margin:1rem auto 0; display:block; }
+      .ks-layout { grid-template-columns:1fr; gap:1rem; }
+      .abo-inner { grid-template-columns:1fr; gap:3rem; }
+      .kiste-chips { grid-template-columns:1fr; }
       .ueber-uns-hero { padding:6rem 1.5rem 3rem; }
       .ueber-uns-content { padding:3rem 1.5rem; }
       .ueber-uns-portrait-grid { grid-template-columns:1fr; gap:2rem; }
       .ueber-uns-portrait-placeholder { aspect-ratio:4/3; }
-      .ueber-uns-method-grid { grid-template-columns:1fr; }
-      .ueber-uns-vision { grid-template-columns:1fr; }
       .unser-weg { padding:4rem 1.5rem; }
       .timeline { padding-left:1.5rem; }
       .timeline-item { flex-direction:column; gap:.5rem; padding-left:1.5rem; }
       .timeline-year { font-size:1.5rem; min-width:auto; }
       .werte { padding:4rem 1.5rem; }
       .werte-grid { grid-template-columns:1fr; gap:2.5rem; }
-      .abo-inner { grid-template-columns:1fr; gap:3rem; }
-      .kiste-chips { grid-template-columns:1fr; }
       .faq-section { padding:4rem 1.5rem; }
       .nl-form { flex-direction:column; }
-      .form-2col { grid-template-columns:1fr; }
       .kontakt { padding:4rem 1.5rem; }
-      .schwebender-kreis { opacity:.5; }
-      .schwebendes-gemuese { opacity:.7; }
-      .gemuese-1 { width:50px; height:50px; }
-      .gemuese-2 { width:60px; height:60px; }
-      .gemuese-3 { width:45px; height:45px; }
-      .gemuese-4 { width:55px; height:55px; }
-      .gemuese-5 { width:50px; height:50px; }
-      .sp-contents-grid { grid-template-columns:1fr; }
-      .sp-item:nth-last-child(-n+2) { border-bottom:1px solid #f0ece0; }
-      .sp-item:last-child { border-bottom:none; }
-      .sp-tab { font-size:.67rem; padding:.6rem .8rem; }
     }
     @media (max-width:480px) {
       .nav { padding:1rem; }
-      .kiste-step { flex-direction:column; gap:.5rem; }
       .kontakt-email { font-size:1rem; word-break:break-word; }
       footer { padding:2rem 1rem; }
-      .schwebendes-gemuese { opacity:.5; }
-      .gemuese-1 { width:40px; height:40px; }
-      .gemuese-2 { width:45px; height:45px; }
-      .gemuese-3 { width:35px; height:35px; }
-      .gemuese-4 { width:42px; height:42px; }
-      .gemuese-5 { width:38px; height:38px; }
     }
   </style>
-<script type="application/ld+json">
+  <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
@@ -356,67 +278,12 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="schwebender-kreis kreis-1"></div>
-    <div class="schwebender-kreis kreis-2"></div>
-    <div class="schwebender-kreis kreis-3"></div>
-    <div class="schwebender-kreis kreis-4"></div>
-    <div class="schwebendes-gemuese gemuese-1">
-      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="50" cy="50" r="35" fill="#e6594a" stroke="#c44536" stroke-width="3"/>
-        <circle cx="42" cy="38" r="8" fill="#f07167" opacity="0.6"/>
-        <path d="M 40 18 C 42 12 44 8 46 5" stroke="#5d9970" stroke-width="3" fill="none"/>
-        <path d="M 50 16 C 50 10 51 6 52 3" stroke="#5d9970" stroke-width="3" fill="none"/>
-        <path d="M 60 18 C 58 12 57 8 56 5" stroke="#5d9970" stroke-width="3" fill="none"/>
-        <ellipse cx="44" cy="3" rx="5" ry="8" fill="#7bc491" stroke="#5d9970" stroke-width="2" transform="rotate(-15 44 3)"/>
-        <ellipse cx="52" cy="1" rx="4" ry="7" fill="#7bc491" stroke="#5d9970" stroke-width="2"/>
-        <ellipse cx="58" cy="3" rx="5" ry="8" fill="#7bc491" stroke="#5d9970" stroke-width="2" transform="rotate(15 58 3)"/>
-      </svg>
-    </div>
-    <div class="schwebendes-gemuese gemuese-2">
-      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <ellipse cx="50" cy="55" rx="28" ry="22" fill="#7dba6e" stroke="#5d9a50" stroke-width="3"/>
-        <ellipse cx="44" cy="44" rx="13" ry="10" fill="#a8d89c" opacity="0.6"/>
-        <path d="M 35 38 C 32 30 30 22 28 15" stroke="#5d9970" stroke-width="2.5" fill="none"/>
-        <ellipse cx="26" cy="13" rx="7" ry="11" fill="#8dd4a7" stroke="#5d9970" stroke-width="2.5" transform="rotate(-15 26 13)"/>
-        <path d="M 50 33 C 50 26 50 20 50 14" stroke="#6b8e4e" stroke-width="2.5"/>
-        <ellipse cx="50" cy="11" rx="7" ry="11" fill="#8dd4a7" stroke="#5d9970" stroke-width="2.5"/>
-        <path d="M 65 38 C 68 30 70 22 72 15" stroke="#5d9970" stroke-width="2.5" fill="none"/>
-        <ellipse cx="74" cy="13" rx="7" ry="11" fill="#8dd4a7" stroke="#5d9970" stroke-width="2.5" transform="rotate(15 74 13)"/>
-      </svg>
-    </div>
-    <div class="schwebendes-gemuese gemuese-3">
-      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <path d="M 48 20 C 50 35 52 55 53 70 C 53 80 52 88 50 92 C 48 88 47 80 47 70 C 48 55 48 35 48 20 Z" fill="#e8822a" stroke="#c06020" stroke-width="2"/>
-        <path d="M 50 18 C 48 10 46 5 44 2" stroke="#5d9970" stroke-width="2.5"/>
-        <ellipse cx="42" cy="0" rx="5" ry="7" fill="#7bc491" stroke="#5d9970" stroke-width="1.8" transform="rotate(-10 42 0)"/>
-        <path d="M 50 18 C 52 10 54 5 56 2" stroke="#4a7c59" stroke-width="2.5"/>
-        <ellipse cx="58" cy="0" rx="5" ry="7" fill="#6ba87a" stroke="#4a7c59" stroke-width="1.8" transform="rotate(10 58 0)"/>
-      </svg>
-    </div>
-    <div class="schwebendes-gemuese gemuese-4">
-      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="50" cy="50" r="25" fill="#d66982" stroke="#b84a6a" stroke-width="3"/>
-        <ellipse cx="45" cy="42" rx="10" ry="13" fill="#f29ead" opacity="0.6"/>
-        <path d="M 47 23 C 47 16 48 10 50 5" stroke="#5d9970" stroke-width="3" fill="none"/>
-        <ellipse cx="47" cy="3" rx="5" ry="8" fill="#7bc491" stroke="#5d9970" stroke-width="2" transform="rotate(-20 47 3)"/>
-        <ellipse cx="54" cy="2" rx="5" ry="8" fill="#7bc491" stroke="#5d9970" stroke-width="2" transform="rotate(20 54 2)"/>
-        <path d="M 50 68 C 50 72 49 76 49 80" stroke="#b84a6a" stroke-width="2.5"/>
-      </svg>
-    </div>
-    <div class="schwebendes-gemuese gemuese-5">
-      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <path d="M 50 85 C 49 75 46 60 43 42 C 42 30 40 18 39 10 C 38 4 39 0 42 -2 C 45 -4 48 1 48 9 C 48 20 47 35 47 50 C 47 62 49 72 50 78" fill="#d4e8dc" stroke="#7bc491" stroke-width="3"/>
-        <path d="M 50 85 C 51 75 54 60 57 42 C 58 30 60 18 61 10 C 62 4 61 0 58 -2 C 55 -4 52 1 52 9 C 52 20 53 35 53 50 C 53 62 51 72 50 78" fill="#d4e8dc" stroke="#7bc491" stroke-width="3"/>
-        <ellipse cx="39" cy="20" rx="11" ry="17" fill="#8dd4a7" stroke="#5d9970" stroke-width="3" transform="rotate(-8 39 20)"/>
-        <ellipse cx="61" cy="20" rx="11" ry="17" fill="#8dd4a7" stroke="#5d9970" stroke-width="3" transform="rotate(8 61 20)"/>
-      </svg>
-    </div>
     <div class="hero-content">
       <p class="hero-location">Wangen bei Olten · Schweiz</p>
       <h1 class="einblenden einblenden-1">Frisches Gemüse das schmeckt. <span>Biologisch, lokal, nährstoffreich.</span></h1>
       <p class="hero-text einblenden einblenden-2">Samstags abholbar beim <strong>Kapellengarten</strong> in Wangen bei Olten.</p>
-      <p class="einblenden einblenden-2" data-naechster-samstag style="font-family:'DM Sans',sans-serif;font-size:1rem;color:#4a6741;font-weight:500;margin-bottom:.4rem;letter-spacing:.03em;">Nächster Abholtag: Samstag, 10–12 Uhr</p>
-      <p class="einblenden einblenden-2" style="font-family:'DM Sans',sans-serif;font-size:.9rem;color:#5a6a5a;margin-bottom:2rem;">Einfach vorbeikommen, CHF 25.– pro Gemüsetasche, keine Anmeldung nötig.</p>
+      <p class="einblenden einblenden-2" data-naechster-samstag style="font-family:'DM Sans',sans-serif;font-size:1rem;color:rgba(247,245,240,.9);font-weight:500;margin-bottom:.4rem;letter-spacing:.03em;">Nächster Abholtag: Samstag, 10–12 Uhr</p>
+      <p class="einblenden einblenden-2" style="font-family:'DM Sans',sans-serif;font-size:.9rem;color:rgba(247,245,240,.72);margin-bottom:2rem;">Einfach vorbeikommen, CHF 25.– pro Gemüsetasche, keine Anmeldung nötig.</p>
       <div class="einblenden einblenden-3">
         <a href="#kiste" class="btn">Am Samstag vorbeikommen</a>
         <a href="#abo" class="btn-ghost">Gemüseabo ansehen</a>
@@ -424,39 +291,13 @@
     </div>
   </section>
 
-  <!-- SO FUNKTIONIERT DIE GEMÜSETASCHE -->
+  <!-- WAS KOMMT IN DIE GEMÜSETASCHE -->
   <section id="kiste" class="kiste-section">
     <div class="kiste-section-inner">
-      <p class="section-label">So funktioniert die Gemüsetasche</p>
-      <h2>Frisch geerntet,<br><span>bevor du sie abholst</span></h2>
-      <p class="kiste-intro">Direkt vom Kapellengarten, Dorfstrasse 192, Wangen bei Olten. Jede Woche warten rund <strong>6–8 verschiedene Gemüsesorten</strong> auf dich, was gerade erntefrisch ist, was die Saison hergibt, was ich für dich geerntet habe.</p>
-
-      <div class="kiste-how">
-        <div class="kiste-step">
-          <div class="kiste-step-num">1</div>
-          <div>
-            <strong>Probieren</strong>
-            <p>Komm einfach am Samstag zwischen 10 und 12 bei der Kapelle vorbei und hol dir eine <strong>Probier-Gemüsetasche</strong> für CHF 25.–. Keine Anmeldung, keine Verpflichtung. Gleicher Inhalt wie beim Abo.</p>
-          </div>
-        </div>
-        <div class="kiste-step">
-          <div class="kiste-step-num">2</div>
-          <div>
-            <strong>Abonnieren</strong>
-            <p>Wenn dir's passt, schliesst du ein <strong>Gemüseabo</strong> ab. Dann bekommst du deine Gemüsetasche von April bis Oktober jede Woche. Jederzeit kündbar.</p>
-          </div>
-        </div>
-        <div class="kiste-step">
-          <div class="kiste-step-num">3</div>
-          <div>
-            <strong>Abholen</strong>
-            <p>Jeden Samstag 10–12 Uhr bei der Kapelle. Korb mitbringen, Gemüse einfüllen. Am Freitag davor gibt's eine Vorschau per Newsletter.</p>
-          </div>
-        </div>
-      </div>
-
-      <h3 class="kiste-seasons-title">Was kommt in die Gemüsetasche?</h3>
-      <p class="kiste-seasons-sub">Die Tasche ist für eine Person pro Woche berechnet. Je nach Jahreszeit variiert der Inhalt — klick auf eine Saison für Details.</p>
+      <p class="section-label">Was kommt in die Gemüsetasche?</p>
+      <h2>Frisch geerntet,<br><span>was die Saison hergibt</span></h2>
+      <p class="kiste-intro">Jede Woche rund 6–8 verschiedene Gemüsesorten — direkt aus dem Kapellengarten, Dorfstrasse 192, Wangen bei Olten. Die Tasche ist für 1–2 Personen pro Woche berechnet. Klick auf eine Saison für Details.</p>
+      <p style="font-family:'DM Sans',sans-serif;font-size:.9rem;color:#5a6a5a;margin-bottom:1.5rem;">Bei der Abholung gibt es eine <strong>Tauschtasche</strong> — schmeckt dir etwas aus der Tasche weniger, tauschst du es einfach gegen etwas anderes aus.</p>
 
       <div class="ks-switcher" id="ks-switcher">
         <button class="ks-btn ks-active" onclick="ksShow(0)">Frühling</button>
@@ -465,40 +306,79 @@
       </div>
 
       <div class="ks-layout">
-      <div class="ks-photo-wrap">
-        <img id="ks-photo" src="fruhlingsset.jpg" alt="Frühlingskiste" class="ks-photo">
-        <div class="ks-label">
-          <span class="ks-label-name">Frühling</span>
-          <span class="ks-label-month">April – Mai</span>
+        <div class="ks-photo-wrap">
+          <img id="ks-photo" src="fruhlingsset.jpg" alt="Frühlingskiste" class="ks-photo">
+        </div>
+        <div class="ks-content">
+          <div class="ks-content-header"><span class="ks-label-name" id="ks-name">Frühling</span><span class="ks-label-month" id="ks-month">April – Mai</span></div>
+          <div class="ks-content-grid" id="ks-grid"></div>
+          <p class="ks-note" id="ks-note"></p>
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="ks-content">
-        <div class="ks-content-header"><span class="ks-label-name" id="ks-name">Frühling</span><span class="ks-label-month" id="ks-month">April – Mai</span></div>
-        <div class="ks-content-grid" id="ks-grid"></div>
-        <p class="ks-note" id="ks-note"></p>
-      </div>
-      </div>
+  <!-- SO FUNKTIONIERT'S + ABO + ABHOLUNG -->
+  <section id="abo" class="abo-section">
+    <div class="abo-inner">
+      <div class="abo-left">
+        <p class="section-label">Gemüseabo Saison 2026</p>
+        <h2>So funktioniert<br><span>der Kapellengarten</span></h2>
 
-      <!-- ABHOLUNG -->
-      <div class="kiste-abholung">
-        <div class="kiste-abholung-text">
-          <h3>Abholung</h3>
-          <p>Die Gemüseausgabe ist jeden <strong>Samstag von 10:00 bis 12:00 Uhr</strong> direkt bei der Kapelle:<br>
-          <strong>Dorfstrasse 192, Wangen bei Olten</strong></p>
-          <p>Du bringst deinen Korb mit und ich fülle ihn mit frisch geerntetem Gemüse. Es gibt auch eine <strong>Tauschtasche</strong>, Gemüse gegen Gemüse tauschen ist ausdrücklich erwünscht.</p>
-          <div class="abholung-infos">
-            <div class="abholung-info">
-              <span class="abholung-info-icon">🚗</span>
-              <span><strong>Parkplatz:</strong> Direkt links neben der Gemüseausgabe, kostenlos, gut erreichbar</span>
+        <div class="kiste-how">
+          <div class="kiste-step">
+            <div class="kiste-step-num">1</div>
+            <div>
+              <strong>Probieren</strong>
+              <p>Komm einfach am Samstag zwischen 10 und 12 bei der Kapelle vorbei und hol dir eine Probier-Gemüsetasche. Keine Anmeldung, keine Verpflichtung.</p>
             </div>
-            <div class="abholung-info">
-              <span class="abholung-info-icon">📍</span>
-              <span>Dorfstrasse 192, 4612 Wangen bei Olten</span>
+          </div>
+          <div class="kiste-step">
+            <div class="kiste-step-num">2</div>
+            <div>
+              <strong>Abonnieren</strong>
+              <p>Wenn dir's passt, schliesst du ein Gemüseabo ab — wöchentlich von April bis Oktober. Das Abo hilft mir bei der Anbauplanung. Dafür bekommst du jeden Freitag per Newsletter vorab, was in der kommenden Woche in der Tasche ist — inklusive einer Rezeptidee. Und falls dich etwas weniger anspricht: Bei der Abholung steht immer eine Tauschtasche bereit.</p>
+            </div>
+          </div>
+          <div class="kiste-step">
+            <div class="kiste-step-num">3</div>
+            <div>
+              <strong>Abholen</strong>
+              <p>Jeden Samstag 10–12 Uhr bei der Kapelle. Korb mitbringen, Gemüse einfüllen. Wenn du mal verhindert bist, kann jemand anderes für dich abholen — oder wir überspringen die Woche unkompliziert.</p>
             </div>
           </div>
         </div>
-        <div class="kiste-abholung-badge">
+
+        <div class="kiste-chips">
+          <div class="kiste-chip"><strong>CHF 25.– / Woche</strong>Für 1–2 Personen, samstags abgeholt</div>
+          <div class="kiste-chip"><strong>26 Wochen</strong>April bis Oktober 2026</div>
+          <div class="kiste-chip"><strong>Ferien</strong>Einfach kurz Bescheid geben, Woche wird übersprungen</div>
+          <div class="kiste-chip"><strong>Jederzeit kündbar</strong>Keine Mindestlaufzeit</div>
+        </div>
+
+        <div class="kiste-abholung">
+          <h3>Abholung</h3>
+          <p>Jeden <strong style="color:#c8dbc9">Samstag 10–12 Uhr</strong> bei der Kapelle: <strong style="color:#c8dbc9">Dorfstrasse 192, Wangen bei Olten</strong></p>
+          <p>Du bringst deinen Korb mit und ich fülle ihn mit frisch geerntetem Gemüse. Es gibt auch eine <strong style="color:#c8dbc9">Tauschtasche</strong> — Gemüse gegen Gemüse tauschen ist ausdrücklich erwünscht.</p>
+          <div class="abholung-infos">
+            <div class="abholung-info"><span class="abholung-info-icon">🚗</span><span>Parkplatz direkt links neben der Gemüseausgabe, kostenlos</span></div>
+            <div class="abholung-info"><span class="abholung-info-icon">📍</span><span>Dorfstrasse 192, 4612 Wangen bei Olten</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="abo-form">
+          <h3>Interesse?</h3>
+          <p style="font-family:'DM Sans',sans-serif;font-size:1rem;color:#5a6a5a;line-height:1.8;margin-bottom:1.8rem;">Schreib mir direkt eine kurze E-Mail – ich schicke dir dann alle Infos zum Abo, Preis und Starttermin zu.</p>
+          <a id="cta-mail" href="#" style="display:block;text-align:center;padding:1rem 2rem;background:#4a6741;color:#f7f5f0;text-decoration:none;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:500;letter-spacing:.05em;border-radius:4px;transition:background .2s;" onmouseover="this.style.background='#2d3a2d'" onmouseout="this.style.background='#4a6741'">francis&#8203;@&#8203;kapellengarten.ch</a>
+          <script>document.getElementById('cta-mail').href='mai'+'lto:'+'francis'+'@'+'kapellengarten.ch';</script>
+          <p style="font-family:'DM Sans',sans-serif;font-size:.8rem;color:#8b9e8b;margin-top:1.2rem;text-align:center;">Ich melde mich innerhalb von 48 Stunden.</p>
+          <div style="border-top:1px solid #d4cfc3;margin-top:1.8rem;padding-top:1.5rem;">
+            <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.2rem;color:#2d3a2d;margin-bottom:.4rem;">Lieber zuerst probieren?</p>
+            <p style="font-family:'DM Sans',sans-serif;font-size:.9rem;color:#5a6a5a;line-height:1.7;">Hol dir eine einzelne <strong>Probier-Gemüsetasche</strong>, ganz unverbindlich. Gleicher Inhalt wie beim Abo, keine Verpflichtung. Einfach samstags zwischen 10 und 12 bei der Kapelle vorbeikommen.</p>
+            <p style="font-family:'DM Sans',sans-serif;font-size:.75rem;color:#8b9e8b;margin-top:.6rem;">Pro Woche nur wenige Plätze. Wenn du sicher gehen willst, reicht eine kurze Mail.</p>
+          </div>
           <svg viewBox="0 0 340 250" xmlns="http://www.w3.org/2000/svg" class="kapelle-illustration" aria-label="Lageplan Kapellengarten">
             <rect width="340" height="250" fill="#edeae3" rx="8"/>
             <rect x="0" y="0" width="340" height="50" fill="#c8c2b4" rx="0"/>
@@ -542,7 +422,7 @@
     </div>
   </section>
 
-  <!-- ÜBER UNS -->
+  <!-- DER KAPELLENGARTEN -->
   <section id="ueber-uns" class="ueber-uns-hero">
     <h2>Der <span>Kapellengarten</span></h2>
   </section>
@@ -654,69 +534,6 @@
     </div>
   </section>
 
-  <!-- ABO -->
-  <section id="abo" class="abo-section">
-    <div class="abo-inner">
-      <div class="abo-left">
-        <p class="section-label">Gemüseabo Saison 2026</p>
-        <h2>Jede Woche<br><span>frisches Gemüse geniessen</span></h2>
-        <p>Das Gemüseabo startet im <strong style="color:#c8dbc9">April 2026</strong> und läuft bis Ende Oktober, insgesamt rund <strong style="color:#c8dbc9">26 Wochen</strong>. In jeder Gemüsetasche steckt, was die Saison gerade hergibt: frisch geerntet, samstags abgeholt.</p>
-
-        <div class="abo-info-blocks">
-          <div class="abo-info-block">
-            <div class="abo-info-num">1</div>
-            <div>
-              <strong>Die Gemüsetasche</strong>
-              <p>Jede Gemüsetasche enthält 6–8 verschiedene Gemüsesorten, was gerade erntereif ist, ohne Vorauswahl. Die Gemüsetasche ist für eine Person pro Woche berechnet. Für Familien oder Paare ist auch eine zweite Gemüsetasche möglich, oder ihr teilt euch eine Gemüsetasche mit jemandem.</p>
-            </div>
-          </div>
-          <div class="abo-info-block">
-            <div class="abo-info-num">2</div>
-            <div>
-              <strong>Preis &amp; Gesamtkosten</strong>
-              <p>Das Abo kostet <strong style="color:#c8dbc9">CHF 25.– pro Gemüsetasche</strong>. Bei 26 Wochen sind das CHF 650.– für die ganze Saison. Die Zahlung klären wir nach deiner Anmeldung, monatlich oder saisonal, wie es für dich passt.</p>
-            </div>
-          </div>
-          <div class="abo-info-block">
-            <div class="abo-info-num">3</div>
-            <div>
-              <strong>Abholung &amp; Korb</strong>
-              <p>Du holst jeden <strong style="color:#c8dbc9">Samstag von 10:00 bis 12:00 Uhr</strong> bei der Kapelle ab. Du bringst deinen eigenen Korb mit, ich fülle ihn mit frischem Gemüse. Wenn du mal verhindert bist, kann jemand anderes für dich abholen.</p>
-            </div>
-          </div>
-          <div class="abo-info-block">
-            <div class="abo-info-num">4</div>
-            <div>
-              <strong>Ferien &amp; Abwesenheit</strong>
-              <p>Wenn du in den Ferien bist, einfach kurz Bescheid geben, wir überspringen diese Woche unkompliziert. Deine Gemüsetasche landet dann nicht im Abfall.</p>
-            </div>
-          </div>
-          <div class="abo-info-block">
-            <div class="abo-info-num">5</div>
-            <div>
-              <strong>Nach der Anmeldung</strong>
-              <p>Du erhältst eine Bestätigung per E-Mail. Vor Saisonstart melde ich mich nochmals mit allen Details zum genauen Starttermin und Ablauf.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div class="abo-form">
-            <h3>Interesse?</h3>
-            <p style="font-family:'DM Sans',sans-serif;font-size:1rem;color:#5a6a5a;line-height:1.8;margin-bottom:1.8rem;">Schreib mir direkt eine kurze E-Mail – ich schicke dir dann alle Infos zum Abo, Preis und Starttermin zu.</p>
-            <a id="cta-mail" href="#" style="display:block;text-align:center;padding:1rem 2rem;background:#4a6741;color:#f7f5f0;text-decoration:none;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:500;letter-spacing:.05em;border-radius:4px;transition:background .2s;" onmouseover="this.style.background='#2d3a2d'" onmouseout="this.style.background='#4a6741'">francis&#8203;@&#8203;kapellengarten.ch</a>
-            <script>document.getElementById('cta-mail').href='mai'+'lto:'+'francis'+'@'+'kapellengarten.ch';</script>
-            <p style="font-family:'DM Sans',sans-serif;font-size:.8rem;color:#8b9e8b;margin-top:1.2rem;text-align:center;">Ich melde mich innerhalb von 48 Stunden.</p>
-            <div style="border-top:1px solid #d4cfc3;margin-top:1.8rem;padding-top:1.5rem;">
-              <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.2rem;color:#2d3a2d;margin-bottom:.4rem;">Lieber zuerst probieren?</p>
-              <p style="font-family:'DM Sans',sans-serif;font-size:.9rem;color:#5a6a5a;line-height:1.7;">Hol dir eine einzelne <strong>Probier-Gemüsetasche</strong> für CHF 25.–, ganz unverbindlich. Gleicher Inhalt wie beim Abo, keine Verpflichtung. Einfach samstags zwischen 10 und 12 bei der Kapelle vorbeikommen.</p>
-              <p style="font-family:'DM Sans',sans-serif;font-size:.75rem;color:#8b9e8b;margin-top:.6rem;">Pro Woche nur wenige Plätze. Wenn du sicher gehen willst, reicht eine kurze Mail.</p>
-            </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- FAQ -->
   <section id="faq" class="faq-section">
     <div class="faq-inner">
@@ -736,7 +553,7 @@
       </details>
       <details class="faq-item">
         <summary>Was ist in der Gemüsetasche?</summary>
-        <div class="faq-a">Jede Woche <strong>6–8 saisonale Kulturen</strong>, was gerade erntefrisch ist. Jeden Freitag erhältst du per Newsletter eine Vorschau, damit du dich auf die Woche vorbereiten kannst.</div>
+        <div class="faq-a">Jede Woche <strong>6–8 saisonale Kulturen</strong>, was gerade erntefrisch ist. Jeden Freitag erhältst du per Newsletter eine Vorschau mit Rezeptidee, damit du dich auf die Woche vorbereiten kannst.</div>
       </details>
       <details class="faq-item">
         <summary>Ist das Gemüse biologisch zertifiziert?</summary>
@@ -744,7 +561,7 @@
       </details>
       <details class="faq-item">
         <summary>Kann ich zuerst eine einzelne Gemüsetasche probieren?</summary>
-        <div class="faq-a">Ja. Du kannst eine <strong>Probier-Gemüsetasche</strong> für <strong>CHF 25.–</strong> holen, einmalig und unverbindlich. Der Inhalt ist identisch mit der regulären Gemüsetasche. Einfach samstags zwischen 10 und 12 bei der Kapelle vorbeikommen. Pro Woche sind nur wenige Plätze verfügbar, wenn du sicher gehen willst, reicht eine kurze Mail.</div>
+        <div class="faq-a">Ja. Du kannst eine <strong>Probier-Gemüsetasche</strong> holen, einmalig und unverbindlich. Der Inhalt ist identisch mit der regulären Gemüsetasche. Einfach samstags zwischen 10 und 12 bei der Kapelle vorbeikommen. Pro Woche sind nur wenige Plätze verfügbar, wenn du sicher gehen willst, reicht eine kurze Mail.</div>
       </details>
       <details class="faq-item">
         <summary>Was passiert, wenn alle Plätze besetzt sind?</summary>
@@ -896,16 +713,13 @@
 
     // Nächster Abholsamstag - automatisch
     (function() {
-      // Saisondaten pro Jahr anpassen:
-      var SAISON_START = new Date(2026, 3, 25);  // 25. April 2026 (Monat: 0=Jan, 3=Apr)
-      var SAISON_ENDE  = new Date(2026, 9, 31);  // 31. Oktober 2026
-
+      var SAISON_START = new Date(2026, 3, 25);
+      var SAISON_ENDE  = new Date(2026, 9, 31);
       var monate = ['Januar','Februar','März','April','Mai','Juni',
                     'Juli','August','September','Oktober','November','Dezember'];
       var now = new Date();
       var day = now.getDay();
       var hour = now.getHours();
-
       var tagsBisSa;
       if (day === 6 && hour < 12) {
         tagsBisSa = 0;
@@ -916,10 +730,8 @@
       var nextSat = new Date(now);
       nextSat.setHours(0,0,0,0);
       nextSat.setDate(now.getDate() + tagsBisSa);
-
       var istHeute = (day === 6 && hour < 12);
       var text;
-
       if (nextSat < SAISON_START) {
         var d = SAISON_START;
         text = 'Saisonstart: Samstag, ' + d.getDate() + '. ' + monate[d.getMonth()] + ', 10–12 Uhr';
@@ -933,7 +745,6 @@
           text = 'Nächster Abholtag: Samstag, ' + dateStr + ', 10–12 Uhr';
         }
       }
-
       document.querySelectorAll('[data-naechster-samstag]').forEach(function(el) {
         el.textContent = text;
       });
