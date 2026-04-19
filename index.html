@@ -55,9 +55,9 @@
     .hero::before { content:''; position:absolute; inset:0; background:linear-gradient(to bottom,rgba(15,28,12,.52) 0%,rgba(15,28,12,.28) 55%,rgba(15,28,12,.58) 100%); z-index:1; }
     .hero-content { text-align:center; max-width:900px; z-index:2; }
     .hero-location { font-family:'DM Sans',sans-serif; font-size:.85rem; letter-spacing:.2em; text-transform:uppercase; color:rgba(247,245,240,.68); margin-bottom:1.5rem; }
-    .hero h1 { font-size:clamp(2rem,4.5vw,3.6rem); font-weight:400; line-height:1.15; margin-bottom:1.5rem; color:#f7f5f0; }
+    .hero h1 { font-size:clamp(1.7rem,4.5vw,3.6rem); font-weight:400; line-height:1.2; margin-bottom:1rem; color:#f7f5f0; }
     .hero h1 span { font-style:italic; color:#b8ddb0; }
-    .hero-text { font-family:'DM Sans',sans-serif; font-size:clamp(1rem,2vw,1.2rem); color:rgba(247,245,240,.82); margin-bottom:2rem; max-width:600px; margin-left:auto; margin-right:auto; }
+    .hero-text { font-family:'DM Sans',sans-serif; font-size:clamp(.9rem,2vw,1.2rem); color:rgba(247,245,240,.82); margin-bottom:1rem; max-width:600px; margin-left:auto; margin-right:auto; }
     .btn { display:inline-block; padding:1rem 2.5rem; background:#4a6741; color:#f7f5f0; text-decoration:none; font-family:'DM Sans',sans-serif; font-size:.9rem; letter-spacing:.05em; text-transform:uppercase; transition:all .3s ease; border:2px solid #4a6741; cursor:pointer; }
     .btn:hover { background:#2d4a23; border-color:#2d4a23; }
     .btn-ghost { display:inline-block; padding:1rem 2rem; background:transparent; color:#f7f5f0; text-decoration:none; font-family:'DM Sans',sans-serif; font-size:.9rem; letter-spacing:.05em; text-transform:uppercase; border:2px solid rgba(247,245,240,.65); transition:all .3s ease; margin-left:1rem; cursor:pointer; }
@@ -195,6 +195,8 @@
       .nav-links.active { right:0; }
       .nav-links a { font-size:1rem; padding:.5rem 0; }
       .hero { padding:2rem 1.5rem; }
+      .btn-ghost { margin-left:0; margin-top:.6rem; display:block; text-align:center; }
+      .btn { display:block; text-align:center; }
       .kiste-section { padding:4rem 1.5rem; }
       .ks-layout { grid-template-columns:1fr; gap:1rem; }
       .abo-inner { grid-template-columns:1fr; gap:3rem; }
@@ -282,8 +284,8 @@
       <p class="hero-location">Wangen bei Olten · Schweiz</p>
       <h1 class="einblenden einblenden-1">Frisches Gemüse das schmeckt.<br><span>Biologisch, lokal, nährstoffreich.</span></h1>
       <p class="hero-text einblenden einblenden-2">Samstags abholbar beim <strong>Kapellengarten</strong> in Wangen bei Olten.</p>
-      <p class="einblenden einblenden-2" data-naechster-samstag style="font-family:'DM Sans',sans-serif;font-size:1rem;color:rgba(247,245,240,.9);font-weight:500;margin-bottom:.4rem;letter-spacing:.03em;">Nächster Abholtag: Samstag, 10–12 Uhr</p>
-      <p class="einblenden einblenden-2" style="font-family:'DM Sans',sans-serif;font-size:.9rem;color:rgba(247,245,240,.72);margin-bottom:2rem;">Einfach vorbeikommen, CHF 25.– pro Gemüsetasche, keine Anmeldung nötig.</p>
+      <p class="einblenden einblenden-2" data-naechster-samstag style="font-family:'DM Sans',sans-serif;font-size:clamp(.8rem,2.2vw,1rem);color:rgba(247,245,240,.9);font-weight:500;margin-bottom:.3rem;letter-spacing:.03em;">Nächster Abholtag: Samstag, 10–12 Uhr</p>
+      <p class="einblenden einblenden-2" style="font-family:'DM Sans',sans-serif;font-size:clamp(.75rem,2vw,.9rem);color:rgba(247,245,240,.72);margin-bottom:1.5rem;">Einfach vorbeikommen, CHF 25.– pro Gemüsetasche, keine Anmeldung nötig.</p>
       <div class="einblenden einblenden-3">
         <a href="#kiste" class="btn">Am Samstag vorbeikommen</a>
         <a href="#abo" class="btn-ghost">Gemüseabo ansehen</a>
