@@ -361,6 +361,7 @@
           <div class="kiste-chip"><strong>26 Wochen</strong>April bis Oktober 2026</div>
           <div class="kiste-chip"><strong>Ferien</strong>Einfach kurz Bescheid geben, Woche wird übersprungen</div>
           <div class="kiste-chip"><strong>Jederzeit kündbar</strong>Keine Mindestlaufzeit</div>
+          <div class="kiste-chip" style="grid-column:span 2"><strong>Besuch? Mehr Gemüse?</strong>Zusätzliche Mengen aus der aktuellen Woche sind kein Problem. Abrechnung per Bar, Twint oder Rechnung.</div>
         </div>
 
         <div class="kiste-abholung">
@@ -376,16 +377,53 @@
 
       <div>
         <div class="abo-form">
-          <h3>Interesse?</h3>
-          <p style="font-family:'DM Sans',sans-serif;font-size:1rem;color:#5a6a5a;line-height:1.8;margin-bottom:1.8rem;">Schreib mir direkt eine kurze E-Mail – ich schicke dir dann alle Infos zum Abo, Preis und Starttermin zu.</p>
-          <a id="cta-mail" href="#" style="display:block;text-align:center;padding:1rem 2rem;background:#4a6741;color:#f7f5f0;text-decoration:none;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:500;letter-spacing:.05em;border-radius:4px;transition:background .2s;" onmouseover="this.style.background='#2d3a2d'" onmouseout="this.style.background='#4a6741'">francis&#8203;@&#8203;kapellengarten.ch</a>
-          <script>document.getElementById('cta-mail').href='mai'+'lto:'+'francis'+'@'+'kapellengarten.ch';</script>
-          <p style="font-family:'DM Sans',sans-serif;font-size:.8rem;color:#8b9e8b;margin-top:1.2rem;text-align:center;">Ich melde mich innerhalb von 48 Stunden.</p>
-          <div style="border-top:1px solid #d4cfc3;margin-top:1.8rem;padding-top:1.5rem;">
-            <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.2rem;color:#2d3a2d;margin-bottom:.4rem;">Lieber zuerst probieren?</p>
-            <p style="font-family:'DM Sans',sans-serif;font-size:.9rem;color:#5a6a5a;line-height:1.7;">Hol dir eine einzelne <strong>Probier-Gemüsetasche</strong>, ganz unverbindlich. Gleicher Inhalt wie beim Abo, keine Verpflichtung. Einfach samstags zwischen 10 und 12 bei der Kapelle vorbeikommen.</p>
-            <p style="font-family:'DM Sans',sans-serif;font-size:.75rem;color:#8b9e8b;margin-top:.6rem;">Pro Woche nur wenige Plätze. Wenn du sicher gehen willst, reicht eine kurze Mail.</p>
+          <h3>Jetzt anmelden</h3>
+          <p style="font-family:'DM Sans',sans-serif;font-size:.95rem;color:#5a6a5a;line-height:1.7;margin-bottom:1.4rem;">Starte mit mir als einer meiner ersten 20 Abokunden in die Saison — es hat noch Plätze frei.</p>
+
+          <div id="abo-form-wrap">
+            <div style="margin-bottom:.9rem">
+              <label style="display:block;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;color:#4a5a4a;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem">Ich möchte *</label>
+              <div style="display:flex;flex-direction:column;gap:.4rem">
+                <label style="display:flex;align-items:center;gap:.6rem;font-family:'DM Sans',sans-serif;font-size:.9rem;color:#2d3a2d;cursor:pointer">
+                  <input type="radio" name="af-typ" value="abo" checked style="accent-color:#4a6741;width:16px;height:16px;flex-shrink:0"> ein Gemüseabo
+                </label>
+                <label style="display:flex;align-items:center;gap:.6rem;font-family:'DM Sans',sans-serif;font-size:.9rem;color:#2d3a2d;cursor:pointer">
+                  <input type="radio" name="af-typ" value="probe" style="accent-color:#4a6741;width:16px;height:16px;flex-shrink:0"> zuerst eine Probier-Gemüsetasche
+                </label>
+              </div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin-bottom:.7rem">
+              <div>
+                <label style="display:block;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;color:#4a5a4a;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.3rem">Vorname *</label>
+                <input type="text" id="af-vorname" placeholder="Vorname" style="width:100%;padding:.7rem .9rem;border:1px solid #c8d4c0;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.9rem;color:#2d3a2d;box-sizing:border-box;outline:none">
+              </div>
+              <div>
+                <label style="display:block;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;color:#4a5a4a;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.3rem">Nachname *</label>
+                <input type="text" id="af-nachname" placeholder="Nachname" style="width:100%;padding:.7rem .9rem;border:1px solid #c8d4c0;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.9rem;color:#2d3a2d;box-sizing:border-box;outline:none">
+              </div>
+            </div>
+            <div style="margin-bottom:.7rem">
+              <label style="display:block;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;color:#4a5a4a;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.3rem">E-Mail *</label>
+              <input type="email" id="af-email" placeholder="deine@email.ch" style="width:100%;padding:.7rem .9rem;border:1px solid #c8d4c0;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.9rem;color:#2d3a2d;box-sizing:border-box;outline:none">
+            </div>
+            <div style="margin-bottom:.7rem">
+              <label style="display:block;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;color:#4a5a4a;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.3rem">Telefon <span style="font-weight:400;color:#8b9e8b;text-transform:none;letter-spacing:0">(optional)</span></label>
+              <input type="tel" id="af-telefon" placeholder="079 123 45 67" style="width:100%;padding:.7rem .9rem;border:1px solid #c8d4c0;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.9rem;color:#2d3a2d;box-sizing:border-box;outline:none">
+            </div>
+            <div style="margin-bottom:1.2rem">
+              <label style="display:block;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;color:#4a5a4a;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.3rem">Wohnort <span style="font-weight:400;color:#8b9e8b;text-transform:none;letter-spacing:0">(optional)</span></label>
+              <input type="text" id="af-ort" placeholder="z.B. Wangen bei Olten" style="width:100%;padding:.7rem .9rem;border:1px solid #c8d4c0;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.9rem;color:#2d3a2d;box-sizing:border-box;outline:none">
+            </div>
+            <button onclick="submitAboForm()" style="width:100%;padding:1rem;background:#4a6741;color:#f7f5f0;border:none;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:500;letter-spacing:.05em;cursor:pointer">Jetzt anmelden</button>
+            <p style="font-family:'DM Sans',sans-serif;font-size:.75rem;color:#8b9e8b;margin-top:.8rem;text-align:center">Keine automatischen Zahlungen — die Details klären wir persönlich.</p>
           </div>
+
+          <div id="abo-form-success" style="display:none;text-align:center;padding:2rem 0">
+            <p style="font-family:'DM Sans',sans-serif;font-size:1rem;color:#4a6741;font-weight:500">✓ Anmeldung erhalten — ich melde mich bald bei dir.</p>
+          </div>
+
+
+
           <svg viewBox="0 0 340 250" xmlns="http://www.w3.org/2000/svg" class="kapelle-illustration" aria-label="Lageplan Kapellengarten">
             <rect width="340" height="250" fill="#edeae3" rx="8"/>
             <rect x="0" y="0" width="340" height="50" fill="#c8c2b4" rx="0"/>
@@ -457,7 +495,7 @@
       </div>
     </div>
   </div>
-  
+
   <!-- BLICK IN DIE ZUKUNFT -->
   <section id="weg" class="unser-weg">
     <div class="unser-weg-content">
@@ -639,6 +677,23 @@
         }
       })
       .catch(() => { note.textContent = '⚠️ Verbindungsfehler, bitte nochmal versuchen.'; });
+    }
+
+    function submitAboForm() {
+      var v = document.getElementById('af-vorname').value.trim(),
+          n = document.getElementById('af-nachname').value.trim(),
+          e = document.getElementById('af-email').value.trim(),
+          t = document.getElementById('af-telefon').value.trim(),
+          o = document.getElementById('af-ort').value.trim(),
+          typ = document.querySelector('input[name="af-typ"]:checked').value;
+      if (!v || !n || !e) { alert('Bitte Vorname, Nachname und E-Mail ausfüllen.'); return; }
+      document.getElementById('abo-form-wrap').style.display = 'none';
+      document.getElementById('abo-form-success').style.display = 'block';
+      fetch('https://kapellengarten-newsletter.larkin-francis.workers.dev', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ vorname: v, nachname: n, email: e, telefon: t, ort: o, typ: typ })
+      }).catch(function() {});
     }
 
     function toggleMenu() {
