@@ -181,209 +181,114 @@ if (sessionStorage.getItem("kg_auth") === "1") unlock();
 </script>
 <script>
 const PROJECTS = [
-  // === JETZT FÄLLIG (KW 14) ===
+  // === JETZT FÄLLIG (KW 19) ===
   {
-    id: "bewasserung",
-    title: "Überkopf-Bewässerung Folientunnel",
-    category: "infrastruktur",
-    status: "erledigt",
-    priority: "geplant",
-    deadline: "KW 14 \u2013 Erledigt",
-    location: "Folientunnel",
-    image: "images/bewasserung-sprinkler.jpg",
-    video: "https://www.youtube.com/watch?v=k6xP9j5XQhM",
-    summary: "Installation des Farmers Friend Overhead Irrigation Kit (FF-3465) im Folientunnel. Die aktuellen Tunnelkulturen (Salat, Spinat, Kohlrabi, Asiasalat, Rucola, Radieschen) brauchen jetzt Überkopfbewässerung.",
-    materials: ["Farmers Friend Overhead Irrigation Kit FF-3465","Weisses Polyethylen-Rohr (1 Zoll, Hauptleitung)","Weisses Polyethylen-Rohr 20 ft (Zuleitung am Bogen)","SpinNet Sprinklerköpfe","Hänge-Assemblies mit Verlängerungen","Edelstahl-Kabelbinder","Lochstanzer-Werkzeug","Kugelhahn, Druckregler (35 PSI), Scheibenfilter","Power-Loc Winkel, Adapter, Spülventil"],
-    tools: ["Massband", "Marker/Stift", "Messer oder Rohrschneider", "Zange"],
-    steps: [
-      { title: "Hauptleitung vorbereiten", details: "Weisses Rohr ausrollen (am besten bei Wärme). Am zweiten Bogen beginnen und bis ca. 15\u201320 cm vor die Endwand legen. Am Zuleitungsende den Power-Loc Winkel anschliessen. Am anderen Ende den Gewinde-Adapter montieren." },
-      { title: "Hänge-Assemblies installieren", details: "Alle 90 cm (3 Fuss) Markierungen auf der Hauptleitung setzen. Leitung über die Querstreben des Tunnels führen und mit Edelstahl-Kabelbindern alle 60\u201390 cm an der Firstpfette befestigen. Verlängerungsrohre auf gewünschte Höhe kürzen (Sprinklerköpfe 180\u2013210 cm über Kultur)." },
-      { title: "Löcher stanzen und Assemblies einsetzen", details: "Mit dem Lochstanzer beim Winkel beginnend alle 90 cm Löcher in die Hauptleitung stanzen. Alle Löcher auf einer Linie. Mit der Rückseite des Stanzwerkzeugs die Hänge-Assemblies in die Löcher drücken." },
-      { title: "Zuleitung am Bogen montieren", details: "Das 20-ft-Rohr an den Winkel der Hauptleitung anschliessen. Mit Kabelbindern alle 60\u201390 cm an der Unterseite von Bogen 2 befestigen und nach unten führen." },
-      { title: "Ventil- und Filtereinheit zusammenbauen", details: "Kugelhahn, Druckregler und Scheibenfilter gemäss Anleitung zusammenschrauben. Die Einheit wird in die Zuleitung eingesetzt." },
-      { title: "Wasseranschluss herstellen", details: "Am Boden das Rohr abschneiden und den zweiten Power-Loc Winkel montieren. Restliches Rohr in Richtung Wasserquelle verlegen. Schlauchadapter anschliessen." },
-      { title: "System spülen und Sprinklerköpfe montieren", details: "Wasser aufdrehen und Hauptleitung durchspülen lassen. Spülventil am Ende aufschrauben. Dann jede Hänge-Assembly einzeln spülen. Zum Schluss die SpinNet-Sprinklerköpfe auf alle Assemblies aufstecken." }
-    ],
-    hinweis: "Bei zu geringem Durchfluss: Jeden zweiten Sprinkler durch Goof Plug ersetzen. Filter regelmässig reinigen. Vor Frost: System entleeren, Filtereinheit frostfrei lagern, Sprinklerköpfe abnehmen."
-  },
-  {
-    id: "krauter-schnittlauch-dill",
-    title: "Schnittlauch + Dill pflanzen (Beet 7a + 7b)",
-    category: "produktion",
-    status: "offen",
-    priority: "jetzt",
-    deadline: "KW 14 \u2013 Heute (2. April)",
-    location: "Block 2, Beet 7a (Schnittlauch) + 7b (Dill)",
-    image: "",
-    summary: "Schnittlauch und Dill aus grossen Töpfen pflanzen. Jede Pflanze in 4 Teile teilen und als Stauden setzen.",
-    materials: ["Schnittlauch-Topfpflanzen (gross, zum Teilen in 4)","Dill-Topfpflanzen (gross, zum Teilen in 4)","Luzernepellets (200 g/Beetmeter)","Grünschnittkompost (15 L/Beetmeter)"],
-    tools: ["Grelinette (Broadfork)", "Mini-Tilther", "Messer oder Spaten zum Teilen", "Giessbrause"],
-    steps: [
-      { title: "Beet vorbereiten", details: "Beet 7a + 7b mit Grelinette lockern (nicht wenden!). Luzernepellets und Grünschnittkompost flach einarbeiten mit Mini-Tilther." },
-      { title: "Topfpflanzen teilen", details: "Jeden grossen Topf in 4 gleichmässige Teile aufteilen. Darauf achten, dass jedes Teilstück genügend Wurzeln hat." },
-      { title: "Schnittlauch pflanzen (Beet 7a)", details: "Die 4 Teilungen mit ca. 25 cm Abstand in Beet 7a setzen. Gut angiessen." },
-      { title: "Dill pflanzen (Beet 7b)", details: "Die 4 Teilungen in Beet 7b setzen. Gut angiessen." },
-      { title: "Angiessen", details: "Beide Beete gründlich mit der Giessbrause angiessen. Die nächsten 4 Tage feucht halten." }
-    ],
-    hinweis: "Schnittlauch ist eine Staude \u2013 kein Umbruch nötig in den Folgejahren. Dill kann durch gestaffelte Nachsaaten (KW 16\u201318) ergänzt werden."
-  },
-  {
-    id: "randen-bor",
-    title: "Randen: Bor-Blattdüngung",
-    category: "produktion",
-    status: "offen",
-    priority: "jetzt",
-    deadline: "KW 14 \u2013 Jetzt (31. März \u2013 6. April)",
-    location: "Block 2, Beet 1a (Randen, gepflanzt KW 10)",
-    image: "",
-    summary: "24 Tage nach Pflanzung: Bor-Blattdünger auf Randen sprühen. Schützt vor Pilzkrankheiten und verhindert Bormangel (hohle Knollen).",
-    materials: ["Lebosol-Bor-150 (g/l) Flüssigdünger", "Wasser", "Messbecher"],
-    tools: ["Handsprüher oder Rückenspritze"],
-    steps: [
-      { title: "Lösung anmischen", details: "Pro Beetmeter: 0,63 ml Lebosol-Bor-150 auf 63 ml Wasser (ca. 0,1 g Bor pro Beetmeter)." },
-      { title: "Blattdüngung ausbringen", details: "Am besten abends oder bei bedecktem Himmel sprühen. Beide Blattseiten benetzen." }
-    ],
-    hinweis: "Laut Handbuch: 24 Tage nach Pflanzung. Block 2 Beet 1a wurde KW 10 gepflanzt \u2192 jetzt fällig. Mangold (Block 1 Beet 1, gepflanzt KW 13) bekommt Bor später in KW 17."
-  },
-  {
-    id: "beikraut-1durchgang",
-    title: "Beikraut: 1. Durchgang KW-13-Pflanzungen",
-    category: "produktion",
-    status: "offen",
-    priority: "jetzt",
-    deadline: "KW 14\u201315 \u2013 Jetzt (diese + nächste Woche)",
-    location: "Block 1 Beete 1+2, Block 2 Beete 3b, 8a/b",
-    image: "",
-    summary: "10 Tage nach Pflanzung (KW 13): Erster Durchgang Drahthacke bei Mangold, Salat (Block 1), Kohlrabi, Fenchel (Block 2).",
-    materials: [],
-    tools: ["Drahthacke (5 cm für enge Reihen, 12 cm für weite)", "Pendelhacke als Alternative"],
-    steps: [
-      { title: "Netz/Vlies aufdecken", details: "Insektennetz oder Vlies vorsichtig abheben und zur Seite legen." },
-      { title: "Drahthacke einsetzen", details: "An einem sonnigen Morgen: mit der Drahthacke zwischen den Reihen durchgehen. Ziel: 80% des Beikrauts stören. Beide Daumen nach oben, gerader Rücken." },
-      { title: "Netz/Vlies wieder auflegen", details: "Abdeckung wieder sorgfältig auflegen und an den Rändern beschweren." }
-    ],
-    hinweis: "2. Durchgang folgt in KW 15\u201316 (17 Tage nach Pflanzung). Bei Zeitknappheit nur zwischen den Reihen hacken."
-  },
-  {
-    id: "vlies-tausch",
-    title: "Vlies gegen Insektennetz tauschen",
-    category: "produktion",
-    status: "offen",
-    priority: "jetzt",
-    deadline: "KW 14\u201315 \u2013 Sobald Boden über 10°C",
-    location: "Block 1 + 2, Kreuzblütler-Beete",
-    image: "",
-    summary: "Sobald Bodentemperatur über 10°C: Vlies bei Kreuzblütlern (Kohlrabi, Asiasalat, Radieschen, Rucola) durch Insektennetz ersetzen. Erdflöhe werden bei Wärme aktiv.",
-    materials: ["Insektennetz (feinmaschig)", "Federstahlstäbe für Hoops (bei Kohlrabi)"],
-    tools: [],
-    steps: [
-      { title: "Bodentemperatur prüfen", details: "Wenn Bodentemperatur dauerhaft über 10°C, werden Erdflöhe aktiv." },
-      { title: "Vlies entfernen", details: "Vlies vorsichtig abheben, zusammenfalten und trocken lagern." },
-      { title: "Insektennetz auflegen", details: "Bei Kohlrabi: Hoops (Federstahlstäbe) setzen, damit das Netz nicht aufliegt. Bei Salat, Randen, Mangold: Netz kann flach aufgelegt werden." }
-    ],
-    hinweis: "Kohlrabi und Brassicas brauchen Hoops. Salat, Randen und Mangold können flach abgedeckt werden."
-  },
-  // === BALD FÄLLIG (KW 15-16) ===
-  {
-    id: "marktstand",
-    title: "Gemüseausgabe: Marktstand auf der Wiese aufbauen",
+    id: "troepfchenbewasserung",
+    title: "Tröpfchenbewässerung Folientunnel",
     category: "infrastruktur",
     status: "offen",
     priority: "jetzt",
-    deadline: "KW 14\u201315 \u2013 Vor erster Ausgabe",
-    location: "Wiese vor dem Gewächshaus (Ausgabezone)",
-    image: "images/marktstand.jpg",
-    summary: "Auf der Wiese wird der Marktstand für die wöchentliche Gemüseausgabe (Samstag 10\u201312 Uhr) aufgebaut. Gras mähen, Pavillon aufstellen, lange Tische einrichten zur Gemüsepräsentation. Muss einladend und übersichtlich sein \u2013 das ist der Ort wo unsere Abonnenten ihr Gemüse abholen.",
+    deadline: "KW 19\u201320 \u2013 Jetzt",
+    location: "Folientunnel, Beete 2a/2b (Tomaten), 3a (Basilikum), 4a (Paprika), 5a (Gurken)",
+    image: "",
+    summary: "Sobald die Fr\u00fchjahrsulturen abgeerntet sind und Tomaten, Gurken, Paprika, Basilikum in den Tunnel kommen, wird die \u00dcberkopfbew\u00e4sserung durch Tr\u00f6pfchenbew\u00e4sserung erg\u00e4nzt. 3 Tropfschl\u00e4uche pro Beet.",
+    materials: ["Tropfschl\u00e4uche (3 pro Beet, 30 cm Tropfabstand)","T-St\u00fccke und Verbinder","Absperrhähne pro Beet","Hauptleitung / Verteiler"],
+    tools: ["Messer oder Rohrschneider", "Massband"],
+    steps: [
+      { title: "Layoutplanung", details: "Pro Beet 3 Tropfschl\u00e4uche verlegen. Hauptleitung am Tunneleingang." },
+      { title: "Schl\u00e4uche verlegen", details: "Tropfschl\u00e4uche auf die Beete legen, an der Hauptleitung mit T-St\u00fccken anschliessen." },
+      { title: "Absperrh\u00e4hne montieren", details: "Jeden Beet-Abzweig mit einem Absperrhahn versehen." },
+      { title: "System testen", details: "Wasser aufdrehen, Druck pr\u00fcfen, auf Lecks kontrollieren." }
+    ],
+    hinweis: "Tomaten, Gurken und Paprika m\u00f6gen keine nassen Bl\u00e4tter \u2013 Tr\u00f6pfchenbew\u00e4sserung beugt Pilzkrankheiten vor."
+  },
+  {
+    id: "gewaechshaus-anzucht",
+    title: "Gew\u00e4chshaus: Jungpflanzenanzucht einrichten",
+    category: "infrastruktur",
+    status: "offen",
+    priority: "jetzt",
+    deadline: "KW 19\u201320",
+    location: "Jungpflanzengewächshaus",
+    image: "",
+    summary: "Das Gew\u00e4chshaus wird als Anzuchtstation eingerichtet. Anzuchtfl\u00e4chen aufbauen, Substrate und Gef\u00e4sse bereitstellen, Bew\u00e4sserung sicherstellen. Ziel: laufende Eigenanzucht f\u00fcr Folges\u00e4tze Salat, Kohlrabi, Fenchel, Kr\u00e4uter sowie Nachpflanzungen Tomaten, Gurken, Paprika f\u00fcr den Tunnel.",
     materials: [
-      "Pavillon (stabil, wetterfest, gross genug für Tische)",
-      "Lange Tische (Biertische oder Klapptische, 2\u20133 Stück)",
-      "Tischdecken oder saubere Unterlagen",
-      "Kisten/Körbe zur Gemüsepräsentation",
-      "Preisschilder / Beschriftung der Gemüsesorten",
-      "Waage (falls nötig für Abwiegen)",
-      "Optional: Deko, Blumen, Kapellengarten-Schild"
+      "Anzuchterde / Anzuchtsubstrat (torffreie Mischung)",
+      "Anzuchtschalen (40\u00d760 cm) oder Multitopfplatten",
+      "Anzuchtt\u00f6pfe 9 cm und 12 cm f\u00fcr Pikieren",
+      "Pikierholz",
+      "Beschriftungsschilder + wasserf\u00e4ster Stift",
+      "Giessbrause mit feiner Rose",
+      "Optional: W\u00e4rmematte f\u00fcr Paprika + Basilikum"
     ],
-    tools: ["Rasenmäher", "Heringe / Gewichte für Pavillon", "Kabelbinder"],
+    tools: ["Tische oder Regale als Anzuchtfl\u00e4che", "Wasserwaage", "Giessbrause"],
     steps: [
-      { title: "Wiese mähen", details: "Die gesamte Ausgabefläche vor dem Gewächshaus kurz mähen. Mähgut abräumen damit der Boden sauber und trocken ist für den Pavillon und die Besucher." },
-      { title: "Pavillon aufstellen", details: "Pavillon mittig auf der gemähten Fläche aufbauen. Stabil verankern mit Heringen oder Gewichten (Wind!). Muss hoch genug sein für bequemes Stehen und Präsentieren." },
-      { title: "Tische einrichten", details: "Lange Tische unter dem Pavillon aufstellen. Tischdecken oder saubere Unterlagen drauf. Genug Platz lassen damit Abonnenten bequem entlanggehen können." },
-      { title: "Präsentation vorbereiten", details: "Kisten und Körbe bereitstellen für die verschiedenen Gemüsesorten. Beschriftung vorbereiten (Sortenname, ev. Gewicht). Waage bereitstellen falls nötig." },
-      { title: "Schön machen", details: "Kapellengarten-Schild aufhängen. Frische Blumen oder Kräuter als Deko. Der Marktstand soll einladend wirken und zeigen, dass hier mit Liebe gearbeitet wird." }
+      { title: "Anzuchtfl\u00e4che einrichten", details: "Stabile Tische oder Regale im Gew\u00e4chshaus aufstellen. Wasserwaage ausrichten damit Schalen gleichm\u00e4ssig stehen. Mindestens 2\u20133 m\u00b2 Anzuchtfl\u00e4che einplanen." },
+      { title: "Substrate und Gef\u00e4sse bereitstellen", details: "Anzuchterde in ausreichender Menge bereitstellen. Schalen und T\u00f6pfe gr\u00fcndlich waschen (Krankheitspr\u00e4vention). Verschiedene Zellenformate vorhalten: kleine Zellen f\u00fcr Direktaussaat, gr\u00f6ssere T\u00f6pfe f\u00fcr Pikierte." },
+      { title: "Bew\u00e4sserung sicherstellen", details: "Schlauchzugang direkt ins Gew\u00e4chshaus legen oder Eimer/Kanne-System einrichten. Giessbrause mit feiner Rose f\u00fcr schonendes Angiessen. Ziel: t\u00e4gliches Angiessen ohne Aufwand." },
+      { title: "Erste Aussaaten", details: "Folges\u00e4tze ans\u00e4en: Salat alle 2\u20133 Wochen, Kohlrabi, Fenchel, Asiasalat, Kr\u00e4uter. F\u00fcr Tunnel: allfällige Nachpflanzungen Tomaten, Gurken, Paprika. Aussaattermin beschriften." },
+      { title: "Abh\u00e4rten vor Auspflanzung", details: "Jungpflanzen 5\u20137 Tage abh\u00e4rten: zun\u00e4chst nur tagsüber L\u00fcftung \u00f6ffnen, dann auch nachts. Verhindert Pflanzstress nach dem Umpflanzen ins Freiland oder Tunnel." }
     ],
-    hinweis: "Die Gemüseausgabe ist jeden Samstag 10\u201312 Uhr. Der Marktstand ist das Aushängeschild des Kapellengartens \u2013 erster Eindruck zählt! Bei Regen schützt der Pavillon Gemüse und Abonnenten. Pavillon nach der Ausgabe abbauen oder sicher verankern wenn er stehen bleibt."
+    hinweis: "Anzuchtschalen nach Aussaat mit Klarsichtfolie oder Glasplatte abdecken bis zur Keimung. Sobald gekeimt: Abdeckung entfernen und gut l\u00fcften, sonst Pilzgefahr. Konstante Feuchtigkeit in den ersten Tagen ist entscheidend."
   },
   {
-    id: "wasch-abtropftisch",
-    title: "Abtropf-Tisch für Waschplatz (70 cm)",
+    id: "wassertanks",
+    title: "Regenwasserversorgung + Hauswasserwerk",
     category: "infrastruktur",
     status: "offen",
-    priority: "bald",
-    deadline: "Bis KW 16 (13.\u201319. April)",
-    location: "Waschplatzstrasse",
-    image: "images/waschplatz-tisch2.jpg",
-    summary: "Stabiler Holztisch (70 cm Höhe) für die Waschplatzstrasse. Auf den Tisch wird ein Abtropfgitter gelegt, auf dem das gewaschene Gemüse trocknet.",
-    materials: ["Kantholz 60\u00d760 mm für Beine (4 Stk., je 70 cm)","Kantholz oder Latten für Rahmen","Bretter oder Latten für Tischfläche","Edelstahl-Schrauben","Abtropfgitter","Holzschutz / Leinöl"],
-    tools: ["Akkubohrer / Schrauber", "Handsäge oder Kappsäge", "Winkel / Zollstock", "Schleifpapier"],
-    steps: [
-      { title: "Masse festlegen und Holz zuschneiden", details: "Tischhöhe: exakt 70 cm. Ca. 180\u2013200 cm lang, 60\u201370 cm tief." },
-      { title: "Rahmen zusammenbauen", details: "Längs- und Querstreben auf Höhe der Beinoberkanten verschrauben. Rechte Winkel kontrollieren." },
-      { title: "Tischfläche montieren", details: "Bretter oder Latten als Auflage auf den Rahmen schrauben." },
-      { title: "Oberfläche behandeln", details: "Alle Kanten leicht abschleifen. Holz mit Leinöl oder Holzschutzlasur behandeln." },
-      { title: "Abtropfgitter auflegen", details: "Abtropfgitter auf den Tisch legen. Falls nötig: kleine Leisten als Anschlag montieren." }
-    ],
-    hinweis: "Tisch auf Verbundsteinboden mit Gummifüssen versehen, damit er nicht rutscht."
-  },
-  {
-    id: "wasch-bottichstaender",
-    title: "Bottich-Ständer für Waschplatz (60 cm)",
-    category: "infrastruktur",
-    status: "offen",
-    priority: "bald",
-    deadline: "Bis KW 16 (13.\u201319. April)",
-    location: "Waschplatzstrasse",
-    image: "images/waschplatz-bottich.jpg",
-    summary: "Kleines Tischchen (60 cm Höhe) als Ständer für den Waschbottich (ca. 30 cm hoch). Bottichrand bei ~90 cm Arbeitshöhe.",
-    materials: ["Kantholz 60\u00d760 mm für Beine (4 Stk., je 60 cm)","Kantholz oder Latten für Rahmen","Edelstahl-Schrauben","Holzschutz / Leinöl"],
-    tools: ["Akkubohrer / Schrauber", "Handsäge oder Kappsäge", "Winkel / Zollstock", "Schleifpapier"],
-    steps: [
-      { title: "Bottich ausmessen", details: "Waschbottich genau ausmessen. Rahmen so planen, dass der Bottich stabil aufliegt." },
-      { title: "Gestell bauen (60 cm Höhe)", details: "4 Beine à 60 cm. Rahmen zusammenschrauben. Anschlagleisten am Rand anbringen." },
-      { title: "Oberfläche behandeln", details: "Kanten schleifen, Holz mit Leinöl behandeln. Mehrere Schichten." },
-      { title: "Aufstellen und testen", details: "Neben den Abtropf-Tisch stellen. Oberkante Bottichrand sollte bei ca. 90 cm liegen." }
-    ],
-    hinweis: "Rechnung: 60 cm Tischchen + 30 cm Bottich = 90 cm Arbeitshöhe. Gummifüsse verwenden."
-  },
-  {
-    id: "gemuesewaschplatz",
-    title: "Gemüsewaschplatz vor der Kapelle aufbauen",
-    category: "infrastruktur",
-    status: "offen",
-    priority: "bald",
-    deadline: "Bis KW 16 (13.\u201319. April)",
-    location: "Waschplatz vor der Kapellenwand (Blick auf Berg)",
-    image: "images/gemuesewaschplatz.jpg",
-    image2: "images/waschplatz_innen.jpg",
-    summary: "Einrichtung des Gemüsewaschplatzes vor der Kapellenwand. Hier wird das Gemüse vom Feld gewaschen, bevor es in den Kühlraum kommt. In der Anfangsphase: einfaches Pavillon als Wetter- und Sonnenschutz, darunter die Waschtische mit Abtropfgittern und Waschbottichen. Wasseranschluss via Schlauch vom Wasserverteiler mit Wasserpistole.",
+    priority: "jetzt",
+    deadline: "KW 19\u201321",
+    location: "Kapelle (Dachrinne) \u2192 IBC-Tanks \u2192 Hauswasserwerk \u2192 Block 1, Block 2, Folientunnel",
+    image: "images/wassertanks.jpg",
+    summary: "2\u00d7 1000 L IBC-Tanks an Kapellendachrinne anschliessen. Hauswasserwerk mit elektronischem Drucksensor (Gardena 4000/5 Comfort oder Metabo HWW 4000/25 Inox) speist 40 m PE-Hauptleitung zu den Bl\u00f6cken. Pro Zone ein Bew\u00e4sserungscomputer mit Druckminderer dahinter: Block 1 + 2 Sumi Soaker (max. 0.8 bar), Folientunnel Tr\u00f6pfchenbew\u00e4sserung (max. 1.5 bar). Vollautomatisch zeitgesteuert.",
     materials: [
-      "Pavillon (einfach, wetterfest, passend zur Fläche)",
-      "Abtropf-Tisch (70 cm, siehe separates Projekt)",
-      "Bottich-Ständer (60 cm, siehe separates Projekt)",
-      "Waschbottiche (ca. 30 cm hoch)",
-      "Abtropfgitter (Kunststoff oder Edelstahl)",
-      "Gartenschlauch (lang genug vom Wasserverteiler)",
-      "Wasserpistole / Brause-Aufsatz für Schlauch",
-      "Schlauchhalterung oder Haken (damit Schlauch über Bottich hängt)"
+      "2\u00d7 IBC-Tank 1000 L (vorhanden, m\u00fcssen gereinigt werden)",
+      "Regenrinnen-Ablauf / Fallrohr-Adapter (Anschluss Dachrinne \u2192 Tank)",
+      "\u00dcberlaufverbindung zwischen den zwei Tanks",
+      "Feinfilter am Tankausgang (Schutz Pumpe)",
+      "Hauswasserwerk mit elektronischem Drucksensor, mind. 3.5\u20134 bar (z.B. Gardena 4000/5 Comfort oder Metabo HWW 4000/25 Inox, ~200\u2013250 CHF)",
+      "PE-Wasserleitung 19 mm, ca. 40 m (Kapelle zu Bl\u00f6cken)",
+      "Verteilerkreuz bei den Bl\u00f6cken (3 Abg\u00e4nge)",
+      "3\u00d7 Batterie-Bew\u00e4sserungscomputer (je einer f\u00fcr Block 1, Block 2, Folientunnel)",
+      "3\u00d7 Druckminderer: Block 1 + 2 auf 0.5\u20130.8 bar (Sumi Soaker), Tunnel auf 1.0\u20131.5 bar (Tropfschlauch)",
+      "Absperrh\u00e4hne, T-St\u00fccke, Verbinder (1\" Zuleitung Tank \u2192 Pumpe)"
     ],
-    tools: ["Akkubohrer (für Halterungen)", "Kabelbinder oder Schlauchschellen", "Wasserwaage"],
+    tools: ["Akkubohrer", "Rohrschneider", "Rohrzange", "Teflonband", "Wasserwaage", "Schaufel (f\u00fcr Leitungsf\u00fchrung)"],
     steps: [
-      { title: "Standort vorbereiten", details: "Fläche vor der Kapellenwand freiräumen. Boden muss eben sein (Verbundstein oder befestigter Untergrund). Ablauf für Waschwasser sicherstellen \u2013 Wasser soll abfliessen können ohne Staunässe." },
-      { title: "Pavillon aufstellen", details: "Einfaches Pavillon aufbauen als Sonnen- und Regenschutz. Stabil verankern (Gewichte oder Bodenanker). Muss hoch genug sein um darunter bequem zu arbeiten." },
-      { title: "Waschtische platzieren", details: "Abtropf-Tisch (70 cm) und Bottich-Ständer (60 cm) unter dem Pavillon aufstellen. Workflow beachten: Waschbottich links, Abtropfgitter rechts (oder umgekehrt je nach Händigkeit). Genug Platz zum Arbeiten lassen." },
-      { title: "Wasseranschluss einrichten", details: "Gartenschlauch vom Wasserverteiler zum Waschplatz verlegen. Wasserpistole am Schlauchende montieren. Schlauch so befestigen (Haken, Halterung), dass die Pistole bequem über dem Waschbottich erreichbar ist und man freihändig waschen kann." },
-      { title: "Ablauf testen", details: "Wasser aufdrehen, Workflow testen: Gemüse in Bottich \u2192 mit Pistole abspritzen \u2192 aufs Abtropfgitter legen \u2192 trocknen lassen \u2192 in Kisten für Kühlraum. Ergonomie prüfen: Arbeitshöhe, Reichweite, Schlauchlänge." }
+      { title: "Tanks reinigen und positionieren", details: "Beide IBC-Tanks gr\u00fcndlich ausspülen (Hochdruckreiniger + B\u00fcrste). An Kapellenwand aufstellen, nah an der Dachrinne. Ebener stabiler Untergrund zwingend (1000 L = 1 Tonne!). Lichtdicht abdecken (verhindert Algenwachstum)." },
+      { title: "Dachrinne anschliessen", details: "Fallrohr der Kapellendachrinne mit Regensammler/Adapter an ersten Tank anschliessen. Feinfilter am Einlauf einbauen (Laub, Moos). \u00dcberlaufleitung vom ersten zum zweiten Tank montieren." },
+      { title: "Hauswasserwerk installieren", details: "Pumpe mit 1\" Zuleitung kurz und direkt am Tankausgang anschliessen (kurze Saugleitung = besser). Modell mit elektronischem Drucksensor w\u00e4hlen \u2013 erkennt auch den geringen Durchfluss der Sumi Soaker zuverl\u00e4ssig. Eingebauter Trockenlaufschutz sch\u00fctzt die Pumpe bei leerem Tank." },
+      { title: "Hauptleitung verlegen", details: "PE-Leitung 19 mm ca. 40 m von der Pumpe zu den Bl\u00f6cken verlegen. Am Wegrand entlang f\u00fchren oder knapp unter Grasnarbe. Absperrh\u00e4hne an den Abzweigungen zu jedem Block. Am Ende Verteilerkreuz mit 3 Abg\u00e4ngen montieren." },
+      { title: "Computer + Druckminderer pro Zone", details: "Reihenfolge zwingend einhalten: Hauptleitung \u2192 Absperrhahn \u2192 Bew\u00e4sserungscomputer \u2192 Druckminderer \u2192 Sumi Soaker / Tropfschlauch. Druckminderer immer NACH dem Computer, nicht davor \u2013 sonst sieht das Hauswasserwerk keinen Druckabfall und springt nicht an. Block 1 + 2: 0.5\u20130.8 bar. Folientunnel: 1.0\u20131.5 bar." },
+      { title: "System testen und Timer einstellen", details: "Tanks f\u00fcllen (Regen oder Schlauch). Pumpe starten, Druck pr\u00fcfen, auf Lecks kontrollieren. Jeden Computer einzeln testen. Durchfluss an Endpunkten pr\u00fcfen. Timer pro Zone einstellen." }
     ],
-    hinweis: "Dieser Platz wird in der Saison täglich genutzt \u2013 Ergonomie ist entscheidend. Bottichrand bei 90 cm Arbeitshöhe (60 cm Ständer + 30 cm Bottich). Waschplatz hat Blick auf den Berg \u2013 schönster Arbeitsplatz im ganzen Garten. Später kann der Pavillon durch eine permanentere Struktur ersetzt werden."
+    hinweis: "2000 L Speicher reichen f\u00fcr 1\u20132 Bew\u00e4sserungsdurchg\u00e4nge. Bei l\u00e4ngerer Trockenheit mit Leitungswasser nachf\u00fcllen. Im Winter: Tanks entleeren, Pumpe frostfrei lagern, Leitungen leerblasen."
+  },
+  {
+    id: "gruenduengung-block345",
+    title: "Gr\u00fcnd\u00fcngung: Insektenbuffet Block 3, 4 + 5",
+    category: "infrastruktur",
+    status: "offen",
+    priority: "jetzt",
+    deadline: "KW 19\u201320 (5.\u201316. Mai)",
+    location: "Block 3, Block 4, Block 5",
+    image: "images/gruenduengung_insektenbuffet.jpg",
+    summary: "Auf den drei nicht bewirtschafteten Bl\u00f6cken wird die Sativa Insektenbuffet-Mischung (GR58) als Gr\u00fcnd\u00fcngung ausgesa\u00e4t. Bl\u00fcht den ganzen Sommer, friert im Winter ab. 2027 Rasenmäher + Silofolie, dann neue Beete. Kein Kreuzbl\u00fctler \u2013 ideal f\u00fcr die Fruchtfolge.",
+    materials: [
+      "Sativa Insektenbuffet GR58, 5 kg (<a href='https://www.sativa.bio/de_ch/insektenbuffet-gruenduengung-gr58' target='_blank'>Sativa Shop</a>)",
+      "Trockener Sand zum Mischen (ca. 5 kg)",
+      "Silofolie (zum Abdecken KW 15\u201318)"
+    ],
+    tools: ["Fr\u00e4se", "Rechen", "Eimer zum Mischen", "Grelinette (optional)"],
+    steps: [
+      { title: "Restkulturen entfernen", details: "Federkohl, Lauch und Restkulturen auf Block 3, 4, 5 abr\u00e4umen. Schaumkraut sofort rausreissen solange es bl\u00fcht \u2013 bevor die Schoten aufplatzen. Pflanzen nicht liegen lassen, Samen reifen auch an abgerissenen Pflanzen nach." },
+      { title: "Silofolie auflegen (KW 15\u201316)", details: "Alle drei Bl\u00f6cke mit Silofolie zudecken. 3\u20134 Wochen liegen lassen. Unter der Folie keimen vorhandene Unkrautsamen, finden kein Licht und sterben ab (Stale Seedbed / falsches Saatbett)." },
+      { title: "Folie abnehmen + Fr\u00e4se (KW 19)", details: "Mitte Mai Silofolie entfernen. Einmal mit der Fr\u00e4se \u00fcber alle Fl\u00e4chen f\u00fcr ein gleichm\u00e4ssiges Saatbett. Kein feiner Beetaufbau n\u00f6tig." },
+      { title: "Saatgut mit Sand mischen", details: "5 kg Insektenbuffet mit ca. 5 kg trockenem Sand im Eimer mischen (1:1). Die Mischung enth\u00e4lt sehr unterschiedliche Korngr\u00f6ssen (feine Phacelia bis grosse Sonnenblumenkerne). Sand sorgt f\u00fcr gleichm\u00e4ssige Verteilung und zeigt wo man schon ges\u00e4t hat." },
+      { title: "Breitwürfig aussäen", details: "Saatgut-Sand-Mischung gleichm\u00e4ssig von Hand \u00fcber alle drei Bl\u00f6cke streuen. Saatstärke: 300 g/100 m\u00b2. Idealerweise vor einem Regen s\u00e4en." },
+      { title: "Einarbeiten + angiessen", details: "Mit Rechen 2\u20133 cm einarbeiten. Falls kein Regen: einmal beregnen f\u00fcr Bodenkontakt." }
+    ],
+    hinweis: "Zusammensetzung: Buchweizen, Phacelia, Sonnenblumen, Borretsch, Bitterlupine, Alexandrinerklee, Perserklee, Sommerwicke, Seradella, Herzgespann, Dill, Malve. Einj\u00e4hrig, friert zuverl\u00e4ssig ab. 5 Leguminosen f\u00fcr N-Fixierung, kein Getreide. Fr\u00fchling 2027: Rasenm\u00e4her dr\u00fcber, Silofolie 3\u20134 Wochen, dann Beete anlegen."
   },
   {
     id: "umgebungspflege",
@@ -394,264 +299,47 @@ const PROJECTS = [
     deadline: "KW 14\u201315 \u2013 Laufend",
     location: "Rund um die Kapelle, v.a. Kundenbereich",
     image: "images/umgebungspflege.jpg",
-    summary: "Rund um die Kapelle aufräumen und Ordnung schaffen \u2013 insbesondere im Kundenbereich wo die Abonnenten samstags vorbeikommen. Herumliegendes Material entsorgen oder sauber einlagern, Paletten wegräumen, Holz stapeln, Unkraut jäten, Rasen mähen. Alles was einen gepflegten, einladenden Eindruck macht.",
+    summary: "Rund um die Kapelle aufräumen und Ordnung schaffen \u2013 insbesondere im Kundenbereich wo die Abonnenten samstags vorbeikommen. Herumliegendes Material entsorgen oder sauber einlagern, Paletten wegr\u00e4umen, Holz stapeln, Unkraut j\u00e4ten, Rasen m\u00e4hen. Alles was einen gepflegten, einladenden Eindruck macht.",
     materials: [
-      "Abfallsäcke für Entsorgung",
-      "Optional: Grüngut-Container organisieren"
+      "Abfalls\u00e4cke f\u00fcr Entsorgung",
+      "Optional: Gr\u00fcngut-Container organisieren"
     ],
-    tools: ["Rasenmäher", "Rechen", "Schubkarre", "Gartenschere / Astschere", "Besen"],
+    tools: ["Rasenm\u00e4her", "Rechen", "Schubkarre", "Gartenschere / Astschere", "Besen"],
     steps: [
-      { title: "Rundgang und Bestandsaufnahme", details: "Einmal komplett um die Kapelle gehen. Alles notieren was wegmuss, repariert oder umplatziert werden soll. Kundenbereich (Eingang, Ausgabezone, Parkplatz) hat Priorität." },
-      { title: "Entsorgen und wegräumen", details: "Kaputte Paletten, altes Holz, Gerümpel entsorgen oder zum Werkhof bringen. Brauchbares Material ordentlich im Gerätehaus oder an einem unsichtbaren Ort lagern." },
-      { title: "Grünpflege", details: "Gras mähen im Kundenbereich und rund um die Kapelle. Unkraut an Wegen und Platten entfernen. Überhängende Äste zurückschneiden wo nötig." },
-      { title: "Ordnung schaffen", details: "Werkzeuge, Schläuche und Material ordentlich versorgen. Alles hat seinen Platz. Der Bereich soll so aussehen, dass man stolz darauf ist wenn Besucher kommen." }
+      { title: "Rundgang und Bestandsaufnahme", details: "Einmal komplett um die Kapelle gehen. Alles notieren was wegmuss, repariert oder umplatziert werden soll. Kundenbereich (Eingang, Ausgabezone, Parkplatz) hat Priorit\u00e4t." },
+      { title: "Entsorgen und wegr\u00e4umen", details: "Kaputte Paletten, altes Holz, Ger\u00fcmpel entsorgen oder zum Werkhof bringen. Brauchbares Material ordentlich im Ger\u00e4tehaus oder an einem unsichtbaren Ort lagern." },
+      { title: "Gr\u00fcnpflege", details: "Gras m\u00e4hen im Kundenbereich und rund um die Kapelle. Unkraut an Wegen und Platten entfernen. \u00dcberhängende \u00c4ste zur\u00fcckschneiden wo n\u00f6tig." },
+      { title: "Ordnung schaffen", details: "Werkzeuge, Schl\u00e4uche und Material ordentlich versorgen. Alles hat seinen Platz. Der Bereich soll so aussehen, dass man stolz darauf ist wenn Besucher kommen." }
     ],
     hinweis: "Die Umgebungspflege ist keine einmalige Aktion sondern ein laufendes Projekt. Jeden Freitag vor der Samstags-Ausgabe kurz durchgehen und kontrollieren ob alles ordentlich ist."
   },
   {
-    id: "wassertanks",
-    title: "Wassertanks: Regenwasserversorgung in Betrieb nehmen",
-    category: "infrastruktur",
-    status: "offen",
-    priority: "bald",
-    deadline: "Bis KW 17\u201318 (20. April \u2013 3. Mai)",
-    location: "Kapelle (Dachrinne) \u2192 Wassertanks \u2192 Beete",
-    image: "images/wassertanks.jpg",
-    summary: "Die zwei vorhandenen 1000-Liter IBC-Tanks werden gereinigt und an die Dachrinne der Kapelle angeschlossen für autarke Regenwasserversorgung. Eine Pumpe wird angebracht um später die Bewässerungsanlage (Sumi Soaker, Tröpfchenbewässerung) zu speisen. Wasserleitungen von der Kapelle zu den Beeten verlegen.",
-    materials: [
-      "2\u00d7 IBC-Tank 1000 L (vorhanden, müssen gereinigt werden)",
-      "Regenrinnen-Ablauf / Fallrohr-Adapter (Anschluss Dachrinne \u2192 Tank)",
-      "Überlaufverbindung zwischen den zwei Tanks",
-      "Gartenpumpe (selbstansaugend, ca. 3\u20134 bar Förderdruck)",
-      "PE-Wasserleitung (25 mm oder 32 mm)",
-      "Absperrhähne, T-Stücke, Verbinder",
-      "Feinfilter am Tankeinlauf (gegen Laub und Schmutz)",
-      "Optional: Schwimmerventil oder Überlauf zum Versickern"
-    ],
-    tools: ["Akkubohrer", "Rohrzange", "Schaufel (für Leitungsgräben)", "Teflonband für Gewindedichtung", "Wasserwaage"],
-    steps: [
-      { title: "Tanks reinigen", details: "Beide IBC-Tanks gründlich ausspülen. Algen und Ablagerungen mit Bürste und Hochdruckreiniger entfernen. Tanks auf Risse und Dichtheit prüfen. Auslaufhahn kontrollieren." },
-      { title: "Tanks positionieren", details: "Tanks neben der Kapelle aufstellen, möglichst nah an der Dachrinne. Auf stabilen, ebenen Untergrund achten (1000 L = 1 Tonne!). Leicht erhöht platzieren falls möglich (erleichtert Schwerkraft-Bewässerung als Backup)." },
-      { title: "An Dachrinne anschliessen", details: "Fallrohr der Kapellen-Dachrinne mit einem Regensammler/Adapter an den ersten Tank anschliessen. Feinfilter einbauen (Laub, Moos). Überlaufverbindung vom ersten zum zweiten Tank montieren." },
-      { title: "Pumpe installieren", details: "Gartenpumpe am Auslauf des zweiten Tanks anschliessen (oder zwischen beiden Tanks). Pumpe muss selbstansaugend sein und genug Druck für die Bewässerungsanlage liefern (Sumi Soaker: max. 0.8 bar, Tröpfchen: ca. 1\u20131.5 bar)." },
-      { title: "Wasserleitungen verlegen", details: "PE-Leitung von der Pumpe zu den Beeten verlegen (Block 1, Block 2, Folientunnel). Leitungen knapp unter der Grasnarbe oder oberirdisch am Wegrand führen. Absperrhähne an den Abzweigungen zu jedem Block." },
-      { title: "System testen", details: "Tanks füllen lassen (Regen abwarten oder mit Schlauch vorfüllen). Pumpe starten, Druck prüfen, auf Lecks kontrollieren. Durchfluss an den Endpunkten testen." }
-    ],
-    hinweis: "2000 Liter Speicher reichen für ca. 1\u20132 Bewässerungsdurchgänge je nach Beetfläche. Bei längerer Trockenheit muss mit Leitungswasser nachgefüllt werden. IBC-Tanks lichtdicht abdecken (verhindert Algenwachstum). Im Winter Tanks entleeren und Pumpe frostfrei lagern."
-  },
-  {
     id: "gewaechshaus-reinigung",
-    title: "Gewächshaus reinigen (innen + aussen)",
+    title: "Gew\u00e4chshaus reinigen (innen + aussen)",
     category: "infrastruktur",
     status: "offen",
     priority: "bald",
     deadline: "Bis KW 16 (13.\u201319. April)",
-    location: "Gewächshaus bei der Gemüseausgabezone",
+    location: "Gew\u00e4chshaus bei der Gem\u00fcseausgabezone",
     image: "images/gewaechshaus.jpg",
-    summary: "Das Gewächshaus gründlich reinigen \u2013 aussen Veralgung vom Dach entfernen, innen säubern und aufräumen. Das Gewächshaus liegt zentral bei der Gemüseausgabezone und muss repräsentativ sein. Für die Algenentfernung auf den Glasflächen braucht es eventuell ein Spezialmittel.",
+    summary: "Das Gew\u00e4chshaus gr\u00fcndlich reinigen \u2013 aussen Veralgung vom Dach entfernen, innen s\u00e4ubern und aufr\u00e4umen. Das Gew\u00e4chshaus liegt zentral bei der Gem\u00fcseausgabezone und muss repr\u00e4sentativ sein. F\u00fcr die Algenentfernung auf den Glasfl\u00e4chen braucht es eventuell ein Spezialmittel.",
     materials: [
-      "Algenentferner für Glas/Gewächshaus (z.B. Mellerud Algenentferner oder Grünbelagentferner)",
+      "Algenentferner f\u00fcr Glas/Gew\u00e4chshaus (z.B. Mellerud Algenentferner oder Gr\u00fcnbelagentferner)",
       "Eimer + warmes Wasser",
-      "Schwamm / weiche Bürste (keine Scheuermittel auf Glas!)",
-      "Gartenschlauch zum Abspülen",
-      "Optional: Kärcher mit niedrigem Druck (nur auf stabilen Flächen, nicht direkt auf altes Glas)",
+      "Schwamm / weiche B\u00fcrste (keine Scheuermittel auf Glas!)",
+      "Gartenschlauch zum Absp\u00fclen",
+      "Optional: K\u00e4rcher mit niedrigem Druck (nur auf stabilen Fl\u00e4chen, nicht direkt auf altes Glas)",
       "Fensterkitt / Glaserkitt (zum Kitten loser Scheiben)"
     ],
-    tools: ["Leiter oder Trittleiter", "Teleskop-Fensterwischer", "Besen", "Lappen / Mikrofasertücher", "Handschuhe"],
+    tools: ["Leiter oder Trittleiter", "Teleskop-Fensterwischer", "Besen", "Lappen / Mikrofasert\u00fccher", "Handschuhe"],
     steps: [
-      { title: "Aussenbereich freiräumen", details: "Unkraut und Bewuchs rund um das Gewächshaus entfernen. Dachrinne und Ablauf freiräumen. Lose Gegenstände wegräumen." },
-      { title: "Dach und Aussenwände reinigen", details: "Algenentferner gemäss Herstelleranweisung auftragen (meist einsprühen, einwirken lassen, abspülen). Bei starker Veralgung eventuell wiederholen. Mit weicher Bürste oder Teleskop-Wischer nacharbeiten. Gründlich mit Schlauch abspülen." },
-      { title: "Innenreinigung", details: "Alles aus dem Gewächshaus räumen. Boden fegen. Glasflächen von innen mit warmem Wasser und Schwamm reinigen. Gestelle, Tische und Ablagen abwischen. Spinnweben entfernen." },
-      { title: "Struktur prüfen und kitten", details: "Glasscheiben auf Risse oder lose Stellen kontrollieren. Lose Scheiben mit Fensterkitt neu einsetzen. Dichtungen und Rahmen prüfen. Lüftungsklappen testen. Kaputte Scheiben notieren für Ersatz." },
-      { title: "Einrichten und schön machen", details: "Gewächshaus wieder einräumen. Alles ordentlich platzieren. So herrichten, dass es bei der Gemüseausgabe einen guten Eindruck macht." }
+      { title: "Aussenbereich freiräumen", details: "Unkraut und Bewuchs rund um das Gew\u00e4chshaus entfernen. Dachrinne und Ablauf freiräumen. Lose Gegenst\u00e4nde wegr\u00e4umen." },
+      { title: "Dach und Aussenwände reinigen", details: "Algenentferner gem\u00e4ss Herstelleranweisung auftragen (meist einsprühen, einwirken lassen, abspülen). Bei starker Veralgung eventuell wiederholen. Mit weicher B\u00fcrste oder Teleskop-Wischer nacharbeiten. Gr\u00fcndlich mit Schlauch abspülen." },
+      { title: "Innenreinigung", details: "Alles aus dem Gew\u00e4chshaus r\u00e4umen. Boden fegen. Glasfl\u00e4chen von innen mit warmem Wasser und Schwamm reinigen. Gestelle, Tische und Ablagen abwischen. Spinnweben entfernen." },
+      { title: "Struktur pr\u00fcfen und kitten", details: "Glasscheiben auf Risse oder lose Stellen kontrollieren. Lose Scheiben mit Fensterkitt neu einsetzen. Dichtungen und Rahmen pr\u00fcfen. L\u00fcftungsklappen testen. Kaputte Scheiben notieren f\u00fcr Ersatz." },
+      { title: "Einrichten und sch\u00f6n machen", details: "Gew\u00e4chshaus wieder einr\u00e4umen. Alles ordentlich platzieren. So herrichten, dass es bei der Gem\u00fcseausgabe einen guten Eindruck macht." }
     ],
-    hinweis: "Das Gewächshaus ist das Erste was Abonnenten bei der Gemüseausgabe sehen \u2013 es muss einladend wirken. Beim Reinigen des Dachs vorsichtig sein: altes Glas kann spröde sein. Kärcher nur mit niedrigem Druck und nicht direkt auf Glas richten. Algenentferner vorher an einer kleinen Stelle testen."
-  },
-  {
-    id: "eingangsbereich",
-    title: "Eingangsbereich Kapelle herrichten",
-    category: "infrastruktur",
-    status: "offen",
-    priority: "bald",
-    deadline: "Bis KW 16 (13.\u201319. April)",
-    location: "Eingangsbereich vor der Kapelle",
-    image: "images/eingangsbereich.jpg",
-    summary: "Den Eingangsbereich vor der Kapelle aufräumen und mit dem Kärcher reinigen. Verbundsteine und Platten von Moos, Unkraut und Schmutz befreien. Erster Eindruck zählt \u2013 hier kommen die Abonnenten samstags zur Gemüseausgabe an.",
-    materials: [
-      "Kärcher Hochdruckreiniger",
-      "Verlängerungskabel (falls nötig)",
-      "Wasseranschluss / Gartenschlauch",
-      "Besen / Wischer für danach",
-      "Fugensand (zum Auffüllen der Fugen nach dem Kärchern)"
-    ],
-    tools: ["Kärcher mit Flächenreiniger-Aufsatz", "Fugenkratzer (für grobe Stellen)", "Besen"],
-    steps: [
-      { title: "Bereich freiräumen", details: "Alles wegräumen was im Weg steht: Töpfe, Werkzeug, loses Material. Unkraut zwischen den Platten und am Rand von Hand oder mit Fugenkratzer entfernen." },
-      { title: "Kärcher vorbereiten", details: "Hochdruckreiniger an Wasser und Strom anschliessen. Flächenreiniger-Aufsatz verwenden falls vorhanden (gleichmässigeres Ergebnis, weniger Spritzer)." },
-      { title: "Platten und Verbundsteine reinigen", details: "Systematisch von der Kapellenwand nach aussen arbeiten. Moos und Schmutz werden vom Hochdruck gelöst. Fugen besonders gründlich reinigen." },
-      { title: "Ränder und Übergang säubern", details: "Auch die Übergänge zum Rasen und die Kapellenwand im unteren Bereich reinigen. Rinne/Abfluss freihalten." },
-      { title: "Aufräumen und trocknen lassen", details: "Gelöstes Material zusammenwischen. Fugensand in die gereinigten Fugen zwischen den Platten einkehren (der Kärcher spült den alten Sand raus). Bereich trocknen lassen. Optional: Pflanzen am Eingang schön arrangieren für einen einladenden Empfang." }
-    ],
-    hinweis: "Die Abonnenten kommen samstags zwischen 10 und 12 Uhr zur Gemüseausgabe \u2013 ein sauberer, einladender Eingangsbereich macht einen guten ersten Eindruck. Bei Bedarf im Herbst wiederholen."
-  },
-  {
-    id: "toilettenhaeuschen",
-    title: "Toilettenhäuschen: Kompotoi in Betrieb nehmen",
-    category: "infrastruktur",
-    status: "offen",
-    priority: "bald",
-    deadline: "Bis KW 16 (13.\u201319. April)",
-    location: "Toilettenhäuschen beim Kapellengarten",
-    image: "images/toilettenhaeuschen.jpg",
-    docs: [
-      { title: "Kompotoi Kompostier-Anleitung", desc: "PDF \u2013 3-Boxen-System, Befüllung, Reifung, Veredelung", url: "https://www.kompotoi.ch/wp-content/uploads/2023/01/230117_Anleitung-Kompostieren_DE-CH.pdf" }
-    ],
-    summary: "Das Kompotoi-Trockentoilettensystem wird in Betrieb genommen. Altes Material fachgerecht kompostieren (3-Boxen-System), Toilette gründlich reinigen, neu einstreuen und das Häuschen schön herrichten mit Pflanzen und Raumduft. Make it an experience!",
-    materials: [
-      "Sägemehl oder feine Hobelspäne (Einstreu)",
-      "Wasserdichter Sammelbehälter (15\u201380 l) mit Deckel",
-      "Handschuhe (robust, für Kompostarbeiten)",
-      "Biologisch abbaubares Desinfektionsmittel (z.B. Essigessenz)",
-      "3 Kompostboxen (je 1\u20132 m³): Befüllung, Reifung, Einstreu-Lagerung",
-      "Sieb (Maschenweite 1\u20132 cm) für Veredelung",
-      "Dekoration: Topfpflanzen, Raumduft, ev. Kerze oder Bild"
-    ],
-    tools: ["Schaufel / Forke (nur für Kompost!)", "Eimer + Bürste zum Reinigen", "Sprühflasche für Desinfektionsmittel", "Giessbrause"],
-    steps: [
-      { title: "Altes Material entsorgen", details: "Handschuhe anziehen. Den alten Sammelbehälter vorsichtig zur Kompostbox 'Befüllung' transportieren, geschlossen halten. Inhalt in die Befüllungsbox leeren. Mit einem dafür bestimmten Werkzeug ca. 20 cm tief in das bestehende Material einarbeiten." },
-      { title: "Einstreu abdecken", details: "Das vermischte Material mit einer Schicht grober Einstreu (Laub, gehäckseltes Reisig, Stroh) aus der Einstreubox abdecken. Fausttest: Material sollte sich anfühlen wie ein ausgedrückter Schwamm \u2013 nicht zu trocken, nicht zu nass." },
-      { title: "Kompostboxen kontrollieren", details: "Befüllungsbox voll? Dann Inhalt in die Reifungsbox umfüllen und dabei durchmischen (belüften). Die Reifung braucht mindestens 1.5 Jahre. Nach 1.5 Jahren: aussieben (1\u20132 cm Maschenweite), gesiebter Kompost kann als Bodenverbesserer verwendet werden." },
-      { title: "Sammelbehälter reinigen", details: "Behälter gründlich mit Wasser spülen. Das Waschwasser auf die Befüllungsbox geben (nicht in die Kanalisation). Anschliessend mit Essigessenz oder biologisch abbaubarem Desinfektionsmittel einsprühen." },
-      { title: "Toilette neu einrichten", details: "Sauberen Sammelbehälter einsetzen. 5\u201315 cm Einstreu (Sägemehl/Hobelspäne) einfüllen. Toilettenpapier bereitstellen. Einstreu-Vorratsbehälter auffüllen. Mülleimer für Hygieneartikel bereitstellen." },
-      { title: "Häuschen schön machen", details: "Toilettenhäuschen gründlich putzen. Schöne Topfpflanzen aufstellen (z.B. Lavendel, Rosmarin oder Sukkulenten). Natürlichen Raumduft platzieren (z.B. Lavendelsäckchen, ätherische Öle). Optional: kleine Deko, Bild, Kerze. Das Ziel: ein Ort wo man gerne hingeht." }
-    ],
-    hinweis: "Wichtig: Sämtliche Werkzeuge (Behälter, Handschuhe, Forke, Schaufel) ausschliesslich für die Kompostierung verwenden \u2013 nicht im Garten! Nach allen Arbeiten Hände gründlich mit Seife waschen. Sickerwasser: In einer Zone ohne Umweltauflagen kann es in den Boden eindringen. Bei Unsicherheit: bei der Gemeinde Wangen nachfragen."
-  },
-  {
-    id: "sumi-soaker",
-    title: "Sumi Soaker Staubnebelbewässerung Freiland",
-    category: "infrastruktur",
-    status: "offen",
-    priority: "jetzt",
-    deadline: "KW 14\u201315 \u2013 Jetzt",
-    location: "Block 1 + Block 2 (Freiland-Beete)",
-    image: "images/sumisoaker.jpg",
-    video: "https://www.youtube.com/watch?v=mTM13JkgjQQ",
-    summary: "Aufbau des Sumisansui Mark III Staubnebel-Bewässerungssystems für die Freiland-Beete. Feiner Sprühnebel wie sanfter Regen \u2013 schont Setzlinge, verhindert Bodenverdichtung und Erosion. Schlauch wird im Weg zwischen den Beeten ausgerollt. Max. Druck: 0.8 bar (11 psi), Druckminderer zwingend nötig.",
-    materials: [
-      "Sumisansui Mark III Schlauch (bis 5 m breit, bis 100 m lang)",
-      "Druckminderer / Druckregler (max. 0.8 bar / 11 psi)",
-      "Inline-Filter (150 Mesh)",
-      "Gartenschlauch-Anschluss oder Agline-Fitting",
-      "Sliding Stopper (am Ende des Schlauchs)",
-      "Winder/Bobbin für Aufwicklung und Lagerung"
-    ],
-    tools: ["Gartenschlauch zur Wasserquelle", "Messband für Positionierung"],
-    steps: [
-      { title: "Druckminderer + Filter montieren", details: "Druckminderer auf max. 0.8 bar (80 kPa / 11 psi) einstellen \u2013 das ist entscheidend! Normaler Hauswasserdruck liegt bei ca. 5 bar und würde den Schlauch zerstören. Filter direkt nach dem Druckminderer einsetzen." },
-      { title: "Schlauch ausrollen", details: "Sumi-Schlauch im Weg zwischen den Beeten ausrollen, Löcher nach oben zeigend. Der Mark III sprüht ca. 2.5 m auf jede Seite (5 m total). Pro Weg ein Schlauch, der die Beete links und rechts bewässert." },
-      { title: "Anschliessen", details: "Schlauchende an den Gartenschlauch-Anschluss (mit Druckminderer) anschliessen. Am anderen Ende den Sliding Stopper aufsetzen. Die Position des Stoppers bestimmt die aktive Länge." },
-      { title: "System testen", details: "Wasser langsam aufdrehen. Prüfen ob ein gleichmässiger feiner Nebel entsteht. Falls Tropfen statt Nebel: Druck zu hoch, Druckminderer weiter runterdrehen. Auf Lecks kontrollieren." },
-      { title: "Aufwicklung vorbereiten", details: "Winder/Bobbin bereithalten. Nach der Bewässerung Schlauch mit dem Winder aufwickeln und trocken lagern. UV-beständig, aber bei Nichtgebrauch aufwickeln verlängert die Lebensdauer." }
-    ],
-    hinweis: "Maximaldruck 0.8 bar / 11 psi \u2013 NICHT ohne Druckminderer betreiben! Der Sumi Mark III erzeugt einen feinen Staubnebel, ideal für Jungpflanzen, Direktsaaten und empfindliche Kulturen. Wiederverwendbar über mehrere Saisons."
-  },
-  {
-    id: "karotten-aussaat-kw15",
-    title: "Karotten: Direktsaat Block 1 Beet 5",
-    category: "produktion",
-    status: "offen",
-    priority: "bald",
-    deadline: "KW 15 (7.\u201312. April)",
-    location: "Block 1, Beet 5",
-    image: "",
-    summary: "Laut Anbauplan: Direktsaat Karotten in Block 1 Beet 5 (KW 15). Beet vorbereiten, 6 Reihen säen mit Jang Seeder, Vlies auflegen.",
-    materials: ["Karotten-Saatgut (Napoli F1, 0,4 g/Beetmeter)", "Luzernepellets (200 g/Beetmeter)", "Grünschnittkompost (15 L/Beetmeter)", "Vlies (19 g)"],
-    tools: ["Grelinette", "Mini-Tilther", "Markierrechen (6 Reihen)", "Jang JP-5 Seeder", "Giessbrause"],
-    steps: [
-      { title: "Beet vorbereiten", details: "Grelinette lockern, Luzernepellets und Kompost einarbeiten mit Mini-Tilther." },
-      { title: "Falsches Saatbeet (optional)", details: "Beet angiessen und 6\u20137 Tage Beikräuter keimen lassen. Dann abflammen." },
-      { title: "Aussaat", details: "Mit Markierrechen 6 Reihen ziehen (12 cm Abstand). Jang Seeder mit 0,4 g Saatgut pro Beetmeter." },
-      { title: "Abdecken", details: "Gut angiessen. Vlies auflegen. Täglich kontrollieren." }
-    ],
-    hinweis: "Hakurai-Mairübchensamen als Indikator mitsäen (keimen 1\u20132 Tage vor Karotten). Abflammen 4\u20135 Tage nach Aussaat möglich."
-  },
-  {
-    id: "beikraut-2durchgang",
-    title: "Beikraut: 2. Durchgang KW-13-Pflanzungen",
-    category: "produktion",
-    status: "offen",
-    priority: "bald",
-    deadline: "KW 15\u201316 (7.\u201319. April)",
-    location: "Block 1 Beete 1+2, Block 2 Beete 3b, 8a/b",
-    image: "",
-    summary: "17 Tage nach Pflanzung (KW 13): Zweiter Durchgang Drahthacke bei Mangold, Salat, Kohlrabi, Fenchel.",
-    materials: [],
-    tools: ["Drahthacke (5 cm / 12 cm)", "Pendelhacke als Alternative"],
-    steps: [
-      { title: "Netz/Vlies aufdecken", details: "Abdeckung vorsichtig abheben." },
-      { title: "Drahthacke einsetzen", details: "An einem sonnigen Morgen zwischen den Reihen hacken. Ziel: 80% des Beikrauts stören." },
-      { title: "Netz/Vlies wieder auflegen", details: "Abdeckung wieder sorgfältig auflegen." }
-    ],
-    hinweis: "Immer an einem sonnigen Morgen hacken. Bei Zeitknappheit nur zwischen den Reihen."
-  },
-  {
-    id: "karotten-abflammen",
-    title: "Karotten: Abflammen Beet 4",
-    category: "produktion",
-    status: "offen",
-    priority: "bald",
-    deadline: "KW 16 (13.\u201319. April)",
-    location: "Block 2, Beet 4 (Karotten, gesät KW 12)",
-    image: "",
-    summary: "Mairübchen (Beet 3a) keimen jetzt als Indikator. Abflammen sobald Beikraut sichtbar aber Karotten noch unter der Erde.",
-    materials: ["Abflammgerät + Gaskartusche"],
-    tools: ["Abflammgerät"],
-    steps: [
-      { title: "Keimung beobachten", details: "Täglich Beet 4 kontrollieren. Sobald Beikraut sichtbar aber Karotten noch nicht aufgelaufen \u2192 Abflammen." },
-      { title: "Abflammen", details: "Gleichmässig über das gesamte Beet abflammen. Zügig arbeiten (Beikraut welken lassen, nicht verkohlen)." },
-      { title: "Vlies wieder auflegen", details: "Nach dem Abflammen Vlies wieder auflegen und Beet feucht halten." }
-    ],
-    hinweis: "Mairübchen auf Beet 3a keimen jetzt (KW 14) als Referenz. Karotten brauchen länger (14\u201321 Tage). Abflammen nur solange Karotten noch UNTER der Erde sind!"
-  },
-  {
-    id: "pflanzungen-kw16",
-    title: "Pflanzungen KW 16: Block 1+2 + Koriander",
-    category: "produktion",
-    status: "offen",
-    priority: "bald",
-    deadline: "KW 16 (13.\u201319. April)",
-    location: "Block 1 Beete 3+6b, Block 2 Beete 7c+8a/b",
-    image: "",
-    summary: "Laut Anbauplan: Block 1 Beet 3 und 6b bepflanzen, Block 2 Beet 8a/b neu bepflanzen, Koriander (7c) setzen.",
-    materials: ["Jungpflanzen gemäss Max Schwarz Bestellung", "Koriander-Jungpflanzen oder Saatgut", "Luzernepellets (200 g/Beetmeter)", "Grünschnittkompost (15 L/Beetmeter)"],
-    tools: ["Grelinette", "Mini-Tilther", "Pflanzwagen", "Giessbrause"],
-    steps: [
-      { title: "Beete vorbereiten", details: "Grelinette lockern, Düngen, Kompost einarbeiten mit Mini-Tilther." },
-      { title: "Jungpflanzen setzen", details: "Markierrechen für Pflanzabstände. Jungpflanzen setzen, gut angiessen. Nächste 4 Tage feucht halten." },
-      { title: "Koriander pflanzen (Beet 7c)", details: "Koriander in Block 2 Beet 7c setzen. Langtag-empfindlich, regelmässig nachsäen." },
-      { title: "Abdeckung", details: "Vlies oder Insektennetz auflegen je nach Kultur und Temperatur." }
-    ],
-    hinweis: "Ab KW 16 starten auch die ersten Tunnel-Ernten: Petersilie (1a), Salat (2a/2b), Spinat (3a), Asiasalat (4a), Radieschen (5a). Die Gemüsetasche füllt sich!"
-  },
-  // === SPÄTER (KW 17+) ===
-  {
-    id: "mangold-bor",
-    title: "Mangold: Bor-Blattdüngung",
-    category: "produktion",
-    status: "offen",
-    priority: "bald",
-    deadline: "KW 17 (20.\u201326. April)",
-    location: "Block 1, Beet 1 (Mangold, gepflanzt KW 13)",
-    image: "",
-    summary: "24 Tage nach Pflanzung: Bor-Blattdünger auf Mangold sprühen. Gleiche Familie wie Randen, gleiche Dosierung.",
-    materials: ["Lebosol-Bor-150 (g/l)", "Wasser"],
-    tools: ["Handsprüher", "Messbecher"],
-    steps: [
-      { title: "Lösung anmischen", details: "Pro Beetmeter: 0,63 ml Lebosol-Bor-150 auf 63 ml Wasser." },
-      { title: "Blattdüngung ausbringen", details: "Abends oder bei bedecktem Himmel sprühen. Gleichmässig auf beide Blattseiten." }
-    ],
-    hinweis: "Mangold und Randen gehören zur gleichen Familie (Fuchsschwanzgewächse). Gleiche Bor-Dosierung."
+    hinweis: "Das Gew\u00e4chshaus ist das Erste was Abonnenten bei der Gem\u00fcseausgabe sehen \u2013 es muss einladend wirken. Beim Reinigen des Dachs vorsichtig sein: altes Glas kann spr\u00f6de sein. K\u00e4rcher nur mit niedrigem Druck und nicht direkt auf Glas richten. Algenentferner vorher an einer kleinen Stelle testen."
   },
   {
     id: "hochdraht",
@@ -662,65 +350,39 @@ const PROJECTS = [
     deadline: "Bis KW 18\u201319 (27. April \u2013 10. Mai)",
     location: "Folientunnel, Beet 2a + 2b",
     image: "",
-    summary: "Ein Längsdraht wird zwischen den 5 Querstreben gespannt. An diesem Draht werden Schnüre befestigt, an denen die Tomatenpflanzen (Sweet Million) hochgeleitet werden. Ca. 45 Pflanzen pro 10-Meter-Beet bei 22 cm Abstand.",
-    materials: ["Spanndraht (verzinkt oder Edelstahl, ca. 12 m)","Drahtspanner oder Schraubösen","Tomatenclips oder Schnur","Tomatenhaken / Rankhilfe-Schnüre (ca. 90 Stk. für 2 Beete)"],
+    summary: "Ein L\u00e4ngsdraht wird zwischen den 5 Querstreben gespannt. An diesem Draht werden Schn\u00fcre befestigt, an denen die Tomatenpflanzen (Sweet Million) hochgeleitet werden. Ca. 45 Pflanzen pro 10-Meter-Beet bei 22 cm Abstand.",
+    materials: ["Spanndraht (verzinkt oder Edelstahl, ca. 12 m)","Drahtspanner oder Schraub\u00f6sen","Tomatenclips oder Schnur","Tomatenhaken / Rankhilfe-Schn\u00fcre (ca. 90 Stk. f\u00fcr 2 Beete)"],
     tools: ["Zange", "Drahtschneider", "Leiter oder Tritt"],
     steps: [
-      { title: "Draht spannen", details: "Einen Längsdraht pro Beet auf ca. 200 cm Höhe zwischen den Querstreben spannen. Draht muss straff sein." },
-      { title: "Schnüre vorbereiten", details: "Pro Pflanze eine Schnur (ca. 250 cm lang) am Draht befestigen. Alle 22 cm eine Schnur." },
-      { title: "Pflanzen anbinden", details: "Sobald Tomaten gesetzt sind, die Schnur locker um den Stängel wickeln. Regelmässig nachwickeln." }
+      { title: "Draht spannen", details: "Einen L\u00e4ngsdraht pro Beet auf ca. 200 cm H\u00f6he zwischen den Querstreben spannen. Draht muss straff sein." },
+      { title: "Schn\u00fcre vorbereiten", details: "Pro Pflanze eine Schnur (ca. 250 cm lang) am Draht befestigen. Alle 22 cm eine Schnur." },
+      { title: "Pflanzen anbinden", details: "Sobald Tomaten gesetzt sind, die Schnur locker um den St\u00e4ngel wickeln. Regelm\u00e4ssig nachwickeln." }
     ],
-    hinweis: "Sweet Million ist eine Cherrytomate mit starkem Wachstum. Regelmässig ausgeizen. Schnüre nicht zu straff wickeln."
-  },
-  {
-    id: "gruenduengung-block345",
-    title: "Gründüngung: Insektenbuffet Block 3, 4 + 5",
-    category: "infrastruktur",
-    status: "offen",
-    priority: "bald",
-    deadline: "KW 19\u201320 (5.\u201316. Mai)",
-    location: "Block 3, Block 4, Block 5",
-    image: "images/gruenduengung_insektenbuffet.jpg",
-    summary: "Auf den drei nicht bewirtschafteten Blöcken wird die Sativa Insektenbuffet-Mischung (GR58) als Gründüngung ausgesät. Blüht den ganzen Sommer, friert im Winter ab. 2027 Rasenmäher + Silofolie, dann neue Beete. Kein Kreuzblütler \u2013 ideal für die Fruchtfolge.",
-    materials: [
-      "Sativa Insektenbuffet GR58, 5 kg (<a href='https://www.sativa.bio/de_ch/insektenbuffet-gruenduengung-gr58' target='_blank'>Sativa Shop</a>)",
-      "Trockener Sand zum Mischen (ca. 5 kg)",
-      "Silofolie (zum Abdecken KW 15\u201318)"
-    ],
-    tools: ["Fräse", "Rechen", "Eimer zum Mischen", "Grelinette (optional)"],
-    steps: [
-      { title: "Restkulturen entfernen (jetzt, KW 14\u201315)", details: "Federkohl, Lauch und Restkulturen auf Block 3, 4, 5 abräumen. Schaumkraut sofort rausreissen solange es blüht \u2013 bevor die Schoten aufplatzen. Pflanzen nicht liegen lassen, Samen reifen auch an abgerissenen Pflanzen nach." },
-      { title: "Silofolie auflegen (KW 15\u201316)", details: "Alle drei Blöcke mit Silofolie zudecken. 3\u20134 Wochen liegen lassen. Unter der Folie keimen vorhandene Unkrautsamen, finden kein Licht und sterben ab (Stale Seedbed / falsches Saatbett)." },
-      { title: "Folie abnehmen + Fräse (KW 19)", details: "Mitte Mai Silofolie entfernen. Einmal mit der Fräse über alle Flächen für ein gleichmässiges Saatbett. Kein feiner Beetaufbau nötig." },
-      { title: "Saatgut mit Sand mischen", details: "5 kg Insektenbuffet mit ca. 5 kg trockenem Sand im Eimer mischen (1:1). Die Mischung enthält sehr unterschiedliche Korngrössen (feine Phacelia bis grosse Sonnenblumenkerne). Sand sorgt für gleichmässige Verteilung und zeigt wo man schon gesät hat." },
-      { title: "Breitwürfig aussäen", details: "Saatgut-Sand-Mischung gleichmässig von Hand über alle drei Blöcke streuen. Saatstärke: 300 g/100 m². Idealerweise vor einem Regen säen." },
-      { title: "Einarbeiten + angiessen", details: "Mit Rechen 2\u20133 cm einarbeiten. Falls kein Regen: einmal beregnen für Bodenkontakt." }
-    ],
-    hinweis: "Zusammensetzung: Buchweizen, Phacelia, Sonnenblumen, Borretsch, Bitterlupine, Alexandrinerklee, Perserklee, Sommerwicke, Seradella, Herzgespann, Dill, Malve. Einjährig, friert zuverlässig ab (Überwinterung: nein). 5 Leguminosen für N-Fixierung, kein Getreide. Frühling 2027: Rasenmäher drüber, Silofolie 3\u20134 Wochen, dann Beete anlegen."
+    hinweis: "Sweet Million ist eine Cherrytomate mit starkem Wachstum. Regelm\u00e4ssig ausgeizen. Schn\u00fcre nicht zu straff wickeln."
   },
   {
     id: "kompostanlage",
-    title: "Kompostplatz: Lagerung Grün- und Braunmaterial",
+    title: "Kompostplatz: Lagerung Gr\u00fcn- und Braunmaterial",
     category: "infrastruktur",
     status: "offen",
     priority: "bald",
     deadline: "Bis KW 18\u201320 (Ende April / Mai)",
-    location: "Beim Gerätehaus (halbschattiger Standort)",
+    location: "Beim Ger\u00e4tehaus (halbschattiger Standort)",
     image: "images/kompostanlage.jpg",
-    summary: "Einen ordentlichen Platz einrichten wo Gartenabfälle sauber getrennt gelagert werden können: Grünmaterial (frischer Grünschnitt, Ernterückstände, Rasenschnitt) und Braunmaterial (Holzhäcksel, trockenes Laub, Stroh, Äste). Später wird daraus Bio-Complete Compost hergestellt.",
+    summary: "Einen ordentlichen Platz einrichten wo Gartenabf\u00e4lle sauber getrennt gelagert werden k\u00f6nnen: Gr\u00fcnmaterial (frischer Gr\u00fcnschnitt, Ernteckst\u00e4nde, Rasenschnitt) und Braunmaterial (Holzh\u00e4cksel, trockenes Laub, Stroh, \u00c4ste). Sp\u00e4ter wird daraus Bio-Complete Compost hergestellt.",
     materials: [
-      "Paletten für Abtrennungen / Boxen (mind. 2 Kammern)",
+      "Paletten f\u00fcr Abtrennungen / Boxen (mind. 2 Kammern)",
       "Schrauben / Winkel zum Fixieren der Paletten",
-      "Beschriftung: 'Grün' und 'Braun'",
+      "Beschriftung: 'Gr\u00fcn' und 'Braun'",
       "Optional: Vlies oder Plane zum Abdecken bei Regen"
     ],
     tools: ["Akkubohrer", "Schubkarre", "Mistgabel"],
     steps: [
-      { title: "Standort bestimmen", details: "Halbschattiger, gut zugänglicher Platz mit Schubkarre. Nicht direkt im Kundenbereich. Boden offen lassen." },
-      { title: "Zwei Kammern bauen", details: "Aus Paletten zwei getrennte Boxen bauen: eine für Grünmaterial (stickstoffreich: Ernterückstände, Grünschnitt, Unkraut ohne Samen), eine für Braunmaterial (kohlenstoffreich: Holzhäcksel, trockenes Laub, Stroh). Paletten mit Schrauben fixieren." },
-      { title: "Beschriften und einrichten", details: "Kammern klar beschriften. Schubkarre und Mistgabel in der Nähe deponieren. Vlies oder Plane bereithalten um bei Dauerregen abzudecken." }
+      { title: "Standort bestimmen", details: "Halbschattiger, gut zug\u00e4nglicher Platz mit Schubkarre. Nicht direkt im Kundenbereich. Boden offen lassen." },
+      { title: "Zwei Kammern bauen", details: "Aus Paletten zwei getrennte Boxen bauen: eine f\u00fcr Gr\u00fcnmaterial (stickstoffreich: Ernteckst\u00e4nde, Gr\u00fcnschnitt, Unkraut ohne Samen), eine f\u00fcr Braunmaterial (kohlenstoffreich: Holzh\u00e4cksel, trockenes Laub, Stroh). Paletten mit Schrauben fixieren." },
+      { title: "Beschriften und einrichten", details: "Kammern klar beschriften. Schubkarre und Mistgabel in der N\u00e4he deponieren. Vlies oder Plane bereithalten um bei Dauerregen abzudecken." }
     ],
-    hinweis: "Ab Saisonstart fallen laufend Ernterückstände und Grünschnitt an \u2013 ohne Lagerplatz liegt alles verstreut herum. Getrennte Lagerung von Grün und Braun ist die Vorbereitung für spätere Kompostherstellung (Bio-Complete Compost nach Ingham)."
+    hinweis: "Ab Saisonstart fallen laufend Ernteckst\u00e4nde und Gr\u00fcnschnitt an \u2013 ohne Lagerplatz liegt alles verstreut herum. Getrennte Lagerung von Gr\u00fcn und Braun ist die Vorbereitung f\u00fcr sp\u00e4tere Kompostherstellung (Bio-Complete Compost nach Ingham)."
   },
   {
     id: "cozyzone",
@@ -729,63 +391,385 @@ const PROJECTS = [
     status: "geplant",
     priority: "bald",
     deadline: "Bis KW 20\u201322 (Mai)",
-    location: "Hügel oberhalb der Beete (abseits der Kapelle)",
+    location: "H\u00fcgel oberhalb der Beete (abseits der Kapelle)",
     image: "images/cozyzone.jpg",
-    summary: "Ein lauschiger Rückzugsort für die Crew \u2013 etwas abseits der Kapelle, zum Entspannen nach getaner Arbeit. Mit gemütlicher Lounge-Einrichtung, Solarbeleuchtung für Sommerabende und Sonnenschutz, da der Platz im Sommer in der prallen Sonne liegt.",
+    summary: "Ein lauschiger R\u00fcckzugsort f\u00fcr die Crew \u2013 etwas abseits der Kapelle, zum Entspannen nach getaner Arbeit. Mit gem\u00fctlicher Lounge-Einrichtung, Solarbeleuchtung f\u00fcr Sommerabende und Sonnenschutz, da der Platz im Sommer in der prallen Sonne liegt.",
     materials: [
-      "Sonnensegel oder Sonnenschirm (gross, UV-beständig)",
-      "Outdoor-Lounge-Möbel (Palettenmöbel, Liegestühle oder Hängematten)",
+      "Sonnensegel oder Sonnenschirm (gross, UV-best\u00e4ndig)",
+      "Outdoor-Lounge-M\u00f6bel (Palettenm\u00f6bel, Liegest\u00fchle oder H\u00e4ngematten)",
       "Sitzpolster / Kissen (wetterfest oder zum Reinnehmen)",
       "Solar-Lichterketten oder Solar-Laternen",
       "Kleiner Beistelltisch oder Palette als Tisch",
-      "Optional: Feuerschale oder Kerzen für Abende",
+      "Optional: Feuerschale oder Kerzen f\u00fcr Abende",
       "Optional: Outdoor-Teppich"
     ],
-    tools: ["Rasenmäher (Fläche vorbereiten)", "Akkubohrer (für Befestigungen)", "Heringe / Seile (Sonnensegel)"],
+    tools: ["Rasenm\u00e4her (Fl\u00e4che vorbereiten)", "Akkubohrer (f\u00fcr Befestigungen)", "Heringe / Seile (Sonnensegel)"],
     steps: [
-      { title: "Fläche vorbereiten", details: "Gras mähen und ebenen Bereich schaffen. Steine und Unebenheiten entfernen. Überlegen wo die beste Aussicht ist und wo abends die Sonne hingeht." },
-      { title: "Sonnenschutz installieren", details: "Sonnensegel oder grossen Schirm aufstellen. Im Sommer ist dieser Platz in der prallen Sonne \u2013 Sonnenschutz ist Pflicht. Segel zwischen Bäumen oder mit Pfosten spannen." },
-      { title: "Lounge-Möbel platzieren", details: "Palettenmöbel, Liegestühle oder Hängematten aufstellen. Gemütlich und einladend arrangieren. Kissen und Polster drauf." },
-      { title: "Beleuchtung anbringen", details: "Solar-Lichterketten zwischen Bäumen oder am Sonnensegel spannen. Solar-Laternen auf dem Boden verteilen. Tagsüber laden, abends automatisch an \u2013 kein Stromanschluss nötig." },
-      { title: "Finishing Touches", details: "Beistelltisch für Getränke. Optional: Feuerschale für kühle Abende (Brandschutz beachten!). Pflanzen drumherum schön machen. Ein Ort wo man gerne hingeht und bleibt." }
+      { title: "Fl\u00e4che vorbereiten", details: "Gras m\u00e4hen und ebenen Bereich schaffen. Steine und Unebenheiten entfernen. \u00dcberlegen wo die beste Aussicht ist und wo abends die Sonne hingeht." },
+      { title: "Sonnenschutz installieren", details: "Sonnensegel oder grossen Schirm aufstellen. Im Sommer ist dieser Platz in der prallen Sonne \u2013 Sonnenschutz ist Pflicht. Segel zwischen B\u00e4umen oder mit Pfosten spannen." },
+      { title: "Lounge-M\u00f6bel platzieren", details: "Palettenm\u00f6bel, Liegest\u00fchle oder H\u00e4ngematten aufstellen. Gem\u00fctlich und einladend arrangieren. Kissen und Polster drauf." },
+      { title: "Beleuchtung anbringen", details: "Solar-Lichterketten zwischen B\u00e4umen oder am Sonnensegel spannen. Solar-Laternen auf dem Boden verteilen. Tagsüber laden, abends automatisch an \u2013 kein Stromanschluss n\u00f6tig." },
+      { title: "Finishing Touches", details: "Beistelltisch f\u00fcr Getr\u00e4nke. Optional: Feuerschale f\u00fcr k\u00fchle Abende (Brandschutz beachten!). Pflanzen drumherum sch\u00f6n machen. Ein Ort wo man gerne hingeht und bleibt." }
     ],
-    hinweis: "Die Cozy Zone ist der Reward nach einem langen Tag im Garten. Kissen und Polster bei Regen reinnehmen (oder wetterfeste verwenden). Solarbeleuchtung braucht keinen Strom \u2013 perfekt für diesen abgelegenen Standort."
+    hinweis: "Die Cozy Zone ist der Reward nach einem langen Tag im Garten. Kissen und Polster bei Regen reinnehmen (oder wetterfeste verwenden). Solarbeleuchtung braucht keinen Strom \u2013 perfekt f\u00fcr diesen abgelegenen Standort."
   },
   {
-    id: "troepfchenbewasserung",
-    title: "Tröpfchenbewässerung Folientunnel",
+    id: "marktstand",
+    title: "Gem\u00fcseausgabe: Marktstand auf der Wiese aufbauen",
     category: "infrastruktur",
-    status: "geplant",
-    priority: "bald",
-    deadline: "KW 19\u201320 (nach Kulturwechsel im Tunnel)",
-    location: "Folientunnel, Beete 2a/2b (Tomaten), 3a (Basilikum), 4a (Paprika), 5a (Gurken)",
-    image: "",
-    summary: "Sobald die Frühjahrskulturen abgeerntet sind und Tomaten, Gurken, Paprika, Basilikum in den Tunnel kommen, wird die Überkopfbewässerung durch Tröpfchenbewässerung ergänzt. 3 Tropfschläuche pro Beet.",
-    materials: ["Tropfschläuche (3 pro Beet, 30 cm Tropfabstand)","T-Stücke und Verbinder","Absperrhähne pro Beet","Hauptleitung / Verteiler"],
-    tools: ["Messer oder Rohrschneider", "Massband"],
-    steps: [
-      { title: "Layoutplanung", details: "Pro Beet 3 Tropfschläuche verlegen. Hauptleitung am Tunneleingang." },
-      { title: "Schläuche verlegen", details: "Tropfschläuche auf die Beete legen, an der Hauptleitung mit T-Stücken anschliessen." },
-      { title: "Absperrhähne montieren", details: "Jeden Beet-Abzweig mit einem Absperrhahn versehen." },
-      { title: "System testen", details: "Wasser aufdrehen, Druck prüfen, auf Lecks kontrollieren." }
+    status: "offen",
+    priority: "jetzt",
+    deadline: "Laufend \u2013 Samstags",
+    location: "Wiese vor dem Gew\u00e4chshaus (Ausgabezone)",
+    image: "images/marktstand.jpg",
+    summary: "Auf der Wiese wird der Marktstand f\u00fcr die w\u00f6chentliche Gem\u00fcseausgabe (Samstag 10\u201312 Uhr) aufgebaut. Gras m\u00e4hen, Pavillon aufstellen, lange Tische einrichten zur Gem\u00fcsepresentation. Muss einladend und \u00fcbersichtlich sein \u2013 das ist der Ort wo unsere Abonnenten ihr Gem\u00fcse abholen.",
+    materials: [
+      "Pavillon (stabil, wetterfest, gross genug f\u00fcr Tische)",
+      "Lange Tische (Biertische oder Klapptische, 2\u20133 St\u00fcck)",
+      "Tischdecken oder saubere Unterlagen",
+      "Kisten/K\u00f6rbe zur Gem\u00fcsepr\u00e4sentation",
+      "Preisschilder / Beschriftung der Gem\u00fcsesorten",
+      "Waage (falls n\u00f6tig f\u00fcr Abwiegen)",
+      "Optional: Deko, Blumen, Kapellengarten-Schild"
     ],
-    hinweis: "Tomaten, Gurken und Paprika mögen keine nassen Blätter \u2013 Tröpfchenbewässerung beugt Pilzkrankheiten vor."
+    tools: ["Rasenm\u00e4her", "Heringe / Gewichte f\u00fcr Pavillon", "Kabelbinder"],
+    steps: [
+      { title: "Wiese m\u00e4hen", details: "Die gesamte Ausgabefl\u00e4che vor dem Gew\u00e4chshaus kurz m\u00e4hen. M\u00e4hgut abr\u00e4umen damit der Boden sauber und trocken ist f\u00fcr den Pavillon und die Besucher." },
+      { title: "Pavillon aufstellen", details: "Pavillon mittig auf der gem\u00e4hten Fl\u00e4che aufbauen. Stabil verankern mit Heringen oder Gewichten (Wind!). Muss hoch genug sein f\u00fcr bequemes Stehen und Pr\u00e4sentieren." },
+      { title: "Tische einrichten", details: "Lange Tische unter dem Pavillon aufstellen. Tischdecken oder saubere Unterlagen drauf. Genug Platz lassen damit Abonnenten bequem entlanggehen k\u00f6nnen." },
+      { title: "Pr\u00e4sentation vorbereiten", details: "Kisten und K\u00f6rbe bereitstellen f\u00fcr die verschiedenen Gem\u00fcsesorten. Beschriftung vorbereiten (Sortenname, ev. Gewicht). Waage bereitstellen falls n\u00f6tig." },
+      { title: "Sch\u00f6n machen", details: "Kapellengarten-Schild aufh\u00e4ngen. Frische Blumen oder Kr\u00e4uter als Deko. Der Marktstand soll einladend wirken und zeigen, dass hier mit Liebe gearbeitet wird." }
+    ],
+    hinweis: "Die Gem\u00fcseausgabe ist jeden Samstag 10\u201312 Uhr. Der Marktstand ist das Aussh\u00e4ngeschild des Kapellengartens \u2013 erster Eindruck z\u00e4hlt! Bei Regen sch\u00fctzt der Pavillon Gem\u00fcse und Abonnenten."
+  },
+  {
+    id: "wasch-abtropftisch",
+    title: "Abtropf-Tisch f\u00fcr Waschplatz (70 cm)",
+    category: "infrastruktur",
+    status: "offen",
+    priority: "bald",
+    deadline: "Bis KW 16 (13.\u201319. April)",
+    location: "Waschplatzstrasse",
+    image: "images/waschplatz-tisch2.jpg",
+    summary: "Stabiler Holztisch (70 cm H\u00f6he) f\u00fcr die Waschplatzstrasse. Auf den Tisch wird ein Abtropfgitter gelegt, auf dem das gewaschene Gem\u00fcse trocknet.",
+    materials: ["Kantholz 60\u00d760 mm f\u00fcr Beine (4 Stk., je 70 cm)","Kantholz oder Latten f\u00fcr Rahmen","Bretter oder Latten f\u00fcr Tischfl\u00e4che","Edelstahl-Schrauben","Abtropfgitter","Holzschutz / Lein\u00f6l"],
+    tools: ["Akkubohrer / Schrauber", "Hands\u00e4ge oder Kapps\u00e4ge", "Winkel / Zollstock", "Schleifpapier"],
+    steps: [
+      { title: "Masse festlegen und Holz zuschneiden", details: "Tischh\u00f6he: exakt 70 cm. Ca. 180\u2013200 cm lang, 60\u201370 cm tief." },
+      { title: "Rahmen zusammenbauen", details: "L\u00e4ngs- und Querstreben auf H\u00f6he der Beinoberkanten verschrauben. Rechte Winkel kontrollieren." },
+      { title: "Tischfl\u00e4che montieren", details: "Bretter oder Latten als Auflage auf den Rahmen schrauben." },
+      { title: "Oberfl\u00e4che behandeln", details: "Alle Kanten leicht abschleifen. Holz mit Lein\u00f6l oder Holzschutzlasur behandeln." },
+      { title: "Abtropfgitter auflegen", details: "Abtropfgitter auf den Tisch legen. Falls n\u00f6tig: kleine Leisten als Anschlag montieren." }
+    ],
+    hinweis: "Tisch auf Verbundsteinboden mit Gummif\u00fcssen versehen, damit er nicht rutscht."
+  },
+  {
+    id: "wasch-bottichstaender",
+    title: "Bottich-St\u00e4nder f\u00fcr Waschplatz (60 cm)",
+    category: "infrastruktur",
+    status: "offen",
+    priority: "bald",
+    deadline: "Bis KW 16 (13.\u201319. April)",
+    location: "Waschplatzstrasse",
+    image: "images/waschplatz-bottich.jpg",
+    summary: "Kleines Tischchen (60 cm H\u00f6he) als St\u00e4nder f\u00fcr den Waschbottich (ca. 30 cm hoch). Bottichrand bei ~90 cm Arbeitshohe.",
+    materials: ["Kantholz 60\u00d760 mm f\u00fcr Beine (4 Stk., je 60 cm)","Kantholz oder Latten f\u00fcr Rahmen","Edelstahl-Schrauben","Holzschutz / Lein\u00f6l"],
+    tools: ["Akkubohrer / Schrauber", "Hands\u00e4ge oder Kapps\u00e4ge", "Winkel / Zollstock", "Schleifpapier"],
+    steps: [
+      { title: "Bottich ausmessen", details: "Waschbottich genau ausmessen. Rahmen so planen, dass der Bottich stabil aufliegt." },
+      { title: "Gestell bauen (60 cm H\u00f6he)", details: "4 Beine \u00e0 60 cm. Rahmen zusammenschrauben. Anschlagleisten am Rand anbringen." },
+      { title: "Oberfl\u00e4che behandeln", details: "Kanten schleifen, Holz mit Lein\u00f6l behandeln. Mehrere Schichten." },
+      { title: "Aufstellen und testen", details: "Neben den Abtropf-Tisch stellen. Oberkante Bottichrand sollte bei ca. 90 cm liegen." }
+    ],
+    hinweis: "Rechnung: 60 cm Tischchen + 30 cm Bottich = 90 cm Arbeitshohe. Gummif\u00fcsse verwenden."
+  },
+  {
+    id: "gemuesewaschplatz",
+    title: "Gem\u00fcsewaschplatz vor der Kapelle aufbauen",
+    category: "infrastruktur",
+    status: "offen",
+    priority: "bald",
+    deadline: "Bis KW 16 (13.\u201319. April)",
+    location: "Waschplatz vor der Kapellenwand (Blick auf Berg)",
+    image: "images/gemuesewaschplatz.jpg",
+    image2: "images/waschplatz_innen.jpg",
+    summary: "Einrichtung des Gem\u00fcsewaschplatzes vor der Kapellenwand. Hier wird das Gem\u00fcse vom Feld gewaschen, bevor es in den K\u00fchlraum kommt. In der Anfangsphase: einfaches Pavillon als Wetter- und Sonnenschutz, darunter die Waschtische mit Abtropfgittern und Waschbottichen. Wasseranschluss via Schlauch vom Wasserverteiler mit Wasserpistole.",
+    materials: [
+      "Pavillon (einfach, wetterfest, passend zur Fl\u00e4che)",
+      "Abtropf-Tisch (70 cm, siehe separates Projekt)",
+      "Bottich-St\u00e4nder (60 cm, siehe separates Projekt)",
+      "Waschbottiche (ca. 30 cm hoch)",
+      "Abtropfgitter (Kunststoff oder Edelstahl)",
+      "Gartenschlauch (lang genug vom Wasserverteiler)",
+      "Wasserpistole / Brause-Aufsatz f\u00fcr Schlauch",
+      "Schlauchhalterung oder Haken (damit Schlauch \u00fcber Bottich h\u00e4ngt)"
+    ],
+    tools: ["Akkubohrer (f\u00fcr Halterungen)", "Kabelbinder oder Schlauchschellen", "Wasserwaage"],
+    steps: [
+      { title: "Standort vorbereiten", details: "Fl\u00e4che vor der Kapellenwand freiräumen. Boden muss eben sein (Verbundstein oder befestigter Untergrund). Ablauf f\u00fcr Waschwasser sicherstellen \u2013 Wasser soll abfliessen k\u00f6nnen ohne Staunässe." },
+      { title: "Pavillon aufstellen", details: "Einfaches Pavillon aufbauen als Sonnen- und Regenschutz. Stabil verankern (Gewichte oder Bodenanker). Muss hoch genug sein um darunter bequem zu arbeiten." },
+      { title: "Waschtische platzieren", details: "Abtropf-Tisch (70 cm) und Bottich-St\u00e4nder (60 cm) unter dem Pavillon aufstellen. Workflow beachten: Waschbottich links, Abtropfgitter rechts (oder umgekehrt je nach H\u00e4ndigkeit). Genug Platz zum Arbeiten lassen." },
+      { title: "Wasseranschluss einrichten", details: "Gartenschlauch vom Wasserverteiler zum Waschplatz verlegen. Wasserpistole am Schlauchende montieren. Schlauch so befestigen (Haken, Halterung), dass die Pistole bequem \u00fcber dem Waschbottich erreichbar ist und man freihandig waschen kann." },
+      { title: "Ablauf testen", details: "Wasser aufdrehen, Workflow testen: Gem\u00fcse in Bottich \u2192 mit Pistole abspritzen \u2192 aufs Abtropfgitter legen \u2192 trocknen lassen \u2192 in Kisten f\u00fcr K\u00fchlraum. Ergonomie pr\u00fcfen: Arbeitsh\u00f6he, Reichweite, Schlauchl\u00e4nge." }
+    ],
+    hinweis: "Dieser Platz wird in der Saison t\u00e4glich genutzt \u2013 Ergonomie ist entscheidend. Bottichrand bei 90 cm Arbeitshohe (60 cm St\u00e4nder + 30 cm Bottich). Waschplatz hat Blick auf den Berg \u2013 sch\u00f6nster Arbeitsplatz im ganzen Garten. Sp\u00e4ter kann der Pavillon durch eine permanentere Struktur ersetzt werden."
+  },
+  {
+    id: "toilettenhaeuschen",
+    title: "Toilettenh\u00e4uschen: Kompotoi in Betrieb nehmen",
+    category: "infrastruktur",
+    status: "erledigt",
+    priority: "geplant",
+    deadline: "KW 16 \u2013 Erledigt",
+    location: "Toilettenh\u00e4uschen beim Kapellengarten",
+    image: "images/toilettenhaeuschen.jpg",
+    docs: [
+      { title: "Kompotoi Kompostier-Anleitung", desc: "PDF \u2013 3-Boxen-System, Bef\u00fcllung, Reifung, Veredelung", url: "https://www.kompotoi.ch/wp-content/uploads/2023/01/230117_Anleitung-Kompostieren_DE-CH.pdf" }
+    ],
+    summary: "Das Kompotoi-Trockentoilettensystem wird in Betrieb genommen. Altes Material fachgerecht kompostieren (3-Boxen-System), Toilette gr\u00fcndlich reinigen, neu einstreuen und das H\u00e4uschen sch\u00f6n herrichten mit Pflanzen und Raumduft. Make it an experience!",
+    materials: [
+      "S\u00e4gemehl oder feine Hobelsp\u00e4ne (Einstreu)",
+      "Wasserdichter Sammelbehalter (15\u201380 l) mit Deckel",
+      "Handschuhe (robust, f\u00fcr Kompostarbeiten)",
+      "Biologisch abbaubares Desinfektionsmittel (z.B. Essigessenz)",
+      "3 Kompostboxen (je 1\u20132 m\u00b3): Bef\u00fcllung, Reifung, Einstreu-Lagerung",
+      "Sieb (Maschenweite 1\u20132 cm) f\u00fcr Veredelung",
+      "Dekoration: Topfpflanzen, Raumduft, ev. Kerze oder Bild"
+    ],
+    tools: ["Schaufel / Forke (nur f\u00fcr Kompost!)", "Eimer + B\u00fcrste zum Reinigen", "Spr\u00fchflasche f\u00fcr Desinfektionsmittel", "Giessbrause"],
+    steps: [
+      { title: "Altes Material entsorgen", details: "Handschuhe anziehen. Den alten Sammelbeh\u00e4lter vorsichtig zur Kompostbox 'Bef\u00fcllung' transportieren, geschlossen halten. Inhalt in die Bef\u00fcllungsbox leeren. Mit einem daf\u00fcr bestimmten Werkzeug ca. 20 cm tief in das bestehende Material einarbeiten." },
+      { title: "Einstreu abdecken", details: "Das vermischte Material mit einer Schicht grober Einstreu (Laub, geh\u00e4ckseltes Reisig, Stroh) aus der Einstreubox abdecken. Fausttest: Material sollte sich anf\u00fchlen wie ein ausgedr\u00fcckter Schwamm \u2013 nicht zu trocken, nicht zu nass." },
+      { title: "Kompostboxen kontrollieren", details: "Bef\u00fcllungsbox voll? Dann Inhalt in die Reifungsbox umf\u00fcllen und dabei durchmischen (bel\u00fcften). Die Reifung braucht mindestens 1.5 Jahre. Nach 1.5 Jahren: aussieben (1\u20132 cm Maschenweite), gesiebter Kompost kann als Bodenverbesserer verwendet werden." },
+      { title: "Sammelbeh\u00e4lter reinigen", details: "Beh\u00e4lter gr\u00fcndlich mit Wasser sp\u00fclen. Das Waschwasser auf die Bef\u00fcllungsbox geben (nicht in die Kanalisation). Anschliessend mit Essigessenz oder biologisch abbaubarem Desinfektionsmittel einsprühen." },
+      { title: "Toilette neu einrichten", details: "Sauberen Sammelbeh\u00e4lter einsetzen. 5\u201315 cm Einstreu (S\u00e4gemehl/Hobelsp\u00e4ne) einf\u00fcllen. Toilettenpapier bereitstellen. Einstreu-Vorratsbeh\u00e4lter auff\u00fcllen. M\u00fclleimer f\u00fcr Hygieneartikel bereitstellen." },
+      { title: "H\u00e4uschen sch\u00f6n machen", details: "Toilettenh\u00e4uschen gr\u00fcndlich putzen. Sch\u00f6ne Topfpflanzen aufstellen (z.B. Lavendel, Rosmarin oder Sukkulenten). Nat\u00fcrlichen Raumduft platzieren (z.B. Lavenders\u00e4ckchen, \u00e4therische \u00d6le). Optional: kleine Deko, Bild, Kerze. Das Ziel: ein Ort wo man gerne hingeht." }
+    ],
+    hinweis: "Wichtig: S\u00e4mtliche Werkzeuge (Beh\u00e4lter, Handschuhe, Forke, Schaufel) ausschliesslich f\u00fcr die Kompostierung verwenden \u2013 nicht im Garten! Nach allen Arbeiten H\u00e4nde gr\u00fcndlich mit Seife waschen. Sickerwasser: In einer Zone ohne Umweltauflagen kann es in den Boden eindringen. Bei Unsicherheit: bei der Gemeinde Wangen nachfragen."
+  },
+  {
+    id: "sumi-soaker",
+    title: "Sumi Soaker Staubnebelbew\u00e4sserung Freiland",
+    category: "infrastruktur",
+    status: "erledigt",
+    priority: "geplant",
+    deadline: "KW 14\u201315 \u2013 Erledigt",
+    location: "Block 1 + Block 2 (Freiland-Beete)",
+    image: "images/sumisoaker.jpg",
+    video: "https://www.youtube.com/watch?v=mTM13JkgjQQ",
+    summary: "Aufbau des Sumisansui Mark III Staubnebel-Bew\u00e4sserungssystems f\u00fcr die Freiland-Beete. Feiner Spr\u00fchnebel wie sanfter Regen \u2013 schont Setzlinge, verhindert Bodenverdichtung und Erosion. Schlauch wird im Weg zwischen den Beeten ausgerollt. Max. Druck: 0.8 bar (11 psi), Druckminderer zwingend n\u00f6tig.",
+    materials: [
+      "Sumisansui Mark III Schlauch (bis 5 m breit, bis 100 m lang)",
+      "Druckminderer / Druckregler (max. 0.8 bar / 11 psi)",
+      "Inline-Filter (150 Mesh)",
+      "Gartenschlauch-Anschluss oder Agline-Fitting",
+      "Sliding Stopper (am Ende des Schlauchs)",
+      "Winder/Bobbin f\u00fcr Aufwicklung und Lagerung"
+    ],
+    tools: ["Gartenschlauch zur Wasserquelle", "Messband f\u00fcr Positionierung"],
+    steps: [
+      { title: "Druckminderer + Filter montieren", details: "Druckminderer auf max. 0.8 bar (80 kPa / 11 psi) einstellen \u2013 das ist entscheidend! Normaler Hauswasserdruck liegt bei ca. 5 bar und w\u00fcrde den Schlauch zerst\u00f6ren. Filter direkt nach dem Druckminderer einsetzen." },
+      { title: "Schlauch ausrollen", details: "Sumi-Schlauch im Weg zwischen den Beeten ausrollen, L\u00f6cher nach oben zeigend. Der Mark III spr\u00fcht ca. 2.5 m auf jede Seite (5 m total). Pro Weg ein Schlauch, der die Beete links und rechts bew\u00e4ssert." },
+      { title: "Anschliessen", details: "Schlauchende an den Gartenschlauch-Anschluss (mit Druckminderer) anschliessen. Am anderen Ende den Sliding Stopper aufsetzen. Die Position des Stoppers bestimmt die aktive L\u00e4nge." },
+      { title: "System testen", details: "Wasser langsam aufdrehen. Pr\u00fcfen ob ein gleichm\u00e4ssiger feiner Nebel entsteht. Falls Tropfen statt Nebel: Druck zu hoch, Druckminderer weiter runterdrehen. Auf Lecks kontrollieren." },
+      { title: "Aufwicklung vorbereiten", details: "Winder/Bobbin bereithalten. Nach der Bew\u00e4sserung Schlauch mit dem Winder aufwickeln und trocken lagern. UV-best\u00e4ndig, aber bei Nichtgebrauch aufwickeln verl\u00e4ngert die Lebensdauer." }
+    ],
+    hinweis: "Maximaldruck 0.8 bar / 11 psi \u2013 NICHT ohne Druckminderer betreiben! Der Sumi Mark III erzeugt einen feinen Staubnebel, ideal f\u00fcr Jungpflanzen, Direktsaaten und empfindliche Kulturen. Wiederverwendbar \u00fcber mehrere Saisons."
+  },
+  {
+    id: "bewasserung",
+    title: "\u00dcberkopf-Bew\u00e4sserung Folientunnel",
+    category: "infrastruktur",
+    status: "erledigt",
+    priority: "geplant",
+    deadline: "KW 14 \u2013 Erledigt",
+    location: "Folientunnel",
+    image: "images/bewasserung-sprinkler.jpg",
+    video: "https://www.youtube.com/watch?v=k6xP9j5XQhM",
+    summary: "Installation des Farmers Friend Overhead Irrigation Kit (FF-3465) im Folientunnel. Die aktuellen Tunnelkulturen (Salat, Spinat, Kohlrabi, Asiasalat, Rucola, Radieschen) brauchen jetzt \u00dcberkopfbew\u00e4sserung.",
+    materials: ["Farmers Friend Overhead Irrigation Kit FF-3465","Weisses Polyethylen-Rohr (1 Zoll, Hauptleitung)","Weisses Polyethylen-Rohr 20 ft (Zuleitung am Bogen)","SpinNet Sprinklerköpfe","Hänge-Assemblies mit Verlängerungen","Edelstahl-Kabelbinder","Lochstanzer-Werkzeug","Kugelhahn, Druckregler (35 PSI), Scheibenfilter","Power-Loc Winkel, Adapter, Spülventil"],
+    tools: ["Massband", "Marker/Stift", "Messer oder Rohrschneider", "Zange"],
+    steps: [
+      { title: "Hauptleitung vorbereiten", details: "Weisses Rohr ausrollen (am besten bei W\u00e4rme). Am zweiten Bogen beginnen und bis ca. 15\u201320 cm vor die Endwand legen. Am Zuleitungsende den Power-Loc Winkel anschliessen. Am anderen Ende den Gewinde-Adapter montieren." },
+      { title: "H\u00e4nge-Assemblies installieren", details: "Alle 90 cm (3 Fuss) Markierungen auf der Hauptleitung setzen. Leitung \u00fcber die Querstreben des Tunnels f\u00fchren und mit Edelstahl-Kabelbindern alle 60\u201390 cm an der Firstpfette befestigen. Verl\u00e4ngerungsrohre auf gew\u00fcnschte H\u00f6he k\u00fcrzen (Sprinkler 180\u2013210 cm \u00fcber Kultur)." },
+      { title: "L\u00f6cher stanzen und Assemblies einsetzen", details: "Mit dem Lochstanzer beim Winkel beginnend alle 90 cm L\u00f6cher in die Hauptleitung stanzen. Alle L\u00f6cher auf einer Linie. Mit der R\u00fcckseite des Stanzwerkzeugs die H\u00e4nge-Assemblies in die L\u00f6cher dr\u00fccken." },
+      { title: "Zuleitung am Bogen montieren", details: "Das 20-ft-Rohr an den Winkel der Hauptleitung anschliessen. Mit Kabelbindern alle 60\u201390 cm an der Unterseite von Bogen 2 befestigen und nach unten f\u00fchren." },
+      { title: "Ventil- und Filtereinheit zusammenbauen", details: "Kugelhahn, Druckregler und Scheibenfilter gem\u00e4ss Anleitung zusammenschrauben. Die Einheit wird in die Zuleitung eingesetzt." },
+      { title: "Wasseranschluss herstellen", details: "Am Boden das Rohr abschneiden und den zweiten Power-Loc Winkel montieren. Restliches Rohr in Richtung Wasserquelle verlegen. Schlauchadapter anschliessen." },
+      { title: "System sp\u00fclen und Sprinkler montieren", details: "Wasser aufdrehen und Hauptleitung durchsp\u00fclen lassen. Sp\u00fclventil am Ende aufschrauben. Dann jede H\u00e4nge-Assembly einzeln sp\u00fclen. Zum Schluss die SpinNet-Sprinkler auf alle Assemblies aufstecken." }
+    ],
+    hinweis: "Bei zu geringem Durchfluss: Jeden zweiten Sprinkler durch Goof Plug ersetzen. Filter regelm\u00e4ssig reinigen. Vor Frost: System entleeren, Filtereinheit frostfrei lagern, Sprinkler abnehmen."
+  },
+  // === PRODUKTION ===
+  {
+    id: "randen-bor",
+    title: "Randen: Bor-Blattd\u00fcngung",
+    category: "produktion",
+    status: "erledigt",
+    priority: "geplant",
+    deadline: "KW 14 \u2013 Erledigt",
+    location: "Block 2, Beet 1a (Randen, gepflanzt KW 10)",
+    image: "",
+    summary: "24 Tage nach Pflanzung: Bor-Blattd\u00fcnger auf Randen spr\u00fchen. Sch\u00fctzt vor Pilzkrankheiten und verhindert Bormangel (hohle Knollen).",
+    materials: ["Lebosol-Bor-150 (g/l) Fl\u00fcssigd\u00fcnger", "Wasser", "Messbecher"],
+    tools: ["Handsprüher oder R\u00fcckenspritze"],
+    steps: [
+      { title: "L\u00f6sung anmischen", details: "Pro Beetmeter: 0,63 ml Lebosol-Bor-150 auf 63 ml Wasser (ca. 0,1 g Bor pro Beetmeter)." },
+      { title: "Blattd\u00fcngung ausbringen", details: "Am besten abends oder bei bedecktem Himmel spr\u00fchen. Beide Blattseiten benetzen." }
+    ],
+    hinweis: "Laut Handbuch: 24 Tage nach Pflanzung. Block 2 Beet 1a wurde KW 10 gepflanzt. Mangold (Block 1 Beet 1, gepflanzt KW 13) bekommt Bor in KW 17."
+  },
+  {
+    id: "beikraut-1durchgang",
+    title: "Beikraut: 1. Durchgang KW-13-Pflanzungen",
+    category: "produktion",
+    status: "erledigt",
+    priority: "geplant",
+    deadline: "KW 14\u201315 \u2013 Erledigt",
+    location: "Block 1 Beete 1+2, Block 2 Beete 3b, 8a/b",
+    image: "",
+    summary: "10 Tage nach Pflanzung (KW 13): Erster Durchgang Drahthacke bei Mangold, Salat (Block 1), Kohlrabi, Fenchel (Block 2).",
+    materials: [],
+    tools: ["Drahthacke (5 cm f\u00fcr enge Reihen, 12 cm f\u00fcr weite)", "Pendelhacke als Alternative"],
+    steps: [
+      { title: "Netz/Vlies aufdecken", details: "Insektennetz oder Vlies vorsichtig abheben und zur Seite legen." },
+      { title: "Drahthacke einsetzen", details: "An einem sonnigen Morgen: mit der Drahthacke zwischen den Reihen durchgehen. Ziel: 80% des Beikrauts st\u00f6ren. Beide Daumen nach oben, gerader R\u00fccken." },
+      { title: "Netz/Vlies wieder auflegen", details: "Abdeckung wieder sorgf\u00e4ltig auflegen und an den R\u00e4ndern beschweren." }
+    ],
+    hinweis: "2. Durchgang folgt in KW 15\u201316 (17 Tage nach Pflanzung). Bei Zeitknappheit nur zwischen den Reihen hacken."
+  },
+  {
+    id: "vlies-tausch",
+    title: "Vlies gegen Insektennetz tauschen",
+    category: "produktion",
+    status: "erledigt",
+    priority: "geplant",
+    deadline: "KW 14\u201315 \u2013 Erledigt",
+    location: "Block 1 + 2, Kreuzbl\u00fctler-Beete",
+    image: "",
+    summary: "Sobald Bodentemperatur \u00fcber 10\u00b0C: Vlies bei Kreuzbl\u00fctlern (Kohlrabi, Asiasalat, Radieschen, Rucola) durch Insektennetz ersetzen. Erdflo\u00e4he werden bei W\u00e4rme aktiv.",
+    materials: ["Insektennetz (feinmaschig)", "Federstahlst\u00e4be f\u00fcr Hoops (bei Kohlrabi)"],
+    tools: [],
+    steps: [
+      { title: "Bodentemperatur pr\u00fcfen", details: "Wenn Bodentemperatur dauerhaft \u00fcber 10\u00b0C, werden Erdflo\u00e4he aktiv." },
+      { title: "Vlies entfernen", details: "Vlies vorsichtig abheben, zusammenfalten und trocken lagern." },
+      { title: "Insektennetz auflegen", details: "Bei Kohlrabi: Hoops (Federstahlst\u00e4be) setzen, damit das Netz nicht aufliegt. Bei Salat, Randen, Mangold: Netz kann flach aufgelegt werden." }
+    ],
+    hinweis: "Kohlrabi und Brassicas brauchen Hoops. Salat, Randen und Mangold k\u00f6nnen flach abgedeckt werden."
+  },
+  {
+    id: "karotten-aussaat-kw15",
+    title: "Karotten: Direktsaat Block 1 Beet 5",
+    category: "produktion",
+    status: "erledigt",
+    priority: "geplant",
+    deadline: "KW 15 \u2013 Erledigt",
+    location: "Block 1, Beet 5",
+    image: "",
+    summary: "Laut Anbauplan: Direktsaat Karotten in Block 1 Beet 5 (KW 15). Beet vorbereiten, 6 Reihen s\u00e4en mit Jang Seeder, Vlies auflegen.",
+    materials: ["Karotten-Saatgut (Napoli F1, 0,4 g/Beetmeter)", "Luzernepellets (200 g/Beetmeter)", "Gr\u00fcnschnittkompost (15 L/Beetmeter)", "Vlies (19 g)"],
+    tools: ["Grelinette", "Mini-Tilther", "Markierrechen (6 Reihen)", "Jang JP-5 Seeder", "Giessbrause"],
+    steps: [
+      { title: "Beet vorbereiten", details: "Grelinette lockern, Luzernepellets und Kompost einarbeiten mit Mini-Tilther." },
+      { title: "Falsches Saatbeet (optional)", details: "Beet angiessen und 6\u20137 Tage Beikr\u00e4uter keimen lassen. Dann abflammen." },
+      { title: "Aussaat", details: "Mit Markierrechen 6 Reihen ziehen (12 cm Abstand). Jang Seeder mit 0,4 g Saatgut pro Beetmeter." },
+      { title: "Abdecken", details: "Gut angiessen. Vlies auflegen. T\u00e4glich kontrollieren." }
+    ],
+    hinweis: "Hakurai-Mair\u00fcbchensamen als Indikator mits\u00e4en (keimen 1\u20132 Tage vor Karotten). Abflammen 4\u20135 Tage nach Aussaat m\u00f6glich."
+  },
+  {
+    id: "beikraut-2durchgang",
+    title: "Beikraut: 2. Durchgang KW-13-Pflanzungen",
+    category: "produktion",
+    status: "erledigt",
+    priority: "geplant",
+    deadline: "KW 15\u201316 \u2013 Erledigt",
+    location: "Block 1 Beete 1+2, Block 2 Beete 3b, 8a/b",
+    image: "",
+    summary: "17 Tage nach Pflanzung (KW 13): Zweiter Durchgang Drahthacke bei Mangold, Salat, Kohlrabi, Fenchel.",
+    materials: [],
+    tools: ["Drahthacke (5 cm / 12 cm)", "Pendelhacke als Alternative"],
+    steps: [
+      { title: "Netz/Vlies aufdecken", details: "Abdeckung vorsichtig abheben." },
+      { title: "Drahthacke einsetzen", details: "An einem sonnigen Morgen zwischen den Reihen hacken. Ziel: 80% des Beikrauts st\u00f6ren." },
+      { title: "Netz/Vlies wieder auflegen", details: "Abdeckung wieder sorgf\u00e4ltig auflegen." }
+    ],
+    hinweis: "Immer an einem sonnigen Morgen hacken. Bei Zeitknappheit nur zwischen den Reihen."
+  },
+  {
+    id: "karotten-abflammen",
+    title: "Karotten: Abflammen Beet 4",
+    category: "produktion",
+    status: "erledigt",
+    priority: "geplant",
+    deadline: "KW 16 \u2013 Erledigt",
+    location: "Block 2, Beet 4 (Karotten, ges\u00e4t KW 12)",
+    image: "",
+    summary: "Mair\u00fcbchen (Beet 3a) keimen jetzt als Indikator. Abflammen sobald Beikraut sichtbar aber Karotten noch unter der Erde.",
+    materials: ["Abflammger\u00e4t + Gaskartusche"],
+    tools: ["Abflammger\u00e4t"],
+    steps: [
+      { title: "Keimung beobachten", details: "T\u00e4glich Beet 4 kontrollieren. Sobald Beikraut sichtbar aber Karotten noch nicht aufgelaufen \u2192 Abflammen." },
+      { title: "Abflammen", details: "Gleichm\u00e4ssig \u00fcber das gesamte Beet abflammen. Z\u00fcgig arbeiten (Beikraut welken lassen, nicht verkohlen)." },
+      { title: "Vlies wieder auflegen", details: "Nach dem Abflammen Vlies wieder auflegen und Beet feucht halten." }
+    ],
+    hinweis: "Mair\u00fcbchen auf Beet 3a keimen als Referenz. Karotten brauchen l\u00e4nger (14\u201321 Tage). Abflammen nur solange Karotten noch UNTER der Erde sind!"
+  },
+  {
+    id: "pflanzungen-kw16",
+    title: "Pflanzungen KW 16: Block 1+2 + Koriander",
+    category: "produktion",
+    status: "erledigt",
+    priority: "geplant",
+    deadline: "KW 16 \u2013 Erledigt",
+    location: "Block 1 Beete 3+6b, Block 2 Beete 7c+8a/b",
+    image: "",
+    summary: "Laut Anbauplan: Block 1 Beet 3 und 6b bepflanzen, Block 2 Beet 8a/b neu bepflanzen, Koriander (7c) setzen.",
+    materials: ["Jungpflanzen gem\u00e4ss Anbauplan (Max Schwarz AG)", "Luzernepellets (200 g/Beetmeter)", "Gr\u00fcnschnittkompost (15 L/Beetmeter)"],
+    tools: ["Grelinette", "Mini-Tilther", "Pflanzstempel oder Spaten", "Giessbrause"],
+    steps: [
+      { title: "Beete vorbereiten", details: "Alle Beete mit Grelinette lockern. Luzernepellets und Kompost einarbeiten." },
+      { title: "Jungpflanzen setzen", details: "Jungpflanzen im richtigen Abstand gem\u00e4ss Kulturkarte setzen." },
+      { title: "Angiessen", details: "Alle Beete gut angiessen. Netz oder Vlies auflegen." }
+    ],
+    hinweis: "Reihenfolge und Abst\u00e4nde gem\u00e4ss Kulturkarte pr\u00fcfen."
   },
   // === ERLEDIGT ===
+  {
+    id: "krauter-schnittlauch-dill",
+    title: "Schnittlauch + Dill pflanzen (Beet 7a + 7b)",
+    category: "produktion",
+    status: "erledigt",
+    priority: "geplant",
+    deadline: "KW 14 \u2013 Erledigt",
+    location: "Block 2, Beet 7a (Schnittlauch) + 7b (Dill)",
+    image: "",
+    summary: "Schnittlauch und Dill aus grossen T\u00f6pfen pflanzen. Jede Pflanze in 4 Teile teilen und als Stauden setzen.",
+    materials: ["Schnittlauch-Topfpflanzen (gross, zum Teilen in 4)","Dill-Topfpflanzen (gross, zum Teilen in 4)","Luzernepellets (200 g/Beetmeter)","Gr\u00fcnschnittkompost (15 L/Beetmeter)"],
+    tools: ["Grelinette (Broadfork)", "Mini-Tilther", "Messer oder Spaten zum Teilen", "Giessbrause"],
+    steps: [
+      { title: "Beet vorbereiten", details: "Beet 7a + 7b mit Grelinette lockern (nicht wenden!). Luzernepellets und Gr\u00fcnschnittkompost flach einarbeiten mit Mini-Tilther." },
+      { title: "Topfpflanzen teilen", details: "Jeden grossen Topf in 4 gleichm\u00e4ssige Teile aufteilen. Darauf achten, dass jedes Teilstück gen\u00fcgend Wurzeln hat." },
+      { title: "Schnittlauch pflanzen (Beet 7a)", details: "Die 4 Teilungen mit ca. 25 cm Abstand in Beet 7a setzen. Gut angiessen." },
+      { title: "Dill pflanzen (Beet 7b)", details: "Die 4 Teilungen in Beet 7b setzen. Gut angiessen." },
+      { title: "Angiessen", details: "Beide Beete gr\u00fcndlich mit der Giessbrause angiessen. Die n\u00e4chsten 4 Tage feucht halten." }
+    ],
+    hinweis: "Schnittlauch ist eine Staude \u2013 kein Umbruch n\u00f6tig in den Folgejahren. Dill kann durch gestaffelte Nachsaaten (KW 16\u201318) erg\u00e4nzt werden."
+  },
   {
     id: "freiland-pflanzungen",
     title: "Erste Freiland-Pflanzungen Block 1 + 2",
     category: "produktion",
     status: "erledigt",
     priority: "geplant",
-    deadline: "KW 12\u201313 (16.\u201329. März)",
+    deadline: "KW 12\u201313 (16.\u201329. M\u00e4rz)",
     location: "Block 1 + Block 2",
     image: "",
-    summary: "KW 12: Direktsaat Radieschen (2a), Mairübchen (3a), Karotten (4). KW 13: Pflanzung Mangold (B1-1), Salat (B1-2), Kohlrabi (3b), Fenchel (8a/b). KW 14: Schnittlauch (7a), Dill (7b).",
+    summary: "KW 12: Direktsaat Radieschen (2a), Mair\u00fcbchen (3a), Karotten (4). KW 13: Pflanzung Mangold (B1-1), Salat (B1-2), Kohlrabi (3b), Fenchel (8a/b). KW 14: Schnittlauch (7a), Dill (7b).",
     materials: [],
     tools: [],
     steps: [],
-    hinweis: "Abgeschlossen. Mairübchen keimen jetzt (KW 14). Karotten noch nicht aufgelaufen (Kälte)."
+    hinweis: "Abgeschlossen."
   }
 ];
 
@@ -820,7 +804,7 @@ function render() {
               <div class="card-thumb-mobile"><img src="${p.image}" alt="" onerror="this.parentElement.style.display='none'"></div>
               <div class="card-badges">
                 <span class="badge badge-${p.status}"><span class="badge-dot"></span>${{offen:'Offen',geplant:'Geplant',erledigt:'Erledigt'}[p.status]}</span>
-                <span class="priority priority-${p.priority}">${{jetzt:'Jetzt fällig',bald:'Bald fällig',geplant:'Geplant'}[p.priority]}</span>
+                <span class="priority priority-${p.priority}">${{jetzt:'Jetzt f\u00e4llig',bald:'Bald f\u00e4llig',geplant:'Geplant'}[p.priority]}</span>
               </div>
               <div class="card-title">${p.title}</div>
               <div class="card-meta">
@@ -834,7 +818,7 @@ function render() {
           <div class="card-detail">
             <div class="card-detail-img"><img src="${p.image}" alt="" onerror="this.parentElement.style.display='none'"></div>
             ${p.image2 ? `<div class="card-detail-img"><img src="${p.image2}" alt="" onerror="this.parentElement.style.display='none'"></div>` : ''}
-            ${p.video ? `<a href="${p.video}" target="_blank" rel="noopener" class="video-link"><div class="video-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div><div class="video-text"><strong>Montagevideo ansehen</strong><span>Schritt-für-Schritt auf YouTube</span></div></a>` : ''}
+            ${p.video ? `<a href="${p.video}" target="_blank" rel="noopener" class="video-link"><div class="video-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div><div class="video-text"><strong>Montagevideo ansehen</strong><span>Schritt-f\u00fcr-Schritt auf YouTube</span></div></a>` : ''}
             ${p.docs && p.docs.length ? `<div class="docs"><div class="docs-title">Dokumente & Anleitungen</div>${p.docs.map(d=>`<a href="${d.url}" target="_blank" rel="noopener" class="doc-link"><div class="doc-icon"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg></div><div class="doc-text"><strong>${d.title}</strong><span>${d.desc || 'PDF'}</span></div></a>`).join('')}</div>` : ''}
             ${(p.materials.length||p.tools.length) ? `<div class="mat-tools">
               ${p.materials.length ? `<div class="mat-box material"><h4>Material</h4><ul>${p.materials.map(m=>`<li>${m}</li>`).join('')}</ul></div>` : ''}
