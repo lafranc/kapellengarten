@@ -130,6 +130,12 @@
     .ueber-uns-portrait-placeholder { border-radius:4px; overflow:hidden; aspect-ratio:4/3; }
     .ueber-uns-portrait-placeholder img { width:100%; height:100%; object-fit:cover; display:block; }
     .ueber-uns-portrait-text p { font-family:'DM Sans',sans-serif; font-size:1rem; color:#4a5a4a; line-height:1.8; margin-bottom:1rem; }
+    /* PRESSE */
+    .presse-card { display:flex; flex-direction:column; gap:.4rem; padding:1.4rem 1.6rem; border:1px solid #d4cfc3; border-radius:4px; text-decoration:none; transition:background .2s; }
+    .presse-card:hover { background:#edeae3; }
+    .presse-card-meta { font-family:'DM Sans',sans-serif; font-size:.8rem; letter-spacing:.12em; text-transform:uppercase; color:#8b7355; }
+    .presse-card-title { font-family:'Cormorant Garamond',Georgia,serif; font-size:1.25rem; color:#2d3a2d; line-height:1.4; }
+    .presse-card-link { font-family:'DM Sans',sans-serif; font-size:.85rem; color:#4a6741; margin-top:.2rem; }
     /* TIMELINE */
     .unser-weg { padding:6rem 2rem; background:#2d3a2d; color:#f7f5f0; }
     .unser-weg-content { max-width:900px; margin:0 auto; }
@@ -421,8 +427,6 @@
             <p style="font-family:'DM Sans',sans-serif;font-size:1rem;color:#4a6741;font-weight:500">✓ Anmeldung erhalten — ich melde mich bald bei dir.</p>
           </div>
 
-
-
           <svg viewBox="0 0 340 250" xmlns="http://www.w3.org/2000/svg" class="kapelle-illustration" aria-label="Lageplan Kapellengarten">
             <rect width="340" height="250" fill="#edeae3" rx="8"/>
             <rect x="0" y="0" width="340" height="50" fill="#c8c2b4" rx="0"/>
@@ -492,6 +496,14 @@
           <img src="karotten_waschen.jpg" alt="Karotten waschen, Handarbeit" style="width:100%;height:100%;object-fit:cover;display:block;">
         </div>
       </div>
+    </div>
+    <div class="ueber-uns-section" style="border-top:1px solid #d4cfc3;padding-top:2.5rem;">
+      <p class="section-label">In der Presse</p>
+      <a href="Kapellengarten_Wangen_bei_Olten_compressed.pdf" target="_blank" rel="noopener" class="presse-card">
+        <div class="presse-card-meta">Oltner Tagblatt &middot; 30. April 2026</div>
+        <div class="presse-card-title">«In der Erde buddeln tut einfach gut» &ndash; Kapellengarten als Nachfolgeprojekt von Feuer und Bohne</div>
+        <div class="presse-card-link">Artikel lesen (PDF) ↗</div>
+      </a>
     </div>
   </div>
 
