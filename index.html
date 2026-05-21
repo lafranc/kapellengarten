@@ -63,6 +63,25 @@
     .btn-ghost { display:inline-block; padding:1rem 2rem; background:transparent; color:#f7f5f0; text-decoration:none; font-family:'DM Sans',sans-serif; font-size:.9rem; letter-spacing:.05em; text-transform:uppercase; border:2px solid rgba(247,245,240,.65); transition:all .3s ease; margin-left:1rem; cursor:pointer; }
     .btn-ghost:hover { background:rgba(247,245,240,.12); border-color:#f7f5f0; }
     .section-label { font-family:'DM Sans',sans-serif; font-size:.85rem; letter-spacing:.2em; text-transform:uppercase; color:#8b7355; margin-bottom:1rem; }
+    /* AKTUELLE GEMÜSETASCHE */
+    .aktuelle-woche { padding:5rem 2rem; background:#edeae3; }
+    .aktuelle-woche-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1.15fr 1fr; gap:4rem; align-items:center; }
+    .aw-photo-wrap { position:relative; }
+    .aw-kw-badge { position:absolute; top:1rem; left:1rem; background:#2d4a23; color:#f7f5f0; font-family:'DM Sans',sans-serif; font-size:.75rem; font-weight:500; letter-spacing:.1em; text-transform:uppercase; padding:.4rem .9rem; border-radius:2rem; z-index:2; }
+    .aw-photo { width:100%; height:auto; border-radius:6px; display:block; object-fit:cover; }
+    .aw-content h2 { font-size:clamp(2rem,4vw,3rem); font-weight:400; line-height:1.2; margin-bottom:1rem; }
+    .aw-content h2 span { font-style:italic; color:#4a6741; }
+    .aw-desc { font-family:'DM Sans',sans-serif; font-size:.95rem; color:#4a5a4a; line-height:1.8; margin-bottom:1.5rem; }
+    .aw-items { list-style:none; display:flex; flex-direction:column; gap:.55rem; margin-bottom:1.5rem; }
+    .aw-item { display:flex; align-items:baseline; gap:.75rem; font-family:'DM Sans',sans-serif; font-size:.9rem; color:#2d3a2d; }
+    .aw-dot { width:5px; height:5px; border-radius:50%; background:#7a9e7e; flex-shrink:0; position:relative; top:.1rem; }
+    .aw-item-name { font-weight:500; }
+    .aw-item-detail { color:#7a8a7a; font-size:.82rem; }
+    .aw-note { font-family:'DM Sans',sans-serif; font-size:.82rem; color:#8b7355; margin-top:.5rem; }
+    @media (max-width:768px) {
+      .aktuelle-woche-inner { grid-template-columns:1fr; gap:2rem; }
+      .aktuelle-woche { padding:3.5rem 1.5rem; }
+    }
     /* KISTE — season switcher */
     .kiste-section { padding:6rem 2rem; background:linear-gradient(135deg,#e8e4da 0%,#d4cfc3 100%); }
     .kiste-section-inner { max-width:1000px; margin:0 auto; }
@@ -299,6 +318,25 @@
       <div class="einblenden einblenden-3">
         <a href="#kiste" class="btn">Gemüseabo ansehen</a>
         <a href="#abo" class="btn-ghost">Jetzt anmelden</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- AKTUELLE GEMÜSETASCHE – wöchentlich aktualisieren -->
+  <section id="aktuelle-woche" class="aktuelle-woche">
+    <div class="aktuelle-woche-inner">
+      <div class="aw-photo-wrap">
+        <!-- KW-Badge und Bild wöchentlich anpassen -->
+        <span class="aw-kw-badge">KW 21 &middot; 2026</span>
+        <img src="gemuesetasche.jpeg" alt="Gemüsetasche KW 21" class="aw-photo">
+      </div>
+      <div class="aw-content">
+        <p class="section-label">Diese Woche im Abo</p>
+        <h2>Frisch geerntet<br><span>ab Samstag</span></h2>
+        <p class="aw-desc">Diese Woche gibt es Eichblatt Salat, zarte Mini-Randen, Mairübchen, die letzten Radieschen dieser Phase, Frühlingszwiebeln, Kräuter und Baby-Fenchel, sehr zart und aromatisch.</p>
+        <p class="aw-desc">Die Mini-Randen kommen jung aus dem Boden, der Fenchel ist noch klein und hat kaum Faser, beides lässt sich gut roh essen. Mit den wärmeren Temperaturen der letzten Tage wird das Leben im Garten spürbar intensiver. Das Gemüse wächst schneller, die Farben werden satter und ich bin mehr denn je draussen.</p>
+        <p class="aw-desc">Samstag 10&ndash;12 Uhr bei der Kapelle, Dorfstrasse 192.</p>
+
       </div>
     </div>
   </section>
