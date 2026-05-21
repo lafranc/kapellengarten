@@ -335,6 +335,27 @@
         <p class="aw-desc">Diese Woche gibt es Eichblatt Salat, zarte Mini-Randen, Mairübchen, die letzten Radieschen dieser Phase, Frühlingszwiebeln, Kräuter und Baby-Fenchel, sehr zart und aromatisch.</p>
         <p class="aw-desc">Die Mini-Randen kommen jung aus dem Boden, der Fenchel ist noch klein und hat kaum Faser, beides lässt sich gut roh essen. Mit den wärmeren Temperaturen der letzten Tage wird das Leben im Garten spürbar intensiver. Das Gemüse wächst schneller, die Farben werden satter.</p>
         <p class="aw-desc">Samstag, 23. Mai, 10&ndash;12 Uhr bei der Kapelle, Dorfstrasse 192.</p>
+        <p class="aw-desc" id="aw-einstieg">Das Abo läuft von April bis Oktober 2026. Du kannst jederzeit einsteigen und zahlst ab dem Zeitpunkt, ab dem du dabei bist.</p>
+        <script>
+          (function() {
+            var SAISON_ENDE = new Date(2026, 9, 31);
+            var now = new Date();
+            var day = now.getDay();
+            var nextSat = new Date(now);
+            nextSat.setHours(0,0,0,0);
+            var daysUntilSat = (6 - day + 7) % 7 || 7;
+            if (day === 6) daysUntilSat = 0;
+            nextSat.setDate(now.getDate() + daysUntilSat);
+            var ms = SAISON_ENDE - nextSat;
+            var weeks = Math.max(0, Math.floor(ms / (7 * 24 * 60 * 60 * 1000)) + 1);
+            var chf = weeks * 25;
+            if (weeks > 0) {
+              document.getElementById('aw-einstieg').textContent =
+                'Das Abo läuft bis Ende Oktober 2026. Wer jetzt einsteigt, bekommt noch ' +
+                weeks + ' Wochen Gemüse für CHF ' + chf + '. Du zahlst ab dem Zeitpunkt, ab dem du dabei bist.';
+            }
+          })();
+        </script>
 
       </div>
     </div>
