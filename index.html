@@ -51,10 +51,11 @@
     .einblenden-1 { animation-delay:.2s; opacity:0; }
     .einblenden-2 { animation-delay:.4s; opacity:0; }
     .einblenden-3 { animation-delay:.6s; opacity:0; }
-    .hero { position:relative; min-height:100vh; display:flex; align-items:center; justify-content:center; padding:2rem; overflow:hidden; background:url('kapellengartenimagined.jpg') center/cover no-repeat; }
+    .hero { position:relative; min-height:100vh; display:flex; align-items:flex-end; justify-content:flex-start; padding:2rem; overflow:hidden; background:url('kapellengartenimagined.jpg') center/cover no-repeat; }
     .hero::before { content:''; position:absolute; inset:0; background:linear-gradient(to bottom,rgba(15,28,12,.52) 0%,rgba(15,28,12,.28) 55%,rgba(15,28,12,.58) 100%); z-index:1; }
-    .hero-content { text-align:center; max-width:900px; z-index:2; }
+    .hero-content { text-align:left; max-width:700px; z-index:2; align-self:flex-end; margin-bottom:5rem; margin-left:4rem; }
     .hero-location { font-family:'DM Sans',sans-serif; font-size:.85rem; letter-spacing:.2em; text-transform:uppercase; color:rgba(247,245,240,.68); margin-bottom:1.5rem; }
+    .hero-tagline { font-family:'Cormorant Garamond',Georgia,serif; font-size:clamp(1.3rem,2.8vw,2rem); font-weight:400; line-height:1.5; color:#f7f5f0; max-width:560px; }
     .hero h1 { font-size:clamp(1.7rem,4.5vw,3.6rem); font-weight:400; line-height:1.2; margin-bottom:1rem; color:#f7f5f0; }
     .hero h1 span { font-style:italic; color:#b8ddb0; }
     .hero-text { font-family:'DM Sans',sans-serif; font-size:clamp(.9rem,2vw,1.2rem); color:rgba(247,245,240,.82); margin-bottom:1rem; max-width:600px; margin-left:auto; margin-right:auto; }
@@ -220,6 +221,8 @@
       .nav-links.active { right:0; }
       .nav-links a { font-size:1rem; padding:.5rem 0; }
       .hero { padding:2rem 1.5rem; background-size: cover; background-position: 72% center; }
+      .hero-content { margin-left:1rem; margin-bottom:3rem; }
+      .hero-tagline { font-size:clamp(1.1rem,5vw,1.4rem); }
       .btn-ghost { margin-left:.5rem; margin-top:0; display:inline-block; text-align:center; }
       .btn { display:inline-block; text-align:center; padding:.75rem 1.4rem; font-size:.75rem; }
       .btn-ghost { padding:.75rem 1.2rem; font-size:.75rem; }
@@ -310,15 +313,7 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-content">
-      <p class="hero-location">Wangen bei Olten · Schweiz</p>
-      <h1 class="einblenden einblenden-1">Frisches Gemüse das schmeckt.<br><span>Biologisch, lokal, nährstoffreich.</span></h1>
-      <p class="hero-text einblenden einblenden-2">Samstags abholbar beim <strong>Kapellengarten</strong> in Wangen bei Olten.</p>
-      <p class="einblenden einblenden-2" data-naechster-samstag style="font-family:'DM Sans',sans-serif;font-size:clamp(.8rem,2.2vw,1rem);color:rgba(247,245,240,.9);font-weight:500;margin-bottom:.3rem;letter-spacing:.03em;">Nächster Abholtag: Samstag, 10–12 Uhr</p>
-      <p class="hero-subtitle-small einblenden einblenden-2" style="font-family:'DM Sans',sans-serif;font-size:clamp(.75rem,2vw,.9rem);color:rgba(247,245,240,.72);margin-bottom:1.5rem;">CHF 25.– pro Gemüsetasche · samstags abholbar bei der Kapelle in Wangen bei Olten.</p>
-      <div class="einblenden einblenden-3">
-        <a href="#kiste" class="btn">Gemüseabo ansehen</a>
-        <a href="#abo" class="btn-ghost">Jetzt anmelden</a>
-      </div>
+      <p class="hero-tagline einblenden einblenden-1">Wir bauen Gemüse auf einer kleinen Parzelle neben der Kapelle in Wangen bei Olten an – mit Sorgfalt, ohne Chemie, und ernten jede Woche frisch für unsere Gemüsetaschen.</p>
     </div>
   </section>
 
