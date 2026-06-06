@@ -258,8 +258,8 @@
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": "Saturday",
-      "opens": "10:00",
-      "closes": "12:00"
+      "opens": "08:00",
+      "closes": "18:00"
     },
     "priceRange": "CHF 25",
     "image": "https://kapellengarten.ch/kapelle-aussen.png",
@@ -338,7 +338,7 @@
             <div class="kiste-step-num">1</div>
             <div>
               <strong>Probieren</strong>
-              <p>Meld dich kurz über das Formular für eine Probier-Gemüsetasche an — dann weiss ich, dass du kommst. Am Samstag zwischen 10 und 12 einfach bei der Kapelle vorbeikommen.</p>
+              <p>Meld dich kurz über das Formular für eine Probier-Gemüsetasche an — dann weiss ich, dass du kommst. Den Türcode und alle Details bekommst du nach der Anmeldung.</p>
             </div>
           </div>
           <div class="kiste-step">
@@ -352,7 +352,7 @@
             <div class="kiste-step-num">3</div>
             <div>
               <strong>Abholen</strong>
-              <p>Jeden Samstag 10–12 Uhr bei der Kapelle. Korb mitbringen, Gemüse einfüllen. Wenn du mal verhindert bist, kann jemand anderes für dich abholen — oder wir überspringen die Woche unkompliziert.</p>
+              <p>Deine Tasche liegt jeden Samstag beschriftet im Kühlraum der Kapelle bereit. Du holst sie mit dem Türcode ab, wann es dir passt — kein fixes Zeitfenster. Wenn du mal verhindert bist, kann jemand anderes für dich abholen — oder wir überspringen die Woche unkompliziert.</p>
             </div>
           </div>
         </div>
@@ -367,8 +367,8 @@
 
         <div class="kiste-abholung">
           <h3>Abholung</h3>
-          <p>Jeden <strong style="color:#c8dbc9">Samstag 10–12 Uhr</strong> bei der Kapelle: <strong style="color:#c8dbc9">Dorfstrasse 192, Wangen bei Olten</strong></p>
-          <p>Du bringst deinen Korb mit und ich fülle ihn mit frisch geerntetem Gemüse. Es gibt auch eine <strong style="color:#c8dbc9">Tauschtasche</strong> — Gemüse gegen Gemüse tauschen ist ausdrücklich erwünscht.</p>
+          <p>Jeden <strong style="color:#c8dbc9">Samstag</strong> bei der Kapelle: <strong style="color:#c8dbc9">Dorfstrasse 192, Wangen bei Olten</strong> — Selbstabholung mit Türcode, flexibel zwischen 8 und 18 Uhr.</p>
+          <p>Deine Tasche liegt beschriftet im Kühlraum bereit. Es gibt auch eine <strong style="color:#c8dbc9">Tauschtasche</strong> — Gemüse gegen Gemüse tauschen ist ausdrücklich erwünscht.</p>
           <div class="abholung-infos">
             <div class="abholung-info"><span class="abholung-info-icon">🚗</span><span>Parkplatz direkt links neben der Gemüseausgabe, kostenlos</span></div>
             <div class="abholung-info"><span class="abholung-info-icon">📍</span><span>Dorfstrasse 192, 4612 Wangen bei Olten</span></div>
@@ -626,7 +626,7 @@
       </details>
       <details class="faq-item">
         <summary>Wie läuft die Abholung ab?</summary>
-        <div class="faq-a">Du holst deine Gemüsetasche jeden <strong>Samstag von 10:00 bis 12:00 Uhr</strong> direkt bei der Kapelle ab: <strong>Dorfstrasse 192, Wangen bei Olten</strong>. Ein Parkplatz steht direkt links neben der Gemüseausgabe zur Verfügung, kostenlos. Falls du mal verhindert bist, kann die Gemüsetasche ausnahmsweise hinterlegt werden, einfach kurz Bescheid geben.</div>
+        <div class="faq-a">Deine Gemüsetasche liegt jeden <strong>Samstag</strong> beschriftet im Kühlraum der Kapelle bereit: <strong>Dorfstrasse 192, Wangen bei Olten</strong>. Du holst sie mit dem Türcode ab, wann es dir passt — flexibel zwischen 8 und 18 Uhr. Den Code erhältst du nach deiner Anmeldung. Ein Parkplatz steht direkt links neben der Kapelle zur Verfügung, kostenlos. Falls du mal verhindert bist, kann jemand anderes für dich abholen — einfach kurz Bescheid geben.</div>
       </details>
       <details class="faq-item">
         <summary>Was kostet das Gemüseabo?</summary>
@@ -642,7 +642,7 @@
       </details>
       <details class="faq-item">
         <summary>Kann ich zuerst eine einzelne Gemüsetasche probieren?</summary>
-        <div class="faq-a">Ja. Im Anmeldeformular kannst du direkt "Probier-Gemüsetasche" auswählen — dann weiss ich, dass du kommst, und reserviere dir eine. Samstags zwischen 10 und 12 Uhr bei der Kapelle abholen.</div>
+        <div class="faq-a">Ja. Im Anmeldeformular kannst du direkt "Probier-Gemüsetasche" auswählen — dann weiss ich, dass du kommst, und reserviere dir eine. Den Türcode und alle Details zur Abholung bekommst du nach der Anmeldung.</div>
       </details>
       <details class="faq-item">
         <summary>Was passiert, wenn alle Plätze besetzt sind?</summary>
@@ -832,15 +832,15 @@
       var text;
       if (nextSat < SAISON_START) {
         var d = SAISON_START;
-        text = 'Saisonstart: Samstag, ' + d.getDate() + '. ' + monate[d.getMonth()] + ', 10–12 Uhr';
+        text = 'Saisonstart: Samstag, ' + d.getDate() + '. ' + monate[d.getMonth()] + ' — Selbstabholung mit Türcode';
       } else if (nextSat > SAISON_ENDE) {
         text = 'Saison vorbei. Nächste Saison ab April ' + (SAISON_START.getFullYear() + 1) + '.';
       } else {
         var dateStr = nextSat.getDate() + '. ' + monate[nextSat.getMonth()];
         if (istHeute) {
-          text = 'Heute, ' + dateStr + ', 10–12 Uhr: Gemüseausgabe bei der Kapelle';
+          text = 'Heute, ' + dateStr + ': Gemüse liegt bereit zur Abholung bei der Kapelle';
         } else {
-          text = 'Nächster Abholtag: Samstag, ' + dateStr + ', 10–12 Uhr';
+          text = 'Nächster Abholtag: Samstag, ' + dateStr + ' — Selbstabholung mit Türcode';
         }
       }
       document.querySelectorAll('[data-naechster-samstag]').forEach(function(el) {
