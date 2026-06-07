@@ -35,7 +35,10 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Cormorant Garamond', Georgia, serif; background-color: #f7f5f0; color: #2d3a2d; line-height: 1.6; }
     .nav { position:fixed; top:0; left:0; right:0; padding:1.5rem 4rem; display:flex; justify-content:space-between; align-items:center; z-index:100; background:rgba(247,245,240,0.95); backdrop-filter:blur(10px); }
-    .nav-logo { font-family:'Cormorant Garamond',Georgia,serif; font-size:2.4rem; font-weight:600; color:#2d3a2d; text-decoration:none; letter-spacing:-.01em; line-height:1; }
+    .nav-logo { font-family:'Cormorant Garamond',Georgia,serif; font-size:2.4rem; font-weight:600; color:#2d3a2d; text-decoration:none; letter-spacing:-.01em; line-height:1; display:flex; align-items:center; }
+    .nav-logo svg { height:3rem; width:auto; display:block; }
+    .nav-logo svg .line { stroke:#2d3a2d; }
+    .nav-logo svg .text { fill:#2d3a2d; }
     .nav-links { display:flex; gap:2.5rem; align-items:center; }
     .nav-links a { color:#4a5a4a; text-decoration:none; font-family:'DM Sans',sans-serif; font-size:.85rem; letter-spacing:.05em; text-transform:uppercase; transition:color .3s; }
     .nav-links a:hover { color:#4a6741; }
@@ -189,7 +192,10 @@
     .kontakt-email { font-family:'DM Sans',sans-serif; font-size:1.2rem; color:#4a6741; text-decoration:none; border-bottom:2px solid #4a6741; padding-bottom:.25rem; }
     .kontakt-ort { font-family:'DM Sans',sans-serif; font-size:.95rem; color:#5a6a5a; margin-top:1.5rem; }
     footer { padding:2.5rem; background:#2d3a2d; color:#7a8a7a; text-align:center; font-family:'DM Sans',sans-serif; font-size:.85rem; }
-    footer .logo { font-family:'Cormorant Garamond',Georgia,serif; font-size:1.3rem; color:#f7f5f0; margin-bottom:.5rem; }
+    footer .logo { font-family:'Cormorant Garamond',Georgia,serif; font-size:1.3rem; color:#f7f5f0; margin-bottom:.5rem; display:flex; justify-content:center; }
+    footer .logo svg { height:3.5rem; width:auto; }
+    footer .logo svg .line { stroke:#f7f5f0; }
+    footer .logo svg .text { fill:#f7f5f0; }
     /* RESPONSIVE */
     @media (max-width:1024px) {
       .nav { padding:1.5rem 2rem; }
@@ -282,7 +288,50 @@
 <body>
 
   <nav class="nav">
-    <a href="#" class="nav-logo">Kapellengarten</a>
+    <a href="#" class="nav-logo" aria-label="Kapellengarten">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 180" height="100%">
+        <style>
+          .line { stroke: #2D251E; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+          .text { font-family: 'Montserrat', 'Helvetica Neue', sans-serif; font-weight: 500; fill: #2D251E; letter-spacing: 3px; font-size: 15px; text-anchor: middle; }
+        </style>
+
+        <!-- Umgebende Pflanzen & Bäume (Strichzeichnungen) -->
+        <!-- Linker kleiner Busch -->
+        <path class="line" d="M 145 100 C 140 95, 135 95, 135 100 C 135 105, 140 105, 145 100 Z" />
+        <path class="line" d="M 145 100 L 145 110" />
+
+        <!-- Linker mittlerer Baum -->
+        <path class="line" d="M 165 85 C 155 85, 155 100, 165 100 C 175 100, 175 85, 165 85 Z" />
+        <path class="line" d="M 160 92 L 170 92 M 165 85 L 165 110" />
+
+        <!-- Die Kapelle (Zentrum) -->
+        <path class="line" d="M 185 110 L 185 85 L 215 85 L 215 110 Z" /> <!-- Hauptgebäude -->
+        <path class="line" d="M 180 85 L 200 65 L 220 85 Z" /> <!-- Dach -->
+        <path class="line" d="M 200 85 L 200 110" /> <!-- Tür-Mittelstrich -->
+        <path class="line" d="M 193 110 C 193 100, 207 100, 207 110" /> <!-- Torbogen -->
+
+        <!-- Turm & Kreuz -->
+        <path class="line" d="M 196 65 L 196 50 L 204 50 L 204 65 Z" /> <!-- Turm -->
+        <path class="line" d="M 194 50 L 200 42 L 206 50 Z" /> <!-- Turmdach -->
+        <path class="line" d="M 200 42 L 200 32 M 196 36 L 204 36" /> <!-- Kreuz -->
+
+        <!-- Rechter Getreidehalm / Pflanze -->
+        <path class="line" d="M 235 110 L 235 75" />
+        <path class="line" d="M 235 80 C 240 77, 243 82, 235 87 C 235 87, 230 77, 235 80 Z" />
+        <path class="line" d="M 235 90 C 242 87, 245 92, 235 97 C 235 97, 228 87, 235 90 Z" />
+
+        <!-- Rechter kleiner Strauch -->
+        <path class="line" d="M 250 93 C 245 88, 245 103, 255 98" />
+        <path class="line" d="M 252 95 L 252 110" />
+
+        <!-- Horizontale Trennlinien -->
+        <line class="line" x1="110" y1="110" x2="290" y2="110" />
+        <line class="line" x1="110" y1="114" x2="290" y2="114" />
+
+        <!-- Text "KAPELLENGARTEN" -->
+        <text x="202" y="133" class="text">KAPELLENGARTEN</text>
+      </svg>
+    </a>
     <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
     <div class="nav-links">
       <a href="#ueber-uns" onclick="closeMenu()">Über mich</a>
@@ -674,7 +723,50 @@
   </section>
 
   <footer>
-    <div class="logo">Kapellengarten</div>
+    <div class="logo" aria-label="Kapellengarten">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 180" height="100%">
+        <style>
+          .line { stroke: #2D251E; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+          .text { font-family: 'Montserrat', 'Helvetica Neue', sans-serif; font-weight: 500; fill: #2D251E; letter-spacing: 3px; font-size: 15px; text-anchor: middle; }
+        </style>
+
+        <!-- Umgebende Pflanzen & Bäume (Strichzeichnungen) -->
+        <!-- Linker kleiner Busch -->
+        <path class="line" d="M 145 100 C 140 95, 135 95, 135 100 C 135 105, 140 105, 145 100 Z" />
+        <path class="line" d="M 145 100 L 145 110" />
+
+        <!-- Linker mittlerer Baum -->
+        <path class="line" d="M 165 85 C 155 85, 155 100, 165 100 C 175 100, 175 85, 165 85 Z" />
+        <path class="line" d="M 160 92 L 170 92 M 165 85 L 165 110" />
+
+        <!-- Die Kapelle (Zentrum) -->
+        <path class="line" d="M 185 110 L 185 85 L 215 85 L 215 110 Z" /> <!-- Hauptgebäude -->
+        <path class="line" d="M 180 85 L 200 65 L 220 85 Z" /> <!-- Dach -->
+        <path class="line" d="M 200 85 L 200 110" /> <!-- Tür-Mittelstrich -->
+        <path class="line" d="M 193 110 C 193 100, 207 100, 207 110" /> <!-- Torbogen -->
+
+        <!-- Turm & Kreuz -->
+        <path class="line" d="M 196 65 L 196 50 L 204 50 L 204 65 Z" /> <!-- Turm -->
+        <path class="line" d="M 194 50 L 200 42 L 206 50 Z" /> <!-- Turmdach -->
+        <path class="line" d="M 200 42 L 200 32 M 196 36 L 204 36" /> <!-- Kreuz -->
+
+        <!-- Rechter Getreidehalm / Pflanze -->
+        <path class="line" d="M 235 110 L 235 75" />
+        <path class="line" d="M 235 80 C 240 77, 243 82, 235 87 C 235 87, 230 77, 235 80 Z" />
+        <path class="line" d="M 235 90 C 242 87, 245 92, 235 97 C 235 97, 228 87, 235 90 Z" />
+
+        <!-- Rechter kleiner Strauch -->
+        <path class="line" d="M 250 93 C 245 88, 245 103, 255 98" />
+        <path class="line" d="M 252 95 L 252 110" />
+
+        <!-- Horizontale Trennlinien -->
+        <line class="line" x1="110" y1="110" x2="290" y2="110" />
+        <line class="line" x1="110" y1="114" x2="290" y2="114" />
+
+        <!-- Text "KAPELLENGARTEN" -->
+        <text x="202" y="133" class="text">KAPELLENGARTEN</text>
+      </svg>
+    </div>
     <p>© 2026 Kapellengarten · Francis · Wangen bei Olten</p>
   </footer>
 
