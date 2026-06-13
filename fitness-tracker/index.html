@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fortschritt Tracker</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+</head>
+<body>
+<header class="topbar">
+  <h1>💪 Fortschritt Tracker</h1>
+  <nav class="tabs">
+    <button class="tab-btn active" data-tab="dashboard">Dashboard</button>
+    <button class="tab-btn" data-tab="diary">Tagebuch</button>
+    <button class="tab-btn" data-tab="photos">Fotos</button>
+    <button class="tab-btn" data-tab="profile">Profil & Ziel</button>
+  </nav>
+</header>
+
+<main>
+
+  <!-- DASHBOARD -->
+  <section id="dashboard" class="tab-content active">
+    <div class="cards" id="summary-cards"></div>
+
+    <div class="card">
+      <h2>Gewicht & BMI Verlauf</h2>
+      <canvas id="weightChart" height="220"></canvas>
+    </div>
+
+    <div class="card">
+      <h2>Ziel-Fortschritt</h2>
+      <div id="goal-progress"></div>
+    </div>
+  </section>
+
+  <!-- DIARY -->
+  <section id="diary" class="tab-content">
+    <div class="card">
+      <h2>Neuer Tageseintrag</h2>
+      <form id="entry-form">
+        <div class="form-row">
+          <label>Datum
+            <input type="date" id="entry-date" required>
+          </label>
+          <label>Gewicht (kg)
+            <input type="number" id="entry-weight" step="0.1" min="0" placeholder="z.B. 82.5">
+          </label>
+        </div>
+        <div class="form-row">
+          <label>Bauchumfang (cm)
+            <input type="number" id="entry-waist" step="0.1" min="0" placeholder="optional">
+          </label>
+          <label>Kalorien gegessen
+            <input type="number" id="entry-calories" min="0" placeholder="z.B. 2000">
+          </label>
+        </div>
+        <label>Was hast du heute gegessen?
+          <textarea id="entry-food" rows="2" placeholder="z.B. Müsli, Hühnerbrust mit Reis, Salat..."></textarea>
+        </label>
+        <div class="form-row">
+          <label>Training / Bewegung
+            <input type="text" id="entry-exercise" placeholder="z.B. 30 Min Laufen, Krafttraining Oberkörper">
+          </label>
+          <label>Trainingsdauer (Min)
+            <input type="number" id="entry-duration" min="0" placeholder="z.B. 45">
+          </label>
+        </div>
+        <label>Notizen
+          <textarea id="entry-notes" rows="2" placeholder="Wie hast du dich gefühlt?"></textarea>
+        </label>
+        <button type="submit" class="btn-primary">Eintrag speichern</button>
+      </form>
+    </div>
+
+    <div class="card">
+      <h2>Verlauf</h2>
+      <div id="entries-list"></div>
+    </div>
+  </section>
+
+  <!-- PHOTOS -->
+  <section id="photos" class="tab-content">
+    <div class="card">
+      <h2>Neues Fortschrittsfoto</h2>
+      <form id="photo-form">
+        <div class="form-row">
+          <label>Datum
+            <input type="date" id="photo-date" required>
+          </label>
+          <label>Foto
+            <input type="file" id="photo-file" accept="image/*" required>
+          </label>
+        </div>
+        <label>Notiz
+          <input type="text" id="photo-note" placeholder="optional">
+        </label>
+        <button type="submit" class="btn-primary">Foto speichern</button>
+      </form>
+    </div>
+
+    <div class="card">
+      <h2>Vorher / Nachher Vergleich</h2>
+      <div class="form-row">
+        <label>Foto A
+          <select id="compare-a"></select>
+        </label>
+        <label>Foto B
+          <select id="compare-b"></select>
+        </label>
+      </div>
+      <div class="compare-view" id="compare-view"></div>
+    </div>
+
+    <div class="card">
+      <h2>Alle Fotos</h2>
+      <div class="photo-grid" id="photo-grid"></div>
+    </div>
+  </section>
+
+  <!-- PROFILE -->
+  <section id="profile" class="tab-content">
+    <div class="card">
+      <h2>Profil & Ziel</h2>
+      <form id="profile-form">
+        <div class="form-row">
+          <label>Körpergröße (cm)
+            <input type="number" id="profile-height" min="0" required>
+          </label>
+          <label>Startgewicht (kg)
+            <input type="number" id="profile-start-weight" step="0.1" min="0" required>
+          </label>
+        </div>
+        <div class="form-row">
+          <label>Zielgewicht (kg)
+            <input type="number" id="profile-goal-weight" step="0.1" min="0" placeholder="optional">
+          </label>
+          <label>Ziel-Bauchumfang (cm)
+            <input type="number" id="profile-goal-waist" step="0.1" min="0" placeholder="optional">
+          </label>
+        </div>
+        <div class="form-row">
+          <label>Startdatum
+            <input type="date" id="profile-start-date" required>
+          </label>
+          <label>Zieldatum
+            <input type="date" id="profile-goal-date" required>
+          </label>
+        </div>
+        <label>Dein Ziel / Motivation
+          <textarea id="profile-goal-text" rows="2" placeholder="z.B. Love Handles weg, definierter Bauch in 2 Monaten"></textarea>
+        </label>
+        <button type="submit" class="btn-primary">Speichern</button>
+      </form>
+    </div>
+
+    <div class="card">
+      <h2>Daten</h2>
+      <p>Alle Daten werden ausschliesslich lokal in deinem Browser gespeichert (localStorage / IndexedDB). Es findet keine Übertragung an einen Server statt.</p>
+      <button id="export-btn" class="btn-secondary">Daten exportieren (JSON)</button>
+      <button id="reset-btn" class="btn-danger">Alle Daten löschen</button>
+    </div>
+  </section>
+
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
