@@ -173,6 +173,21 @@
     details.faq-item summary::after { content:'+'; font-size:1.5rem; color:#4a6741; transition:transform .3s; flex-shrink:0; line-height:1; }
     details.faq-item[open] summary::after { transform:rotate(45deg); }
     .faq-a { font-family:'DM Sans',sans-serif; font-size:.95rem; color:#4a5a4a; line-height:1.8; padding-bottom:1.4rem; }
+    /* NEWSLETTER INTRO (prominent, nach Hero) */
+    .nl-intro { background:#2d3a2d; color:#f7f5f0; padding:6rem 2rem; }
+    .nl-intro-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:320px 1fr; gap:3.5rem; align-items:center; }
+    .nl-intro-photo img { width:100%; height:auto; border-radius:8px; display:block; box-shadow:0 20px 40px rgba(0,0,0,.3); }
+    .nl-intro-text h2 { font-size:clamp(2rem,4.5vw,3rem); font-weight:400; line-height:1.25; margin-bottom:1.4rem; }
+    .nl-intro-text h2 span { font-style:italic; color:#b8ddb0; }
+    .nl-intro-body { font-family:'DM Sans',sans-serif; font-size:1rem; color:rgba(247,245,240,.82); line-height:1.8; margin-bottom:1.1rem; max-width:580px; }
+    .nl-form-intro { justify-content:flex-start; margin-top:1.5rem; }
+    @media (max-width:768px) {
+      .nl-intro { padding:4rem 1.5rem; }
+      .nl-intro-inner { grid-template-columns:1fr; gap:2rem; text-align:center; }
+      .nl-intro-photo { max-width:220px; margin:0 auto; }
+      .nl-intro-body { margin-left:auto; margin-right:auto; }
+      .nl-form-intro { justify-content:center; }
+    }
     /* NEWSLETTER */
     .newsletter-band { background:#4a6741; color:#f7f5f0; padding:4rem 2rem; text-align:center; }
     .newsletter-band h3 { font-size:2.2rem; font-weight:400; margin-bottom:.5rem; }
@@ -347,6 +362,26 @@
     </div>
   </section>
 
+
+  <!-- NEWSLETTER INTRO -->
+  <section id="newsletter-intro" class="nl-intro">
+    <div class="nl-intro-inner">
+      <div class="nl-intro-photo">
+        <img src="francis.png" alt="Francis im Folientunnel, Kapellengarten">
+      </div>
+      <div class="nl-intro-text">
+        <p class="section-label" style="color:#7a9e7e;">Bevor du dich bindest</p>
+        <h2>Ganz ehrlich: <span>ich überrenne dich manchmal etwas mit dem Abo</span></h2>
+        <p class="nl-intro-body">Ein Gemüseabo für eine ganze Saison abzuschliessen ist ein grosser Schritt — vor allem, wenn du mich noch gar nicht kennst. Das musst du auch nicht sofort.</p>
+        <p class="nl-intro-body">Der einfachste Weg, mich und den Kapellengarten kennenzulernen: der wöchentliche Newsletter. Da schreibe ich, was gerade wächst und was in der Gemüsetasche dieser Woche drin ist — und gebe dir einen persönlichen Einblick, wie der Kapellengarten Stück für Stück entsteht. Ganz ohne Verpflichtung.</p>
+        <div class="nl-form nl-form-intro">
+          <input type="email" id="nlEmailTop" placeholder="deine@email.ch">
+          <button onclick="subscribeNewsletter('nlEmailTop','nlNoteTop')">Gemüsenewsletter abonnieren</button>
+        </div>
+        <div class="nl-note" id="nlNoteTop">Jede Woche neu · jederzeit abmeldbar</div>
+      </div>
+    </div>
+  </section>
 
   <!-- WAS KOMMT IN DIE GEMÜSETASCHE -->
   <section id="kiste" class="kiste-section">
@@ -772,9 +807,10 @@
 
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
   <script data-cfasync="false">
-    function subscribeNewsletter() {
-      const email = document.getElementById('nlEmail').value.trim();
-      const note  = document.getElementById('nlNote');
+    function subscribeNewsletter(emailId, noteId) {
+      const emailInput = document.getElementById(emailId || 'nlEmail');
+      const note  = document.getElementById(noteId || 'nlNote');
+      const email = emailInput.value.trim();
       if(!email || !email.includes('@')) { note.textContent = '⚠️ Bitte gültige E-Mail eingeben.'; return; }
       note.textContent = 'Wird eingetragen…';
       fetch('https://kapellengarten-newsletter.larkin-francis.workers.dev', {
@@ -785,7 +821,7 @@
       .then(res => {
         if(res.ok || res.status === 204) {
           note.textContent = '✓ Danke! Du wirst informiert.';
-          document.getElementById('nlEmail').value = '';
+          emailInput.value = '';
         } else {
           return res.json().then(data => {
             if(data.code === 'duplicate_parameter') {
